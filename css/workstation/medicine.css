@@ -1,0 +1,296 @@
+.medicine_module {
+    padding: 2rem 1rem 1rem;
+}
+
+.medicine_module .am-input-group {
+    margin-bottom: 1rem;
+}
+
+.medicine_module .bootstrap-table td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+}
+
+.medicine_module .table_panel {
+    min-height: 30rem;
+}
+
+.medicine_module .table_tip {
+    margin-left: 1.5rem;
+}
+
+.medicine_module .table_tip .green {
+    color: green;
+}
+
+/******库存盘点*****/
+#mv_sub{
+    outline: none;
+}
+/******入库审核*****/
+#search_storage {
+    margin-right: 2rem;
+}
+
+.inStorage_table {
+    margin-top: 3rem;
+}
+
+.temp_inStorage_search {
+    float: right;
+}
+/******供应商管理*****/
+.supplier_wrapper {
+    position: relative;
+    min-height: 680px;
+}
+
+.supplier_info .am-panel {
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+.supplier_table_wrapper {
+    padding-top: 1rem;
+}
+
+.medicine_module .edit_btn button {
+    float: right;
+    margin-left: 1rem;
+}
+
+/***入库**/
+#minStorage .if_direct {
+    display: inline;
+    margin-right: 1.5rem;
+    margin-left: 1rem;
+}
+
+#minStorage .inStorage_btn_group {
+    float: right;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#minStorage .inStorage_btn_group button {
+    margin-left: 2rem;
+}
+
+#minStorage .inStorage_input_group {
+    padding-top: 1rem;
+}
+
+#minStorage .chosen-drop {
+    font-size: 1.3rem;
+}
+.link_to_supplier:link,.link_to_supplier:visited,.link_to_supplier:hover,.link_to_supplier:active{
+    color:lime;
+    text-decoration: none;
+}
+
+/****药物信息维护***/
+#mdictionary .operate_btn button {
+    margin-right: 1.6rem;
+}
+#instruction{
+    padding: 1.5rem;
+}
+#drug_name{
+    font-weight: bold;
+}
+
+/*******库存查询********/
+#mcurStorage .allow_empty_wrapper {
+    display: inline;
+    margin-right: 2rem;
+}
+
+#mcurStorage .curstorage_input_group {
+    margin-top: 1rem;
+}
+
+#mcurStorage .curStorage_table_panel {
+    min-height: 50rem;
+}
+
+/***库存变动查询**/
+#search_numchange {
+    float: right;
+}
+
+.top {
+    margin: 10px auto;
+}
+
+#mverify button{
+    margin-right: 10px;
+}
+#mverify .am-radio, #mverify .am-checkbox{
+    display: inline-block;
+}
+#mverify .am-radio, #mverify .am-checkbox{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#table_minStorage tbody td input[type="text"]{
+    width: 70%;
+}
+
+#medicine_tb2,#medicine_tb1{
+    border:1px solid #ddd;
+}
+.required_span{
+    position: absolute;
+    color: red;
+    right: 1.3rem;
+    height: 28px;
+    width: 20px;
+    font-size: 1.7rem;
+    z-index: 1000;
+    line-height: 28px;
+}
+.take_num{
+    width:80%
+}
+#table_mverify input{
+    padding: 0;
+}
+.mverify_table_wrapper .fixed-table-footer{
+    border-top:none;
+    border-bottom:1px solid #ddd;
+}
+#table_minStorage input::-webkit-outer-spin-button,
+#table_minStorage input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+#instruction{
+    width:100%;
+    min-height: 20rem;
+    outline: none;
+}
+/*** 药品预警 ***/
+#show_warning_info{
+    outline: none;
+}
+#warning_info,#warning_info .am-modal-dialog{
+    background: #fff;
+}
+#warning_info .input-label {
+    position: absolute;
+    font-weight: 500;
+    left: 12px;
+    top: 11px;
+    z-index: 2;
+    padding: 0 3px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #b0b0b0;
+    background: transparent;
+    cursor: text;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear
+}
+#warning_info .input-text {
+    box-sizing: content-box;
+    width: 186px;
+    height: 18px;
+    padding: 10px 16px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    line-height: 18px;
+    background: #fff;
+    -webkit-transition: border-color .2s linear;
+    transition: border-color .2s linear
+}
+
+#warning_info .input-text:hover {
+    border-color: #b0b0b0
+}
+
+#warning_info .form-section {
+    position: relative;
+    margin: 0 0 14px;
+    padding: 0;
+    border: 0;
+    text-align: left
+}
+
+#warning_info .form-section .input-text::-webkit-input-placeholder {
+    color: #fff
+}
+
+#warning_info .form-section .input-text::-moz-placeholder {
+    color: #fff
+}
+
+#warning_info .form-section .input-text:-ms-input-placeholder {
+    color: #fff
+}
+
+#warning_info .form-section .input-text::placeholder {
+    color: #fff
+}
+
+#warning_info .form-section .input-text[disabled] {
+    background-color: #f5f5f5
+}
+
+#warning_info .form-section .input-text[disabled]::-webkit-input-placeholder {
+    color: #f5f5f5
+}
+
+#warning_info .form-section .input-text[disabled]::-moz-placeholder {
+    color: #f5f5f5
+}
+
+#warning_info .form-section .input-text[disabled]:-ms-input-placeholder {
+    color: #f5f5f5
+}
+
+#warning_info .form-section .input-text[disabled]::placeholder {
+    color: #f5f5f5
+}
+
+#warning_info .form-section-focus .input-text {
+    border-color: #ff6700
+}
+
+#warning_info .form-section-focus .input-text::-webkit-input-placeholder {
+    color: #b0b0b0;
+    -webkit-transition: color .2s .2s linear;
+    transition: color .2s .2s linear
+}
+
+#warning_info .form-section-focus .input-text::-moz-placeholder {
+    color: #b0b0b0;
+    transition: color .2s .2s linear
+}
+
+#warning_info .form-section-focus .input-text:-ms-input-placeholder {
+    color: #b0b0b0;
+    transition: color .2s .2s linear
+}
+
+#warning_info .form-section-focus .input-text::placeholder {
+    color: #b0b0b0;
+    -webkit-transition: color .2s .2s linear;
+    transition: color .2s .2s linear
+}
+
+#warning_info .form-section-focus .input-label {
+    color: #ff6700
+}
+#warning_info .form-section-active .input-label {
+    top: -7px;
+    font-size: 12px;
+    background: #fff;
+}
+#post_setting{
+    height: 30px;
+    padding: 0 30px;
+    margin-top: 10px;
+    margin-left: -40px;
+}

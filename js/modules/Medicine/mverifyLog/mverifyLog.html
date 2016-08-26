@@ -1,0 +1,59 @@
+<div class="admin-content p_top" id="mverify">
+    <div class="am-g am-padding-bottom">
+        <div class="am-input-group am-u-md-3">
+            <span class="am-input-group-label">药品检索：</span>
+            <input type="text" class="am-form-field " placeholder="中文名称" id="goods_name">
+        </div>
+        <div class="am-input-group am-u-md-3 ">
+            <span class="am-input-group-label">药品分类：</span>
+            <select name="med_class"  class="am-form-field" id="mv_docol">
+                <option selected="selected" value="">-全部-</option>
+                <option value="10">中药</option>
+                <option value="20">西药</option>
+                <option value="30">医疗器械</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-md-3 am-u-end">
+            <span class="am-input-group-label">盘点类型：</span>
+            <select name="med_class"  class="am-form-field" id="mverify_type">
+                <option selected="selected" value="all">-全部-</option>
+                <option value="10">盘点增加</option>
+                <option value="20">盘点减少</option>
+                <option value="00">盘点不变</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-md-3 am-u-end">
+            <span class="am-input-group-label">批次：</span>
+            <input type="text" class="am-form-field " placeholder="" id="med_batch">
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-6">
+            <div class="am-input-group">
+                <span class="am-input-group-label">创建时间:</span>
+                <input type="text" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                <span class="am-input-group-label">至</span>
+                <input type="text" class="am-form-field end" placeholder="点击选择日期" readonly/>
+            </div>
+        </div>
+        <div class="am-input-group am-u-md-2">
+            <button class="am-btn am-btn-xs am-radius am-btn-primary" id="mv_Btn">查询</button>
+        </div>
+    </div>
+
+
+    <div class="am-g supplier_table_wrapper">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">
+                <span class="panel_title">盘点日志</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool" id="refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="table_mverifyLog">
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

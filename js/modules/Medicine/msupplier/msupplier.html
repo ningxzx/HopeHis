@@ -1,0 +1,107 @@
+<div class="admin-content">
+    <div class="supplier_wrapper">
+        <div class="am-g am-padding-top">
+            <div class="am-u-md-3">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">供应商全称:</span>
+                    <input type="text" class="am-form-field" id="search_supplier_name"/>
+                </div>
+            </div>
+            <div class="am-u-md-3">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">供应商联系人:</span>
+                    <input type="text" class="am-form-field" id="search_supplier_contact"/>
+                </div>
+            </div>
+            <div class="am-u-md-3 am-u-end">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">供应商联系人电话:</span>
+                    <input type="text" class="am-form-field" id="search_supplier_tel"/>
+                </div>
+            </div>
+        </div>
+        <div class="am-g am-padding-top">
+            <div class="am-u-md-3 ">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">供应商状态:</span>
+                    <select name="demo_class" id="supplier_temp_type" class="am-form-field">
+                        <option selected="selected" value="all">-全部-</option>
+                        <option value="10">启用中</option>
+                        <option value="00">禁用中</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-u-md-3">
+                <div class="am-input-group">
+                    <button type="button" class="reset_search am-fr am-btn am-btn-primary am-btn-xs">重置</button>
+                    <button type="button" id="supplier_search_btn" class="am-btn am-fr am-btn-primary am-btn-xs">查询</button>
+                </div>
+            </div>
+            <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert id="supplier_operate_su">
+                <p></p>
+            </div>
+            <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert id="supplier_operate_fail">
+                <p></p>
+            </div>
+        </div>
+        <!--导出为Word或Excel-->
+        <div class="am-g" id="supplier_table_wrapper">
+            <div class="am-panel am-panel-default table_panel">
+                <div class="am-panel-hd"><span class="panel_title">供应商</span>
+                    <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                    <a class="panel_tool add_tool" id="add_tool"><i class="am-icon-plus"></i> 新增</a>
+                    <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                </div>
+                <div class="am-panel-bd">
+                    <table id="supplier_tbl" data-pagination="true"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal supplier_info" id="supplierModal">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd " style="overflow: hidden">
+                <span class="supplier_info_title am-fl">新增供应商</span>
+                <a class="tool_confirm panel_tool" id="edit_confirm"><i class="am-icon-check"></i> 确认</a>
+                <a class="tool_reset panel_tool" id="edit_reset"><i class="am-icon-recycle"></i> 重置</a>
+                <a class="tool_cancel panel_tool" id="edit_cancel"><i class="am-icon-close"></i> 关闭</a>
+            </div>
+            <div class="am-panel-bd" style="background-color: white">
+                <div class="am-g am-padding-bottom">
+                    <div class="am-input-group am-u-sm-6  ">
+                        <span class="am-input-group-label"><i class="am-icon-bars"></i> 供应商名称</span>
+                        <input type="text" class="am-form-field" id="supplier_name" placeholder="全称">
+                    </div>
+                    <div class="am-input-group am-u-sm-6 ">
+                        <span class="am-input-group-label"><i class="am-icon-male"></i> 联系人姓名</span>
+                        <input type="text" class="am-form-field" id="contact_people" placeholder="">
+                    </div>
+                </div>
+                <div class="am-g am-padding-bottom">
+                    <div class="am-input-group am-u-sm-6  ">
+                        <span class="am-input-group-label"><i class="am-icon-mobile-phone"></i> 联系人电话</span>
+                        <input type="text" class="am-form-field" id="contact_phone" placeholder="">
+                    </div>
+                    <div class="am-input-group am-u-sm-6 am-u-end ">
+                        <span class="am-input-group-label"> 是否启用</span>
+                        <div class="member_radio ">
+                            <label class="am-radio-inline">
+                                <input type="radio" name="supplier_state" id="c_recipe_temp" value="10"> 是
+                            </label>
+                            <label class="am-radio-inline">
+                                <input type="radio" name="supplier_state" id="w_recipe_temp" value="00"> 否
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-g am-padding-bottom">
+                    <div class="am-input-group am-u-sm-12">
+                        <span class="am-input-group-label"><i class="am-icon-mobile-phone"></i> 地址</span>
+                        <input type="text" class="am-form-field" id="supplier_address" placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

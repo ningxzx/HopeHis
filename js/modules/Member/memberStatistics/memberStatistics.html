@@ -1,0 +1,168 @@
+<div class="admin-content member_module">
+    <div class="am-g">
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+                <li id="refund_show" class="am-active"><a href="javascript: void(0)">会员消费统计</a></li>
+                <li id="repay_show"><a href="javascript: void(0)">会员充值统计</a></li>
+                <li id="repay_recode_show"><a href="javascript: void(0)">积分兑换统计</a></li>
+
+            </ul>
+
+            <div class="am-tabs-bd">
+                <div class="am-tab-panel am-active">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员卡号</span>
+                            <input type="text" class="am-form-field " placeholder="">
+                        </div>
+                        <div class="am-input-group am-u-md-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+                            <select class="member_level_select">
+                                <option selected="selected" value="">全部</option>
+                                <option value="ML001">普通会员</option>
+                                <option value="ML002">初级会员</option>
+                                <option value="ML003">高级会员</option>
+                                <option value="ML004">超级会员</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3 am-u-end ">
+                            <span class="am-input-group-label"><i class="am-icon-hacker-news"></i> 姓名</span>
+                            <input type="text" class="am-form-field" placeholder="">
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 消费类型</span>
+                            <select class="bill_type_select">
+                                <option selected="selected" value="">全部</option>
+                                <option value="">处方消费</option>
+                                <option value="">直接购药</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                            <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" class="am-form-field end" placeholder="" readonly>
+                        </div>
+                        <div class="am-u-sm-3">
+                            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius"
+                                    id="Consumption_btn">
+                                查询
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!--导出为Word或Excel-->
+                    <div class="am-g">
+                        <table id="Consumption_statistics" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+                <div class="am-tab-panel">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员卡号</span>
+                            <input type="text" class="am-form-field " placeholder="">
+                        </div>
+                        <div class="am-input-group am-u-md-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+                            <select class="member_level_select">
+                                <option selected="selected" value="">全部</option>
+                                <option value="ML001">普通会员</option>
+                                <option value="ML002">初级会员</option>
+                                <option value="ML003">高级会员</option>
+                                <option value="ML004">超级会员</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3 am-u-end ">
+                            <span class="am-input-group-label"><i class="am-icon-hacker-news"></i> 姓名</span>
+                            <input type="text" class="am-form-field" placeholder="姓名或拼音码">
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 充值类型</span>
+                            <select class="bill_type_select">
+                                <option selected="selected" value="">全部</option>
+                                <option value="">充值</option>
+                                <option value="">退费</option>
+                                <option value="">冲正</option>
+                                <option value="">补交</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                            <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" class="am-form-field end" placeholder="" readonly>
+                        </div>
+                        <div class="am-u-sm-3">
+                            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius"
+                                    id="Recharge_btn">
+                                查询
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="am-g">
+                        <table id="Recharge_statistics" data-pagination="true"></table>
+                    </div>
+                </div>
+                <div class="am-tab-panel" id="repay_recode">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员卡号</span>
+                            <input type="text" class="am-form-field " placeholder="">
+                        </div>
+                        <div class="am-input-group am-u-md-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+                            <select class="member_level_select">
+                                <option selected="selected" value="">全部</option>
+                                <option value="ML001">普通会员</option>
+                                <option value="ML002">初级会员</option>
+                                <option value="ML003">高级会员</option>
+                                <option value="ML004">超级会员</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3 am-u-end ">
+                            <span class="am-input-group-label"><i class="am-icon-hacker-news"></i> 姓名</span>
+                            <input type="text" class="am-form-field" placeholder="姓名或拼音码">
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                            <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" class="am-form-field end" placeholder="" readonly>
+                        </div>
+                        <div class="am-u-sm-3">
+                            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius"
+                                    id="Integral_btn">
+                                查询
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="am-g" style="font-size: 12px;">
+                        <table id="Integral_statistics" data-pagination="true">
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!---->
+    </div>
+</div>

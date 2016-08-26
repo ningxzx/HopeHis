@@ -1,0 +1,75 @@
+<!--挂号查询-->
+<div class="admin-content regSearch_wrapper">
+    <!--<div class="am-alert  am-alert-warning  am-margin-bottom" id="inputTips">-->
+        <!--<p>注：根据需求输入查询条件，无需全部填写！</p>-->
+    <!--</div>-->
+    <div class="search_wrapper">
+        <div class="am-g">
+            <div class="am-u-md-3 am-padding-left-0">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">患者ID</span>
+                    <input type="text" class="am-form-field" id="pat_id">
+                </div>
+            </div>
+            <div class="am-u-md-3">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">患者姓名</span>
+                    <input type="text" class="am-form-field first_focus" id="pat_name">
+                </div>
+            </div>
+            <div class="am-u-md-3 am-u-end">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">医生姓名</span>
+                    <input type="text" class="am-form-field" id="doctor">
+                </div>
+            </div>
+        </div>
+        <div class="am-g p_top">
+            <div class="am-u-md-3  am-padding-left-0">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">科室名称</span>
+                    <input type="text" class="am-form-field" id="dept">
+                </div>
+            </div>
+            <div class="am-u-md-6">
+                <div class="am-input-group" id="search_date">
+                    <span class="am-input-group-label">查询时间</span>
+                    <input type="text" id="start" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                    <span class="am-input-group-label">至</span>
+                    <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly/>
+                </div>
+            </div>
+            <div class="am-u-md-1 am-u-end">
+                <button type="button" class="am-btn am-btn-primary am-btn-xs" id="search_reg">查询</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-g p_top" id="regist_info">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd"><span class="panel_title">挂号信息列表</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool" id="refresh_info"><i class="am-icon-refresh"></i> 刷新</a></div>
+            <div class="am-panel-bd">
+                <table class="am-table am-table-striped" data-pagination="true" id="regist_tbl">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="am-panel am-panel-default" id="registerInfo">-->
+<!--<div class="am-panel-hd">今日挂号信息</div>-->
+<!--<div class="am-panel am-panel-default">-->
+<!--<ul class="am-list am-list-striped">-->
+<!--<li>挂号人数:<span id="registNum"></span></li>-->
+<!--<li>预约人数:<span id="preRegist"></span></li>-->
+<!--<li>上午医生人数:<span id="mornDoctorNum"></span></li>-->
+<!--<li>下午医生人数:<span id="afterDoctorNum"></span></li>-->
+<!--<li>晚上医生人数:<span id="nightDoctorNum"></span></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--<div class="am-panel-footer">-->
+<!--<button class="am-btn am-btn-default am-btn-xs" id="update_regist">刷新</button>-->
+<!--</div>-->
+<!--</div>-->
+

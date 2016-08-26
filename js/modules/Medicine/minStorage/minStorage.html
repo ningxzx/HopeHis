@@ -1,0 +1,440 @@
+<div class="admin-content medicine_module">
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+            <li id="refund_show" class="am-active"><a href="javascript: void(0)">采购入库</a></li>
+            <li id="repay_show"><a href="javascript: void(0)">入库提交记录</a></li>
+            <!--<li id="purchaseprocurement_show"><a href="javascript: void(0)">采购入库模板</a></li>-->
+        </ul>
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active am-padding-top">
+                <div class="am-g am-padding-top">
+                    <div class=" am-u-md-4">
+                        <div class=" am-alert am-alert-success am-fl am-hide" data-am-alert id="inStorage_operate_su">
+                            <p></p>
+                        </div>
+                        <div class=" am-alert am-alert-danger am-fl am-hide" data-am-alert id="inStorage_operate_fail">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="am-u-md-6">
+                        <div class="am-fr">
+                            <input type="text" class="am-hide" name="" id="gun_num">
+                            <button type="button" class="am-btn am-btn-secondary am-radius am-btn-xs" id="search_code_gun">开始扫码</button>
+                            <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="ins_selDrugs">选择药品
+                            </button>
+                            <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="reset_main">重置</button>
+                            <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="submit_check">提交审核
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="inStorage_input_group">
+                    <div class="am-g">
+                        <div class="am-u-md-4  am-input-group supplier_choose_wrapper">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 供应商全称</span>
+                            <select name="supplier" id="select_supplier">
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-4  ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 供应商联系人姓名</span>
+                            <input type="text" class="am-form-field" id="sup_name">
+                            <span class="required_span">*</span>
+                        </div>
+                        <div class="am-input-group am-u-md-4  ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 供应商联系人电话</span>
+                            <input type="text" class="am-form-field" id="sup_tel">
+                            <span class="required_span">*</span>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-4  ">
+                            <span class="am-input-group-label"><i class="am-icon-rmb"></i> 货物总费用</span>
+                            <input type="text" class="am-form-field" placeholder="" id="total_costs" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-4 am-input-group-secondary ">
+                            <span class="am-input-group-label"><i class="am-icon-rmb"></i> 应付款</span>
+                            <input type="text" class="am-form-field" placeholder="" id="pay_costs" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-4 am-u-end am-input-group-success">
+                            <span class="am-input-group-label"><i class="am-icon-rmb"></i> 实付款</span>
+                            <input type="text" class="am-form-field" placeholder="" id="charge_costs">
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-4">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 送货单位</span>
+                            <input type="text" class="am-form-field " placeholder="" id="delivery_company">
+                        </div>
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 送货人姓名</span>
+                            <input type="text" class="am-form-field" placeholder="" id="delivery_name">
+                            <span class="required_span">*</span>
+                        </div>
+                        <div class="am-input-group am-u-md-4  ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 送货人电话</span>
+                            <input type="text" class="am-form-field" id="delivery_tel">
+                            <span class="required_span">*</span>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收货人员</span>
+                            <select name="recipient_person" id="recipient_person" class="suppliers_chosen">
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收货时间</span>
+                            <input type="text" class="am-form-field" id="recipient_date" placeholder="点击选择日期" readonly>
+                            <span class="required_span">*</span>
+                        </div>
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收货状态</span>
+                            <select name="storate_state" id="storate_state" class="suppliers_chosen">
+                                <option value="10">完成</option>
+                                <option value="20">未收</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 入库时间</span>
+                            <input type="text" id="storate_date" class="am-form-field" placeholder="点击选择日期" readonly/>
+                            <span class="required_span">*</span>
+                        </div>
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 入库方式</span>
+                            <select name="storate_type" id="storate_type" class="suppliers_chosen">
+                                <option value="10">采购入库</option>
+                                <option value="20">调拨入库</option>
+                                <option value="30">未知</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-4 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 送货单扫描件</span>
+                            <input type="text" class="am-form-field" placeholder="" id="delivery_list">
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-6 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 送货情况说明</span>
+                            <input type="text" class="am-form-field" placeholder="" id="delivery_detail">
+                        </div>
+                        <div class="am-input-group am-u-md-6 ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收货情况说明</span>
+                            <input type="text" class="am-form-field" placeholder="" id="recipient_detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd"><span class="panel_title">入库明细表</span>
+                        <a class="panel_tool" id="reset_table"><i class="am-icon-tags"></i> 重置</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <div class="am-g">
+                            <table id="table_minStorage" data-pagination="true"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--入库提交记录-->
+            <div class="am-tab-panel ">
+                <div class="am-g am-padding-top">
+                    <div class="am-input-group am-u-md-3 ">
+                        <span class="am-input-group-label"><i class="am-icon-ticket"></i> 入库批次号</span>
+                        <input type="text" class="am-form-field" id='batch_no' placeholder="采购单号,例:CD1232113">
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3  am-u-end">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" class="am-form-field end" placeholder="" readonly>
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 审核状态</span>
+                        <select name="" id="check_state">
+                            <option value="all">-全部-</option>
+                            <option selected="selected" value="00">未审核</option>
+                            <option value="10">已通过</option>
+                            <option value="20">未通过</option>
+                        </select>
+                    </div>
+                    <!--<div class="am-u-sm-3  am-input-group">-->
+                    <!--<span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 供应商</span>-->
+                    <!--<select class="suppliers_chosen">-->
+                    <!--<option value="default">请选择供应商</option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <div class="am-u-sm-3 am-u-end">
+                        <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_storage">查询</button>
+                    </div>
+                </div>
+                <div class="am-g ">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">入库记录表
+                            <a class="panel_tool refresh_level minstorage"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="table_minStorage_record">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-g ">
+                    <div class="am-panel am-panel-default table_panel am-hide" id="detail_panel">
+                        <div class="am-panel-hd">入库明细
+                            <a class="panel_tool refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="table_minStorage_detail"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--采购入库模板-->
+            <div class="am-tab-panel" id="purchaseprocurement">
+                <div class="inStorage_input_group">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3  ">
+                            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 模板编号</span>
+                            <input type="text" class="am-form-field" placeholder="e.g.DC20140302">
+                        </div>
+                        <div class="am-u-sm-3  am-input-group">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 模板名称</span>
+                            <input type="text" class="am-form-field" placeholder="名称或拼音码">
+                        </div>
+                        <div class="am-input-group am-u-sm-3 am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-bank"></i> 使用状态</span>
+
+                            <div class="member_radio">
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="level_state" value="true"> 启用
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="level_state" value="false"> 禁用
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                            <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" class="am-form-field end" placeholder="" readonly>
+                        </div>
+                        <div class="am-u-sm-3 am-u-end ">
+                            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius"
+                                    id="search_template">查询
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">入库模板
+                        <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导入excel</a>
+                        <a class="panel_tool"><i class="am-icon-tags"></i> 模板</a>
+                        <a class="panel_tool"><i class="am-icon-gears"></i> 批量设置</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <div class="am-g">
+                            <table id="ins_template_table" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="am-panel am-modal am-panel-default table_panel" id="medicine_modal">
+            <div class="am-tabs" data-am-tabs id="medicine_tabs">
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">已入库药品</a></li>
+                    <li><a href="#tab2">未入库药品</a></li>
+                    <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;">&times;</a>
+                </ul>
+
+                <div class="am-tabs-bd">
+                    <div class="am-tab-panel am-active" id="tab1">
+                        <div class="am-panel-bd">
+                            <div class="am-g" style="padding: 2rem 0.5rem 1rem">
+                                <div class="am-input-group am-u-md-6 ">
+                                    <span class="am-input-group-label"> 药品名称:</span>
+                                    <input type="text" class="am-form-field" id="search_u_input"/>
+                                </div>
+                                <div class="am-input-group am-u-md-3 am-fr">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="search_medicine1">查询</button>
+                                </div>
+                            </div>
+                            <div class="am-g p" id="medicine_wrapper1">
+                                <div class="am-panel-bd">
+                                    <table id="medicine_tb1" data-pagination="true" data-page-size="5"></table>
+                                </div>
+                            </div>
+                            <div class="am-g" style="margin-bottom: 2rem">
+                                <div class="am-input-group am-u-md-3 am-fr" style="margin-right: 0.5rem;">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_recipe_detail1">提交药物</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-tab-panel" id="tab2">
+                        <div class="am-panel-bd">
+                            <div class="am-g" style="padding: 2rem 0.5rem 1rem">
+                                <div class="am-input-group am-u-md-6 ">
+                                    <span class="am-input-group-label"> 药品名称:</span>
+                                    <input type="text" class="am-form-field" id="search_h_input"/>
+                                </div>
+                                <div class="am-input-group am-u-md-3 am-fr">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="search_medicine2">查询</button>
+                                </div>
+                            </div>
+                            <div class="am-g p" id="medicine_wrapper2">
+                                <div class="am-panel-bd">
+                                    <table id="medicine_tb2" data-pagination="true" data-page-size="5"></table>
+                                </div>
+                            </div>
+                            <div class="am-g" style="margin-bottom: 2rem">
+                                <div class="am-input-group am-u-md-3 am-fr" style="margin-right: 0.5rem;">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_recipe_detail2">提交药物</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-modal" tabindex="-1" id="mm">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">货品明细
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    <div class="inStorage_input_group">
+                        <div class="am-g">
+                            <div class="am-u-md-6  am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 名称</span>
+                                <input type="text" class="am-form-field" id="gn">
+                            </div>
+                            <div class="am-input-group am-u-md-6  ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 规格</span>
+                                <input type="text" class="am-form-field" id="gs">
+                            </div>
+                            <div class="am-input-group am-u-md-6  ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 型号</span>
+                                <input type="text" class="am-form-field" id="gm">
+                            </div>
+                            <div class="am-input-group am-u-md-6  ">
+                                <span class="am-input-group-label"><i class="am-icon-rmb"></i> 条形码</span>
+                                <input type="text" class="am-form-field" placeholder="" id="gbc">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 货物类型</span>
+                                <select name="suppliers_chosen" id="gt" class="suppliers_chosen">
+                                    <option value="10">中药</option>
+                                    <option value="20">西药</option>
+                                    <option value="30">医疗器械</option>
+                                </select>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-rmb"></i> 生产厂家</span>
+                                <input type="text" class="am-form-field" placeholder="" id="p">
+                            </div>
+                            <div class="am-input-group am-u-md-6">
+                                <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 应收总数</span>
+                                <input type="text" class="am-form-field " placeholder="" id="otn">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-calendar"></i> 实收总数</span>
+                                <input type="text" class="am-form-field" placeholder="" id="atn">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 仓库ID</span>
+                                <input type="text" class="am-form-field" id="wi">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 货架ID</span>
+                                <input type="text" class="am-form-field" placeholder="" id="si"/>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 生产批次</span>
+                                <input type="text" class="am-form-field" id="pbn" placeholder="">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 生产日期</span>
+                                <input type="text" class="am-form-field" placeholder="点击选择日期" id="pdt" readonly>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 失效时间</span>
+                                <input type="text" id="ddt" class="am-form-field" placeholder="点击选择日期"
+                                       readonly/>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 入库时间</span>
+                                <input type="text" class="am-form-field" placeholder="点击选择日期" id="s" readonly/>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 包装规格单位</span>
+                                <input type="text" class="am-form-field" placeholder="" id="maxpu">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 包装规格数量</span>
+                                <input type="text" class="am-form-field" placeholder="" id="maxpn">
+                            </div>
+                        </div>
+                        <div class="am-g">
+                            <div class="am-input-group am-u-md-12 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 最大包装规格跟最小包装规格的转换</span>
+                                <input type="text" class="am-form-field" placeholder="" id="mmpcc">
+                            </div>
+                        </div>
+                        <div class="am-g">
+                            <div class="am-input-group am-u-md-9 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 最小包装规格的数量</span>
+                                <input type="text" id="mpn" class="am-form-field" placeholder=""/>
+                            </div>
+                            <div class="am-input-group am-u-md-9 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 货物本位码</span>
+                                <input type="text" id="Sc" class="am-form-field" placeholder=""/>
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 总费用</span>
+                                <input type="text" class="am-form-field" placeholder="" id="tcc">
+                            </div>
+                            <div class="am-input-group am-u-md-6">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 成本单价</span>
+                                <input type="text" class="am-form-field" placeholder="" id="up">
+                            </div>
+                            <div class="am-input-group am-u-md-6 ">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 销售单价</span>
+                                <input type="text" class="am-form-field" placeholder="" id="Sp">
+                            </div>
+                            <div class="am-input-group am-u-md-6">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 处方单价</span>
+                                <input type="text" class="am-form-field" placeholder="" id="Pp">
+                            </div>
+                            <div class="am-input-group am-u-md-8">
+                                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 最小包装规格单位</span>
+                                <input type="text" class="am-form-field" placeholder="" id="mpu">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-modal-footer">
+                    <span class="am-modal-btn" data-am-modal-cancel>关闭</span>
+                    <span class="am-modal-btn" data-am-modal-confirm>修改</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

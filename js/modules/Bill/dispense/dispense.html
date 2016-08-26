@@ -1,0 +1,142 @@
+<div class="admin-content">
+    <div class="pat_detail_wrapper">
+        <div class="am-g  am-margin">
+            <div class="am-input-group am-u-md-4 am-fl">
+                <button type="button" class="am-btn am-fl am-btn-primary am-btn-xs am-radius am-padding-left " id="submit_record">确认发药</button>
+                <button type="button" class="am-btn am-fl am-btn-warning am-btn-xs am-radius" id="clear_record">重置</button>
+            </div>
+            <div class=" am-u-md-2 am-alert am-alert-success am-fl am-hide" data-am-alert id="retail_operate_su">
+                <p></p>
+            </div>
+            <div class=" am-u-md-2 am-alert am-alert-warning am-fl am-hide" data-am-alert id="retail_operate_fail">
+                <p></p>
+            </div>
+        </div>
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">购药患者信息</div>
+            <div class="am-panel-bd">
+                <div class="am-g am-padding-bottom am-padding-top">
+                    <div class="am-input-group am-u-md-3 am-input-group-secondary">
+                        <span class="am-input-group-label"><i class="am-icon-rmb"></i> 患者姓名</span>
+                        <input type="text" class="am-form-field first_focus" placeholder="" id="patient_name">
+                        <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-default search_input_btn" id='searchName' type="button">
+                                <span class="am-icon-search search_label"></span>
+                            </button>
+                        </span>
+                        <div class="name_search_wrapper pat_table_wrapper hid">
+                            <table class="am-table" id="name_search_table"></table>
+                        </div>
+                    </div>
+                    <div class="am-input-group am-u-md-3 am-u-end am-input-group-secondary">
+                        <span class="am-input-group-label"><i class="am-icon-rmb"></i> 发票号</span>
+                        <input type="text" class="am-form-field" placeholder="" id="order_no">
+                        <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-default search_input_btn" id='searchOrderNo' type="button">
+                                <span class="am-icon-search search_label"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="am-g am-padding-bottom">
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-h-square"></i> 出生年月</span>
+                        <input type="text" class="am-form-field" id="pat_age" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-rmb"></i> 身份证号</span>
+                        <input type="text" class="am-form-field" placeholder="" id="card_id" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3 am-u-end">
+                        <span class="am-input-group-label"><i class="am-icon-rmb"></i> 性别</span>
+                        <select name="pat_gender" id="select_gender">
+                            <option value="M">男</option>
+                            <option value="F">女</option>
+                            <option value="N">不详</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="am-g am-padding-bottom">
+                    <div class="am-input-group am-u-md-3  ">
+                        <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收费员</span>
+                        <input type="text" class="am-form-field" id="bill_name" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3  ">
+                        <span class="am-input-group-label"><i class="am-icon-h-square"></i> 收费时间</span>
+                        <input type="text" class="am-form-field" id="bill_date" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3 am-input-group-success am-u-end ">
+                        <span class="am-input-group-label"><i class="am-icon-h-square"></i> 实收费用</span>
+                        <input type="text" class="am-form-field" id="sum_charge" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="billing_record_id">
+    </div>
+    <div class="am-panel am-panel-default table_panel">
+        <div class="am-panel-hd">待发药品
+            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+        </div>
+        <div class="am-panel-bd">
+            <div class="am-g">
+                <table id="medicine_table" data-pagination="true"></table>
+            </div>
+        </div>
+    </div>
+    <div class="am-panel am-modal am-panel-default " id="medicine_modal">
+        <div class="am-modal-hd">库存药品</div>
+        <div class="am-panel-bd">
+            <div class="am-g" id="add_medicine_wrapper">
+                <div class="am-panel-bd">
+                    <table id="add_medicine_tb" data-pagination="true" data-page-size="5"></table>
+                </div>
+            </div>
+            <div class="am-g">
+                <div class="am-input-group am-u-md-3 am-fr">
+                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_retail_medicine">提交药物</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-panel am-modal am-panel-default " id="charge_modal">
+        <div class="am-modal-hd">应收金额- <span class="charge_title"></span> -元</div>
+        <div class="am-panel-bd">
+            <div class="am-g am-padding-bottom">
+                <div class="am-input-group am-u-md-6">
+                    <span class="am-input-group-label"><i class="am-icon-weixin"></i> 微信支付</span>
+                    <input type="text" class="am-form-field" id="wx_pay">
+                </div>
+                <div class="am-input-group am-u-md-6">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 支付宝支付</span>
+                    <input type="text" class="am-form-field" id="ali_pay">
+                </div>
+            </div>
+            <div class="am-g am-padding-bottom">
+                <div class="am-input-group am-u-md-6">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 医保支付</span>
+                    <input type="text" class="am-form-field" id="insu_pay">
+                </div>
+                <div class="am-input-group am-u-md-6">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 其他支付</span>
+                    <input type="text" class="am-form-field" id="other_pay">
+                </div>
+            </div>
+            <div class="am-g  am-padding-bottom">
+                <div class=" am-u-md-6 realChargeWrapper">
+                    <span>收到（元） : </span><input class="realCharge" type="number"/>
+                </div>
+                <div class=" am-u-md-6 backChargeWrapper">
+                    <span>找回（元） : </span><input class="backCharge" type="number"/>
+                </div>
+            </div>
+            <div class="am-g">
+                <div class="am-input-group am-u-md-6 am-fr">
+                    <button class="am-btn-secondary am-btn-xs am-btn am-fr" id="cancel_charge">取消</button>
+                    <button class="am-btn-success am-btn-xs am-btn am-fr am-margin-right" id="submit_charge">确认收款</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

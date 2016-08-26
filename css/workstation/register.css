@@ -1,0 +1,167 @@
+.p {
+    padding: 1rem 2rem;
+}
+.tip{
+    color: red;
+    margin-right: 3px;
+}
+.p_top {
+    padding-top: 1rem;
+}
+
+.p_lr {
+    padding: 0 1.5rem;
+}
+#doctor_list {
+    list-style: none;
+    text-align: center;
+}
+#doctor_list li > div {
+    margin: 0 auto;
+    max-width: 120px;
+    height: 120px;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+#doctor_list li > div > span {
+    display: block;
+}
+
+#doctor_list li>div:hover {
+    cursor: pointer;
+    background: url('../../imgs/doctor_select.png') no-repeat;
+    background-size: 100% 120px;
+}
+
+.b {
+    background: url('../../imgs/doctor_select.png') no-repeat;
+    background-size: 100% 120px;
+}
+
+#rgt a {
+    text-decoration: none;
+}
+#rgt .am-tabs-bd{
+    border: 0;
+}
+#rgt .am-tab-panel{
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+.regSearch_wrapper {
+    padding: 20px;
+}
+
+.regsearch_select_wrapper {
+    margin-left: 5rem;
+}
+
+.hid {
+    display: none !important;
+}
+
+#names.tbl_name, .regSearch_wrapper .tbl_name {
+    position: absolute;
+    top: 28px;
+    z-index: 1000;
+}
+
+.search_icon {
+    position: absolute;
+    left: 9px;
+    top: 2px;
+}
+
+#rgt .a_refresh {
+    float: right;
+}
+
+#rgt .a_refresh:hover {
+    cursor: pointer;
+}
+
+#confirmFee #change {
+    color: red;
+    font-size: 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+#rgt .hr {
+    border-top: 1px solid #e3e3e3;
+    margin-top: 1rem;
+}
+
+#patient_info {
+    background-color: white !important;
+}
+
+#registerInfo {
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    width: 130px;
+    height: 210px;
+}
+
+#regist_info .am-panel-bd {
+    padding: 0 !important;
+}
+
+#regist_info .fixed-table-container {
+    border: 0 !important;
+}
+
+#dept_total_wrapper .fixed-table-footer,
+#doc_total_wrapper .fixed-table-footer {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.font-center {
+    text-align: center;
+    display: inline-block;
+}
+
+.margin-top {
+    margin-top: 1.5rem;
+}
+
+#doctor_list li {
+    padding-top: 1rem;
+    clear: none;
+}
+
+#regist_tip, #regist_success {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0.3rem;
+}
+
+#dept_total_wrapper {
+    margin-top: 2rem;
+
+}
+
+.p_left {
+    padding-left: 1.5rem;
+}
+
+.regnum_search_wrapper {
+    margin-top: 2rem;
+}
+
+#doctor_list img {
+    height: 70px;
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+#inputTips {
+    margin: 0 0 1.8rem 0;
+    max-width: 600px;
+}
+.padding-0{
+    padding: 0 !important;
+}

@@ -1,0 +1,237 @@
+<div  class="admin-content" style="padding: 10px; ">
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs"  >
+            <li   class="am-active"><a href="javascript: void(0)">检查项目</a></li>
+            <li  ><a href="javascript: void(0)">诊疗项目</a></li>
+            <li><a href="javascript: void(0)">检验项目</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active">
+                <div class="am-g">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">项目名称:</span>
+                            <input type="text" class="am-form-field" id="search_name"/>
+                        </div>
+                    </div>
+                    <div class="am-u-md-1">
+                        <div class="am-input-group">
+                            <button type="button" id="search_btn" class="am-btn  am-btn-primary am-btn-xs am-radius">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div class="am-g" id="check_items">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">检查项目
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="check_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="am-tab-panel">
+                <div class="am-g">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">项目名称:</span>
+                            <input type="text" class="am-form-field" id="dens_name"/>
+                        </div>
+                    </div>
+                    <div class="am-u-md-1">
+                        <div class="am-input-group">
+                            <button type="button" id="search_dens" class="am-btn  am-btn-primary am-btn-xs am-radius">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div class="am-g" id="dgns">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">诊疗项目
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="dgns_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-tab-panel">
+                <div class="am-g">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">项目名称:</span>
+                            <input type="text" class="am-form-field" id="inspection_name"/>
+                        </div>
+                    </div>
+                    <div class="am-u-md-1">
+                        <div class="am-input-group">
+                            <button type="button" id="search_inspection" class="am-btn  am-btn-primary am-btn-xs am-radius">查询</button>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div class="am-g" id="inspection">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">检验项目
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="inspection_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="am-modal am-modal-confirm" tabindex="" id="check_modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">检查项目新增</div>
+        <div class="am-modal-bd">
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">检查名字:</span>
+                    <input type="text" class="am-form-field" id="Check_name" />
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">检查单价:</span>
+                    <input type="text" class="am-form-field" id="Check_unit"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">备注:</span>
+                    <input type="text" class="am-form-field" id="remarks"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">状态:</span>
+                    <div class="member_radio stype">
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="true"> 启用
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="false"> 禁用
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" id="check_cancel">取消</span>
+            <span class="am-modal-btn" id="check_confirm">确定</span>
+        </div>
+    </div>
+</div>
+
+<!--222-->
+
+<div class="am-modal am-modal-confirm" tabindex="" id="dgns_modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">诊疗项目新增</div>
+        <div class="am-modal-bd">
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">诊疗名字:</span>
+                    <input type="text" class="am-form-field" id="dgns_name" />
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">诊疗单价:</span>
+                    <input type="text" class="am-form-field" id="dgns_unit"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">备注:</span>
+                    <input type="text" class="am-form-field" id="dgns_remarks"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">状态:</span>
+                    <div class="member_radio stype">
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="true"> 启用
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="false"> 禁用
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" id="diag_cancel">取消</span>
+            <span class="am-modal-btn" id="diag_confirm">确定</span>
+        </div>
+    </div>
+</div>
+
+
+<!--333-->
+<div class="am-modal am-modal-confirm" tabindex="" id="inspection_modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">检验项目新增</div>
+        <div class="am-modal-bd">
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">检验名字:</span>
+                    <input type="text" class="am-form-field" id="inspectionName" />
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">检验单价:</span>
+                    <input type="text" class="am-form-field" id="inspection_unit"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">备注:</span>
+                    <input type="text" class="am-form-field" id="inspection_remarks"/>
+                </div>
+            </div>
+            <div class="am-g p">
+                <div class="am-input-group">
+                    <span class="am-input-group-label">状态:</span>
+                    <div class="member_radio stype">
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="true"> 启用
+                        </label>
+                        <label class="am-radio-inline">
+                            <input type="radio" name="level_state" value="false"> 禁用
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" id="inspect_cancel">取消</span>
+            <span class="am-modal-btn" id="inspect_confirm">确定</span>
+        </div>
+    </div>
+</div>

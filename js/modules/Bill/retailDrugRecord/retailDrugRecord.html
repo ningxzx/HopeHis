@@ -1,0 +1,49 @@
+<div class="admin-content member_module">
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3 am-input-group-success">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 患者姓名</span>
+            <input type="text" class="am-form-field " id="pat_name" placeholder="">
+        </div>
+        <div class="am-input-group am-u-md-3  am-input-group-warning">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 药物名称</span>
+            <input type="text" class="am-form-field " id="medicine_name" placeholder="">
+        </div>
+        <div class="am-u-md-4">
+            <div class="am-input-group">
+                <span class="am-input-group-label">销售时间:</span>
+                <input type="text" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                <span class="am-input-group-label">至</span>
+                <input type="text" class="am-form-field end" placeholder="点击选择日期" readonly/>
+            </div>
+        </div>
+        <div class="am-u-md-1 am-input-group">
+            <button type="button" class="am-btn   am-btn-primary am-btn-xs am-radius" id="search_retail_record">查询</button>
+        </div>
+    </div>
+    <!--<div class="am-g am-padding-bottom">-->
+
+
+    <!--</div>-->
+    <div class="am-g p_left am-padding-top" id="retail_table_wrapper">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd"><span class="panel_title">零售记录列表</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="retail_tbl" data-pagination="true"></table>
+            </div>
+        </div>
+    </div>
+    <div class="am-g p_left am-padding-top am-hide" id="retail_detail_wrapper">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd"><span class="panel_title">零售药物明细</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="retail_detail_tbl" data-pagination="true"></table>
+            </div>
+        </div>
+    </div>
+</div>

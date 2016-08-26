@@ -1,0 +1,180 @@
+.p_none {
+    padding: 0;
+}
+#charge .fee_billing, #charge .check_detail {
+    float: right;
+    margin-right: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #008000 !important;
+}
+
+#medicine_table {
+    border-top: 1px solid #ddd;
+}
+
+.bootstrap-table .search {
+    margin-right: 1rem;
+}
+
+input.sell_num {
+    text-align: center;
+    font-weight: bold;
+    width:100%;
+}
+
+#submit_record {
+    margin-right: 3rem;
+    outline: none;
+}
+
+#charge .fee_billing:hover {
+    text-decoration: none;
+}
+
+#charge .item_num {
+    outline: none;
+    border: none;
+    text-align: center;
+    width: 100%;
+}
+
+#retail_tbl {
+    border-top: 1px solid #ddd;
+}
+
+#refund .fee_back, #refund .fee_back:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.search_input_btn, .search_input_btn:hover, .search_input_btn:focus, .search_input_btn:active {
+    background-color: white;
+    border-left: none;
+    outline: none;
+    overflow: hidden;
+}
+
+.search_label, .search_label:hover, .search_label:focus, .search_label:active {
+    vertical-align: top;
+    margin-top: -.8rem;
+    color: #3bb4f2;
+    outline: none;
+    border: none;
+}
+
+#sum_charge {
+    color: red;
+}
+
+.name_search_wrapper,.id_search_wrapper,  .member_search_wrapper, .cardId_search_wrapper {
+    position: absolute;
+    top: 28px;
+    z-index: 1000;
+    padding: 0 1.5rem;
+    left: 0;
+    width: 100%;
+}
+
+#name_search_table, #member_search_table, #cardId_search_table {
+    border: 1px solid #ddd;
+}
+
+.pat_detail_wrapper .am-alert {
+    margin-left: 1.5rem;
+}
+.charge_title{
+    color:red
+}
+.realChargeWrapper,.backChargeWrapper{
+    text-align: left;
+}
+.realChargeWrapper span,.backChargeWrapper span{
+    vertical-align: sub;
+}
+.realCharge,.backCharge{
+    border: none;
+    border-bottom: 1px solid #3c3c3c;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: bold;
+    padding-left: 2rem;
+    color:cornflowerblue;
+}
+#add_medicine_tb td,.refund_page td,#charge td{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+}
+.charge_detail_panel,.refund_detail_panel{
+    min-height: 300px;
+}
+.item_sell_num{
+    text-align: center;
+    max-width: 4rem;
+}
+#check_info .fixed-table-footer{
+    border-bottom:1px solid #ddd;
+}
+
+#charge .am-badge {
+    white-space: normal;
+    display: block;
+}
+
+#charge .am-modal-bd{
+    padding: 0px;
+}
+.record_wrapper,.record_detail_wrapper{
+     min-height: 250px;
+ }
+.fee_total{
+    float: right;
+    line-height: 2.8rem;
+    margin-right: 2rem;
+}
+.after_dis_total,.after_change_total{
+    color: red;
+    padding: 0 .5rem;
+    font-weight: bold;
+}
+#fee{
+    margin-bottom: 3rem;
+}
+.charge_basic_info{
+    margin-bottom: 0;
+}
+.charge_basic_info input{
+    text-align: left !important;
+    border: none;
+}
+.charge_basic_info .pat_name{
+    color:red;
+    font-weight: bold;
+}
+.diag_record_wrapper{
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 218px;
+}
+#refund_btn{
+    outline: none !important;
+}
+.total_panel,.record_detail_panel{
+    min-height: 300px;
+}
+#checkBill{
+    padding: 0.3rem 1.5rem !important;
+}
+.bottom-top-line{
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+#check_bill_modal button{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+.diagnosis_id{
+    line-height: 2.8rem;
+}

@@ -1,0 +1,235 @@
+<h3>厚朴医疗 统一病历</h3>
+<div class="recipe_basic_info am-panel am-panel-default">
+    <div class="am-panel-hd">基本信息</div>
+    <div class="am-panel-bd">
+        <div class="basic_info am-u-md-4"><label class="am-u-md-5">患者姓名:</label>
+            <input type="text" class="pat_name am-u-md-7" readonly/></div>
+        <div class="basic_info am-u-md-4"><label class="am-u-md-5">患者性别:</label>
+            <input type="text" class="pat_sex am-u-md-7" readonly/></div>
+        <div class="basic_info am-u-md-4"><label class="am-u-md-5">患者年龄:</label>
+            <input type="text" class="pat_age am-u-md-7" readonly/></div>
+        <div class="am-g">
+            <div class="basic_info am-u-md-8"><label class="am-u-md-4">挂号单号:</label>
+                <input type="text" class="register_id am-u-md-8" readonly/></div>
+            <div class="basic_info am-u-md-4"><label class="am-u-md-5">挂号时间:</label>
+                <input type="text" class="register_date am-u-md-7" readonly/></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="am-panel am-panel-default tell_wrapper">
+    <div class="am-panel-hd">主诉
+        <a class="get_allergy diag_panel_tool">
+            <span class="am-icon-hospital-o"></span>
+            过敏史
+        </a>
+        <a class="get_history diag_panel_tool">
+            <span class="am-icon-hospital-o"></span>
+            既往史
+        </a>
+    </div>
+    <div class="am-panel-bd ">
+        <textarea class="patient_tell" id="patient_tell"></textarea>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="am-panel am-panel-default">
+    <div class="am-panel-hd">诊断
+        <a class="somatoscopy diag_panel_tool" id="pat_body_check">
+            <i class="am-icon-stethoscope"></i>
+            体格检查
+        </a>
+        <a class="search_diagTemp diag_panel_tool"><span class="am-icon-tags"></span> 模板</a></div>
+    <div class="am-panel-bd recipe_diagnose_box">
+        <textarea class="recipe_diagnose" id="recipe_diagnose"></textarea>
+    </div>
+</div>
+<div class="am-panel am-panel-default">
+    <div class="am-panel-hd">医嘱<a class="search_adviceTemp doc_adviceTemp diag_panel_tool"><span
+            class="am-icon-tags"></span> 模板</a></div>
+    <div class="am-panel-bd recipe_medAdvice_box">
+        <textarea class="recipe_medAdvice" id="recipe_medAdvice"></textarea>
+    </div>
+</div>
+<div class="am-tabs" id="recipe_tabs" data-am-tabs="{noSwipe: 1}">
+    <ul class="am-tabs-nav am-nav am-nav-tabs" id="recipe_header">
+        <li class="am-active"><a href="javascript: void(0)">西药处方</a></li>
+        <li><a href="javascript: void(0)">中药处方</a></li>
+        <a class="search_recipeTemp diag_panel_tool"  href="javascript: void(0)"><span class="am-icon-tags"></span> 模板</a>
+    </ul>
+
+    <div class="am-tabs-bd" id="recipe_body">
+        <div class="am-tab-panel am-active" id="xy_detail">
+            <table class="recipe_table table-condensed" id="recipe_table">
+            </table>
+        </div>
+        <div class="am-tab-panel" id="zy_detail">
+            <table class="recipe_table table-condensed" id="zy_table">
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="recipe_footer">
+    <label>西药总费用</label><input type="text" class="xy_cost" value="0.00">
+    <label>中药总费用</label><input type="text" class="zy_cost" value="0.00">
+    <label>总费用</label><input type="text" class="total_cost" value="0.00">
+    <!--<button type="button" class="finish_diag am-btn  am-btn-secondary am-btn-xs" name="print">打印</button>-->
+    <button type="button" class="finish_diag am-btn  am-btn-secondary am-btn-xs" name="stop">挂单</button>
+    <button type="button" class="finish_diag am-btn am-btn-success am-btn-xs" name="finish">诊断完成</button>
+</div>
+<div class="am-hide">
+    <style>
+        .print_content .am-g {
+            margin: 0 auto 0.5rem;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .print_content .am-g:before,
+        .print_content .am-g:after {
+            content: " ";
+            display: table;
+        }
+
+        .print_content .am-g:after {
+            clear: both;
+        }
+
+
+        .print_content [class*="am-u-"] {
+            float: left;
+            text-align: left;
+            position: relative;
+        }
+        .print_content .am-u-md-1 {
+            width: 8.33333333%;
+        }
+
+        .print_content .am-u-md-2 {
+            width: 16.66666667%;
+        }
+
+        .print_content .am-u-md-3 {
+            width: 25%;
+        }
+
+        .print_content .am-u-md-4 {
+            width: 33.33333333%;
+        }
+
+        .print_content .am-u-md-5 {
+            width: 41.66666667%;
+        }
+
+        .print_content .am-u-md-6 {
+            width: 50%;
+        }
+
+        .print_content .am-u-md-7 {
+            width: 58.33333333%;
+        }
+
+        .print_content .am-u-md-8 {
+            width: 66.66666667%;
+        }
+
+        .print_content .am-u-md-9 {
+            width: 75%;
+        }
+
+        .print_content .am-u-md-10 {
+            width: 83.33333333%;
+        }
+
+        .print_content .am-u-md-11 {
+            width: 91.66666667%;
+        }
+
+        .print_content .am-u-md-12 {
+            width: 100%;
+        }
+
+        .print_content .text-center {
+            text-align: center;
+        }
+        .print_content .hospital_title {
+            font-weight: bold !important;
+            font-size: 1.6rem;
+        }
+
+        .print_content .recipe_title {
+            font-weight: bold !important;
+            font-size: 1.4rem;
+        }
+
+        .print_content .print_recipe {
+            min-height: 100px;
+            margin-bottom: 2rem;
+        }
+
+        .print_content .print_diag {
+            border-top: 1px solid #111;
+            border-bottom: 1px solid #111;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+    <div class="print_content">
+        <div class="am-g text-center ">
+            <span class="hospital_title">捷云医院</span>
+        </div>
+        <div class="am-g ">
+            <span class="am-u-md-2">门诊号：</span>
+            <span class="am-u-md-10 reg_id"></span>
+        </div>
+        <div class="am-g ">
+            <span class="am-u-md-2">姓名：</span>
+            <span class="am-u-md-2 print_pat_name"></span>
+            <span class="am-u-md-2">性别：</span>
+            <span class="am-u-md-2 print_pat_sex"></span>
+            <span class="am-u-md-2">年龄：</span>
+            <span class="am-u-md-2 print_pat_age"></span>
+        </div>
+        <div class="am-g ">
+            <span class="am-u-md-2">科室：</span>
+            <span class="am-u-md-2 dept_name"></span>
+            <span class="am-u-md-2">日期：</span>
+            <span class="am-u-md-4 am-u-end diag_date"></span>
+        </div>
+        <div class="am-g print_diag">
+            <span class="am-u-md-3">临床诊断：</span>
+            <span class="am-u-md-8 diag_result"></span>
+        </div>
+        <div class="am-g print_recipe">
+            <div class="am-u-md-12">
+                <span class="recipe_title am-u-md-2">Rp:</span>
+            </div>
+            <div class="am-g">
+                <span class="am-u-md-2">&nbsp;</span>
+                <span class="am-u-md-2">名称</span>
+                <span class="am-u-md-2">规格</span>
+                <span class="am-u-md-2">数量</span>
+                <span class="am-u-md-2">单位</span>
+                <span class="am-u-md-2">用法</span>
+            </div>
+            <div class="drug_list">
+
+            </div>
+        </div>
+        <div class="am-g">
+            <span class="am-u-md-2">药费：</span>
+            <span class="am-u-md-2 print_drug_cost"></span>
+            <span class="am-u-md-2">总费用：</span>
+            <span class="am-u-md-2 print_total_cost"></span>
+            <span class="am-u-md-2">医师：</span>
+            <span class="am-u-md-2 doc_name am-u-end"></span>
+        </div>
+        <div class="am-g">
+            <span class="am-u-md-2">调配：</span>
+            <span class="am-u-md-2">&nbsp;</span>
+            <span class="am-u-md-2">发药：</span>
+            <span class="am-u-md-2 am-u-end">&nbsp;</span>
+        </div>
+    </div>
+</div>

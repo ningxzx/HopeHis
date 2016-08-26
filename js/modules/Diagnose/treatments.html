@@ -1,0 +1,152 @@
+<div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="treatments_tabs">
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+        <li class="am-active"><a href="javascript: void(0)" id="w_medicine_tab">西药</a></li>
+        <li><a href="javascript: void(0)" id="c_medicine_tab">中药</a></li>
+        <li><a href="javascript: void(0)" id="treatment_tab">处置</a></li>
+    </ul>
+
+    <div class="am-tabs-bd">
+        <div class="am-tab-panel am-active" id="w_medicine_panel">
+            <div class="am-g" style="padding:1rem 0;">
+                <!--<div class="am-u-md-6" style="padding-left: 0">-->
+                    <!--<select id="w_medicine_category" tabindex="-1">-->
+                        <!--<option></option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <div class="am-u-md-6 am-fr" style="padding-right: 0">
+                    <div class="am-input-group am-input-group-primary">
+                        <input type="text" class="am-form-field" placeholder="请输入名称" id="w_medicine_input"/>
+                         <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-primary" id="w_medicine_search" type="button">
+                                <span class="am-icon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-padding-bottom">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">西药表
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="w_medicine_table" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="w_medicine_info_tabs">
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="javascript: void(0)">药物说明</a></li>
+                    <li><a href="javascript: void(0)">药物明细</a></li>
+                    <li><a href="javascript: void(0)">药物禁忌</a></li>
+                </ul>
+
+                <div class="am-tabs-bd">
+                    <textarea   class="am-tab-panel am-active" id="w_medicine_detail"></textarea>
+                    <div class="am-tab-panel" id="w_medicine_effect">
+
+                    </div>
+                    <div class="am-tab-panel" id="w_medicine_against">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-tab-panel" id="c_medicine_panel">
+            <div class="am-g" style="padding:1rem 0;">
+                <!--<div class="am-u-md-6" style="padding-left: 0">-->
+                    <!--<select id="c_medicine_category" tabindex="-1">-->
+                        <!--<option></option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <div class="am-u-md-6 am-fr" style="padding-right: 0">
+                    <div class="am-input-group am-input-group-primary">
+                        <input type="text" class="am-form-field" placeholder="请输入名称" id="c_medicine_input"/>
+                         <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-primary" id="c_medicine_search" type="button">
+                                <span class="am-icon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-padding-bottom">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">中药表
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="c_medicine_table" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="c_medicine_info_tabs">
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="javascript: void(0)">药物说明</a></li>
+                    <li><a href="javascript: void(0)">药物明细</a></li>
+                    <li><a href="javascript: void(0)">药物禁忌</a></li>
+                </ul>
+
+                <div class="am-tabs-bd">
+                    <textarea   class="am-tab-panel am-active" id="c_medicine_detail"></textarea>
+                    <div class="am-tab-panel" id="c_medicine_effect">
+
+                    </div>
+                    <div class="am-tab-panel" id="c_medicine_against">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-tab-panel" id="medical_treat_panel">
+            <div class="am-g" style="padding:1rem 0;">
+                <div class="am-u-md-6" style="padding-left: 0">
+                    <select id="treatment_category" tabindex="-1">
+                        <option value="check" selected>检查项目</option>
+                        <option value="inspect">检验项目</option>
+                        <option value="cureProject">诊疗项目</option>
+                    </select>
+                </div>
+                <div class="am-u-md-6" style="padding-right: 0">
+                    <div class="am-input-group am-input-group-primary">
+                        <input type="text" class="am-form-field" placeholder="请输入名称或拼音码" id="treatment_input"/>
+                         <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-primary" id="treatment_search" type="button">
+                                <span class="am-icon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-panel am-panel-default table_panel">
+                <div class="am-panel-hd"><span class="treatment_table_title"></span>
+                    <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                </div>
+                <div class="am-panel-bd">
+                    <table id="treatment_table" data-pagination="true">
+                    </table>
+                </div>
+            </div>
+            <div class="am-panel am-panel-default check_panel hid">
+                <div class="am-panel-hd">
+                    <span class="add_treatment_title"></span>
+                </div>
+                <div class="am-panel-bd p_none" id="check_info">
+                    <table id="check_table" class="table-condensed" data-click-to-select="true"
+                           data-pagination="true">
+                    </table>
+                    <div class="am-padding-top am-fr">
+                        <button class="am-btn am-btn-xs am-btn-success am-margin-right am-radius save_btn">
+                            保存项目
+                        </button>
+                        <button class="am-btn am-btn-xs am-btn-warning am-radius reset_btn">
+                            重置项目
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

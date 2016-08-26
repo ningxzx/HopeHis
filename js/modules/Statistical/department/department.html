@@ -1,0 +1,45 @@
+<div class="admin-content am-padding" id="ps">
+    <div class="am-g am-padding-top">
+        <!--<div class="am-input-group am-u-md-4">-->
+            <!--<span class="am-input-group-label">-->
+                <!--<i class="am-icon-user am-icon-fw"></i>-->
+                <!--医生编号-->
+            <!--</span>-->
+            <!--<input type="text" class="am-form-field doctor_id" placeholder="DOC16060600000001M">-->
+        <!--</div>-->
+        <div class="am-input-group am-u-md-4">
+            <span class="am-input-group-label">
+                <i class="am-icon-user am-icon-fw"></i>
+                科室名称
+            </span>
+            <input type="text" class="am-form-field department_name" placeholder="">
+        </div>
+
+        <div class="am-input-group am-u-md-1 ">
+            <button type="button" id="search_dtt_btn" class="am-btn am-btn-primary am-radius am-btn-xs"   >查询</button>
+        </div>
+    </div>
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-8">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+            <input type="text" class="am-form-field start start_calender" placeholder="点击选择日期" readonly>
+            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+            <input type="text" class="am-form-field end end_calender" placeholder="点击选择日期" readonly>
+        </div>
+
+    </div>
+
+    <div class="am-g">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">
+                <span class="panel_title">处方信息</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="dtt_info_tbl" data-pagination="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

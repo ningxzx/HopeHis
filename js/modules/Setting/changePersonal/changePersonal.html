@@ -1,0 +1,162 @@
+<div class="admin-content">
+    <div class="am-g p">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd" style="overflow: hidden">
+                修改个人资料
+                <button id="refreshInfo" class="am-fr am-margin-right  am-btn am-btn-xs am-btn-secondary am-radius">刷新</button>
+                <button id="changePdw" class="am-fr am-margin-right am-btn am-btn-xs am-btn-toolbar am-radius">修改密码</button>
+                <button id="changePhone" class="am-fr am-margin-right am-btn am-btn-xs  am-radius">绑定新手机</button>
+            </div>
+            <div class="am-panel-bd" id="changeInfo">
+                <div class="am-g">
+                    <input id="user_record_id" type="hidden" value={{user_record_id}} readonly>
+                    <div class="am-u-md-9 p">
+                        <div class="am-g p">
+                            <div class="am-u-md-6">
+                                <div class="am-input-group  am-input-group-primary">
+                                    <span class="am-input-group-label">用户账号</span>
+                                    <input class="am-form-field" value={{account_id}} id="user_id" readonly>
+                                </div>
+                            </div>
+                            <div class="am-u-md-6 am-u-end">
+                                <div class="am-input-group  am-input-group-primary">
+                                    <span class="am-input-group-label">电话号码</span>
+                                    <input class="am-form-field" value={{user_phone}} id="user_tel" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g p">
+                            <div class="am-u-md-6">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">用户姓名</span>
+                                    <input class="am-form-field" value={{user_name}} id="user_name"/>
+                                </div>
+                            </div>
+                            <div class="am-u-md-6 am-u-end">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">昵称</span>
+                                    <input id="usernickname" type="text" class="am-form-field" value="{{user_nickname}}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g p">
+                            <div class="am-u-md-6">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">性别</span>
+                                    <select name="gender" id="select_sex">
+                                        <option value="M">男</option>
+                                        <option value="F">女</option>
+                                        <option value="N">不详</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="am-u-md-6 am-u-end">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">身份证号</span>
+                                    <input class="am-form-field" value={{user_card_id}} id="user_card_id"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g p">
+                            <div class="am-u-md-6">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">QQ</span>
+                                    <input id="userqq" type="text" class="am-form-field" value="{{user_qq}}"/>
+                                </div>
+                            </div>
+                            <div class="am-u-md-6">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">微信</span>
+                                    <input id="userwx" type="text" class="am-form-field" value="{{user_wechate}}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g p">
+                            <div class="am-u-md-6">
+                                <div class="am-input-group">
+                                    <span class="am-input-group-label">邮箱</span>
+                                    <input class="am-form-field" value={{user_email}} id="user_email"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g p am-padding-top">
+                            <div class="am-u-md-6  ">
+                                <button class="am-btn am-btn-primary  am-btn-xs am-radius" id="changeBtn">确认编辑</button>
+                            </div>
+                            <div class="am-u-md-6">
+                                <p id="error_tips" class="am-center"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-md-3 p">
+                        <div class="am-u-md-12 p">
+                            <img src="http://192.168.0.220:8081{{user_icon}}"  alt="" class="am-center user_icon"/>
+                        </div>
+                        <div class="am-u-md-12 am-padding-top am-padding-bottom">
+                            <button class="am-btn am-btn-success am-center am-btn-xs am-radius" id="changePhoto">修改头像</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-prompt" tabindex="-1" id="confirmPwd">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">修改密码</div>
+        <div class="am-modal-bd">
+            <ul class="am-list am-list-static am-list-striped">
+                <li>原密码：<input id="oldpwd" type="password" class="am-modal-prompt-input pwd"></li>
+                <li>新密码：<input id="newpwd1" type="password" class="am-modal-prompt-input pass"></li>
+                <li>确认密码：<input id="newpwd2" type="password" class="am-modal-prompt-input rePass"></li>
+            </ul>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm id="pwdsure">确定</span>
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-prompt" tabindex="-1" id="confirmPhone">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">修改绑定手机号码</div>
+        <div class="am-modal-bd  am-margin-0 am-padding-0">
+            <ul class="am-list am-list-static am-list-striped am-margin-0">
+                <li>原手机号码：<input id="oldphone" type="text" class="am-modal-prompt-input pwd" disabled></li>
+                <li>新手机号码：<input id="newphone1" type="text" class="am-modal-prompt-input pass"><button id="sendmes" type="button" class="am-btn am-btn-default am-btn-xs" disabled>发送短信验证码</button></li>
+                <li>短信验证码：<input id="checkmes" type="text" class="am-modal-prompt-input rePass"></li>
+            </ul>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm id="phonesure">确定</span>
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-prompt" tabindex="-1" id="confirmPhoto">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">修改个人头像</div>
+        <div class="am-modal-bd">
+            <div>
+                <img src="" id="dd-img">
+                <p class="dd-img-text">参考示例</p>
+            </div>
+            <div>
+                <div style="position: relative;height: 30px;width: 100px;margin: 10px auto">
+                    <input class="dd-file-file" accept=".jpg,.jpeg,.bmp,.gif,.png" type="file" id="head_photo">
+                    <input class="dd-file-btn" type="button" value="选择文件...">
+                </div>
+            </div>
+        </div>
+        <!--<div class="am-modal-bd">-->
+        <!--<ul class="am-list am-list-static am-list-striped">-->
+        <!--<li><img src="" alt="头像" width="200" height="250"/></li>-->
+        <!--<li><input type="file" class="am-modal-prompt-input rePass"></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm id="uploadimg">确定</span>
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+        </div>
+    </div>
+</div>

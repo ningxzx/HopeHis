@@ -1,0 +1,443 @@
+@import "bill.css";
+@import "index.css";
+@import "register.css";
+@import "diagnose.css";
+@import "office.css";
+@import "medicine.css";
+@import "patient.css";
+@import "member.css";
+@import "setting.css";
+@import "statistical.css";
+html {
+    font-size: 10px !important;
+}
+
+body {
+    width: 100%;
+    background-color: rgb(247, 246, 242);
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif !important;
+}
+
+a, input, button {
+    outline: none;
+    text-decoration: none;
+}
+a:focus, a:hover{
+    text-decoration: none !important;
+}
+select option {
+    cursor: pointer;
+}
+@media screen and (max-width: 1280px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+    [class*="am-u-"] {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+    #topbar-collapse .back{
+        margin-right: 0 !important;
+    }
+}
+.am-topbar-nav>li>a:after{
+    display: none !important;
+}
+#topbar-collapse .back {
+    margin: 0;
+    float: right;
+    margin-right: 30px;
+    list-style: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1em;
+}
+
+.am-padding-top {
+    padding-top: 1rem;
+}
+.am-close{
+    color:red;
+}
+
+/*************header start*************/
+.am-topbar-brand {
+    width:15%;  /
+    padding: 0;
+    text-align: center;
+}
+.am-topbar-brand img {
+    width:30px;
+    height: 30px;
+}
+.messages_wrapper{
+    color:#ffdf06;
+}
+.admin-header-list li a {
+    cursor: pointer;
+    padding: 0 2rem;
+}
+
+.admin-header-list li span {
+    margin-right: 0.5rem;
+}
+
+#username {
+    margin-right: 3rem;
+}
+
+#backoff {
+    cursor: pointer;
+}
+
+/*************header end*************/
+
+/*************sidebar start*************/
+.admin-sidebar {
+    min-height: 680px;
+    width: 15%;
+    background-color: rgb(247, 246, 242);
+}
+
+.admin-content {
+    min-height: 680px;
+    background-color: rgb(247, 246, 242);
+    border-left: 1px solid #d3d3d3;
+}
+
+/*************sidebar end*************/
+.am-datepicker {
+    z-index: 1120; /* 你从新定义下 datepicker z-index值， 高于 .am-modal 1110 就行了，我修改下源码 */
+}
+.am-modal{
+    top:80% !important;
+}
+.am-input-group input[type="text"],
+.am-input-group span,
+.chosen-drop li {
+    font-size: 1.3rem;
+}
+
+.am-input-group-label {
+    line-height: 20px;
+    height: 20px;
+}
+
+.am-input-group .am-form-field, .am-input-group-btn > .am-btn,
+.chosen-container-single .chosen-single {
+    line-height: 28px;
+    height: 28px;
+}
+
+/*************bootstrap-table****************/
+.bootstrap-table {
+    background-color: white;
+}
+
+.bootstrap-table td, th {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+}
+
+.footerTotal {
+    color: red;
+    font-weight: bold;
+}
+
+/**表格备注**/
+.table_tip {
+    font-size: 1.2rem;
+    color: #f59490;
+}
+
+.table_tip h4 {
+    font-size: 1.5rem;
+}
+
+/***表格标题***/
+.table_panel {
+    margin: 2rem 1.5rem 0;
+}
+@media screen and (max-width: 1280px){
+    .table_panel {
+        margin: 1.5rem 1.1rem 0;
+    }
+
+}
+.table_panel .am-panel-bd {
+    padding: 0;
+}
+.table_panel .fixed-table-container {
+    border: 0;
+    border-radius: 0;
+}
+.table_search_wrapper .fixed-table-container{
+    border-top: 1px solid #ddd !important;
+}
+.bs-checkbox {
+    vertical-align: middle !important;
+}
+
+table:not(#tbs) td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+}
+
+/**表格标题中的工具按钮**/
+.panel_tool, .panel_tool:focus, .panel_tool:hover {
+    float: right;
+    margin-right: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.tool_cancel {
+    color: #e4b9c0;
+}
+
+.tool_cancel:focus, .tool_cancel:hover {
+    color: #e48788;
+}
+
+.tool_reset {
+    color: #e4c475;
+}
+
+.tool_reset:focus, .tool_reset:hover {
+    color: #e4a844;
+}
+
+.excel_tool {
+    color: #79b186;
+}
+
+.excel_tool:focus, .excel_tool:hover {
+    color: #2ab117;
+}
+
+/**删除按钮**/
+.row_remove {
+    color: #f59490;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.row_remove:hover, .row_remove:focus {
+    color: red;
+    text-decoration: none;
+}
+
+.row_check {
+    color: #e4c475;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.row_check:hover, .row_check:focus {
+    color: #F37B1D;
+    text-decoration: none;
+}
+
+/*****************/
+.am-form select, .am-form textarea, .am-form input[type="text"], .am-form input[type="password"], .am-form input[type="datetime"], .am-form input[type="datetime-local"], .am-form input[type="date"], .am-form input[type="month"], .am-form input[type="time"], .am-form input[type="week"], .am-form input[type="number"], .am-form input[type="email"], .am-form input[type="url"], .am-form input[type="search"], .am-form input[type="tel"], .am-form input[type="color"], .am-form-field {
+    outline: none;
+    text-indent: 0.5rem;
+    padding: 0 0.2rem;
+}
+
+/********menu style***********/
+.menu-active {
+    background-color: rgb(247, 246, 242);
+    color: #333;
+}
+
+.menu-active a {
+    color: #333 !important;
+}
+
+#main_menu a {
+    text-decoration: none;
+    outline: none;
+}
+#main_menu li{
+    margin-left: 0;
+}
+.am-nav>li>a:focus, .am-nav>li>a:hover{
+    background-color: rgb(247, 246, 242);
+    color:#333;
+}
+#main_menu>li>a:hover{
+    background-color: rgb(247, 246, 242);
+    color:#333;
+}
+#main_menu li.menu-active:hover {
+    background-color: rgb(247, 246, 242);
+}
+
+/*****************************/
+
+/******tabs style *****/
+.am-nav-tabs > li > a {
+    color: #999;
+}
+
+.am-nav-tabs > li.am-active > a {
+    font-weight: 800;
+}
+
+.am-nav-tabs > li > a, .am-nav-tabs > li.am-active > a, .am-nav-tabs > li.am-active > a:hover, .am-nav-tabs > li.am-active > a:focus {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.am-tabs-bd .am-tab-panel {
+    -webkit-transition: -webkit-transform 0.0001s;
+    transition: transform 0.0001s;
+}
+
+/*****页脚*******/
+.footer_message{
+    height: 100px;
+    padding: 30px 0;
+    text-align: center;
+    color:#333;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+.footer_message p{
+    padding: 0;
+}
+/*****coding style******/
+.am-topbar {
+    background-color: #2f65bb;
+    color: #fff;
+    border: none;
+}
+
+.am-topbar a {
+    color: white;
+}
+.submenu {
+    color: rgb(102, 102, 102);
+}
+
+.admin-sidebar .am-list > li {
+    background-color: rgb(247, 246, 242);
+    font-size: 1.3rem;
+}
+
+.admin-sidebar .am-list > li:hover {
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.menu_on {
+    background-color: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.menu_on:after {
+    content: "\25C2";
+    float: right;
+    font-size: 2rem;
+    line-height: 1.5rem;
+    color: #FFFFCC;
+}
+
+.admin-sidebar .topic {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-left: 24px;
+}
+
+.admin-sidebar .description {
+    font-size: 1.1rem;
+    margin-left: 24px;
+    margin-right: 1rem;
+}
+
+/** **/
+#godesktop {
+    font-size: 14px;
+}
+
+/**上传图片按钮**/
+.dd-file-file {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.dd-file-btn {
+    width: 100px;
+    height: 30px;
+    background: #428bca;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 0;
+    color: #FFF;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.am-input-group .am-radio-inline {
+    margin-bottom: 0.3rem;
+}
+
+.pagination-detail {
+    margin-left: 1rem;
+}
+
+#user_confirm .am-modal-dialog dl {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#user_confirm .am-modal-dialog dl dt {
+    float: left;
+    width: 150px;
+    text-align: right;
+    line-height: 43px;
+    margin-right: 20px;
+}
+
+#user_confirm .am-modal-dialog dl dd {
+    float: left;
+    line-height: 28px;
+    overflow: hidden;
+    height: 32px;
+}
+
+/********** for table export*********/
+
+#index_news .am-list > li > a {
+    padding: 0.5rem 0;
+}
+/****delete alert******/
+.delete_alert .am-modal-bd{
+    color:red;
+}
+.header_buttons{
+    font-size: 12px;
+    line-height: 50px;
+    margin-right: 58px;
+}
+.am-btn-primary {
+     color: #fff;
+     background-color: #2f65bb;
+     border-color: #2f65bb;
+ }
+.am-btn-primary:focus, .am-btn-primary:hover{
+    background-color: #2f65bb;
+    border-color: #2f65bb;
+    outline: none !important;
+}

@@ -1,0 +1,61 @@
+<div class="admin-content supplier_wrapper medicine_module">
+    <div class="am-g supplier_table_wrapper">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">处方费用表
+                <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                <a class="panel_tool refresh_tool" id="refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+
+            </div>
+            <div class="am-panel-bd">
+                <table id="recipe_fee_table">
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="supplier_info">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <span class="supplier_info_title">新增供应商</span>
+                <a class="tool_confirm panel_tool" id="edit_confirm"><i class="am-icon-check"></i> 确认</a>
+                <a class="tool_reset panel_tool" id="edit_reset"><i class="am-icon-recycle"></i> 重置</a>
+                <a class="tool_cancel panel_tool" id="edit_cancel"><i class="am-icon-close"></i> 关闭</a>
+            </div>
+            <div class="am-panel-bd">
+                <div class="am-g">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-sm-3  ">
+                            <span class="am-input-group-label"><i class="am-icon-bars"></i> 费用名称</span>
+                            <input type="text" class="am-form-field" id="supplier_name" placeholder="全称">
+                        </div>
+                        <div class="am-input-group am-u-sm-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-bank"></i> 处方类型</span>
+                            <select name="" id="recipe_type">
+                                <option value=" ">-全部-</option>
+                                <option selected="selected" value="0">西药处方</option>
+                                <option value="1">重要处方</option>
+
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-sm-3 am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-euro"></i> 金额</span>
+                            <input type="text" class="am-form-field"  placeholder="精确到小数点后两位">
+                        </div>
+                        <div class="am-input-group am-u-sm-3 ">
+                            <span class="am-input-group-label"><i class="am-icon-male"></i> 状态</span>
+                            <div class="member_radio">
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="level_state" value="true"> 启用
+                                </label>
+                                <label class="am-radio-inline">
+                                    <input type="radio" name="level_state" value="false"> 禁用
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

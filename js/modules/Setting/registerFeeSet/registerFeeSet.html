@@ -1,0 +1,109 @@
+<div class="admin-content">
+    <div class="am-panel am-panel-default table_panel">
+        <div class="am-panel-hd">标准挂号费列表
+            <a class="panel_tool" id="refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+            <a class="panel_tool" id="edit_level_fee"><i class="am-icon-plus-square"></i> 编辑挂号费</a>
+        </div>
+        <div class="am-panel-bd">
+            <table id="level_fee_table">
+            </table>
+        </div>
+    </div>
+    <div class="am-panel am-panel-default table_panel">
+        <div class="am-panel-hd">医生列表
+            <a class="panel_tool" id="refresh_doctors"><i class="am-icon-refresh"></i> 刷新</a>
+        </div>
+        <div class="am-panel-bd">
+            <table id="doctors_fee_table" data-pagination="true">
+            </table>
+        </div>
+    </div>
+    <div class="am-panel am-modal am-panel-default table_panel" id="level_fee_modal">
+        <div class="am-panel-hd"><span>标准挂号费</span>
+            <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;" data-am-modal-close>&times;</a></div>
+        <div class="am-panel-bd">
+            <div class="am-g top">
+                <div class="am-g leve_fee_title">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">医生级别</span>
+                    </div>
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">普通号挂号费</span>
+                    </div>
+                    <div class="am-u-sm-3 am-u-end am-input-group">
+                        <span class="">专家号挂号费</span>
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">主任医师</span>
+                    </div>
+                    <div class="am-u-sm-3 am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="20" reg_type="pt" placeholder="例如：10.00" id="20_pt">
+                    </div>
+                    <div class="am-u-sm-3 am-u-end am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="20" reg_type="zj" placeholder="例如：10.00" id="20_zj">
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">副主任医师</span>
+                    </div>
+                    <div class="am-u-sm-3 am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="21" reg_type="pt" placeholder="例如：10.00" id="21_pt">
+                    </div>
+                    <div class="am-u-sm-3 am-u-end am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="21" reg_type="zj"  placeholder="例如：10.00" id="21_zj">
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">主治医师</span>
+                    </div>
+                    <div class="am-u-sm-3 am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="10" reg_type="pt" placeholder="例如：10.00" id="10_pt">
+                    </div>
+                    <div class="am-u-sm-3 am-u-end am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="10" reg_type="zj" placeholder="一般不填" id="10_zj">
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-sm-3 am-input-group">
+                        <span class="">门诊医师</span>
+                    </div>
+                    <div class="am-u-sm-3 am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="30" reg_type="pt" placeholder="例如：10.00" id="30_pt">
+                    </div>
+                    <div class="am-u-sm-3  am-input-group">
+                        <input type="text" class="level_fee am-form-field" title_code="30" reg_type="zj" placeholder="一般不填" id="30_zj">
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <button type="button" class="am-btn am-u-md-7 am-btn-primary am-radius am-btn-xs" id="save_level_fee">保存
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-panel am-modal am-panel-default table_panel" id="single_fee_modal">
+        <div class="am-panel-hd">编辑挂号费
+            <a href="javascript: void(0)" class="am-fr am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-panel-bd am-margin">
+            <div class="am-g top">
+                <div class="am-input-group am-u-md-5">
+                    <span class="am-input-group-label">当前挂号金额</span>
+                    <input type="text" class="am-form-field" placeholder="例如：10.00" id="old_register_fee" readonly>
+                </div>
+                <div class="am-input-group am-u-md-5">
+                    <span class="am-input-group-label">修改后挂号金额</span>
+                    <input type="text" class="am-form-field" placeholder="例如：10.00" id="new_register_fee">
+                </div>
+                <div class="am-input-group am-u-md-1  am-padding-bottom">
+                    <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="save_single_fee">保存
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

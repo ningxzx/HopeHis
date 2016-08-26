@@ -1,0 +1,166 @@
+<div class="admin-content medicine_module">
+    <div class="am-g curstorage_input_group">
+        <div class="am-input-group am-u-md-4">
+            <span class="am-input-group-label">患者</span>
+            <input type="text" class="am-form-field first_focus" id="pat_code_name" placeholder="输入患者姓名或ID">
+        </div>
+        <div class="am-u-md-2 am-u-end">
+            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="wc_Hospitalpatients">
+                查询
+            </button>
+        </div>
+    </div>
+    <div class="am-panel am-panel-default table_panel curStorage_table_panel">
+        <div class="am-panel-hd"><span class="panel_title">医院患者表</span>
+            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+            <a class="panel_tool pat_refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+        </div>
+        <div class="am-panel-bd">
+            <table id="Hospitalpatients_tbl"></table>
+        </div>
+    </div>
+</div>
+
+<!--model 就诊记录-->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="patient_history">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">就诊记录
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd" style="max-height: 600px; overflow-y: scroll;">
+        </div>
+    </div>
+</div>
+
+<!-- modal-->
+
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">查看患者信息
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+
+            <div class="am-g " style="margin-top: 10px;">
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">姓名:</span>
+                        <input type="text" class="am-form-field" id="m_name">
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">性别:</span>
+                        <input type="text" class="am-form-field" id="m_gender">
+                        <!--<select name="m_gender" id="m_gender" class="am-form-field">-->
+                            <!--<option value="M">男</option>-->
+                            <!--<option value="F">女</option>-->
+                            <!--<option value="N">不详</option>-->
+                        <!--</select>-->
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">出生日期:</span>
+                        <input type="text" class="am-form-field" id="m_birth" readonly placeholder="单击选择日期">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">婚姻状况:</span>
+                        <input type="text" class="am-form-field" id="m_marry">
+                        <!--<select name="m_marry" id="m_marry" class="am-form-field">-->
+                            <!--<option value="未婚">未婚</option>-->
+                            <!--<option value="已婚">已婚</option>-->
+                            <!--<option value="离异">离异</option>-->
+                            <!--<option value="丧偶">丧偶</option>-->
+                            <!--<option value="不详">不详</option>-->
+                        <!--</select>-->
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">邮箱:</span>
+                        <input type="text" class="am-form-field" id="m_email">
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">微信号:</span>
+                        <input type="text" class="am-form-field" id="m_wechat">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">QQ号:</span>
+                        <input type="text" class="am-form-field" id="m_qq">
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">手机:</span>
+                        <input type="text" class="am-form-field" id="m_cellphone">
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">城市:</span>
+                        <input type="text" class="am-form-field" id="m_city">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="am-g" style="margin-top: 10px;">
+
+
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">第二联系人:</span>
+                        <input type="text" class="am-form-field" id="f_name">
+                    </div>
+                </div>
+                <div class="am-u-md-6">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">第二联系人电话:</span>
+                        <input type="text" class="am-form-field" id="f_phone">
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-g" style="margin-top: 10px;">
+
+                <div class="am-u-md-6">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">详细地址:</span>
+                        <input type="text" class="am-form-field" id="m_detail">
+                    </div>
+                </div>
+
+                <div class="am-u-md-6">
+                    <div class="am-input-group">
+                     <span class="am-input-group-label">身份证号:</span>
+                       <input type="text" class="am-form-field" id="m_card_id">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="am-modal-footer">
+            <!--<span class="am-modal-btn" data-am-modal-cancel>关闭</span>-->
+            <!--<span class="am-modal-btn" data-am-modal-confirm>提交</span>-->
+        </div>
+    </div>
+</div>

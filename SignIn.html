@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>厚朴医疗信息系统</title>
+    <meta name="description" content="enjoy">
+    <meta name="keywords" content="doctor,workstation,jethis,Intelligent medical">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="imgs/jethis.ico">
+    <link rel="apple-touch-icon-precomposed" href="js/libs/amazeui/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="厚朴医疗信息系统登录"/>
+    <link rel="stylesheet" href="css/orgcheck/login.css">
+</head>
+<body>
+<header>
+    <h2 class="logo">
+        <img src="imgs/logo.jpg" alt="">
+    </h2>
+    <a href="javascript:void(0)" class="title">厚朴诊所信息系统</a>
+</header>
+<section>
+    <div class="login_box">
+        <div class="app_name">
+            <h1>用户登录</h1>
+        </div>
+        <div class="login_form">
+            <div class="input_wrapper"><input type="text" id="username" placeholder="用户名"></div>
+            <div class="input_wrapper"><input type="password" id="password" placeholder="密码"></div>
+            <div class="input_wrapper"><input type="text" id="hos_sel" readonly></div>
+            <div class="forget_password_wrapper"><span class="forget_password">忘记密码？</span></div>
+            <div class="btns">
+                <button type="button" id="loginBtn" class="">登录</button>
+                <button type="button" id="registerBtn" class="">注册</button>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script src="js/libs/jquery/jquery.min.js"></script>
+<script src="js/libs/cryptojslib/rollups/aes.js"></script>
+<script src="js/libs/cryptojslib/components/pad-zeropadding-min.js"></script>
+<script src="js/libs/jctlibs/base64.js"></script>
+<script src="js/libs/cryptojslib/rollups/md5-min.js"></script>
+<script src="js/modules/viewModule/signin/login.js"></script>
+</body>
+</html>

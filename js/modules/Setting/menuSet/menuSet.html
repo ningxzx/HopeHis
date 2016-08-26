@@ -1,0 +1,79 @@
+<div class="admin-content" id="menuSet">
+    <div class="am-g">
+        <div class="am-u-md-4 am-u-sm-12">
+            <div class="am-g" id="role_table_wrapper">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">角色表
+                        <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="role_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-8 am-u-sm-12">
+            <div class="am-g" id="menu_table_wrapper">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">权限菜单表
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        <a class="panel_tool save_menu_tool"><i class="am-icon-save"></i> 保存权限</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="menu_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="am-panel am-modal am-panel-default table_panel" id="role_modal">
+    <div class="am-panel-hd"><span class="am-fl modal_title">添加角色</span>
+        <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;" data-am-modal-close>&times;</a></div>
+    <div class="am-panel-bd">
+        <div class="am-g am-padding-bottom am-padding-top">
+            <div class="am-input-group am-u-md-6 ">
+                <span class="am-input-group-label"> 角色名称:</span>
+                <input type="text" class="am-form-field" id="role_name"/>
+            </div>
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"> 启用状态</span>
+                <div class="member_radio member_state">
+                    <label class="am-radio-inline">
+                        <input type="radio" name="edit_role_type" id="personal_advice_temp" value="10"> 启用
+                    </label>
+                    <label class="am-radio-inline">
+                        <input type="radio" name="edit_role_type" id="public_advice_temp" value="00"> 停用
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-12 am-padding-bottom">
+            <label for="role_remark" class="am-fl">角色详情：</label>
+            <textarea id="role_remark" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="am-u-md-12 am-padding-bottom">
+            <div class=" am-u-md-4 am-alert am-alert-success am-fl am-hide" data-am-alert id="role_operate_su">
+                <p></p>
+            </div>
+            <div class=" am-u-md-4 am-alert am-alert-warning am-fl am-hide" data-am-alert id="role_operate_fail">
+                <p></p>
+            </div>
+            <div class="am-input-group am-u-md-3 am-fr">
+                <button class="am-btn-success am-btn-xs am-btn" id="submit_role">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert"  id="save_menu_alert">
+<div class="am-modal-dialog">
+    <div class="am-modal-bd">
+    </div>
+    <div class="am-modal-footer">
+        <span class="am-modal-btn">确定</span>
+    </div>
+</div>
+</div>

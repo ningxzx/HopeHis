@@ -1,0 +1,433 @@
+#info {
+    margin: 0 1.5rem;
+}
+
+#note {
+    resize: none;
+}
+
+.subMenu, .cute {
+    float: right;
+}
+
+.subMenu:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#confirmPwd .am-modal-prompt-input, #confirmPhone .am-modal-prompt-input {
+    display: inline-block;
+    line-height: 0.8rem;
+    padding: 3px 5px;
+    width: 30%;
+    margin: 5px 10px;
+}
+
+#head_file {
+    padding-top: 130px;
+}
+
+#add_dept_modal {
+    text-align: left;
+}
+
+.dept_info_panel {
+    margin-bottom: 2rem !important;
+}
+
+.use_state {
+    margin-top: -0.5rem !important;
+}
+
+#level_fee_modal .am-input-group {
+    margin-bottom: 1rem;
+}
+
+#doctors_fee_table, #doctors_table, #employer_table, #level_fee_table {
+    border: 1px solid #ddd;
+}
+
+/*模板设置*/
+#advice_modal .am-panel-bd, #recipe_modal .am-panel-bd, #diag_modal .am-panel-bd {
+    padding: 1rem;
+}
+
+#recipe_modal .am-g {
+    margin-bottom: 1rem;
+}
+
+#patient_ask, #diag_template_detail, #advice_template_detail, #diag_template_remark {
+    margin-bottom: 2rem;
+}
+
+* + .am-alert {
+    margin-top: 0
+}
+
+.am-alert {
+    margin-bottom: 0;
+    padding: 0.3rem 1rem 0.3rem 3rem
+}
+
+.reset_search {
+    margin: 0 3rem;
+}
+
+.search_wrapper > div {
+    padding: 1rem 0;
+}
+
+#recipe_template_remark {
+    border-radius: 0;
+}
+
+#add_recipe_wrapper .p, #diag_temp_wrapper .p {
+    padding: 1rem 0;
+}
+
+#medicine_tbl {
+    border: 1px solid #ddd;
+}
+
+#recipe_temp_detail_wrapper {
+    min-height: 40rem;
+}
+
+.recipe_detail_btn_group {
+    margin-top: 2rem;
+}
+
+.am-tabs .am-icon-close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #888;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#recipe_detail_template_hd {
+    width: 130px;
+}
+
+#menuSet .input_check {
+    float: right;
+    margin: 0 auto !important;
+}
+
+#menuSet label {
+    display: inline-block;
+}
+
+#menuSet .am-checkbox {
+    margin-top: 10px;
+}
+
+/** role **/
+#role_table_wrapper {
+    min-height: 680px;
+    border-right: 1px solid #ddd;
+}
+
+#role_modal .am-panel-hd {
+    overflow: hidden;
+}
+
+#role_modal label {
+    font-weight: normal;
+}
+
+#menu_tbl {
+    cursor: default;
+}
+
+#menu_tbl td {
+    text-align: left !important;
+}
+
+#menu_tbl .am-checkbox input[type=checkbox] {
+    height: 23px;
+}
+
+#menu_tbl .am-checkbox {
+    cursor: pointer;
+    margin: 0.5rem 0;
+}
+
+#menu_tbl .am-checkbox span {
+    margin-left: 0.5rem;
+}
+
+/**** 用户管理 ***/
+#add_user_modal .am-panel-hd {
+    text-align: left;
+}
+
+#add_user_modal .am-input-group-label {
+    width: 80px;
+}
+
+#add_user_modal #user_role_chosen input {
+    font-size: 1.3rem;
+    font-family: inherit !important;
+}
+
+#add_user_modal .input_tips {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+#add_user_modal .input_tips img {
+    margin-right: 1rem;
+}
+
+#add_user_modal input {
+    text-align: center;
+}
+
+#doctor_regfee {
+    font-size: 1.3rem;
+}
+
+.introjs-helperNumberLayer {
+    line-height: 14px !important;
+}
+
+#changeInfo input {
+    font-size: 1.3rem;
+}
+
+#menu_tbl td {
+    padding: 0 !important;;
+}
+
+/**功能设置**/
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.switch {
+    margin: 0px auto;
+    position: relative;
+    -moz-transform: scale(0.7, 0.7);
+    -webkit-transform: scale(0.7, 0.7);
+    -o-transform: scale(0.7, 0.7);
+}
+
+.switch label {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.switch input {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.switch.demo3 {
+    width: 180px;
+    height: 50px;
+}
+
+.switch.demo3 label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #a5a39d;
+    border-radius: 40px;
+    box-shadow: inset 0 3px 8px 1px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.switch.demo3 label:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    border-radius: inherit;
+    background: #ababab;
+    background: -moz-linear-gradient(#f7f6f2, #ababab);
+    background: -ms-linear-gradient(#f7f6f2, #ababab);
+    background: -o-linear-gradient(#f7f6f2, #ababab);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f7f6f2), to(#ababab));
+    background: -webkit-linear-gradient(#f7f6f2, #ababab);
+    background: -webkit-linear-gradient(#e9e8e4, #ababab);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3),
+    0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.switch.demo3 label:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -18px;
+    right: -18px;
+    bottom: -18px;
+    left: -18px;
+    border-radius: inherit;
+    background: #eee;
+    background: -moz-linear-gradient(#f7f6f2, #eee);
+    background: -ms-linear-gradient(#f7f6f2, #eee);
+    background: -o-linear-gradient(#f7f6f2, #eee);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#e5e7e6), to(#eee));
+    background: -webkit-linear-gradient(#f7f6f2, #eee);
+    background: linear-gradient(#f7f6f2, #fef7f7);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);
+    -o-filter: blur(1px);
+    filter: blur(1px);
+}
+
+.switch.demo3 label i {
+    display: block;
+    height: 100%;
+    width: 60%;
+    border-radius: inherit;
+    background: silver;
+    position: absolute;
+    z-index: 2;
+    right: 40%;
+    top: 0;
+    background: #b2ac9e;
+    background: -moz-linear-gradient(#f7f2f6, #b2ac9e);
+    background: -ms-linear-gradient(#f7f2f6, #b2ac9e);
+    background: -o-linear-gradient(#f7f2f6, #b2ac9e);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f7f2f6), to(#b2ac9e));
+    background: -webkit-linear-gradient(#f7f2f6, #b2ac9e);
+    background: linear-gradient(#f7f2f6, #b2ac9e);
+    box-shadow: inset 0 1px 0 white,
+    0 0 8px rgba(0, 0, 0, 0.3),
+    0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch.demo3 label i:after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    width: 70%;
+    height: 50%;
+    background: #d2cbc3;
+    background: -moz-linear-gradient(#cbc7bc, #d2cbc3);
+    background: -ms-linear-gradient(#cbc7bc, #d2cbc3);
+    background: -o-linear-gradient(#cbc7bc, #d2cbc3);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#cbc7bc), to(#d2cbc3));
+    background: -webkit-linear-gradient(#cbc7bc, #d2cbc3);
+    background: linear-gradient(#cbc7bc, #d2cbc3);
+    border-radius: inherit;
+}
+
+.switch.demo3 label i:before {
+    content: "不分开";
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 1px 0 #bcb8ae, 0 -1px 0 #97958e;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    position: absolute;
+    top: 55%;
+    margin-top: -12px;
+    right: -60%;
+    width: 60px;
+}
+
+.switch.demo3 input:checked ~ label {
+    background: #9abb82;
+}
+
+.switch.demo3 input:checked ~ label i {
+    right: -1%;
+}
+
+.switch.demo3 input:checked ~ label i:before {
+    content: "分开";
+    right: 95%;
+    color: #82a06a;
+    text-shadow: 0 1px 0 #afcb9b,
+    0 -1px 0 #6b8659;
+}
+
+.fs_wrapper {
+    min-height: 680px;
+    border-left: 1px solid #d3d3d3;
+    width: auto;
+    overflow: hidden;
+}
+
+.func_title {
+    border-right: 1px solid #d3d3d3;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.func_title, .mb_apart {
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.mb_apart_wrapper {
+    margin-top: 30px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+/*****挂号费设置**********/
+.leve_fee_title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+ul.price_list li {
+    /*display: inline-block;*/
+    width: 100px;
+}
+
+#error_tips {
+    color: red;
+    font-weight: bold;
+}
+
+.user_icon,#dd-img {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+}
+
+#changeBtn {
+    padding: .5rem 2rem;
+}
+#changePdw{
+    background-color: #a14c09;
+    color: white;
+}
+#changePhone{
+    background-color: #2e6da4;
+    color: white;
+}

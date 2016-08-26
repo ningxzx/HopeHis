@@ -1,0 +1,481 @@
+/********诊疗页面全局样式******/
+.diagnose_wrapper {
+    background-color: #f3f3f3;
+    font-size: 1.2rem !important;
+}
+
+.diagnose_wrapper a, .diagnose_wrapper a:hover,
+.diagnose_wrapper a:focus {
+    text-decoration: none;
+    color: #23abf0;
+}
+
+.diagnose_wrapper .bootstrap-table td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+}
+
+.diagnose_wrapper .form-control {
+    width: 10rem;
+    height: 26px;
+    font-size: 1.2rem;
+}
+
+.diagnose_wrapper .am-btn:focus, .diagnose_wrapper .am-btn:active:focus {
+    outline: none;
+    -moz-outline: none;
+}
+
+@media only screen and (max-width: 1366px) {
+    .diagnose_wrapper .bootstrap-table td, .diagnose_wrapper .bootstrap-table th {
+        font-size: 1rem;
+    }
+}
+
+.treat_btn_group {
+    padding: 1rem 0;
+}
+
+.treat_btn_group button {
+    float: left;
+    width: 6rem;
+    margin-right: 2rem;
+}
+
+.diagnose_btn_group {
+    padding: 1.5rem 0.5rem 1rem;
+}
+
+.diagnose_btn_group button {
+    width: 6rem;
+    margin-left: 2rem;
+}
+
+.current_pat_panel {
+    padding: 1rem 0 !important;
+}
+
+.current_pat_panel .am-panel {
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+}
+
+/*******diagnose 诊断部分 tab样式******/
+#diagnose_box {
+    width: 55% !important;
+}
+.temp_modal .am-panel-hd{
+    padding: .6rem 0 0;
+    border-bottom: none;
+}
+#diagnose_box .am-tabs-nav .am-icon-close {
+    position: absolute;
+    top: 0;
+    right: 0.7rem;
+    padding: 0.2rem;
+    color: #888;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#diagnose_box .am-tabs-nav .am-icon-close:hover {
+    color: #eda4a2;
+}
+
+#diagnose_box .am-tabs-nav > li > a {
+    padding: 0.6rem 2.5rem 0.4rem 1.8rem;
+}
+
+#pats_info_tabs {
+    padding: 5px;
+}
+
+.temp_modal .am-radio {
+    cursor: pointer;
+}
+
+.temp_modal .am-radio-inline:hover {
+    color: #00bcf2;
+}
+
+.temp_modal .am-modal-footer {
+    font-size: 1.4rem;
+}
+
+#diag_detail {
+    text-align: left;
+}
+
+.record_summary {
+    text-align: center;
+    padding: 0.5rem 0 1rem;
+}
+
+/*******recipe start 处方部分*******/
+
+#pats_info_tabs .am-panel-hd {
+    font-weight: bold;
+}
+
+.recipe_wrapper [class*="am-u-"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.recipe_wrapper h3 {
+    text-align: center;
+}
+
+.recipe_wrapper input {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    border: none;
+    text-align: center;
+}
+
+#diagnose_box {
+    border-left: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
+}
+
+.basic_info label {
+    text-align: left;
+    max-width: 30%;
+    padding: 0
+}
+
+.basic_info input {
+    text-align: center;
+    /*max-width: 200px;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    float: inherit !important;
+}
+
+.basic_info input {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    border: none;
+    text-align: center;
+}
+
+.recipe_wrapper .am-panel {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.recipe_diagnose_box, .recipe_medAdvice_box {
+    padding: 0;
+}
+
+.recipe_diagnose, .recipe_medAdvice, .patient_tell, .patient_med_history，.pat_history, .pat_history {
+    border: 0;
+    padding: 0.5rem 4rem;
+    outline: none;
+    margin: 0 auto;
+    line-height: 1.4;
+    width: 100%;
+    min-height: 6rem;
+}
+
+.search_diagTemp, .search_adviceTemp, .search_recipeTemp, .get_history, .get_allergy {
+    float: right;
+    margin-right: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.somatoscopy {
+    float: right;
+    margin-right: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: #f0ad4e !important;
+}
+
+.recipe_footer {
+    margin: 2rem 0;
+    padding: 1rem;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.recipe_footer button {
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+.recipe_footer label {
+    margin-left: 2rem;
+}
+
+input.med_dept, input.med_doctor, input.total_cost, input.xy_cost, input.zy_cost {
+    width: 4rem;
+}
+
+.recipe_save {
+    float: right;
+}
+
+.take_days, .drug_group, .take_ways {
+    padding: 0 0.8rem;
+}
+
+.prescription_info {
+    min-height: 20rem;
+}
+
+.tell_wrapper .am-panel-bd, .med_history_wrapper .am-panel-bd {
+    padding: 0;
+}
+
+.med_history_wrapper {
+    border-left: none;
+}
+
+.recipe_table .table_remove i {
+    margin: 0 auto;
+}
+
+.recipe_table {
+    cursor: default;
+}
+
+.recipe_table td select {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+
+.recipe_table td input.drug_remark, .recipe_table td input.drug_num {
+    width: 100%;
+    text-align: center;
+}
+
+.recipe_table td input.take_num {
+    width: 50%;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.take_ways {
+    width: 6rem;
+}
+
+.frequencies {
+    width: 8rem;
+}
+
+#recipe_header {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+#recipe_header li.am-active > a {
+    border: 0;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+#recipe_body {
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+
+#recipe_header a {
+    font-size: 1.2rem;
+}
+
+.search_recipeTemp {
+    line-height: 2.7rem;
+    margin-right: 2rem;
+}
+
+#recipe_body, #recipe_record_body {
+    min-height: 200px;
+    background-color: white;
+}
+
+/*******recipe end*********/
+
+/*******treatments start*******/
+
+#treatments {
+    padding: 0;
+    width: 25% !important;
+    background-color: #f3f3f3;
+}
+
+.am-tab-panel {
+    background-color: white;
+}
+
+#treatments .am-checkbox, #treatments .am-radio, #treatments .am-checkbox-inline, #treatments .am-radio-inline {
+    font-size: 1.2rem;
+}
+
+#treatments .chosen-container {
+    font-size: 1.2rem;
+}
+
+#treatments .chosen-container-single .chosen-single {
+    height: 2.8rem;
+    line-height: 2.8rem;
+}
+
+#treatments table {
+    background-color: white;
+}
+
+#treatments div.am-tab-panel {
+    background-color: white;
+}
+
+#treatments .fixed-table-container .bs-checkbox .th-inner {
+    padding: 8px;
+}
+
+#treatments .treatment_tools {
+    padding: 10px;
+}
+
+.treatment_tools .am-input-group {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    width: 15rem;
+}
+
+.treatment_tools .am-input-group input[type="text"] {
+    font-size: 1rem;
+}
+
+#treatments_info_tabs {
+    margin-top: 1rem;
+}
+
+.treatments_add_box {
+    margin-top: 1rem;
+}
+
+#treatments_search_btn {
+    font-size: 1.1rem;
+}
+
+#treatments .am-radio + .am-radio, #treatments .am-checkbox + .am-checkbox {
+    margin-top: 0;
+}
+
+#treatments_add_btn {
+    margin-left: 2rem;
+}
+
+#w_medicine_input, #w_medicine_search, #c_medicine_input, #c_medicine_search, #treatment_input, #treatment_search {
+    height: 33px;
+}
+
+#w_medicine_search, #c_medicine_search, #treatment_search {
+    padding: 0 1rem;
+}
+
+#treatments_tabs .table_panel {
+    min-height: 200px;
+    margin: 1rem 0;
+}
+
+#w_medicine_info_tabs .am-tabs-bd, #c_medicine_info_tabs .am-tabs-bd {
+    border: 1px solid #ddd;
+    border-top: 0;
+}
+
+#check_info .fixed-table-container {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+#check_info .fixed-table-footer {
+    border-top: 0;
+}
+
+#check_info .fixed-table-footer td {
+    height: 27px;
+}
+
+/*******treatments end*******/
+
+/***********pats-queue***************/
+#pats_queue_wrapper {
+    padding: 5px;
+    min-height: 680px;
+    width: 20% !important;
+}
+
+#reg_pats_refresh, #reg_pats_plus {
+    float: right;
+    margin: 0.8rem 0.5rem 0;
+    cursor: pointer;
+    color: #4cae4c;
+}
+
+#pats_queue_wrapper .am-tabs-nav > li > a {
+    height: 36px;
+    line-height: 26px;
+}
+
+.no_pat_tip {
+    line-height: 28px;
+    color: red;
+}
+
+#add_patient_modal .am-modal-hd {
+    padding: 5px 10px;
+}
+
+.reg_tbl_names {
+    position: absolute;
+    top: 30px;
+    left: 32px;
+    width: 400px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/**********treatments***********/
+.diagnose_wrapper .am-alert {
+    display: none;
+}
+
+.table_panel .am-panel-hd {
+    overflow: hidden;
+}
+
+#treat button {
+    margin-right: 20px;
+}
+
+#diag_record_tbl tbody > tr {
+    cursor: pointer;
+}
+
+input.billing_item_num {
+    max-width: 90%;
+}
+
+#w_medicine_info_tabs .am-tabs-bd div {
+
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#w_medicine_detail, #c_medicine_detail {
+    width: 100%;
+    border: 0;
+    min-height: 300px;
+}

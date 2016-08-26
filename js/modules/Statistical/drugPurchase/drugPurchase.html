@@ -1,0 +1,68 @@
+<div class="admin-content" style="padding: 10px; ">
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+            <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3">
+                <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3">
+         <span class="am-input-group-label">
+             <i class="am-icon-user am-icon-fw"></i>
+                                供应商名称
+                            </span>
+            <input type="text" id="Supplier_name" class="am-form-field " placeholder="">
+        </div>
+        <div class="am-input-group am-u-md-3">
+         <span class="am-input-group-label">
+             <i class="am-icon-user am-icon-fw"></i>
+                                药品名称
+                            </span>
+            <input type="text" id="Drug_name" class="am-form-field " placeholder="">
+        </div>
+    </div>
+<div class="am-g" style="height: 10px;"></div>
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3">
+             <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                批次号
+                            </span>
+            <input type="text" class="am-form-field" id="Odd_Numbers" placeholder="">
+        </div>
+        <!--<div class="am-input-group am-u-md-3">-->
+             <!--<span class="am-input-group-label">-->
+                 <!--<i class="am-icon-user am-icon-fw"></i>-->
+                                <!--审核状态-->
+             <!--</span>-->
+            <!--<select   id="state" >-->
+                <!--<option selected="selected" value="0">全部</option>-->
+                <!--<option value="1">审核中</option>-->
+                <!--<option value="2">已审核</option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <div class="am-input-group am-u-md-1">
+            <button type="button" id="drugpurchase_btn" class="am-btn am-btn-primary am-radius am-btn-xs"   >查询</button>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="am-g">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd"><span class="panel_title">药品采购综合排行榜</span>
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="drugpurchase_tbl" data-pagination="true">
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

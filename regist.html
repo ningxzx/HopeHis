@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="css/regist.css"/>
+    <link rel="icon" type="image/png" href="imgs/jethis.ico">
+    <link rel="stylesheet" type="text/css" href="css/orgcheck/orgcheck.css">
+</head>
+<body>
+<!--页头-->
+<div class="header">
+    <img src="imgs/logo.png" alt="pic"/>
+    <span>加入JetHis - 智慧医疗</span>
+</div>
+
+<div id="main">
+
+    <!--菜单-->
+    <div class="menu bg">
+        <ul>
+            <li id="phone">
+                <span class="step action_step">1</span>
+                <span class="action_menu">填写手机号</span>
+            </li>
+            <li id="info">
+                <span class="step">2</span>
+                <span>完善个人资料</span>
+            </li>
+            <li id="registFinish">
+                <span class="step">3</span>
+                <span>信息认证</span>
+            </li>
+        </ul>
+    </div>
+
+    <!--手机注册-->
+    <div class="bg phone" id="UserPhone">
+        <div class="board">
+            <dl>
+                <dt>
+                    手机号码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="cellphone" name="cellphone" required maxlength="11" placeholder="请输入11位手机号码"/>
+                    <span class="tips hid phone_empty"><img src="imgs/wrong.png" class="tip_img"/>手机号码不能为空</span>
+                    <span class="tips hid phone_right"><img src="imgs/wrong.png" class="tip_img"/>请输入正确的手机号码</span>
+                    <span class="tips hid phone_duplicate"><img src="imgs/wrong.png" class="tip_img"/>手机号已被注册</span>
+                    <span class="tips hid phone_success"><img src="imgs/right.png" class="tip_img"/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    图片验证码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <img alt="验证码" class="vCodeImg"/>
+                    <input type="text" class="inp" style="width: 100px" placeholder="请输入验证码" id="vCodeImg" name="vCodeImg" required maxlength="5"/>
+                    <button type="button" class="vCode" id="sendMessage">发送短信验证码</button>
+                    <span class="tips hid code_error"><img src="imgs/wrong.png" class="tip_img"/>图片验证码不能为空</span>
+                    <span class="tips hid code_send_success"><img src="imgs/right.png" class="tip_img"/>请查看短信</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    短信验证码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="messageCode" name="messageCode" placeholder="请输入收到的验证码" required/>
+                    <span class="tips hid message_false"><img src="imgs/wrong.png" class="tip_img" alt=""/>短信请求认证失败</span>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="hr"></div>
+
+        <input type="button" value="下一步" class="btn dis" id="btnPhone" disabled/>
+    </div>
+
+    <!--资料完善-->
+    <div class="bg info hid" id="UserInfo">
+        <div class="board">
+            <dl>
+                <dt>
+                    姓名：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="realName" name="realName" placeholder="请输入中文姓名" required/>
+                    <span class="tips hid name_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>姓名不能为空</span>
+                    <span class="tips hid name_china"><img src="imgs/wrong.png" class="tip_img" alt=""/>姓名只能为中文</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    性别：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <select id="sex" class="form-select" name="sex">
+                        <option value="M">男</option>
+                        <option value="F">女</option>
+                        <option value="N">不祥</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    用户名：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" placeholder="输入6-16位数字及字母的组合" id="userName" name="userName"
+                           required/>
+                    <span class="tips hid user_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>用户名不能为空</span>
+                    <span class="tips hid user_exist"><img src="imgs/wrong.png" class="tip_img" alt=""/>用户名已被注册</span>
+                    <span class="tips hid user_length"><img src="imgs/wrong.png" class="tip_img"
+                                                            alt=""/>用户名长度为6-16</span>
+                    <span class="tips hid user_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>用户名只能包含数字、字母</span>
+                    <span class="tips hid user"><img src="imgs/right.png" class="tip_img" alt=""/>该用户名可用</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    密码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="password" class="inp" placeholder="6位以上数字、大小写字母组合" id="password" name="password"
+                           required/>
+                    <span class="tips hid pass_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码不能为空</span>
+                    <span class="tips hid pass_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码长度为6~16位数字与字母组合</span>
+                    <span class="tips hid pass"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    确认密码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="password" class="inp" placeholder="请再次输入密码" id="secondPass" name="secondPass"
+                           required/>
+                    <span class="tips hid second_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码不能为空</span>
+                    <span class="tips hid second_diff"><img src="imgs/wrong.png" class="tip_img" alt=""/>两次密码输入不一致</span>
+                    <span class="tips hid second"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    邮箱：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="email" name="email" placeholder="请输入能常用的邮箱" required/>
+                    <span class="tips hid emil_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>邮箱不能为空</span>
+                    <span class="tips hid emil_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入正确的邮箱地址</span>
+                    <span class="tips hid mail"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    所在省市：
+                </dt>
+                <dd>
+                    <select id="province" class="form-select province" name="province">
+                        <option value="0">请选择省份</option>
+                    </select>
+                    <select id="city" class="form-select city" name="city">
+                        <option value="0">请选择城市</option>
+                    </select>
+                    <select id="area" class="form-select area" name="street">
+                        <option value="0">请选择区县</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    所在街道：
+                </dt>
+                <dd>
+                    <input type="text" class="inp" placeholder="请输入街道" id="streat" name="streat"/>
+                    <input type="text" class="inp" placeholder="请输入详细地址，门牌号" id="address" name="address"/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    邀请码：
+                </dt>
+                <dd>
+                    <input type="text" class="inp" placeholder="若有邀请码，请填写" id="invitation" name="invitation"/>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="hr"></div>
+
+        <input type="button" value="注册" class="btn" id="btnInfo"/>
+        <span class="tips hid completion"><img src="imgs/wrong.png" class="tip_img" alt=""/>请先填写注册信息</span>
+    </div>
+
+    <!--信息认证-->
+    <div class="bg hid" id="finish">
+        <h4 class="checked-title">信息认证</h4>
+
+        <div class="form-horizontal ng-pristine ng-valid" role="form" id="registerForm">
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3">申请人姓名<span class="form-required ng-scope"> * </span>：</label>-->
+
+                <!--<div class="col-sm-8" style="position: relative;">-->
+                    <!--<input type="text" class="form-input" name="adminName" id="user_name">-->
+                    <!--<span style="color: red;padding-left: 10px" id="f_user_name"></span>-->
+
+                    <!--<p class="dd-input-remind ng-binding">请填写与下方证件照相同的姓名</p>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-3">申请人身份证号<span class="form-required ng-scope"> * </span>：</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-input" name="adminId" id="id_card">
+                    <span class="tips hid cardId_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入身份证号</span>
+                    <span class="tips hid cardId_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入正确身份证号</span>
+                </div>
+            </div>
+            <div class="form-group" style="height: 150px">
+                <label class="col-sm-3"><br>申请人手持证件照<span class="form-required"> * </span>：</label>
+
+                <div class="col-sm-8">
+                    <div class="dd-pic-left">
+                        <img src="//gtms04.alicdn.com/tps/i4/TB1aGmtGpXXXXawaXXXze121FXX-960-961.png" class="dd-img" id="src1">
+
+                        <p class="dd-img-text">参考示例</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="dd-pic-right ng-binding">身份证上的所有信息清晰可见，必须能看得清证件号。<br>照片需免冠，建议未化妆，手持证件人的五官清晰可见。<br>照片内容真实有效，不得做任何修改。<br>
+                            支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过8M。</p>
+
+                        <div style="position: relative;height: 30px;width: 100px;margin-top: 10px">
+                            <input class="dd-file-file" accept=".jpg,.jpeg,.bmp,.gif,.png" type="file" id="card_photo">
+                            <input class="dd-file-btn" type="button" value="选择文件...">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--注册诊所用户 开始-->
+            <div class="hospital_regist_wrapper" id="company">
+                <h4 class="checked-title">注册诊所用户</h4>
+                <div class="form-group">
+                    <label class="col-sm-3">机构名称<span class="form-required ng-scope"> * </span>：</label>
+
+                    <div class="col-sm-8" style="position: relative;">
+                        <input type="text" class="form-input" name="adminName" id="enterprise_name">
+                        <span style="color: red;padding-left: 10px" id="f_enterprise_name"></span>
+
+                        <p class="dd-input-remind ng-binding"></p>
+                    </div>
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3">机构简介<span class="form-required ng-scope"> * </span>：</label>-->
+
+                    <!--<div class="col-sm-8">-->
+                        <!--<input type="text" class="form-input" name="adminId" id="_hospital_remark">-->
+                        <!--<span style="color: red;padding-left: 10px" id="f_hospital_remark"></span>-->
+
+                        <!--<p class="dd-input-remind">简要介绍贵司的特点，从业范围</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <label class="col-sm-3">营业执照编号<span class="form-required ng-scope"> * </span>：</label>
+
+                    <div class="col-sm-8" style="position: relative;">
+                        <input type="text" class="form-input" name="adminName" id="e_license_no">
+                        <span style="color: red;padding-left: 10px" id="f_e_license_no"></span>
+
+                        <p class="dd-input-remind ng-binding">请填写与下方证件照相同的姓名</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3">所在省市：<span class="form-required ng-scope"> * </span>：</label>
+                    <div class="col-sm-8">
+                        <select id="province1" class="form-select province" name="province">
+                            <option value="0">请选择省份</option>
+                        </select>
+                        <select id="city1" class="form-select city" name="city">
+                            <option value="0">请选择城市</option>
+                        </select>
+                        <select id="area1" class="form-select area" name="street">
+                            <option value="0">请选择区县</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3">所在街道：<span class="form-required ng-scope"> * </span>：</label>-->
+                    <!--<div class="col-sm-8">-->
+                        <!--<input type="text" class="inp" placeholder="请输入街道" id="streat1" name="streat"/>-->
+                        <!--<input type="text" class="inp" placeholder="请输入详细地址" id="address1" name="address"/>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3">营业执照颁发机关<span class="form-required ng-scope"> * </span>：</label>-->
+
+                    <!--<div class="col-sm-8">-->
+                        <!--<input type="text" class="form-input" name="adminId" id="award_enterprise">-->
+                        <!--<span style="color: red;padding-left: 10px" id="f_award_enterprise"></span>-->
+
+                        <!--<p class="dd-input-remind"></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-group" style="height: 150px">
+                    <label class="col-sm-3"><br>营业执照副本照片<span class="form-required"> * </span>：</label>
+
+                    <div class="col-sm-8">
+                        <div class="dd-pic-left">
+                            <img src="//gtms04.alicdn.com/tps/i4/TB1aGmtGpXXXXawaXXXze121FXX-960-961.png" class="dd-img" id="src2">
+
+                            <p class="dd-img-text">参考示例</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="dd-pic-right ng-binding">身份证上的所有信息清晰可见，必须能看得清证件号。<br>照片需免冠，建议未化妆，手持证件人的五官清晰可见。<br>照片内容真实有效，不得做任何修改。<br>
+                                支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过8M。</p>
+
+                            <div style="position: relative;height: 30px;width: 100px;margin-top: 10px">
+                                <input class="dd-file-file" accept=".jpg,.jpeg,.bmp,.gif,.png" type="file" id="e_license_photo">
+                                <input class="dd-file-btn" type="button" value="选择文件...">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3">机构注册时间<span class="form-required ng-scope"> * </span>：</label>
+
+                    <div class="col-sm-8 register_time">
+                        <input type="text" class="form-input" name="adminId" typename="year"><span>年</span>
+                        <input type="text" class="form-input" name="adminId" typename="mon"><span>月</span>
+                        <input type="text" class="form-input" name="adminId" typename="day"><span>日</span>
+                        <span class="tips hid year_type"><img src="imgs/wrong.png" class="tip_img" alt=""/>年份格式不对</span>
+                        <span class="tips hid month_type"><img src="imgs/wrong.png" class="tip_img" alt=""/>月份格式不对</span>
+                        <span class="tips hid day_type"><img src="imgs/wrong.png" class="tip_img" alt=""/>日期格式不对</span>
+                    </div>
+                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3">当前注册用户是否为企业法人<span class="form-required ng-scope"> * </span>：</label>-->
+
+                    <!--<div class="col-sm-8">-->
+                        <!--<input type="checkbox" id="iflegal">否-->
+                        <!--<p class="dd-input-remind"></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="hid" id="legal">-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-3">法人姓名<span class="form-required ng-scope"> * </span>：</label>-->
+
+                        <!--<div class="col-sm-8">-->
+                            <!--<input type="text" class="form-input" name="adminId" id="f_id">-->
+                            <!--<span style="color: red;padding-left: 10px" id="f_card"></span>-->
+
+                            <!--<p class="dd-input-remind"></p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-sm-3">法人身份证号<span class="form-required ng-scope"> * </span>：</label>-->
+
+                        <!--<div class="col-sm-8" style="position: relative;">-->
+                            <!--<input type="text" class="form-input" name="adminName" id="form_name">-->
+                            <!--<span style="color: red;padding-left: 10px" id="f_name"></span>-->
+
+                            <!--<p class="dd-input-remind ng-binding">请填写与下方证件照相同的姓名</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group" style="height: 150px">-->
+                        <!--<label class="col-sm-3"><br>法人手持证件照<span class="form-required"> * </span>：</label>-->
+
+                        <!--<div class="col-sm-8">-->
+                            <!--<div class="dd-pic-left">-->
+                                <!--<img src="//gtms04.alicdn.com/tps/i4/TB1aGmtGpXXXXawaXXXze121FXX-960-961.png" class="dd-img"-->
+                                     <!--id="cardImage">-->
+
+                                <!--<p class="dd-img-text">参考示例</p>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-9">-->
+                                <!--<p class="dd-pic-right ng-binding">身份证上的所有信息清晰可见，必须能看得清证件号。<br>照片需免冠，建议未化妆，手持证件人的五官清晰可见。<br>照片内容真实有效，不得做任何修改。<br>-->
+                                    <!--支持.jpg .jpeg .bmp .gif .png格式照片，大小不超过8M。</p>-->
+
+                                <!--<div style="position: relative;height: 30px;width: 100px;margin-top: 10px">-->
+                                    <!--<input class="dd-file-file" accept=".jpg,.jpeg,.bmp,.gif,.png" type="file" id="f_photo">-->
+                                    <!--<input class="dd-file-btn" type="button" value="选择文件...">-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <!--注册诊所用户 结束-->
+            <div class="col-sm-8" id="submitBtn">
+                <button type="button" class="btn-success" id="regist_submit">提交审核</button>
+            </div>
+            <div class="dd-split-line-end"></div>
+        </div>
+    </div>
+</div>
+
+<!--页脚-->
+<!--<div class="am-footer">-->
+<!--北京捷云易商科技有限公司 copyright©2013-2015-->
+<!--</div>-->
+
+<script src="js/libs/jquery/dist/jquery.min.js"></script>
+<script src="js/libs/cryptojslib/rollups/aes.js"></script>
+<script src="js/libs/cryptojslib/rollups/md5-min.js"></script>
+<script src="js/modules/viewModule/signup/baseInfo.js"></script>
+<script src="js/modules/viewModule/signup/signup.js"></script>
+</body>
+</html>

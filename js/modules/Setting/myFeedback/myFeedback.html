@@ -1,0 +1,62 @@
+<div  class="admin-content" style="padding: 10px; ">
+    <div class="am-g">
+        <div class="am-input-group am-u-sm-2 ">
+            <span class="am-input-group-label">
+                                <!--<i class="am-icon-user am-icon-fw"></i>-->
+                                提交人
+                            </span>
+            <select   id="Submit_one" >
+                <option selected="selected" value="0">-----全部-----</option>
+                <option value="1">xzx</option>
+                <option value="2">hl</option>
+                <option value="3">leo</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-sm-2 ">
+            <span class="am-input-group-label">
+                                <!--<i class="am-icon-user am-icon-fw"></i>-->
+                                处理状态
+                            </span>
+            <select   id="deal_with" >
+                <option selected="selected" value="0">-----全部-----</option>
+                <option value="1">已提交</option>
+                <option value="2">已沟通</option>
+                <option value="3">正在处理中</option>
+                <option value="4">已处理</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-calendar-o"></i>
+                                 提交日期
+                            </span>
+            <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3  ">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-calendar"></i>
+                                截止日期
+                            </span>
+            <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-sm-1 am-u-end">
+            <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs">查询</button>
+        </div>
+
+    </div>
+
+
+
+
+    <div style="border: 1px solid #ccc;margin-top: 10px;" ></div>
+
+    <div  class="am-g" style="font-size: 12px;">
+        <table id="myFeedback_tbl"
+               data-pagination="true"
+               data-search="true"
+                >
+
+        </table>
+
+    </div>
+</div>

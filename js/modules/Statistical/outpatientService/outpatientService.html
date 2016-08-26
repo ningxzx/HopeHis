@@ -1,0 +1,108 @@
+<div class="admin-content" style="padding: 10px; ">
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 赊账日期</span>
+            <input type="text" id="Outpatient_start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3  ">
+            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 看病日期</span>
+            <input type="text" id="Outpatient_end" class="am-form-field end" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3  ">
+                <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                患者姓名
+                            </span>
+            <input type="text" class="am-form-field " placeholder="输入患者姓名">
+            </div>
+        <div class="am-input-group am-u-md-3  ">
+                <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                医生姓名
+                            </span>
+            <input type="text" class="am-form-field " placeholder="输入患者姓名">
+        </div>
+    </div>
+    <!--<div class="am-g" style="height: 10px;"></div>-->
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3  ">
+             <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                诊断信息
+                            </span>
+            <input type="text" class="am-form-field " placeholder="">
+            </div>
+        <div class="am-input-group am-u-md-3  ">
+                  <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                诊断类别
+                            </span>
+            <select   id="Diagnostic_category" >
+                <option selected="selected" value="0">全部</option>
+                <option value="1">初诊</option>
+                <option value="2">复诊</option>
+                <option value="3">急诊</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-md-3  ">
+             <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                联系电话
+                            </span>
+            <input type="text" class="am-form-field " placeholder="">
+        </div>
+        <div class="am-input-group am-u-md-1  ">
+            <button type="button" id="outpatientService_btn" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>&nbsp;
+
+        </div>
+        <!--<div class="am-input-group am-u-md-3  ">-->
+            <!--<button type="button" id="outpatientService_btn" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>&nbsp;-->
+            <!--<button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"   >导出</button>-->
+            <!--<span id="rblPrintType"><input id="rblPrintType_0" type="radio" name="rblPrintType" value="w"><label-->
+                    <!--for="rblPrintType_0">Word</label>&nbsp;<input id="rblPrintType_1" type="radio" name="rblPrintType"-->
+                                                                  <!--value="e" checked="checked"><label for="rblPrintType_1">Excel</label></span>-->
+        <!--</div>-->
+    </div>
+
+
+
+
+
+    <div class="am-g p">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">药品销售综合排行榜
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="outpatientService_tbl" data-pagination="true">
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--<div class="am-g" style="text-align: center;font-size: 16px;font-weight: bold;">门诊日志统计</div>-->
+    <!--<div class="am-g" style="font-size: 12px;">-->
+        <!--<table id="outpatientService_tbl"-->
+               <!--data-pagination="true"-->
+               <!--data-search="true"-->
+                <!--&gt;-->
+            <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">看病日期</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">姓名</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">性别</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">年龄</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">联系电话</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">地址</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">诊断信息</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">诊断类型</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">医生</th>&ndash;&gt;-->
+                <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">医嘱</th>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+        <!--</table>-->
+
+    <!--</div>-->
+</div>

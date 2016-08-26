@@ -1,0 +1,86 @@
+<div class="admin-content" style="padding: 10px; ">
+    <!--<span>药品检索：</span><input type="text">-->
+
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+            <li id="refund_show" class="am-active"><a href="javascript: void(0)">月疾病统计</a></li>
+            <li id="repay_show"><a href="javascript: void(0)">年疾病统计</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active" id="refund">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text"   class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text"   class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g supplier_table_wrapper">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">疾病统计月汇总
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导入excel</a>
+                            <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                            <a class="panel_tool refresh_tool refresh_level"  ><i class="am-icon-refresh"></i> 刷新</a>
+
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Monthly_tbl">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="am-tab-panel" id="repay">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text"   class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text"   class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+                <div class="am-g supplier_table_wrapper">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">疾病统计年汇总
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导入excel</a>
+                            <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                            <a class="panel_tool refresh_tool refresh_level"  ><i class="am-icon-refresh"></i> 刷新</a>
+
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Annual_tbl">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!---->
+
+</div>

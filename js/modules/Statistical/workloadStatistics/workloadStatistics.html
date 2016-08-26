@@ -1,0 +1,316 @@
+<div class="admin-content" style="padding: 10px; ">
+    <!--<span>药品检索：</span><input type="text">-->
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+            <li id="refund_show" class="am-active"><a href="javascript: void(0)">门诊费用统计</a></li>
+            <li id="repay_show"><a href="javascript: void(0)">门诊处方统计</a></li>
+            <li id="repay_recode_show"><a href="javascript: void(0)">购买药品统计</a></li>
+            <li id="Direct_purchase_show"><a href="javascript: void(0)">门诊挂号费统计</a></li>
+            <li id="Drug_sales_show"><a href="javascript: void(0)">收费员统计</a></li>
+
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active" id="refund">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Cost_statistics_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="am-g" style="font-size: 12px;">-->
+                    <!--<table id="Cost_statistics_tbl"-->
+                           <!--data-pagination="true"-->
+                           <!--data-search="true"-->
+                            <!--&gt;-->
+                        <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">操作</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品名称</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品分类</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">处方类型</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">发票项目</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">大单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">换算量</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">小单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">剂型单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品规格</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">来源</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存上限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存下限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">是否有条码</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">创建日期</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            </div>
+            <div class="am-tab-panel" id="repay">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Prescription_statistic_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="am-g" style="font-size: 12px;">-->
+                    <!--<table id="Prescription_statistic_tbl"-->
+                           <!--data-pagination="true"-->
+                           <!--data-search="true"-->
+                            <!--&gt;-->
+                        <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">操作</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品名称</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品分类</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">处方类型</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">发票项目</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">大单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">换算量</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">小单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">剂型单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品规格</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">来源</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存上限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存下限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">是否有条码</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">创建日期</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            </div>
+            <div class="am-tab-panel" id="repay_recode">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Drug_statistical_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="am-g" style="font-size: 12px;">-->
+                    <!--<table id="Drug_statistical_tbl"-->
+                           <!--data-pagination="true"-->
+                           <!--data-search="true"-->
+                            <!--&gt;-->
+                        <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">操作</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品名称</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品分类</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">处方类型</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">发票项目</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">大单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">换算量</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">小单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">剂型单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品规格</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">来源</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存上限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存下限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">是否有条码</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">创建日期</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            </div>
+            <div class="am-tab-panel" id="Direct_purchase">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Registration_statistics_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="am-g" style="font-size: 12px;">-->
+                    <!--<table id="Registration_statistics_tbl"-->
+                           <!--data-pagination="true"-->
+                           <!--data-search="true"-->
+                            <!--&gt;-->
+                        <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">操作</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品名称</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品分类</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">处方类型</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">发票项目</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">大单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">换算量</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">小单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">剂型单位</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品规格</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">来源</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存上限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存下限</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">是否有条码</th>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">创建日期</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            </div>
+            <div class="am-tab-panel" id="Drug_sales">
+                <div class="am-g" >
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+                        <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Charge_statistical_tbl" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="am-g" style="font-size: 12px;">-->
+                    <!--<table id="Charge_statistical_tbl"-->
+                           <!--data-pagination="true"-->
+                           <!--data-search="true"-->
+                            <!--&gt;-->
+                    <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">序号</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="stargazers_count" tabindex="0">操作</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品名称</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品分类</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">处方类型</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">发票项目</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">大单位</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">换算量</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">小单位</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">剂型单位</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">药品规格</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">来源</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存上限</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">库存下限</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">是否有条码</th>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<th style="" data-field="forks_count" tabindex="0">创建日期</th>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+                    <!--</table>-->
+
+                <!--</div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <!---->
+
+</div>

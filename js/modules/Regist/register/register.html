@@ -1,0 +1,219 @@
+<!--挂号-->
+<div class="admin-content p">
+    <div class="am-g">
+        <div class="am-tabs" data-am-tabs id="rgt">
+            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <li class="am-active"><a href="javascript: void(0)">挂号</a></li>
+                <li><a href="javascript: void(0)">患者注册</a></li>
+            </ul>
+            <div class="am-tabs-bd" style="overflow: visible !important;">
+                <!--挂号-->
+                <div class="am-tab-panel am-active">
+                    <div class="am-g p">
+                        <button type="button" class="am-btn am-radius am-btn-primary am-btn-xs" id="registionFee"
+                                data-am-modal="{target:'#registConfirm'}">挂号并收费
+                        </button>
+                        <!--<button type="button" class="am-btn am-btn-primary" id="registionOut">退号</button>-->
+                        <button type="reset" class="am-btn am-radius am-btn-primary am-btn-xs" id="reset">重置</button>
+                    </div>
+                    <div class="am-g p">
+                        <div class="am-panel am-panel-default">
+                            <div class="am-panel-hd">基本信息</div>
+                            <div class="am-panel-bd">
+                                <div class="am-g">
+                                    <div class="am-u-md-3">
+                                        <div class="am-input-group">
+                                            <span class="am-input-group-label">查询方式:</span>
+                                            <select data-placeholder="请选择查询条件" id="select_condition" tabindex="-1"
+                                                    class="am-form-field">
+                                                <option value="name" selected>按姓名查找</option>
+                                                <option value="id">按ID查找</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="am-u-md-4">
+                                        <div class="am-input-group" id="search_pat_wrapper">
+                                            <span class="am-input-group-label">患者姓名</span>
+                                            <input type="text" class="am-form-field first_focus" id="keyword"
+                                                   placeholder="" style="position: relative"/>
+                                            <div id="names" class="tbl_name hid">
+                                                <table class="am-table " data-pagination="true"
+                                                       id="patient_names">
+                                                    <thead>
+                                                    <tr>
+                                                        <th data-field="patient_id">患者ID</th>
+                                                        <th data-field="patient_name">患者姓名</th>
+                                                        <th data-field="card_id">身份证号</th>
+                                                        <th data-field="patient_sex">性别</th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="am-u-md-2">
+                                        <button type="button" class="am-btn am-radius am-btn-primary am-btn-xs" id="search_id">查询
+                                        </button>
+                                    </div>
+                                    <div class="am-u-md-3">
+                                        <div class="am-alert hid  am-alert-danger am-padding-left" data-am-alert id="regist_tip">
+                                            <p>本医院无该名患者的信息，请注册后再进行挂号。</p>
+                                        </div>
+                                        <div class="am-alert am-alert-succes hid" data-am-alert
+                                             id="regist_success">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--表单-->
+                                <form>
+                                    <div class="hr"></div>
+
+                                    <div class="am-g p_top">
+                                        <div class="am-u-md-3">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">患者ID:</span>
+                                                <input type="text" class="am-form-field" id="id" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-3">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">患者姓名:</span>
+                                                <input type="text" class="am-form-field" id="name" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-2">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">性别:</span>
+                                                <select name="gender" id="gender" data-am-selected
+                                                        class="am-form-field" readonly>
+                                                    <option value="M">男</option>
+                                                    <option value="F">女</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-4">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">身份证号:</span>
+                                                <input type="text" class="am-form-field" id="cardId" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="am-g p_top">
+                                        <div class="am-u-md-3">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">电话:</span>
+                                                <input type="text" class="am-form-field" id="phone" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-3">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">出生日期:</span>
+                                                <input type="text" class="am-form-field" id="birth" placeholder="点击选择日期"
+                                                       readonly/>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-2">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">年龄:</span>
+                                                <input type="text" class="am-form-field" id="age" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="am-u-md-4">
+                                            <div class="am-input-group">
+                                                <span class="am-input-group-label">住址:</span>
+                                                <input type="text" class="am-form-field" id="address" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="am-panel am-panel-default">
+                            <div class="am-panel-hd">
+                                医生信息
+                                <a id="refresh" class="a_refresh">刷新</a>
+                            </div>
+                            <div class="am-panel-bd">
+                                <div class="am-g" style="padding: 1rem">
+                                    <div class="am-alert am-u-md-3 am-fr am-alert-danger hid" data-am-alert id="tip">
+                                        <p>获取医生列表失败</p>
+                                    </div>
+                                </div>
+                                <!--搜索框-->
+                                <div class="am-g">
+                                    <!--科室查询-->
+                                    <div class="am-u-md-4">
+                                        <div class="am-input-group">
+                                            <span class="am-input-group-label">请选择科室:</span>
+                                            <select name="select_dept" id="select_dept" class="am-form-field"
+                                                    data-placeholder="请选择科室名称">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--姓名查询-->
+                                    <div class="am-u-md-4">
+                                        <div class="am-input-group">
+                                            <span class="am-input-group-label">请选择医生:</span>
+                                            <select name="select_doctor" id="select_doctor" class="am-form-field"
+                                                    data-placeholder="请选择医生姓名">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--日期框-->
+                                    <div class="am-u-md-4 am-u-end">
+                                        <div class="am-input-group">
+                                            <span class="am-input-group-label">挂号日期:</span>
+                                            <input type="text" id="registDate" class="am-form-field"
+                                                   placeholder="点击选择日期" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--医生列表-->
+                                <div class=" margin-top">
+                                    <ul class="am-g" id="doctor_list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--患者信息注册-->
+                <div class="am-tab-panel" id="patient_info">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出提示框-->
+<div class="am-modal" tabindex="-1" id="registConfirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd" id="confirm_hd"></div>
+        <div class="am-modal-bd padding-0" id="confirm_bd">
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" id="confirm">确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-prompt" tabindex="-1" id="confirmFee">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">挂号收费</div>
+        <div class="am-modal-bd padding-0">
+            <ul class="am-list am-list-static am-list-striped">
+                <li>应收金额：<span id="cost"></span> 元</li>
+                <li>实收金额：<input id="money" type="text" class="am-modal-prompt-input am-text-center">元</li>
+                <li>应找金额：<span id="change"></span> 元</li>
+                <li><span id="fee_tips" style="color: red"></span></li>
+            </ul>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" id="getFee">打印</span>
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+        </div>
+    </div>
+</div>
+<div class="am-hide">
+    <div id="printArea"></div>
+</div>

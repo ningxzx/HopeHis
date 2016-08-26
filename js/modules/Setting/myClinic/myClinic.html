@@ -1,0 +1,441 @@
+<div class="admin-content">
+    <div class="am-g">
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">注册人信息</div>
+            <div class="am-panel-bd">
+                <div class="am-g">
+                    <div class="am-u-sm-6">
+                        <table class="am-table am-table-bordered">
+                            <tbody id="re_people">
+                            {{#each this}}
+                            <tr data-align="right">
+                                <td data-field="name">
+                                    法人：
+                                </td>
+                                <td>
+                                    {{corporation_name}}
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-field="phone">
+                                    联系电话：
+                                </td>
+                                <td>
+                                    {{consult_tel}}
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  >
+                                    法人证件号：
+                                </td>
+                                <td>
+                                    {{corporation_no}}
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td  >
+                                    法人手持证件照：
+                                </td>
+                                <td>
+                                    <img src={{corporation_photo}} alt="">
+
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">诊所信息</div>
+            <div class="am-panel-bd">
+                <div class="am-g">
+                    <div class="am-u-sm-6">
+                        <table class="am-table am-table-bordered">
+                            <tbody>
+                            {{#each this}}
+                            <tr>
+                                <td >
+                                    诊所名称：
+                                </td>
+                                <td>
+                                    {{enterprise_name}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    诊所编号：
+                                </td>
+                                <td>
+                                    {{enterprise_id}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td >
+                                    营业执照编号：
+                                </td>
+                                <td>
+                                    {{license_no}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    营业执照颁发机关：
+                                </td>
+                                <td>
+                                    {{award_enterprise}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    营业执照副本照片：
+                                </td>
+                                <td>
+                                    <img src={{license_photo}} alt="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    机构注册时间：
+                                </td>
+                                <td>
+                                    {{register_time}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td >
+                                    国籍：
+                                </td>
+                                <td>
+                                    {{nationality}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    省：
+                                </td>
+                                <td>
+                                    {{province}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    市：
+                                </td>
+                                <td>
+                                    {{city}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    区：
+                                </td>
+                                <td>
+                                    {{area}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    街道：
+                                </td>
+                                <td>
+                                    {{streat}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    详细地址：
+                                </td>
+                                <td>
+                                    {{addr}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    最大用户数：
+                                </td>
+                                <td>
+                                    {{agreement_count}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    当前使用账户数：
+                                </td>
+                                <td>
+                                    {{current_count}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    合同期限（月）：
+                                </td>
+                                <td>
+                                    {{contract_period}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<table class="am-table am-table-bordered">-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td  colspan="2" align="center" style="background: #F2F2F2;">-->
+<!--<h3 style="text-align: center; background: #F2F2F2;margin:0; ">-->
+<!--功能开放设置</h3>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--预约功能：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input value="Y" name="yuyue" type="radio" checked="checked" id="yuyue_1"><label for="yuyue_1">启用</label>-->
+<!--<input value="N" name="yuyue" type="radio" id="yuyue_0"><label for="yuyue_0">不启用</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--门诊挂号功能：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input value="Y" name="guahao" type="radio" checked="checked" id="guahao_1"><label for="guahao_1">启用</label>-->
+<!--<input value="N" name="guahao" type="radio" id="guahao_0"><label for="guahao_0">不启用</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--收费、发药分开：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input value="Y" name="fenkai" type="radio" checked="checked" id="fenkai_1"><label for="fenkai_1">分开</label>-->
+<!--<input value="N" name="fenkai" type="radio" id="fenkai_0"><label for="fenkai_0">不分开</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--项目金额修改：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input value="Y" name="xgqy" type="radio" checked="checked" id="xgqy_1"><label for="xgqy_1">启用</label>-->
+<!--<input value="N" name="xgqy" type="radio" id="xgqy_0"><label for="xgqy_0">不启用</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--处方药品名称修改：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input type="radio" name="doc_radio" value="option1" checked id="doc_radio_1"><label for="doc_radio_1">启用</label>-->
+<!--<input type="radio" name="doc_radio" value="option0" id="doc_radio_0"><label for="doc_radio_0">不启用</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--处方药品单价修改：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input value="Y" name="ypdj" type="radio" id="ypdj_1"><label for="ypdj_1">启用</label>-->
+<!--<input value="N" name="ypdj" type="radio" id="ypdj_0" checked="checked"><label for="ypdj_0">不启用</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--中药处方药品数量：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input type="radio" name="xianshi" value="option1" id="xianshi_1" checked><label for="xianshi_1">显示</label>-->
+<!--<input type="radio" name="xianshi" value="option1" id="xianshi_0" checked><label for="xianshi_0">不显示</label>-->
+<!--</td>-->
+<!--</tr>-->
+
+<!--<tr>-->
+<!--<td class="TdRight">-->
+<!--血糖/血压测量功能：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input type="radio" name="kaiqi" value="option1" id="kaiqi_1" checked><label for="kaiqi_1">开启</label>-->
+<!--<input type="radio" name="kaiqi" value="option1" id="kaiqi_0"><label for="kaiqi_0">不开启</label>-->
+<!--</td>-->
+<!--</tr>-->
+
+<!--<tr>-->
+<!--<td>-->
+<!--库存管理模式：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input type="radio" name="kucun" value="option1" id="kucun_1" checked><label for="kucun_1">管理库存</label>-->
+<!--<input type="radio" name="kucun" value="option1" id="kucun_0"><label for="kucun_0">不管理库存</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--药品显示数量：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input name="txtYPSL" type="text" value="50" maxlength="6" id="txtYPSL" title="药品显示数量修改，默认为50条" onfocus="this.select()" onkeyup="" style="width:50px;"><span style="color: Red;">* 在新开就诊或直接售药时药品的显示数量</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--保留小数位数：-->
+<!--</td>-->
+<!--<td>-->
+<!--<select name="ddlXSWS" id="ddlXSWS">-->
+<!--<option value="1">1</option>-->
+<!--<option value="2">2</option>-->
+<!--<option value="3">3</option>-->
+<!--<option selected="selected" value="4">4</option>-->
+<!--</select>-->
+<!--<span style="color: Red;">* 单价部分保留位数！</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--默认处方类型：-->
+<!--</td>-->
+<!--<td>-->
+<!--<input type="radio"  value="" name="chufang" id="chufang_0"><label for="chufang_0">西药处方</label>-->
+<!--<input type="radio"  value="" name="chufang" id="chufang_1"><label for="chufang_1">中药处方</label>-->
+<!--<input type="radio"  value="" name="chufang" id="chufang_2"><label for="chufang_2">检查设置</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--入库处方价加价设置：-->
+<!--</td>-->
+<!--<td>-->
+<!--<select name="ddlYSFH" id="ddlYSFH"-->
+<!--onchange="javascript:if($(this).val()=='*'){$('#spanFH').text('%');}else{$('#spanFH').text('元');}">-->
+<!--<option selected="selected" value="*">×（比例）</option>-->
+<!--<option value="+">+（金额）</option>-->
+
+<!--</select>-->
+<!--<input name="txtYSJE" type="text" value="0.00" maxlength="5" id="txtYSJE"-->
+<!--onfocus="this.select()" onkeyup="CheckInputIntFloat(this);" style="width:60px;"><span-->
+<!--id="spanFH">%</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--入库售药价加价设置：-->
+<!--</td>-->
+<!--<td>-->
+<!--<select name="ddlSYYSFH" id="ddlSYYSFH">-->
+<!--<option selected="selected" value="*">×（比例）</option>-->
+<!--<option value="+">+（金额）</option>-->
+
+<!--</select>-->
+<!--<input name="txtSYYSJE" type="text" value="0.00" maxlength="5"  style="width:60px;"><span-->
+<!--id="spanSYFH">%</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td style="border-right: 0px;">-->
+<!--<a  href="#"><span>保 存</span>-->
+<!--</a>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>保存成功后需要重新登录才会生效</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--<div class="am-u-lg-6">-->
+<!--<table class="am-table am-table-bordered">-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td colspan="3" align="center" style="background: #F2F2F2;">-->
+<!--<h3 id="h3" style="text-align: center; background: #F2F2F2;margin:0;">-->
+<!--机构基础设置</h3>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td rowspan="7" style="text-align: right;">-->
+<!--价格舍入方式设置 ：-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="1" name="sl" id="r6">-->
+<!--<label for="r6">-->
+<!--逢一进十（角）</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>例:2.01 ~ 2.99 收 3 元</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="2" name="sl" id="r9">-->
+<!--<label for="r9">-->
+<!--四舍五入（角）</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>例:2.01 ~ 2.49 收 2 元</span><br>-->
+<!--<span>例:2.50 ~ 2.99 收 3 元</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="3" name="sl" id="r5">-->
+<!--<label for="r5">入五（角）</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>例:2.01 ~ 2.49 收 2.5 元</span><br>-->
+<!--<span>例:2.50 ~ 2.99 收 3 元</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="4" name="sl" id="r3"><label for="r3">-->
+<!--逢一进十（分）</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>例:2.21 ~ 2.29 收 2.3 元</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="5" name="sl" id="r4">-->
+<!--<label for="r4">-->
+<!--四舍五入（分）</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<span>例:2.21 ~ 2.24 收 2.2 元</span><br>-->
+<!--<span>例:2.25 ~ 2.29 收 2.3 元</span>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td>-->
+<!--<input type="radio" value="0" name="sl" id="r8" checked>-->
+<!--<label for="r8">不做处理</label>-->
+<!--</td>-->
+<!--<td>-->
+<!--<label>-->
+<!--&nbsp;&nbsp;</label>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<td colspan="3">-->
+<!--<a class="but" style="margin: 5px;" onclick="SaveData()" href="#"><span>保 存</span>-->
+<!--</a>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->

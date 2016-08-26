@@ -1,0 +1,130 @@
+<div class="admin-content" id="index">
+    <div class="am-g index_wrapper">
+        <div class="am-u-md-4 am-u-sm-12" id="index_messages">
+            <div class="am-panel am-panel-default news_wrapper">
+                <div class="am-panel-hd">
+                    <h3 class="am-panel-title"><i class="am-icon-newspaper-o"></i> 通知</h3>
+                </div>
+                <div class="am-panel-bd notice_wrapper">
+                    <div class="am-g">
+                        <ul class="news_list" id="tz">
+                        </ul>
+                    </div>
+                </div>
+                <div class="show_more am-hide" id="notice_more">
+                    <a href="#office/historyMessage">查看更多 >></a>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-8 am-u-sm-12" id="index_news">
+            <div class="am-panel am-panel-default news_wrapper">
+                <div class="am-panel-hd">
+                    <h3 class="am-panel-title"><i class="am-icon-newspaper-o"></i> 今日动态</h3>
+                </div>
+                <div class="am-panel-bd">
+                    <div class="am-g">
+                        <ul class="news_list" id="dt">
+                        </ul>
+                    </div>
+                </div>
+                <div class="show_more am-hide" id="news_more">
+                    <a href="#office/allDynamicNews">查看更多 >></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="am-u-md-4 am-u-sm-12" id="index_schedule">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">
+                    <h3 class="am-panel-title"><i class="am-icon-calendar"></i> 今日待办事项</h3>
+                </div>
+                <div class="am-panel-bd">
+                    <div class="index_calender"></div>
+                    <div class="am-panel-group" id="accordion">
+                        <div class="am-panel am-panel-default am-panel-success">
+                            <div class="am-panel-hd">
+                                <h4 class="am-panel-title"
+                                    data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
+                                    坐诊安排
+                                </h4>
+                            </div>
+                            <div id="according_info" class="am-panel-collapse am-collapse am-in">
+                                <div class="am-panel-bd">
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="am-panel am-panel-default">-->
+                        <!--<div class="am-panel-hd">-->
+                        <!--<h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">-->
+                        <!--会议安排-->
+                        <!--</h4>-->
+                        <!--</div>-->
+                        <!--<div id="do-not-say-2" class="am-panel-collapse am-collapse">-->
+                        <!--<div class="am-panel-bd">-->
+                        <!--...-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="am-panel am-panel-default">-->
+                        <!--<div class="am-panel-hd">-->
+                        <!--<h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-3'}">患者问诊</h4>-->
+                        <!--</div>-->
+                        <!--<div id="do-not-say-3" class="am-panel-collapse am-collapse">-->
+                        <!--<div class="am-panel-bd">-->
+                        <!--...-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-8 am-u-sm-12" id="index_count">
+            <div class="am-tabs" data-am-tabs id="index_tab">
+                <ul class="am-tabs-nav am-nav am-nav-tabs menu">
+                    <!--<li class="am-active"><a href="javascript: void(0)"><i class="am-icon-magic"></i> 我的概况</a></li>-->
+                    <!--<li><a href="javascript: void(0)"><i class="am-icon-desktop"></i> 科室概况</a></li>-->
+                    <li class="am-active"><a href="javascript: void(0)"><i class="am-icon-hospital-o"></i> 今日概况</a></li>
+                </ul>
+                <div class="am-tabs-bd">
+                    <!--MY-->
+                    <div class="am-tab-panel am-active">
+                        <div class="am-g am-hide" id="admin_guide">
+                            <!--我的概况-->
+                            <div class="am-panel am-panel-default table_panel">
+                                <div class="am-panel-hd">门诊数量及收支情况
+                                    <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                                </div>
+                                <div class="am-panel-bd">
+                                    <table id="admin_condition_table"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g am-hide" id="doctor_guide">
+                            <!--我的概况-->
+                            <div class="am-panel am-panel-default table_panel">
+                                <div class="am-panel-hd">患者就诊情况
+                                    <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                                </div>
+                                <div class="am-panel-bd">
+                                    <table id="doctor_condition_table"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-g am-hide" id="other_guide">
+                            <!--我的概况-->
+                            <div class="am-panel am-panel-default table_panel">
+                                <div class="am-panel-hd">患者就诊情况
+                                    <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                                </div>
+                                <div class="am-panel-bd">
+                                    <table id="other_condition_table"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,216 @@
+<div class="admin-content" style="padding: 20px; ">
+    <!--<span>药品检索：</span><input type="text">-->
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+            <li id="refund_show" class="am-active"><a href="javascript: void(0)">病历明细维护</a></li>
+            <li id="repay_show"><a href="javascript: void(0)">病历分类维护</a></li>
+            <li id="repay_recode_show"><a href="javascript: void(0)">医嘱信息维护</a></li>
+            <li id="remark_show"><a href="javascript: void(0)">备注信息维护</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active" id="refund">
+                <div style="width: 100%;">
+                    <table class="am-table am-table-bordered" id="table_main">
+                        <tbody>
+                        <tr>
+                            <td width="200px" style="border-right: 1px solid #d7dada;" valign="top">
+                                <div style="width: 100%; overflow: auto; id="divTree">
+                                    <table class="treetable" id="example">
+                                        <thead>
+                                        <tr height="24">
+                                            <th><b style="color: #990000"> 分类名称</b></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-tt-id="1.1" style="background-color: White;" onclick="Tt_BackColor_click(this)" onmouseover="Td_BackColor_Enter(this)" onmouseout="Td_BackColor_Out(this)" class="leaf expanded">
+                                            <td onclick="JZMX(1,1,1)" s_bh="0" style="cursor:pointer" title="诊断信息" class="trBGColorClick"><span class="indenter" tyle="padding-left: 0px;"></span>诊断信息
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                            <td valign="top">
+                                <div style="padding-top: 5px;">
+                                    &nbsp;&nbsp;<button type="button" class="am-btn am-btn-primary am-radius">新增</button></div>
+                                <div style="width: 100%; height: 100%; margin-top: 20px" id="div_content">
+                                    <table class="am-table am-table-bordered">
+                                        <thead>
+                                        <tr height="30">
+                                            <td colspan="6"
+                                                style="background: #e8f2fb; text-align: left; height: 32px;">
+                                                &nbsp;&nbsp;<b style="color: #990000"> 明细列表及维护</b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                操作
+                                            </th>
+                                            <th>
+                                                名称
+                                            </th>
+                                            <th>
+                                                拼音简称
+                                            </th>
+                                            <th>
+                                                五笔简码
+                                            </th>
+                                            <th>
+                                                序号
+                                            </th>
+                                            <th>
+                                                状态
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="MainContent">
+                                        <tr>
+                                            <td colspan="6"  align="center">没有查询到信息</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="am-tab-panel am-active" id="repay">
+                <div style="border: 1px solid #ccc;" ></div>
+
+                <div  class="am-g" style="font-size: 12px;">
+                    <table id="xzx"
+                           data-pagination="true"
+                           data-search="true"
+                            >
+                        <thead>
+                        <tr>
+                            <th style="" data-field="forks_count" tabindex="0">序号</th>
+                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
+                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
+                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
+                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                            <th style="" data-field="forks_count" tabindex="0">来源</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
+                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
+                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+            <div class="am-tab-panel am-active" id="repay_recode" style="padding-bottom: 10px;">
+                <table>
+                    <tbody><tr>
+                        <td>
+                            医嘱信息：
+                        </td>
+                        <td>
+                            <input name="txtSearchAdvice" type="text" id="txtSearchAdvice">
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;医嘱状态：
+                            <span id="rdoAdviceState"><input id="rdoAdviceState_0" type="radio" name="rdoAdviceState" value="1" checked="checked"><label for="rdoAdviceState_0">启用</label><input id="rdoAdviceState_1" type="radio" name="rdoAdviceState" value="0"><label for="rdoAdviceState_1">禁用</label></span>
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;<button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >新增</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <div  class="am-g" style="font-size: 12px;">
+                    <table id="xzx"
+                           data-pagination="true"
+                           data-search="true"
+                            >
+                        <thead>
+                        <tr>
+                            <th style="" data-field="forks_count" tabindex="0">序号</th>
+                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
+                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
+                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
+                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                            <th style="" data-field="forks_count" tabindex="0">来源</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
+                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
+                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+            <div class="am-tab-panel am-active" id="remark" style="margin-bottom: 10px;">
+                <table>
+                    <tbody><tr>
+                        <td>
+                            医嘱信息：
+                        </td>
+                        <td>
+                            <input name="txtSearchAdvice" type="text" id="txtSearchAdvice">
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;医嘱状态：
+                            <span id="rdoAdviceState"><input id="rdoAdviceState_0" type="radio" name="rdoAdviceState" value="1" checked="checked"><label for="rdoAdviceState_0">启用</label><input id="rdoAdviceState_1" type="radio" name="rdoAdviceState" value="0"><label for="rdoAdviceState_1">禁用</label></span>
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;<button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >新增</button>
+                        </td>
+                    </tr>
+                    </tbody></table>
+
+                <div style="border: 1px solid #ccc;" ></div>
+
+                <div  class="am-g" style="font-size: 12px;">
+                    <table id="xzx"
+                           data-pagination="true"
+                           data-search="true"
+                            >
+                        <thead>
+                        <tr>
+                            <th style="" data-field="forks_count" tabindex="0">序号</th>
+                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
+                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
+                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
+                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                            <th style="" data-field="forks_count" tabindex="0">来源</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
+                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
+                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<!--查询结算-->
+<div class="admin-content refund_page">
+    <div class="am-g">
+        <div class="am-u-md-5 am-padding-top">
+            <div class="am-g am-margin-top">
+                <div class="am-u-md-12">
+                    <div class="am-input-group" id="search_date">
+                        <span class="am-input-group-label">查询时间:</span>
+                        <input type="text" id="start" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                        <span class="am-input-group-label">至</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly/>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-margin-top">
+                <div class="am-input-group am-u-md-6  am-u-sm-12">
+                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i>收费员</span>
+                    <input type="text" id="user_name" class="am-form-field " placeholder="输入编号" value="">
+                </div>
+                <div class="am-input-group am-u-md-6 am-u-sm-12">
+                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i>患者ID</span>
+                    <input type="text" id="pat_id" class="am-form-field first_focus" placeholder="输入患者ID">
+                </div>
+            </div>
+            <div class="am-g am-margin-top">
+                <div class="am-input-group am-u-sm-6 ">
+                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i>发票号</span>
+                    <input type="text" id="order_no" class="am-form-field " placeholder="输入编号" value="">
+                </div>
+                <div class="am-input-group am-u-md-6 am-u-end">
+                    <button class="am-btn am-btn-primary am-u-md-12 am-radius am-btn-xs" id="search_record">查询</button>
+                </div>
+            </div>
+            <div class="am-g">
+                <div class="am-panel am-panel-default table_panel record_panel">
+                    <div class="am-panel-hd">
+                        <span class="panel_title">收费记录表</span>
+                        <a class="panel_tool record_refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd table_search_wrapper p_none">
+                        <table class="am-table" id="record_tbl" data-pagination="true" data-search="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-7 am-padding-top">
+            <div class="am-g">
+                <div class="am-panel am-panel-default table_panel charge_detail_panel">
+                    <div class="am-panel-hd">
+                        <span class="panel_title">已收费明细</span>
+                    </div>
+                    <div class="am-panel-bd p_none">
+                        <table class="am-table" id="charge_detail_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-margin-bottom">
+                <div class="am-panel am-panel-default table_panel refund_detail_panel">
+                    <div class="am-panel-hd">
+                        <span class="panel_title">退费明细表</span>
+                        <a class="panel_tool refund_all_tool"><i class="am-icon-plus-circle"></i> 全部退费</a>
+                        <a class="panel_tool refund_reset_tool"><i class="am-icon-reply-all"></i> 取消退费</a>
+                    </div>
+                    <div class="am-panel-bd p_none">
+                        <table class="am-table " id="refund_detail_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-padding-right am-margin-top am-margin-bottom">
+                <button class="am-fr am-u-md-2 am-btn am-btn-xs am-radius am-margin-left" id="refund_cancel_btn">取消</button>
+                <button class="am-fr am-u-md-2 am-btn am-btn-danger am-btn-xs am-radius" id="refund_btn">确认退费</button>
+            </div>
+        </div>
+    </div>
+</div>
+

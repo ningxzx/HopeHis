@@ -1,0 +1,77 @@
+.member_module{
+    padding: 1rem;
+}
+.member_module .am-input-group{
+    margin-bottom: 1rem;
+}
+.member_module .am-input-group span{
+    font-size: 1.3rem;
+}
+.member_module .am-input-group input{
+    font-size: 1.3rem ;
+}
+.member_module .bootstrap-table td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 4rem;
+}
+.member_module{
+    position: relative;
+    min-height: 680px;
+}
+.bottom_panel{
+    position: absolute;
+    bottom: 0;
+    margin-bottom:1rem ;
+    margin-right:1.5rem ;
+    display: none;
+}
+.member_radio{
+    border: 1px solid #d3d3d3;
+    padding-left: 1rem;
+    padding-top:-0.5rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+}
+.member_rank_icon  .am-radio-inline{
+    margin-right: 2rem;
+}
+.member_module .am-panel{
+    margin: 0;
+}
+#no_level_alert .am-modal-bd{
+    color:red;
+}
+#no_level_alert .am-modal-hd{
+    padding: 10px;
+}
+#in_excel_tool{
+    color: green;
+}
+.down_file_name{
+    line-height: 27px;
+}
+.bottom-line{
+    border-bottom:1px solid #ddd;
+}
+.excel_btn_wrapper{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    border: 1px solid #ddd;
+    position: relative;
+}
+#member_list_excel{
+    opacity:0;
+    filter:alpha(opacity=0);
+    z-index: 100;
+    cursor: pointer;
+}
+#member_excel_tips{
+    position: absolute;
+    left:2rem;
+    z-index:1;
+    font-size: 10px;
+}

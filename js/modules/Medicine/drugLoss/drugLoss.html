@@ -1,0 +1,62 @@
+<div  class="admin-content" style="padding: 10px; ">
+
+    <div class="CxArea">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody><tr>
+                <td class="TdRight">
+                    &nbsp;药品检索：
+                </td>
+                <td>
+                    <input name="YPMC" type="text" maxlength="30"  tabindex="1" title="输完回车即可查询" style="width:100px;">
+                </td>
+                <td style="padding-left: 20px;">
+                    药品分类：
+                </td>
+                <td>
+                    <select name="ddlYPLY"   style="width:150px;">
+                        <option selected="selected" value="">-全部-</option>
+                        <option value="1">西药</option>
+                        <option value="2">中草药</option>
+                        <option value="3">中成药</option>
+                        <option value="4">感冒类</option>
+                        <option value="5">心脑血管用药</option>
+                        <option value="6">解毒类</option>
+
+                    </select>
+                </td>
+                <td class="style1">
+                    <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0;margin: 10px;">查询</button>
+                </td>
+                <td>
+                    <div style="color: #008000">
+                        注：绿色'调价'代表该药品已经调价但未复核！
+                    </div>
+                </td>
+            </tr>
+            </tbody></table>
+    </div>
+
+    <div style="border: 1px solid #ccc;" ></div>
+
+    <div  class="am-g" style="font-size: 12px;">
+        <table id="xzx"
+               data-pagination="true"
+               data-search="true"
+                >
+            <thead>
+            <tr>
+                <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                <th style="" data-field="forks_count" tabindex="0">序号</th>
+                <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                <th style="" data-field="forks_count" tabindex="0">药品剂型</th>
+                <th style="" data-field="forks_count" tabindex="0">药品类型</th>
+                <th style="" data-field="forks_count" tabindex="0">药品来源</th>
+                <th style="" data-field="forks_count" tabindex="0">生产厂家</th>
+            </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>

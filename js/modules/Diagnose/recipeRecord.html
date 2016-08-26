@@ -1,0 +1,73 @@
+<h3></h3>
+<div class="record_time_summary"></div>
+<div class="am-g am-g">
+    <div class="am-input-group am-u-md-6">
+        <div class="am-panel am-panel-default tell_wrapper" >
+            <div class="am-panel-hd">主诉</div>
+            <div class="am-panel-bd ">
+                <textarea class="patient_tell" id="patient_record_tell"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="am-input-group am-u-md-6" >
+        <div class="clearfix"></div>
+        <div class="am-panel am-panel-default tell_wrapper" >
+            <div class="am-panel-hd">诊断</div>
+            <div class="am-panel-bd recipe_record_diagnose_box" >
+                <textarea class="recipe_diagnose" id="recipe_record_diagnose"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-panel am-panel-default">
+    <div class="am-panel-hd">医嘱</div>
+    <div class="am-panel-bd recipe_record_medAdvice_box" style="padding:0;">
+        <textarea class="recipe_medAdvice" id="recipe_record_medAdvice"></textarea>
+    </div>
+</div>
+
+<div class="am-tabs" id="Diagnostic_template" data-am-tabs="{noSwipe: 1}" >
+    <ul class="am-tabs-nav am-nav am-nav-tabs" id="Diagnostic_header">
+        <li class="am-active"><a href="javascript: void(0)">诊疗项目</a></li>
+        <li><a href="javascript: void(0)">检查项目</a></li>
+        <li><a href="javascript: void(0)">检验项目</a></li>
+        <a class="search_recipeTemp diag_panel_tool"><span class="am-icon-tags"></span> 模板</a>
+    </ul>
+
+    <div class="am-tabs-bd" id="Diagnostic_body" >
+        <div class="am-tab-panel am-active"  style="min-height: 200px;">
+            <table class="recipe_table table-condensed" id="Diagnosis_projects">
+            </table>
+        </div>
+        <div class="am-tab-panel" style="min-height: 200px;">
+            <table class="recipe_table table-condensed" id="Check_project">
+            </table>
+        </div>
+        <div class="am-tab-panel" style="min-height: 200px;">
+            <table class="recipe_table table-condensed" id="Inspection_items">
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-tabs" id="recipe_record_tabs" data-am-tabs="{noSwipe: 1}">
+    <ul class="am-tabs-nav am-nav am-nav-tabs" id="recipe_record_header">
+        <li class="am-active"><a href="javascript: void(0)">西药处方</a></li>
+        <li><a href="javascript: void(0)">中药处方</a></li>
+        <a class="search_recipeTemp diag_panel_tool"><span class="am-icon-tags"></span> 模板</a>
+    </ul>
+
+    <div class="am-tabs-bd" id="recipe_record_body">
+        <div class="am-tab-panel am-active" id="xy_detail">
+            <table class="recipe_record_table table-condensed" id="recipe_record_table">
+            </table>
+        </div>
+        <div class="am-tab-panel" id="zy_detail">
+            <table class="recipe_record_table table-condensed" id="zy_record_table">
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="admin-content am-padding">
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="javascript: void(0)">月度统计</a></li>
+            <li><a href="javascript: void(0)">年度统计</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <!--月度统计-->
+            <div class="am-tab-panel am-active">
+                <div class="am-g  am-margin-top">
+                    <div class="am-u-md-6 am-sm-12">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">开始日期:</span>
+                            <input type="text" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                            <span class="am-input-group-label">截止日期</span>
+                            <input type="text" class="am-form-field end" placeholder="点击选择日期" readonly/>
+                        </div>
+                    </div>
+                    <!--<div class="am-input-group am-u-md-1">-->
+                    <!--<button type="button" class="am-btn am-btn-primary am-radius am-btn-xs"  >门诊月度统计</button>-->
+                    <!--</div>-->
+                    <div class="am-input-group am-u-md-6  am-sm-12">
+                        <button type="button" id="Monthly_btn" class="am-btn am-btn-primary am-radius am-btn-xs am-margin-right">查询
+                        </button>
+                        <button type="button" id="show_graphic" class="am-btn am-btn-primary am-radius am-btn-xs">切换图/表
+                        </button>
+                    </div>
+                </div>
+                <div class="am-g table_wrapper am-margin-top">
+                    <div class="am-panel am-panel-default table_panel month_panel">
+                        <div class="am-panel-hd"><span class="panel_title">月统计表</span>
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                           <table id="Monthly_statistics">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart_wrapper">
+                    <div id="chart" class="am-u-md-8"></div>
+                </div>
+            </div>
+
+            <!--年度统计-->
+            <div class="am-tab-panel">
+                <div class="am-g am-margin-top">
+                    <div class="am-input-group am-u-md-3">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-user am-icon-fw"></i>
+                            日期
+                        </span>
+                        <select id="ddlYears">
+                            <option selected="selected" value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                        </select>
+                    </div>
+                    <div class="am-input-group am-u-md-1">
+                        <button type="button" id="annual_btn" class="am-btn am-btn-primary am-radius am-btn-xs">查询
+                        </button>
+                    </div>
+                </div>
+
+                <div class="am-g am-margin-top">
+                    <div class="am-panel am-panel-default table_panel year_panel">
+                        <div class="am-panel-hd"><span class="panel_title">年统计表</span>
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="annual_statistics">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

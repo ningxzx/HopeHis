@@ -1,0 +1,94 @@
+.print_content .am-g {
+    margin: 0 auto 0.5rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.print_content .am-g:before,
+.print_content .am-g:after {
+    content: " ";
+    display: table;
+}
+
+.print_content .am-g:after {
+    clear: both;
+}
+
+
+.print_content [class*="am-u-"] {
+    float: left;
+    text-align: left;
+    position: relative;
+}
+.print_content .am-u-md-1 {
+    width: 8.33333333%;
+}
+
+.print_content .am-u-md-2 {
+    width: 16.66666667%;
+}
+
+.print_content .am-u-md-3 {
+    width: 25%;
+}
+
+.print_content .am-u-md-4 {
+    width: 33.33333333%;
+}
+
+.print_content .am-u-md-5 {
+    width: 41.66666667%;
+}
+
+.print_content .am-u-md-6 {
+    width: 50%;
+}
+
+.print_content .am-u-md-7 {
+    width: 58.33333333%;
+}
+
+.print_content .am-u-md-8 {
+    width: 66.66666667%;
+}
+
+.print_content .am-u-md-9 {
+    width: 75%;
+}
+
+.print_content .am-u-md-10 {
+    width: 83.33333333%;
+}
+
+.print_content .am-u-md-11 {
+    width: 91.66666667%;
+}
+
+.print_content .am-u-md-12 {
+    width: 100%;
+}
+
+.print_content .text-center {
+    text-align: center;
+}
+.print_content .hospital_title {
+    font-weight: bold !important;
+    font-size: 1.6rem;
+}
+
+.print_content .recipe_title {
+    font-weight: bold !important;
+    font-size: 1.4rem;
+}
+
+.print_content .print_recipe {
+    min-height: 100px;
+    margin-bottom: 2rem;
+}
+
+.print_content .print_diag {
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}

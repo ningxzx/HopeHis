@@ -1,0 +1,281 @@
+<div  class="admin-content" style="padding: 10px; ">
+    <div style="height: 35px;">
+        <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >保存</button>
+        <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" id="rm-member">返回</button>
+    </div>
+<div style="border:1px solid #ccc;"></div>
+
+    <div>
+        <table  border="1" cellpadding="0" cellspacing="0" class="TableArea2" style="border:1px solid #ccc;">
+            <tbody><tr style="color: #666666">
+                <td colspan="6" style="background: #F2F2F2; text-align: center;">
+                    用户编号：
+                    <span id="lblHZBH">HZ201511190001</span>
+                </td>
+            </tr>
+            <tr style="color: #666666;">
+                <td class="TdRight" style="background: #F2F2F2; width: 80px;" nowrap="nowrap">
+                    患者姓名：
+                </td>
+                <td style="min-width: 320px;" nowrap="nowrap">
+                    <input name="tbxHZXM" type="text" maxlength="50" id="tbxHZXM" class="input_b" onblur="CheckHZXM(this)">
+                    <font color="red">*</font> <span id="HZXM_Msg" style="color: red;"><img src="../App_Themes/images/css/error.gif">请填写患者姓名！</span>
+                </td>
+                <td class="TdRight" style="background: #F2F2F2; width: 80px;">
+                    性别：
+                </td>
+                <td bgcolor="#ffffff" style="height: 25px; min-width: 320px;">
+                    <span id="ddlXB"><input id="ddlXB_0" type="radio" name="ddlXB" value="0" checked="checked"><label for="ddlXB_0">男&nbsp;&nbsp;</label><input id="ddlXB_1" type="radio" name="ddlXB" value="1"><label for="ddlXB_1">女</label></span>
+                    <font color="red">*</font>
+                </td>
+                <td rowspan="6">
+                    <img id="imgtx" src="../App_Themes/images/conter/man.jpg" style="height:180px;width:180px;border-width:0px;">
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    出生日期：
+                </td>
+                <td bgcolor="#ffffff" style="height: 25px;">
+                    <input name="tbxCSRQ" type="text" id="tbxCSRQ" class="input_b Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'1900-1-1',maxDate:'%y-%M-%d',onpicked:function(){GetYear();}})" style="width:95px;">
+                    <input name="tbxNL" type="text" maxlength="4" id="tbxNL" class="input_b" onblur="CheckNL(this)" style="width:40px;">
+                    <select name="ddlNLDW" id="ddlNLDW" style="height:20px;width:40px;">
+                        <option value="1">岁</option>
+                        <option value="2">月</option>
+                        <option value="3">日</option>
+
+                    </select>
+                    <font color="red">*</font><span id="CSRQ_Msg"></span>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    身份证号：
+                </td>
+                <td bgcolor="#ffffff" style="height: 25px">
+                    <font color="red">
+                        <input name="tbxSFZH" type="text" maxlength="18" id="tbxSFZH" class="input_b" onblur="CheckSFZH(this)" onkeyup="CheckSFZH(this)" style="width:200px;">
+                    </font><span id="SFZH_Msg"></span>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    婚姻状况：
+                </td>
+                <td bgcolor="#ffffff" style="height: 25px">
+                    <select name="ddlHYZK" id="ddlHYZK" style="width:145px;">
+                        <option value="1">保密</option>
+                        <option value="2">已婚</option>
+                        <option value="3">未婚</option>
+
+                    </select>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    工作年限：
+                </td>
+                <td bgcolor="#ffffff" class="style1">
+                    <input name="txtgznx" type="text" maxlength="30" id="txtgznx" class="input_b" onblur="CheckGZNX(this)" style="width:50px;">
+                    <select name="ddlnxdw" id="ddlnxdw" style="height:18px;width:50px;">
+                        <option value=""></option>
+                        <option value="年">年</option>
+                        <option value="月">月</option>
+                        <option value="日">日</option>
+
+                    </select>
+                    <span id="GZNX_MSG"></span>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    体重：
+                </td>
+                <td bgcolor="#ffffff">
+                    <input name="txtTZ" type="text" maxlength="10" id="txtTZ" class="input_b" onblur="CheckTZ(this)" style="width:50px;">
+                    <strong style="font-weight: bold;">KG</strong><span id="tz_msg"></span>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    身高：
+                </td>
+                <td bgcolor="#ffffff">
+                    <input name="txtSG" type="text" maxlength="10" id="txtSG" class="input_b" onblur="CheckSG(this)" style="width:50px;">
+                    <strong style="font-weight: bold;">CM</strong><span id="SG_MSG"></span>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    血型：
+                </td>
+                <td bgcolor="#ffffff" class="style1">
+                    <select name="ddlXX" id="ddlXX" style="width:145px;">
+                        <option value="A型">A型</option>
+                        <option value="AB型">AB型</option>
+                        <option value="B型">B型</option>
+                        <option value="O型">O型</option>
+
+                    </select>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    职业：
+                </td>
+                <td bgcolor="#ffffff" class="style1">
+                    <select name="ddlZY" id="ddlZY" style="width:145px;">
+                        <option value="0"></option>
+                        <option value="2">农民</option>
+                        <option value="3">工人</option>
+                        <option value="4">其它</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    文化程度：
+                </td>
+                <td bgcolor="#ffffff" class="style1">
+                    <select name="ddlWHCD" id="ddlWHCD" style="width:145px;">
+                        <option value="1">保密</option>
+                        <option value="2">小学</option>
+                        <option value="3">中学</option>
+                        <option value="4">大学</option>
+                        <option value="5">硕士</option>
+                        <option value="6">博士</option>
+
+                    </select>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;" nowrap="nowrap">
+                    常用报销方式：
+                </td>
+                <td>
+                    <select name="ddlCYBXFS" id="ddlCYBXFS" style="width:145px;">
+                        <option value="0"> </option>
+                        <option value="1">农合报销</option>
+                        <option value="2">医保报销</option>
+                        <option value="3">无报销方式</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    医保编号：
+                </td>
+                <td>
+                    <font color="red">
+                        <input name="tbxYBBH" type="text" id="tbxYBBH" class="input_b" style="width:200px;">
+                    </font>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    邮政编号：
+                </td>
+                <td bgcolor="#ffffff">
+                    <font color="red"></font>
+                    <input name="tbxYZBH" type="text" maxlength="8" id="tbxYZBH" class="input_b" onkeyup="value=value.replace(/[^\d]/g,&quot;&quot;)" onblur="check_YZBH(this)" style="width:70px;"><span id="YZBH"></span>
+                </td>
+                <td nowrap="nowrap">
+                    <input id="txt" class="input_text" readonly="readonly" name="txt" type="text">
+                    <!--<input type="button" value="浏览...">-->
+                    <!--<input type="file" name="InputFile" id="InputFile" class="input_file" onchange="txt.value=this.value;ShowImage(this)">-->
+                    <div class="am-form-group am-form-file">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">
+                            <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                        <input type="file" multiple onchange="txt.value=this.value;ShowImage(this)">
+                    </div>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    行政区编号：
+                </td>
+                <td bgcolor="#ffffff">
+                    <font color="red">
+                        <input name="tbxXZQBH" type="text" id="tbxXZQBH" class="input_b" onblur="check_validate(this)" style="width:200px;">
+                    </font><span id="XZQBH"></span>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    农合编号：
+                </td>
+                <td colspan="2">
+                    <font color="red">
+                        <input name="tbxNHBH" type="text" id="tbxNHBH" class="input_b" onblur="NHBHYZ(this)" style="width:200px;">
+                    </font><span id="NHBH"></span>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    手机号码：
+                </td>
+                <td bgcolor="#ffffff" style="height: 25px">
+                    <font color="red">
+                        <input name="tbxSJHM" type="text" maxlength="30" id="tbxSJHM" class="input_b" onkeyup="value=value.replace(/[^\0-9\-\ ]/g,&quot;&quot;)" style="width:200px;">
+                        <span id="SJHM_Msg"></span></font>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    电子邮件：
+                </td>
+                <td bgcolor="#ffffff" colspan="2">
+                    <font color="red">
+                        <input name="tbxDZYJ" type="text" maxlength="30" id="tbxDZYJ" class="input_b" onblur="CheckDZYJ(this)" style="width:200px;">
+                    </font><span id="DZYJ_Msg"></span>
+                </td>
+            </tr>
+            <tr style="color: #666666">
+                <td class="TdRight " style="background: #F2F2F2;">
+                    详细地址：
+                </td>
+                <td>
+                    <font color="red">
+                        <input name="tbxXXDZ" type="text" maxlength="40" id="tbxXXDZ" class="input_b" style="width:320px;">
+                    </font><span id="XXDZ_Msg"></span>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    过敏史：
+                </td>
+                <td colspan="4">
+                    <font color="red">
+                        <input name="txtGMS" type="text" maxlength="250" id="txtGMS" class="input_b" style="width:600px;">
+
+                    </font>
+                </td>
+            </tr>
+            <tr id="trHolderID">
+                <td class="TdRight " style="background: #F2F2F2; color: #666666;">
+                    所属户主：
+                </td>
+                <td>
+                    <input name="txtHolderName" type="text" id="txtHolderName" style="width:200px;">
+                    <input name="txtHolderID" type="text" id="txtHolderID" style="display: none;">
+                    <a href="javascript:void(0)" onclick="SelectHolder()" class="but" style="vertical-align: middle;">
+                        <span>请选择</span></a> <a href="javascript:void(0)" onclick="DeleteHolder()" class="but" style="vertical-align: middle;"><span>清除</span></a>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    患者分类：
+                </td>
+                <td bgcolor="#ffffff" class="style1" colspan="2">
+                    <select name="ddlPatientClass" id="ddlPatientClass" style="width:145px;">
+                        <option value="22">未分类</option>
+
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr id="trs" style="display:none;">
+                <td class="TdRight" style="background: #F2F2F2; color: #666666;">
+                    人员状态：
+                </td>
+                <td>
+                    <table id="rdoHZZT" disabled="disabled" border="0">
+                        <tbody><tr>
+                            <td><span disabled="disabled"><input id="rdoHZZT_0" type="radio" name="rdoHZZT" value="Y" checked="checked" disabled="disabled"><label for="rdoHZZT_0">启用</label></span></td><td><span disabled="disabled"><input id="rdoHZZT_1" type="radio" name="rdoHZZT" value="N" disabled="disabled"><label for="rdoHZZT_1">禁用</label></span></td>
+                        </tr>
+                        </tbody></table>
+                </td>
+                <td class="TdRight " style="background: #F2F2F2;">
+                    黑名单：
+                </td>
+                <td colspan="4">
+                    <input id="cbIsBlack" type="checkbox" name="cbIsBlack"><label for="cbIsBlack">是</label>
+                </td>
+            </tr>
+
+            </tbody></table>
+    </div>
+</div>

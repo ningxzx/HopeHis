@@ -1,0 +1,132 @@
+<div class="admin-content">
+    <div class="am-g">
+        <div class="am-u-md-6">
+            <div class="am-g" id="role_table_wrapper">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">分组
+                        <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="grouping_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-6">
+            <div class="am-g" id="menu_table_wrapper">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">患者
+                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        <a class="panel_tool save_menu_tool"><i class="am-icon-save"></i> 保存分组</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="patientClass_tbl" data-pagination="true">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--model-->
+<div class="am-modal am-modal-prompt" tabindex="-1" id="patient_history">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">就诊记录
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd"  style="max-height: 600px; overflow-y: scroll;">
+        </div>
+    </div>
+</div>
+
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="new_modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">新增患者分组
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="am-g " style="margin-top: 10px;">
+                <div class="am-u-md-6 am-input-group">
+                    <span class="am-input-group-label">组名</span>
+                    <input type="text" class="am-form-field" id="group_name">
+                    <span class="required_span">*</span>
+                </div>
+                <div class="am-u-md-6 input_tips">
+                    <img src="imgs/info.png" class="tip_img" width="15" height="15.5" alt=""/>
+                    <span id="name_tips">必需</span>
+                </div>
+            </div>
+            <div class="am-g " style="margin-top: 10px;">
+                <div class="am-u-md-3">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">年龄段</span>
+                        <input type="text" class="am-form-field" id="min_age">
+                    </div>
+                </div>
+                <div class="am-u-md-3">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">至</span>
+                        <input type="text" class="am-form-field" id="max_age">
+                    </div>
+                </div>
+                <div class="am-u-md-6 input_tips">
+                    <img src="imgs/info.png" class="tip_img" width="15" height="15.5" alt=""/>
+                    <span id="age_tips">患者年龄区间，可空</span>
+                </div>
+            </div>
+            <div class="am-g " style="margin-top: 10px;">
+                <div class="am-u-md-6 am-input-group">
+                    <span class="am-input-group-label">性别</span>
+                    <select name="m_gender" id="new_sex" class="am-form-field">
+                        <option value="M">男</option>
+                        <option value="F">女</option>
+                        <option value="N">不限</option>
+                    </select>
+                </div>
+                <div class="am-u-md-6 input_tips">
+                    <img src="imgs/info.png" class="tip_img" width="15" height="15.5" alt=""/>
+                    <span id="sex_tips">患者性别</span>
+                </div>
+            </div>
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-6 am-input-group">
+                    <span class="am-input-group-label">婚姻状况</span>
+                    <select name="m_marry" id="new_marriage" class="am-form-field">
+                        <option value="WH">未婚</option>
+                        <option value="YH">已婚</option>
+                        <option value="LY">离异</option>
+                        <option value="SO">丧偶</option>
+                        <option value="BX">不限</option>
+                    </select>
+                </div>
+                <div class="am-u-md-6 input_tips">
+                    <img src="imgs/info.png" class="tip_img" width="15" height="15.5" alt=""/>
+                    <span id="marriage_tips">患者婚姻状况</span>
+                </div>
+            </div>
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-6 am-input-group">
+                    <span class="am-input-group-label">病种</span>
+                    <input type="text" class="am-form-field" id="new_illness">
+                </div>
+                <div class="am-u-md-6 input_tips">
+                    <img src="imgs/info.png" class="tip_img" width="15" height="15.5" alt=""/>
+                    <span id="disease_tips">患者病种，非必需，后续版本修改为ICD10</span>
+                </div>
+            </div>
+            <!--<div class="am-g" style="margin-top: 10px;">-->
+                <!--<div class=" am-input-group am-u-md-1 am-fr">-->
+                    <!--<button class="am-btn am-btn-default am-btn-sm" type="reset">重置</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">关闭</span>
+            <span class="am-modal-btn" id="submit_group">提交</span>
+        </div>
+    </div>
+</div>

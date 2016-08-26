@@ -1,0 +1,45 @@
+.hr{
+    border-top: 1px solid #e3e3e3;
+    margin: 1rem;
+}
+.hr_top{
+    border-top: 1px solid #e3e3e3;
+    margin-top: 1rem;
+}
+#group_condition .am-modal-prompt-input{
+    display: inline-block;
+    line-height: 0.8rem;
+    padding: 3px 5px;
+    width: 30%;
+    margin: 5px 10px;
+}
+#new_modal .input_tips{
+    text-align: left;
+}
+#new_modal .input_tips img{
+    vertical-align: bottom;
+}
+#patient_history .admin-content{
+    border:none
+}
+#patient_history,#diag_record_modal{
+    margin-top: 0!important;
+    top: 50px !important;
+}
+#diag_record_modal{
+    max-height: 640px;
+    overflow: scroll;
+}
+#diag_record_modal h3{
+    margin-top: 0;
+}
+#patient_history .am-panel {
+    margin-bottom: 0;
+}
+#patient_history .am-u-md-6{
+    padding-left: 0;
+    padding-right: 0;
+}
+.medicine_module #tips{
+    margin: 0.3rem 2rem;
+}

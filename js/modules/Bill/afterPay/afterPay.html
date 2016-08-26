@@ -1,0 +1,174 @@
+<!--补交欠款-->
+<div class="admin-content" style="padding: 10px;">
+    <div >
+        <div class="am-tabs" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <li class="am-active"><a href="javascript: void(0)">赊账</a></li>
+                <li><a href="javascript: void(0)">还款</a></li>
+                <li><a href="javascript: void(0)">还款记录</a></li>
+            </ul>
+            <div class="am-tabs-bd">
+                <!--赊账-->
+                <div class="am-tab-panel am-active">
+                    <div class="am-g" >
+                        <div class="am-input-group am-u-sm-3 " >
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                患者姓名
+                            </span>
+                            <input type="text" class="am-form-field " placeholder="Username">
+                        </div>
+                        <div class="am-u-sm-2    am-input-group">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                性别
+                            </span>
+                            <select   id="credit_sex" >
+                                <option selected="selected" value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 赊账日期</span>
+                            <input type="text" id="credit_start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" id="credit_end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                        </div>
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="credit_search">查询</button>
+                    </div>
+
+
+                    <div >
+                        <table class="am-table am-table-striped" id="refund_tbl" data-pagination="true" data-search="true">
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th data-field="record_id">赊账记录ID</th>-->
+                                <!--<th data-field="credit_id">医院／医生ID</th>-->
+                                <!--<th data-field="credit_name">名称</th>-->
+                                <!--<th data-field="patient_id">患者ID</th>-->
+                                <!--<th data-field="patient_name">患者名称</th>-->
+                                <!--<th data-field="CREDIT_DATE">赊账日期</th>-->
+                                <!--<th data-field="ORI_CREDIT_FEE">原始赊账金额</th>-->
+                                <!--<th data-field="ACTUL_REPAYMENT_FEE">实际应还金额</th>-->
+                                <!--<th data-field="REPAYMENT_FEE">已还金额</th>-->
+                                <!--<th data-field="CLEAR_DATE">还清日期</th>-->
+                                <!--<th data-field="LAST_PAY_DATE">最后一次还款日期</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                        </table>
+                    </div>
+                </div>
+                <!--还款-->
+                <div class="am-tab-panel">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-sm-3 ">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                患者姓名
+                            </span>
+                            <input type="text" class="am-form-field " placeholder="Username">
+                        </div>
+                        <div class="am-u-sm-2    am-input-group">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                性别
+                            </span>
+                            <select   id="reimbursement_sex" >
+                                <option selected="selected" value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 赊账日期</span>
+                            <input type="text" id="reimbursement_start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" id="reimbursement_end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                        </div>
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="reimbursement_search">查询</button>
+                    </div>
+
+                    <div  >
+                        <table class="am-table am-table-striped" id="repay_tbl" data-pagination="true" data-search="true">
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th data-field="record_id">赊账记录ID</th>-->
+                                <!--<th data-field="credit_id">医院／医生ID</th>-->
+                                <!--<th data-field="credit_name">名称</th>-->
+                                <!--<th data-field="patient_id">患者ID</th>-->
+                                <!--<th data-field="patient_name">患者名称</th>-->
+                                <!--<th data-field="CREDIT_DATE">赊账日期</th>-->
+                                <!--<th data-field="ORI_CREDIT_FEE">原始赊账金额</th>-->
+                                <!--<th data-field="ACTUL_REPAYMENT_FEE">实际应还金额</th>-->
+                                <!--<th data-field="REPAYMENT_FEE">已还金额</th>-->
+                                <!--<th data-field="CLEAR_DATE">还清日期</th>-->
+                                <!--<th data-field="LAST_PAY_DATE">最后一次还款日期</th>-->
+                                <!--<th data-field="LAST_PAY_FEE">最后一次还款金额</th>-->
+                                <!--<th data-field="LAST_OPERATOR_ID">最后一次还款收费人ID</th>-->
+                                <!--<th data-field="LAST_OPERATOR_NAME">最后一次还款收费人姓名</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                        </table>
+                    </div>
+                </div>
+                <!--还款记录-->
+                <div class="am-tab-panel">
+                    <div class="am-g">
+                        <div class="am-input-group am-u-sm-3 ">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                患者姓名
+                            </span>
+                            <input type="text" class="am-form-field " placeholder="Username">
+                        </div>
+                        <div class="am-u-sm-2    am-input-group">
+                            <span class="am-input-group-label">
+                                <i class="am-icon-user am-icon-fw"></i>
+                                性别
+                            </span>
+                            <select   id="history_sex" >
+                                <option selected="selected" value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="am-input-group am-u-md-3">
+                            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 赊账日期</span>
+                            <input type="text" id="history_start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+                        </div>
+                        <div class="am-input-group am-u-md-3  am-u-end">
+                            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+                            <input type="text" id="history_end" class="am-form-field end" placeholder="点击选择日期" readonly>
+                        </div>
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" id="history_search">查询</button>
+                    </div>
+
+                    <div >
+                        <table class="am-table am-table-striped" id="repay_recode_tbl" data-pagination="true" data-search="true">
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th data-field="record_id">赊账记录ID</th>-->
+                                <!--<th data-field="credit_id">医院／医生ID</th>-->
+                                <!--<th data-field="credit_name">名称</th>-->
+                                <!--<th data-field="patient_id">患者ID</th>-->
+                                <!--<th data-field="patient_name">患者名称</th>-->
+                                <!--<th data-field="CREDIT_DATE">赊账日期</th>-->
+                                <!--<th data-field="ORI_CREDIT_FEE">原始赊账金额</th>-->
+                                <!--<th data-field="ACTUL_REPAYMENT_FEE">实际应还金额</th>-->
+                                <!--<th data-field="REPAYMENT_FEE">已还金额</th>-->
+                                <!--<th data-field="CLEAR_DATE">还清日期</th>-->
+                                <!--<th data-field="LAST_PAY_DATE">最后一次还款日期</th>-->
+                                <!--<th data-field="LAST_PAY_FEE">最后一次还款金额</th>-->
+                                <!--<th data-field="LAST_OPERATOR_ID">最后一次还款收费人ID</th>-->
+                                <!--<th data-field="LAST_OPERATOR_NAME">最后一次还款收费人姓名</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

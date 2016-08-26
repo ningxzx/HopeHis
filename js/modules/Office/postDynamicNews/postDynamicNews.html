@@ -1,0 +1,21 @@
+<div class="admin-content" id="post_dynamic_news">
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-5">
+            <span class="am-input-group-label"> 标题</span>
+            <input type="text" class="am-form-field" placeholder="" id="title">
+        </div>
+        <div class="am-input-group am-u-md-7 am-u-end am-hide" id="title_error">
+            <img src="imgs/wrong.png" class="tip_img" width="15" height="15" alt=""/>
+            <span class="am-btn-xs">  新闻标题仅允许汉字、数字、英文字母、空格以及逗号 长度在3-25之间！</span>
+        </div>
+    </div>
+    <div class="am-u-md-12 am-padding-top am-padding-bottom">
+        <textArea id="send_content" style='height:400px; max-height:600px;' class="form-control"  placeholder="请输入内容"></textArea>
+    </div>
+    <div class="am-g">
+        <div class="am-input-group am-u-md-4 am-u-end">
+            <button id="reset_btn" class="am-btn am-btn-xs am-fl am-btn-default am-margin-right">重置</button>
+            <button id="send_btn" class="am-btn am-btn-xs am-fl am-btn-secondary">上传</button>
+        </div>
+    </div>
+</div>

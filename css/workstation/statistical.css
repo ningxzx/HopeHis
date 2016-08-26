@@ -1,0 +1,6 @@
+#drug_sales .am-tab-panel{
+    min-height: 680px;
+}
+#drug_sales .am-panel-bd{
+    padding: 0 !important;
+}

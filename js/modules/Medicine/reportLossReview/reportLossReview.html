@@ -1,0 +1,172 @@
+<div  class="admin-content" style="padding: 10px; ">
+    <!--<span>药品检索：</span><input type="text">-->
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
+            <li id="refund_show" class="am-active"><a href="javascript: void(0)">药品报损复核</a></li>
+            <li id="repay_show"><a href="javascript: void(0)">药品报损查询</a></li>
+
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active" id="refund">
+                <div class="CxArea">
+                    <table border="0" cellpadding="0" cellspacing="0" height="45">
+                        <tbody><tr>
+                            <td class="TdRight">
+                                药品检索：
+                            </td>
+                            <td>
+                                <input name="YPMC" type="text" maxlength="30" id="YPMC" tabindex="1" style="width:100px;">
+                            </td>
+                            <td class="W_70 TdRight">
+                                报损日期：
+                            </td>
+                            <td class="W_90">
+                                <input type="date"   class="date"/>
+                            </td>
+                            <td align="center">
+                                &nbsp;至&nbsp;
+                            </td>
+                            <td>
+                            <input type="date"   class="date"/>
+                            </td>
+                            <td>
+                                &nbsp;报损员：
+                            </td>
+                            <td class="W_90">
+                                <select name="ddlTJR"   class="W_100">
+                                    <option selected="selected" value="0">全部</option>
+                                    <option value="1001">实施</option>
+                                    <option value="1002">去玩儿</option>
+                                    <option value="1003">是水水水</option>
+                                    <option value="1004">wqwqe</option>
+
+                                </select>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td class="style1">
+                                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >查询</button>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >复核</button>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <div style="border: 1px solid #ccc;" ></div>
+
+                <div  class="am-g" style="font-size: 12px;">
+                    <table id="xzx"
+                           data-pagination="true"
+                           data-search="true"
+                            >
+                        <thead>
+                        <tr>
+                            <th style="" data-field="forks_count" tabindex="0">序号</th>
+                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
+                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
+                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
+                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                            <th style="" data-field="forks_count" tabindex="0">来源</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
+                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
+                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+            <div class="am-tab-panel" id="repay">
+                <div class="CxArea">
+                    <table border="0" cellpadding="0" cellspacing="0" height="45">
+                        <tbody><tr>
+                            <td class="TdRight">
+                                药品检索：
+                            </td>
+                            <td>
+                                <input name="YPMC" type="text" maxlength="30"   tabindex="1" style="width:100px;">
+                            </td>
+                            <td class="W_70 TdRight">
+                                报损日期：
+                            </td>
+                            <td class="W_90">
+                                <input type="date"   class="date"/>
+                            </td>
+                            <td align="center">
+                                &nbsp;至&nbsp;
+                            </td>
+                            <td class="W_90">
+                                <input type="date"   class="date"/>
+                            </td>
+                            <td>
+                                &nbsp;报损员：
+                            </td>
+                            <td class="W_90">
+                                <select name="ddlTJR" id="ddlTJR" class="W_100">
+                                    <option selected="selected" value="0">全部</option>
+                                    <option value="1001">实施</option>
+                                    <option value="1002">去玩儿</option>
+                                    <option value="1003">是水水水</option>
+                                    <option value="1004">wqwqe</option>
+
+                                </select>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td class="style1">
+                                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >查询</button>
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >复核</button>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <div style="border: 1px solid #ccc;" ></div>
+
+                <div  class="am-g" style="font-size: 12px;">
+                    <table id="xzx"
+                           data-pagination="true"
+                           data-search="true"
+                            >
+                        <thead>
+                        <tr>
+                            <th style="" data-field="forks_count" tabindex="0">序号</th>
+                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
+                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
+                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
+                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
+                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
+                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
+                            <th style="" data-field="forks_count" tabindex="0">来源</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
+                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
+                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
+                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

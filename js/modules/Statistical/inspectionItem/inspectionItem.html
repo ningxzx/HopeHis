@@ -1,0 +1,38 @@
+<div class="admin-content" style="padding: 10px; ">
+    <div class="am-g am-padding-top">
+        <div class="am-input-group am-u-md-3">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
+            <input type="text" id="start" class="am-form-field  start_calender" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-3">
+            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
+            <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly>
+        </div>
+        <div class="am-input-group am-u-md-1">
+            <button type="button" id="inspectionitem_btn" class="am-btn am-btn-primary am-radius am-btn-xs"  >查询</button>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="am-g supplier_table_wrapper">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">检查项目表
+                <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
+                <a class="panel_tool refresh_tool refresh_level"  ><i class="am-icon-refresh"></i> 刷新</a>
+
+            </div>
+            <div class="am-panel-bd">
+                <table id="inspectionitem_tbl">
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

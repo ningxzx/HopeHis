@@ -1,0 +1,171 @@
+<div class="admin-content" id="charge">
+    <!--已收费-->
+    <div class="am-active am-margin-top" id="fee">
+        <div class="am-g am-padding-top">
+            <div class="am-input-group am-u-md-4 ">
+                <span class="am-input-group-label">
+                    <i class="am-icon-user am-icon-fw"></i>患者编号
+                </span>
+                <input type="text" id="pat_name" class="am-form-field " placeholder="eg:16050200000002M"
+                       value="">
+            </div>
+            <div class="am-u-md-4">
+                <div class="am-input-group" id="search_pat_charge">
+                    <span class="am-input-group-label">患者姓名</span>
+                    <input type="text" class="am-form-field first_focus" id="patName"
+                           placeholder="" style="position: relative"/>
+                    <div id="names" class="tbl_name hid">
+                        <table class="am-table " data-pagination="true"
+                               id="tbl_charge_names">
+                            <thead>
+                            <tr>
+                                <th data-field="patient_id">患者ID</th>
+                                <th data-field="patient_name">患者姓名</th>
+                                <th data-field="card_id">身份证号</th>
+                                <th data-field="patient_sex">性别</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="am-input-group am-u-md-4">
+                <button class="am-btn am-btn-primary am-radius am-btn-xs" id="fee_search">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-md-6 am-u-sm-12">
+            <div class="charge_basic_info am-panel am-panel-default">
+                <div class="am-panel-hd">基本信息</div>
+                <div class="am-panel-bd">
+                    <div class=" am-u-md-12"><label class="am-u-md-5">患者姓名:</label>
+                        <input type="text" class="pat_name am-u-md-7" readonly/></div>
+                    <div class=" am-u-md-12"><label class="am-u-md-5">患者性别:</label>
+                        <input type="text" class="pat_sex am-u-md-7" readonly/></div>
+                    <div class=" am-u-md-12"><label class="am-u-md-5">出生日期:</label>
+                        <input type="text" class="pat_birth am-u-md-7" readonly/></div>
+                    <div class=" am-u-md-12"><label class="am-u-md-5">患者ID:</label>
+                        <input type="text" class="pat_id am-u-md-7" readonly/></div>
+                    <div class=" am-u-md-12"><label class="am-u-md-5">身份证号:</label>
+                        <input type="text" class="pat_cardId am-u-md-7" readonly/></div>
+                    <div class=" am-u-md-12"><label class="am-u-md-5">手机号码:</label>
+                        <input type="text" class="pat_tel am-u-md-7" readonly/></div>
+                    <input type="hidden" id="pat_discount">
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="table_tip" style="margin-left: 2em;">-->
+        <!--总记录说明：点击左边勾选后, 点击右边查看明细按钮,下拉出来明细后点击计费按钮收费.-->
+        <!--</div>-->
+        <div class="am-u-md-6 am-u-sm-12">
+            <div class="am-panel am-panel-default table_panel diag_record_wrapper">
+                <div class="am-panel-hd">
+                    总记录
+                    <!--<a class="check_detail">-->
+                        <!--<button class="am-btn am-btn-success am-radius am-btn-xs">查看收费明细</button>-->
+                    <!--</a>-->
+                </div>
+                <div class="am-panel-bd p_none" id="record_info">
+                    <table class="table table-striped" id="record_tbl" >
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-g  am-margin-bottom">
+        <div class="am-panel am-panel-default table_panel record_detail_wrapper">
+            <div class="am-panel-hd">
+                <span class="diagnosis_id"></span> 收费明细
+                <a class="fee_billing">
+                    <button class="am-btn am-btn-warning am-radius am-btn-xs" style="outline: none">收费</button>
+                </a>
+                <span class="fee_total">处方总费用：<span class="after_dis_total">0</span></span>
+                <span class="fee_total">实际总费用：<span class="after_change_total">0</span></span>
+            </div>
+            <div class="am-panel-bd p_none charge_detail_info" id="check_info">
+                <table class="table table-striped" id="detail_tbl" data-pagination="true">
+                </table>
+            </div>
+        </div>
+
+        <div class="am-g am-padding hid">
+            <div class="am-u-md-2">
+                <label>西药费用: <span class="xy_cost"></span></label>
+            </div>
+            <div class="am-u-md-2">
+                <label class="">中药费用: <span class="zy_cost"></span></label>
+            </div>
+            <div class="am-u-md-2">
+                <label class="">诊疗费用: <span class="cureProject_cost"></span></label>
+            </div>
+            <div class="am-u-md-2">
+                <label class="">检查费用: <span class="inspect_cost"></span></label>
+            </div>
+            <div class="am-u-md-2 am-u-end">
+                <label class="">检验费用: <span class="check_cost"></span></label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="am-panel am-modal am-panel-default " id="doc-modal">
+    <div class="am-modal-hd">应收金额- <span class="charge_title"></span> -元</div>
+    <div class="am-panel-bd">
+        <div class="am-g am-padding-bottom">
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-weixin"></i> 微信支付</span>
+                <input type="text" class="am-form-field pay_num" id="wx_pay">
+            </div>
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-adn"></i> 支付宝支付</span>
+                <input type="text" class="am-form-field pay_num" id="ali_pay">
+            </div>
+        </div>
+        <div class="am-g am-padding-bottom">
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 医保支付</span>
+                <input type="text" class="am-form-field pay_num" id="insu_pay">
+            </div>
+            <!--<div class="am-input-group am-u-md-6">-->
+                <!--<span class="am-input-group-label"><i class="am-icon-h-square"></i> 银行卡支付</span>-->
+                <!--<input type="text" class="am-form-field pay_num" id="bank_pay">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="am-g am-padding-bottom">
+            <div class="am-input-group am-u-md-6 am-u-end">
+                <span class="am-input-group-label"><i class="am-icon-paypal"></i> 会员卡支付</span>
+                <input type="text" class="am-form-field pay_num" id="recharge_pay">
+            </div>
+        </div>
+        <div class="am-g  am-padding-bottom">
+            <div class=" am-u-md-6 realChargeWrapper">
+                <span class="am-u-md-4">收到现金(元): </span><input class="realCharge pay_num am-u-md-8" type="number"/>
+            </div>
+            <div class=" am-u-md-6 backChargeWrapper">
+                <span class="am-u-md-4">找回现金(元):</span><input class="backCharge am-u-md-8" type="number"/>
+            </div>
+        </div>
+        <div class="am-g">
+            <div class="am-input-group am-u-md-6 am-fr">
+                <button class="am-btn-secondary am-btn-xs am-btn am-fr" id="cancel_modal">取消</button>
+                <button class="am-btn-success am-btn-xs am-btn am-fr am-margin-right" id="submit_charge">确认收款</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="tips-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">提示信息
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <span class="tips"></span>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>

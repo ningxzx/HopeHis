@@ -1,0 +1,46 @@
+<div class="am-g p">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+            患者分组信息
+        </div>
+        <div class="am-panel-bd">
+            <form>
+                <div class="am-g p">
+                    <div class="am-u-md-5">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">请选择分组：</span>
+                            <select name="select_group" tabindex="-1" class="am-form-field">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-md-4">
+                        <button class="am-btn am-btn-default am-btn-sm" name="createGroup">创建患者分组</button>
+                    </div>
+                    <div class="am-u-md-3">
+                        <button class="am-btn am-btn-default am-btn-sm" type="reset">重置</button>
+                    </div>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="am-g p">
+                    <table class="am-table am-table-striped" data-pagination="true" name="patient_group">
+                        <thead>
+                        <tr>
+                            <th data-field="patient_id" data-align="center">患者ID</th>
+                            <th data-field="patient_name" data-align="center">患者姓名</th>
+                            <th data-field="patient_sex" data-align="center">患者性别</th>
+                            <th data-field="patient_birth" data-align="center">患者生日</th>
+                            <th data-field="marry_state" data-align="center">患者婚姻状态</th>
+                            <th data-field="card_id" data-align="center">身份证号</th>
+                            <th data-field="nationality" data-align="center">国籍</th>
+                            <th data-field="patient_phone" data-align="center">联系方式</th>
+                            <th data-field="isalive" data-align="center">是否死亡</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

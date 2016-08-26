@@ -1,0 +1,68 @@
+<div class="admin-content member_module">
+    <div class="am-g">
+        <div class="am-u-md-4">
+            <div class="am-g" id="role_table_wrapper">
+                <div class="am-g notice_input_padding">
+                    <div class="am-input-group am-u-md-12">
+                        <span class="am-input-group-label">接收日期</span>
+                        <input type="text" id="start" class="am-form-field start" placeholder="" readonly>
+                        <span class="am-input-group-label">至</span>
+                        <input type="text" id="end" class="am-form-field end" placeholder="" readonly>
+                    </div>
+                </div>
+                <div class="am-g notice_input_padding">
+                    <div class="am-input-group am-u-md-8">
+                        <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 标题</span>
+                        <input type="text" class="am-form-field " id="hm_id" placeholder="">
+                    </div>
+                    <div class="am-u-sm-3">
+                        <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius"
+                                id="historyMessage_btn">查询
+                        </button>
+                    </div>
+                </div>
+
+                <div class="am-g p">
+                    <div class="am-panel am-panel-default table_panel " id="historyMessage_panel">
+                        <div class="am-panel-hd"><span class="panel_title">历史消息</span>
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+                            <a class="panel_tool add_level"><i class="am-icon-plus-square"></i> 添加</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="historyMessage_tbl"></table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="am-u-md-8 hid" id="my_news">
+            <div class="am-g">
+                <div class="am-u-md-10 am-u-sm-centered">
+                    <div class="am-u-md-3 am-padding-left-0">
+                        发件人：<span class="post_people"></span>
+                    </div>
+                    <div class=" am-u-md-6 am-u-end">
+                        时 间：<span class="post_time"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-margin-top">
+                <div class="am-u-md-10 am-u-sm-centered">
+                    标题:
+                    <span class="am-inline-block news_title"></span>
+                </div>
+            </div>
+
+            <div class="am-g">
+                <div class="am-u-sm-10 am-u-sm-centered content">
+
+                    <div class="am-margin-top"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

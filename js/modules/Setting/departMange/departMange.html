@@ -1,0 +1,77 @@
+<div class="admin-content member_module">
+    <div class="am-panel am-panel-default dept_info_panel">
+        <div class="am-panel-hd"><span class="dept_info_title">添加科室</span>
+            <!--介绍第三步-->
+            <a class="tool_confirm panel_tool" id="edit_confirm" data-step="3" data-intro="点击确认。"><i class="am-icon-check"></i> 确认</a>
+            <a class="tool_reset panel_tool" id="edit_reset"><i class="am-icon-recycle"></i> 重置</a>
+            <a class="tool_cancel panel_tool" id="edit_cancel"><i class="am-icon-close"></i> 关闭</a>
+        </div>
+        <div class="am-panel-bd">
+            <!--介绍第二步-->
+            <div class="am-g" data-step="2" data-intro="输入科室信息。">
+                <div class="am-input-group am-u-sm-3 ">
+                    <span class="am-input-group-label"> 科室名称</span>
+                    <input type="text" class="am-form-field" id="dept_name" placeholder="">
+                </div>
+                <div class="am-input-group am-u-sm-3">
+                    <span class="am-input-group-label"> 科室主任</span>
+                    <select id="doctors" tabindex="-1" class="am-form-field">
+                        <option value="">请选择医生</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-sm-3 ">
+                    <span class="am-input-group-label"> 科室优先级</span>
+                    <input type="number" class="am-form-field" id="level" placeholder="1">
+                </div>
+                <div class="am-input-group am-u-sm-3">
+                    <span class="am-input-group-label"> 启用标记</span>
+                    <select name="use_state" id="">
+                        <option value="1">启用</option>
+                        <option value="2">禁用</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">科室列表
+                <a class="panel_tool" id="refresh_dept"><i class="am-icon-refresh"></i> 刷新</a>
+                <!--介绍第一步-->
+                <a class="panel_tool" id="add_dept" data-step="1" data-intro="点击添加按钮"><i class="am-icon-plus-square"></i> 添加</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="department_table"></table>
+            </div>
+        </div>
+        <div class="table_tip">
+            <h4>说明：</h4>
+            <p>1、科室优先级代表该科室的展示顺序,仅允许数字。</p>
+            <p>2、不同科室可以选择同一个科室主任。</p>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="setting_alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">Jethis 操作提示</div>
+        <div class="am-modal-bd">
+            科室添加成功！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="dellde">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd" style="color: red"><h3 style="margin-top: 0">确定要删除科室吗</h3><a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a></div>
+        <div class="am-modal-bd" style="text-align: left !important; text-indent: 2rem">
+            删除科室后，与该科室相关的医生将处于<span style="color: red">未设置科室</span>的状态，请于【设置】-【用户管理】处给相关医生添加新的科室，否则将无法为该医生排班！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn"  data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn"  data-am-modal-confirm>确认删除</span>
+        </div>
+    </div>
+</div>

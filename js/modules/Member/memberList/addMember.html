@@ -1,0 +1,124 @@
+<div class="admin-content member_module" style="padding: 10px; ">
+
+    <button id="addBtn" type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >保存</button>
+    <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" id="Return_member">返回</button>
+    <div style="border-bottom: 1px solid #ccc; height: 10px;" ></div>
+
+    <div>
+        <div class="am-g">
+            <div class="am-input-group am-u-md-3">
+                <span class="am-input-group-label"><i class="am-icon-calendar-o" ></i> 会员ID</span>
+                <input name="txtAccountNum" type="text" maxlength="20" id="txtAccountNum">
+            </div>
+            <div class="am-input-group am-u-md-3 ">
+                <span class="am-input-group-label"><i class="am-icon-calendar"></i> 会员姓名</span>
+                <input type="text" class="am-form-field" id="txtName" placeholder="姓名或拼音码">
+            </div>
+            <div class="am-input-group am-u-md-3 am-u-end ">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 手机号码</span>
+                <input type="text" class="am-form-field" id="txtMobileNum" placeholder="">
+            </div>
+        </div>
+        <div class="am-g">
+            <div class="am-input-group am-u-md-3">
+                <span class="am-input-group-label"><i class="am-icon-calendar-o" ></i>出身日期</span>
+
+                <input type="text" id="txtBirthday" class="am-form-field " placeholder="点击选择日期" readonly  >
+                <!--<input name="txtAge" type="text"   id="txtAge" class="am-form-field" style="width:40px;">岁-->
+                <!--<span id="txtBirthday_Msg"></span><font color="red">*</font>-->
+            </div>
+            <div class="am-input-group am-u-md-3 ">
+                <span class="am-input-group-label"><i class="am-icon-calendar"></i> 性别</span>
+                <span id="ddlSex"><input id="ddlSex_0" type="radio" name="ddlSex" value="0" checked="checked">
+                    <label for="ddlSex_0">男&nbsp;&nbsp;</label>
+                    <input id="ddlSex_1" type="radio" name="ddlSex" value="1">
+                    <label for="ddlSex_1">女</label></span>
+                <font color="red">*</font>
+            </div>
+            <div class="am-input-group am-u-md-3 am-u-end ">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 身份证号</span>
+                <input   type="text"  id="txtIdentityNum" class="am-form-field"  >
+            </div>
+        </div>
+
+
+        <div class="am-g">
+            <div class="am-input-group am-u-md-3">
+                <span class="am-input-group-label"><i class="am-icon-calendar-o" ></i> 会员积分</span>
+                <input   type="text"   id="txtPhoneNum" class="am-form-field"  >
+            </div>
+            <div class="am-input-group am-u-md-3 ">
+                <span class="am-input-group-label"><i class="am-icon-calendar"></i> 会员卡余额</span>
+                <input name="txtEmail" type="text"   id="txtMoeny" class="am-form-field" >
+            </div>
+            <div class="am-input-group am-u-md-3 am-u-end ">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+                <select name="ddlDmLevel" id="ddlDmLevel" style="width:150px;">
+                    <option value="1">普通会员</option>
+                    <option value="2">初级会员</option>
+                    <option value="3">高级会员</option>
+                    <option value="4">超级会员</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="am-g">
+            <div class="am-input-group am-u-md-3">
+                <span class="am-input-group-label"><i class="am-icon-calendar-o" ></i> 会员状态</span>
+                <input id="rdoHYZT_0" type="radio" name="rdoHYZT" value="1" checked="checked"><label for="rdoHYZT_0">启用</label>
+                <input id="rdoHYZT_1" type="radio" name="rdoHYZT" value="0"><label for="rdoHYZT_1">禁用</label>
+            </div>
+            <div class="am-input-group am-u-md-3  am-u-end">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 余额不足是否使用</span>
+                <input id="rdoIsUseNoAmount_0" type="radio" name="rdoIsUseNoAmount" value="1" checked="checked"><label for="rdoIsUseNoAmount_0">使用</label>
+                <input id="rdoIsUseNoAmount_1" type="radio" name="rdoIsUseNoAmount" value="0"><label for="rdoIsUseNoAmount_1">不使用</label>
+            </div>
+        </div>
+        <div class="am-g">
+
+        </div>
+
+    </div>
+<div style="width: 100%;height: 20px;"></div>
+    <span>人员列表信息展示区</span>
+    <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" data-am-modal="{target: '#associates', closeViaDimmer: 0}" >关联人员</button>
+    <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" id="new-people">新增人员</button>
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="associates" style="width:700px;">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">选择人员
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div>
+                <span>人员姓名</span><input type="text"/>
+                <span>联系电话</span><input type="text"/>
+                <button  type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >查询</button>
+                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0" >确认添加</button>
+            </div>
+            <div style="border-bottom: 1px solid #ccc;height: 10px;"></div>
+
+            <div class="am-g ">
+                <table data-click-to-select="true"
+                       id="add-associates">
+                    <thead>
+                    <tr>
+                        <th data-field="state" data-checkbox="true"></th>
+                        <th data-field="Drug_code">编号</th>
+                        <th data-field="Drug_name">姓名</th>
+                        <th data-field="Drug_specifications">性别</th>
+                        <th data-field="Large_unit">年龄</th>
+                        <th data-field="Conversion_quantity">出生日期</th>
+                        <th data-field="Small_unit">详细地址</th>
+                        <th data-field="Dosage_form">联系电话</th>
+                        <th data-field="Manufacturer">更新日期</th>
+                        <th data-field="Manufacturer">创建人</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

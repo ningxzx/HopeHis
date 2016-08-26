@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重设密码</title>
+    <link rel="stylesheet" href="css/regist.css"/>
+    <link rel="icon" type="image/png" href="imgs/jethis.ico">
+    <link rel="stylesheet" type="text/css" href="css/orgcheck/orgcheck.css">
+</head>
+<body>
+<!--页头-->
+<div class="header">
+    <img src="imgs/logo.png" alt="pic"/>
+    <span>厚朴 - 智慧医疗</span>
+</div>
+<div id="main">
+    <!--手机注册-->
+    <div class="bg phone" id="UserTool">
+        <div class="board">
+            <dl>
+                <dt>
+                    手机号码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="cellphone" name="cellphone"  maxlength="13" placeholder="请输入13位手机号码"/>
+                    <span class="tips hid phone_empty"><img src="imgs/wrong.png" class="tip_img"/>手机号码不能为空</span>
+                    <span class="tips hid phone_right"><img src="imgs/wrong.png" class="tip_img"/>请输入正确的手机号码</span>
+                    <span class="tips hid phone_success"><img src="imgs/right.png" class="tip_img"/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    图片验证码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <img alt="验证码" class="vCodeImg"/>
+                    <input type="text" class="inp" style="width: 100px" placeholder="请输入验证码" id="vCodeImg" name="vCodeImg"  maxlength="5"/>
+                    <input type="button" class="vCode" id="sendMessage" value="发送短信验证码"/>
+                    <span class="tips hid code_empty"><img src="imgs/wrong.png" class="tip_img"/>图片验证码不能为空</span>
+                    <span class="tips hid code_false"><img src="imgs/wrong.png" class="tip_img"/>图片验证码校验失败</span>
+                    <span class="tips hid code_send_false"><img src="imgs/wrong.png" class="tip_img"/>短信验证码发送失败，请重试</span>
+                    <span class="tips hid code_send_success"><img src="imgs/right.png" class="tip_img"/>请查看短信</span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    短信验证码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="messageCode" name="messageCode" placeholder="请输入收到的验证码"/>
+                    <span class="tips hid message_false">
+                        <img src="imgs/wrong.png" class="tip_img" alt=""/>短信请求认证失败</span>
+                    <span class="tips hid check_false">
+                        <img src="imgs/wrong.png" class="tip_img" alt=""/>验证码输入错误请重新输入</span>
+                    <span class="tips hid message_empty">
+                        <img src="imgs/wrong.png" class="tip_img" alt=""/>短信验证码不能为空</span>
+                    <span class="tips hid message_pass"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+                </dl>
+            <dl>
+                <dt>
+                    重设密码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="password" class="inp" placeholder="6位以上数字、大小写字母组合" id="password" name="password"/>
+                    <span class="tips hid pass_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码不能为空</span>
+                    <span class="tips hid pass_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码长度为6~16位数字与字母组合</span>
+                    <span class="tips hid pass"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+                </dl>
+            <dl>
+                <dt>
+                    确认密码：
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="password" class="inp" placeholder="请再次输入密码" id="secondPass" name="secondPass"/>
+                    <span class="tips hid second_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码不能为空</span>
+                    <span class="tips hid second_diff"><img src="imgs/wrong.png" class="tip_img" alt=""/>两次密码输入不一致</span>
+                    <span class="tips hid second"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+            </dl>
+        </div>
+
+        <div class="hr"></div>
+        <input type="button" value="提交" class="btn "  id="subimmt"/>
+        <input type="button" value="返回登录" class="btnrest" id="sigIn" />
+    </div>
+
+    </div>
+
+
+
+<script src="js/libs/jquery/dist/jquery.min.js"></script>
+<script src="js/libs/cryptojslib/rollups/aes.js"></script>
+<script src="js/libs/cryptojslib/rollups/md5-min.js"></script>
+<script src="js/modules/viewModule/resetPwd/resetPWD.js"></script>
+</body>
+</html>

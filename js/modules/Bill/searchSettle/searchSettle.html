@@ -1,0 +1,45 @@
+<!--查询结算-->
+<div class="admin-content am-padding-top">
+    <div class="am-g am-margin-top">
+        <div class="am-input-group am-u-sm-3 ">
+            <span class="am-input-group-label">
+                收费员
+            </span>
+            <input type="text" id="charge_user first_focus" class="am-form-field " placeholder="" value="">
+        </div>
+        <div class="am-input-group am-u-sm-3 ">
+            <span class="am-input-group-label">
+                结账员
+            </span>
+            <input type="text" id="balance_user" class="am-form-field " placeholder="">
+        </div>
+        <div class="am-u-md-6">
+            <div class="am-input-group" id="search_date">
+                <span class="am-input-group-label">查询时间:</span>
+                <input type="text" id="start" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                <span class="am-input-group-label">至</span>
+                <input type="text" id="end" class="am-form-field end" placeholder="点击选择日期" readonly/>
+            </div>
+        </div>
+        </div>
+    <div class="am-g am-margin-top">
+        <div class="am-input-group am-u-md-2 am-u-end">
+            <button class="am-btn am-btn-primary am-u-md-12 am-radius am-btn-xs" id="search_balance_record">查询</button>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-panel am-panel-default table_panel balance_panel">
+            <div class="am-panel-hd">
+                <span class="panel_title">结账记录表</span>
+                <a class="panel_tool excel_tool"><span class="am-icon-hospital-o"></span>导出Excel</a>
+                <a class="panel_tool balance_refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+            </div>
+            <div class="am-panel-bd p_none">
+                <table class="am-table am-table-striped" id="balance_record" data-pagination="true">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

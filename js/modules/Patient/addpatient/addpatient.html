@@ -1,0 +1,153 @@
+<div class="admin-content medicine_module">
+    <div class="am-alert am-u-md-8 hid" data-am-alert id="tips">
+        <p></p>
+    </div>
+    <div class="clearfix"></div>
+<div class="am-g p">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+            注册基本信息
+        </div>
+        <div class="am-panel-bd">
+            <form>
+                <div class="am-g p_top">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label"><span class="tip">*</span>姓名:</span>
+                            <input type="text" class="am-form-field first_focus" id="a_name">
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">性别:</span>
+                            <select name="a_gender" id="a_gender" class="am-form-field">
+                                <option value="M">男</option>
+                                <option value="F">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-md-6">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label"><span class="tip">*</span>身份证号:</span>
+                            <input type="text" class="am-form-field" id="a_card_id">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="am-g p_top">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">婚姻状况:</span>
+                            <select name="a_marry" id="a_marry" class="am-form-field">
+                                <option value="WH">未婚</option>
+                                <option value="YH">已婚</option>
+                                <option value="LY">离异</option>
+                                <option value="SO">丧偶</option>
+                                <option value="BX">不详</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">出生日期:</span>
+                            <input type="text" class="am-form-field" id="a_birth" readonly placeholder="单击选择日期">
+                        </div>
+                    </div>
+
+                    <div class="am-u-md-6">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">邮箱:</span>
+                            <input type="text" class="am-form-field" id="a_email">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="am-g p_top">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">微信号:</span>
+                            <input type="text" class="am-form-field" id="a_wechat">
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">QQ号:</span>
+                            <input type="text" class="am-form-field" id="a_qq">
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">手机:</span>
+                            <input type="text" class="am-form-field" id="a_cellphone">
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">座机:</span>
+                            <input type="text" class="am-form-field" id="a_phone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-g p_top">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">省份:</span>
+                            <select id="province" class="form-select province am-form-field" name="province">
+                                <option value="0">请选择省份</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">城市:</span>
+                            <select id="city" class="am-form-field" name="city">
+                                <option value="0">请选择城市</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-md-3 am-u-end">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">区县:</span>
+                            <select id="area" class="am-form-field" name="street">
+                                <option value="0">请选择区县</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-g p_top">
+                    <div class="am-u-md-12">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">详细地址:</span>
+                            <input type="text" class="am-form-field" id="a_detail">
+                        </div>
+                    </div>
+                </div>
+                <div class="am-g p_top">
+                    <div class="am-u-md-3">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">第二联系人:</span>
+                            <input type="text" class="am-form-field" id="f_name">
+                        </div>
+                    </div>
+                    <div class="am-u-md-5 am-u-end">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">第二联系人电话:</span>
+                            <input type="text" class="am-form-field" id="f_phone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-g p_top">
+                    <div class="am-u-md-12">
+                        <button type="button" class="am-btn am-btn-primary am-btn-xs" id="a_regist">注册</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="reset" id="reset" class=" am-btn am-btn-default am-btn-xs">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

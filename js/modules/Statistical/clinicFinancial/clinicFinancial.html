@@ -1,0 +1,240 @@
+<div class="admin-content" style="padding: 10px; ">
+
+    <div class="am-tabs" data-am-tabs>
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="javascript: void(0)">月度统计</a></li>
+            <li><a href="javascript: void(0)">年度统计</a></li>
+            <li><a href="javascript: void(0)">收入统计</a></li>
+            <li><a href="javascript: void(0)">支出统计</a></li>
+        </ul>
+
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active">
+                <div class="am-g">
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">日期:</span>
+                        <select name="ddlYear" class="am-form-field">
+                            <option value="2016">2016</option>
+                            <option selected="selected" value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                        </select>
+                    <!--</div>-->
+                    <!--<div class="am-input-group am-u-md-2">-->
+                        <span class="am-input-group-label">年</span>
+                        <select name="ddlMonth" class="am-form-field">
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <span class="am-input-group-label">月</span>
+                    </div>
+
+                    <div class="am-input-group am-u-md-2 ">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-user am-icon-fw"></i>
+                                科室
+                        </span>
+                        <select id="monthly_house" >
+                            <option selected="selected" value="0">全科</option>
+                        </select>
+                    </div>
+
+                    <div class="am-input-group am-u-md-1 " style="float: right">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" >查询</button>
+                    </div>
+                </div>
+
+                <div class="am-g" style="text-align: center;font-size: 16px;font-weight: bold; margin: 20px 0;">财务支出明细统计</div>
+                <div class="am-g">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Monthly_statistics" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-tab-panel">
+                <div class="am-g">
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">日期:</span>
+                        <select name="ddlYear" class="am-form-field">
+                            <option value="2016">2016</option>
+                            <option selected="selected" value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                        </select>
+                        <!--</div>-->
+                        <!--<div class="am-input-group am-u-md-2">-->
+                        <span class="am-input-group-label">年</span>
+                        <select name="ddlMonth" class="am-form-field">
+                            <option value="1" selected="selected">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <span class="am-input-group-label">月</span>
+                    </div>
+
+                    <div class="am-input-group am-u-md-2 ">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-user am-icon-fw"></i>
+                            科室
+                        </span>
+                        <select id="annual_house" >
+                            <option selected="selected" value="0">全科</option>
+                        </select>
+                    </div>
+
+                    <div class="am-input-group am-u-md-1 "style="float: right">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" >查询</button>
+                    </div>
+                </div>
+
+
+                <div class="am-g" style="text-align: center;font-size: 16px;font-weight: bold;margin: 20px 0;">财务支出明细统计</div>
+                <div class="am-g">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="annual_statistics" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="am-tab-panel">
+                <div class="am-g">
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-calendar-o"></i>
+                            初始
+                        </span>
+                        <input type="text" id="income_day" class="am-form-field calendar start_calender" placeholder="初始日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">
+                            截至
+                        </span>
+                        <input type="text" id="end_day" class="am-form-field calendar start_calender" placeholder="初始日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-2 ">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-user am-icon-fw"></i>
+                                科室
+                        </span>
+                        <select id="income_house" >
+                            <option selected="selected" value="0">全科</option>
+                        </select>
+                    </div>
+
+                    <div class="am-input-group am-u-md-1 "style="float: right">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" >查询</button>
+                    </div>
+                </div>
+
+                <div class="am-g" style="text-align: center;font-size: 16px;font-weight: bold;margin:20px 0;">财务支出明细统计</div>
+                <div class="am-g">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Income_statistics" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-tab-panel">
+                <div class="am-g">
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-calendar-o"></i>
+                            初始
+                        </span>
+                        <input type="text" id="income_day1" class="am-form-field calendar start_calender" placeholder="初始日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-2">
+                        <span class="am-input-group-label">
+                            截至
+                        </span>
+                        <input type="text" id="end_day1" class="am-form-field calendar start_calender" placeholder="初始日期" readonly>
+                    </div>
+                    <div class="am-input-group am-u-md-2 ">
+                        <span class="am-input-group-label">
+                            <i class="am-icon-user am-icon-fw"></i>
+                                科室
+                        </span>
+                        <select id="spending_house" >
+                            <option selected="selected" value="0">全科</option>
+                        </select>
+                    </div>
+
+                    <div class="am-input-group am-u-md-1 "style="float: right">
+                        <button type="button" class="am-btn am-btn-primary am-radius am-btn-xs" >查询</button>
+                    </div>
+                </div>
+
+                <div class="am-g" style="text-align: center;font-size: 16px;font-weight: bold;margin:20px 0;">财务支出明细统计</div>
+
+                <div class="am-g">
+                    <div class="am-panel am-panel-default table_panel">
+                        <div class="am-panel-hd">药品销售综合排行榜
+                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                            <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
+                        </div>
+                        <div class="am-panel-bd">
+                            <table id="Spending_statistics" data-pagination="true">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!---->
+
+</div>

@@ -1,0 +1,240 @@
+<div class="admin-content member_module memberlist">
+    <div class="am-g">
+        <div class="am-input-group am-u-md-4">
+            <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员卡号</span>
+            <input type="text" class="am-form-field " id="member_id" placeholder="">
+        </div>
+        <div class="am-input-group am-u-md-4 ">
+            <span class="am-input-group-label"><i class="am-icon-calendar"></i> 会员姓名</span>
+            <input type="text" class="am-form-field first_focus" id="member_name" placeholder="姓名或拼音码">
+        </div>
+        <div class="am-input-group am-u-md-4 ">
+            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 手机号码</span>
+            <input type="text" class="am-form-field" id="member_tel" placeholder="">
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-input-group am-u-md-4 ">
+            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+            <select class="member_select member_level ">
+                <option selected="selected" value="">全部</option>
+            </select>
+        </div>
+        <div class="am-input-group am-u-md-4 ">
+            <span class="am-input-group-label"><i class="am-icon-h-square"></i> 使用状态</span>
+            <select name="" id="" class="member_state">
+                <option value="1">启用</option>
+                <option value="0">禁用</option>
+            </select>
+        </div>
+        <div class="am-u-md-4">
+            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_member">查询</button>
+            <!--<button type="button" class="am-btn am-btn-secondary am-btn-xs am-radius" id="add_member">新增</button>-->
+        </div>
+    </div>
+
+    <div class="am-g">
+        <div class="am-panel am-panel-default table_panel">
+            <div class="am-panel-hd">会员列表
+                <a class="panel_tool" id="refresh_level"><i class="am-icon-refresh"></i> 刷新</a>
+                <a class="panel_tool" id="in_excel_tool"><i class="am-icon-file-excel-o"></i> 导入Excel</a>
+                <a class="panel_tool" id="add_member"><i class="am-icon-plus-square"></i> 新增会员</a>
+            </div>
+            <div class="am-panel-bd">
+                <table id="member_table" data-pagination="true"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=========-->
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd meber">新增会员</div>
+        <div class="am-modal-bd">
+            <div class="am-g am-padding-top ">
+                <div class="am-input-group am-u-md-4 am-input-group-secondary ">
+                    <span class="am-input-group-label"><i class="am-icon-calendar"></i> 患者姓名</span>
+                    <input type="text" class="am-form-field" id="txtName" placeholder="姓名或拼音码">
+                    <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-default search_input_btn" id="search_pat_name" type="button">
+                                <span class="am-icon-search search_label"></span>
+                            </button>
+                        </span>
+                    <div class="name_search_wrapper pat_table_wrapper hid">
+                        <table class="am-table" id="name_search_table"></table>
+                    </div>
+                </div>
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 患者ID</span>
+                    <input type="text" class="am-form-field" id="txtAccountNum" placeholder="">
+                    <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-default search_input_btn" id="search_pat_id" type="button">
+                                <span class="am-icon-search search_label"></span>
+                            </button>
+                        </span>
+                    <div class="id_search_wrapper pat_table_wrapper hid">
+                        <table class="am-table" id="id_search_table"></table>
+                    </div>
+                </div>
+
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 手机号码</span>
+                    <input type="text" class="am-form-field" id="txtMobileNum" placeholder="" readonly>
+                </div>
+            </div>
+            <div class="am-g am-padding-top ">
+                <!--<div class="am-input-group am-u-md-4">-->
+                <!--<span class="am-input-group-label"><i class="am-icon-calendar-o" ></i>出身日期</span>-->
+
+                <!--<input type="text" id="txtBirthday" class="am-form-field " placeholder="点击选择日期" readonly  >-->
+
+                <!--</div>-->
+                <div class="am-input-group am-u-md-4">
+
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员状态</span>
+                    <select class="member_select " id="stype_m">
+                        <option value="启用">启用</option>
+                        <option value="禁用">禁用</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4 ">
+
+
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 性别</span>
+                    <select class="member_select " id="ddlSex_0" readonly>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4   ">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 身份证号</span>
+                    <input type="text" id="txtIdentityNum" class="am-form-field" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-g am-padding-top ">
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员积分</span>
+                    <input type="text" id="txtPhoneNum" class="am-form-field" placeholder="0">
+                </div>
+                <div class="am-input-group am-u-md-4 ">
+                    <span class="am-input-group-label"><i class="am-icon-calendar"></i> 会员卡余额</span>
+                    <input name="txtEmail" type="text" id="txtMoeny" class="am-form-field" placeholder="0">
+                </div>
+                <div class="am-input-group am-u-md-4 ">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
+                    <select class="member_select member_level" id="ddlDmLevel">
+                    </select>
+                </div>
+            </div>
+            <div class="am-g am-padding-top">
+                <div class="am-u-md-4 am-input-group">
+                    <span class="am-input-group-label"><i class="am-icon-user"></i> 会员账号</span>
+                    <input type="text" id="memberId" class="am-form-field" placeholder="0">
+                </div>
+            </div>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn " id="sub_btn" data-am-modal-confirm>提交</span>
+        </div>
+    </div>
+</div>
+
+<!--<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">-->
+<div class="am-panel am-modal am-panel-default " id="memberlist_money">
+    <div class="am-modal-hd am-margin-bottom">会员充值收费</div>
+    <div class="am-modal-bd">
+        <div class="am-g am-padding-bottom">
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 现金支付</span>
+                <input type="text" class="am-form-field member_pay" id="cash_pay">
+            </div>
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-weixin"></i> 微信支付</span>
+                <input type="text" class="am-form-field member_pay" id="wx_pay">
+            </div>
+        </div>
+        <div class="am-g am-padding-bottom">
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 银行卡支付</span>
+                <input type="text" class="am-form-field member_pay" id="insu_pay">
+            </div>
+            <div class="am-input-group am-u-md-6">
+                <span class="am-input-group-label"><i class="am-icon-h-square"></i> 支付宝支付</span>
+                <input type="text" class="am-form-field member_pay" id="ali_pay">
+            </div>
+        </div>
+        <div class="am-g  am-padding-bottom">
+            <div class="am-u-md-6 realChargeWrapper">
+                <span class="am-u-md-4">总计（元） : </span><input class="realCharge am-u-md-8" id="total_charge"
+                                                              type="number" readonly/>
+            </div>
+        </div>
+        <!--<div class="am-g">-->
+        <!--<div class="am-input-group am-u-md-6 am-fr">-->
+        <!--<button class="am-btn-secondary am-btn-xs am-btn am-fr" id="cancel_charge">取消</button>-->
+        <!--<button class="am-btn-success am-btn-xs am-btn am-fr am-margin-right" id="submit_charge">确认收款</button>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="am-modal-footer">
+        <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+        <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="no_level_alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">错误提示<a href="javascript: void(0)" class="am-close am-close-spin"
+                                        data-am-modal-close>&times;</a></div>
+        <div class="am-modal-bd">
+            很抱歉！当前无会员等级,无法添加/编辑会员!
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-confirm>去设置会员等级</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert delete_alert" tabindex="-1">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">警告<a href="javascript: void(0)" class="am-close am-close-spin"
+                                      data-am-modal-close>&times;</a></div>
+        <div class="am-modal-bd">
+            该会员的充值记录、积分情况都将被删除，请谨慎操作!!!
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn confirm-btn" data-am-modal-confirm>确定删除</span>
+            <span class="am-modal-btn cancel-btn" data-am-modal-cancel>取消</span>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="member_excel_modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd bottom-line ">导入会员列表
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd ">
+            <div class="am-g am-padding-top">
+                <span class="am-u-md-8 down_file_name"><i class="am-icon-file-excel-o"></i> 待导入会员列表模板.xls</span>
+                <div class="am-u-md-4">
+                    <a class="am-btn am-btn-success am-btn-xs am-radius"
+                       href="http://192.168.0.220:8081/jethis/File/DownLoadExcel" target="_blank">下载模板</a>
+                </div>
+            </div>
+            <div class="am-g am-padding-top am-margin-bottom">
+                <div class="am-input-group am-u-md-8">
+                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员列表</span>
+                    <a class="excel_btn_wrapper">
+                        <span id="member_excel_tips">点击选择Excel</span>
+                        <input type="file" id="member_list_excel" class="am-form-field">
+                    </a>
+                </div>
+                <div class="am-u-md-4">
+                    <a class="am-btn am-btn-success am-btn-xs am-radius" id="upload_excel">确定上传</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
