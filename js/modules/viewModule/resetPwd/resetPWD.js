@@ -67,7 +67,7 @@ $(function () {
             var phone = $("#cellphone").val();
             var pwd = CryptoJS.MD5($("#password").val().trim()).toString();
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Account/ResettingPwd",
+                url: "http://114.55.85.57:8081/jethis/Account/ResettingPwd",
                 type: "patch",
                 headers: {
                     'app-key': 'fb98ab9159f51fd1',
@@ -132,7 +132,7 @@ $(function () {
             that = this;
         md = hex_md5(radom + time),
         $.ajax({
-            url: "http://192.168.0.220:8081/system/PicCode/NewCode",
+            url: "http://114.55.85.57:8081/system/PicCode/NewCode",
             type: "post",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
@@ -143,7 +143,7 @@ $(function () {
             data: JSON.stringify({"md": md}),
             success: function (data) {
                 if (data.resultCode == "100") {
-                    $tool.find(".vCodeImg").attr("src", "http://192.168.0.220:8081" + data.imgidurl);
+                    $tool.find(".vCodeImg").attr("src", "http://114.55.85.57:8081" + data.imgidurl);
                 }
             },
             error: function (data) {
@@ -168,7 +168,7 @@ $(function () {
         $.ajax({
             type: "post",
             timeout: 30000,
-            url: "http://192.168.0.220:8081/jethis/Jethis_User/sendSMS",
+            url: "http://114.55.85.57:8081/jethis/Jethis_User/sendSMS",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
                 'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
@@ -219,7 +219,7 @@ $(function () {
         }
         $.ajax({
             type: "post",
-            url: "http://192.168.0.220:8081/jethis/Jethis_User/commitphone",
+            url: "http://114.55.85.57:8081/jethis/Jethis_User/commitphone",
             data: JSON.stringify({"phoneidcode": message, "phone": phone}),
             headers: {
                 'app-key': 'fb98ab9159f51fd1',

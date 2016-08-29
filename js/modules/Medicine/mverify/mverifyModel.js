@@ -2,7 +2,7 @@
  * Created by insomniahl on 16/4/25.
  */
 define(["jquery","backbone"], function ($,Backbone) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var mverifyModel = Backbone.Model.extend({
         getrendeMy: function (chinesename) {
             var that = this;

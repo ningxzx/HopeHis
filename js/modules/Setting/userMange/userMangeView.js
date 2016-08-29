@@ -357,8 +357,8 @@ define(['txt!../../Setting/userMange/userMange.html',
                     });
                     $("#modify_menu_modal").attr('')
                     $("#modify_menu_modal").modal({
-                        width: '960'
-
+                        width: '960',
+                        closeViaDimmer:false
                     });
                 } else {
                     alert("获取数据失败，请重试");
@@ -448,7 +448,7 @@ define(['txt!../../Setting/userMange/userMange.html',
                     //是否存在
                     $.ajax({
                         type: "post",
-                        url: "http://192.168.0.220:8081/jethis/Jethis_User/checkaccount",
+                        url: "http://114.55.85.57:8081/jethis/Jethis_User/checkaccount",
                         data: JSON.stringify({
                             "account_id": name
                         }),
@@ -676,7 +676,7 @@ define(['txt!../../Setting/userMange/userMange.html',
                     $("#add_user_modal select").val('');
                     $("#add_user_modal").attr("type", "addEmployer");
                     $("#add_user_modal").modal({width: "960", top: '10', closeViaDimmer: false});
-                    this.comModel.search('admin.role', {enterprise_id: sessionStorage.getItem('enterprise_id')}, 'getRole');
+                    this.comModel.search('admin.role', {enterprise_id: sessionStorage.getItem('enterprise_id'),state:10}, 'getRole');
                 }else{
                     $(this.el).find("#depd_no").modal({
                         relatedTarget: this,

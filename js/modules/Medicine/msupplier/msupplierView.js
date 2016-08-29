@@ -26,13 +26,17 @@ define(['txt!../../Medicine/msupplier/msupplier.html',
                 'click .reset_search':'resetSearch',
                 "click #edit_reset": "resetEdit",
                 "click #edit_cancel": "cancelEdit",
-                "click #edit_confirm": "confirmEdit"
+                "click #edit_confirm": "confirmEdit",
+                "opened.modal.amui #supplierModal":'autoFocus'
             },
             resetSearch: function () {
                 $(this.el).find('input').val('');
                 $("#supplier_temp_type").val('all');
                 this.commonModel.search('comm.suppliers_dict', {'enterprise_id': sessionStorage.getItem('enterprise_id')}, 'getSupplier')
 
+            },
+            autoFocus:function () {
+                $("#supplier_name").focus();
             },
             searchSupplier: function () {
                 var param = {};
@@ -66,7 +70,8 @@ define(['txt!../../Medicine/msupplier/msupplier.html',
                 }
                 $title.html("新增供应商");
                 $modal.modal({
-                    width: 750
+                    width: 750,
+                    closeViaDimmer:false,
                 });
             },
             editSupplier: function (e) {

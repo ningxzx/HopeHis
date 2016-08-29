@@ -23,7 +23,12 @@ define(['jquery',
 
         function showSpan(value, row) {
             //当医生休息时，显示空白。
-            var $span = $('<span class="showEditModal unresolve" title="' + row['title_code'] + '"><span class="work_type" typeVal="-1"></span><br/><span class="reg_type" typeVal="pt"></span><span class="reg_fee"></span></span>');
+            var $span = $('<span class="showEditModal unresolve" title="' + row['title_code'] + '"><span class="work_type" typeVal="-1"></span><br/><span class="reg_type" typeVal="pt"></span><span class="reg_fee"></span></span>');//医生未设置时，设置为“点击编辑”
+            // 查询日期小于今天时,直接显示为空
+            if(row['out_date']){
+                $span.find('.work_type').attr("typeVal", 0);
+                $span.find('.work_type,.reg_type,.reg_fee').html("");
+            }
             //医生未设置时，设置为“点击编辑”
             if (typeof(value) == 'undefined' || value == 'unresolve-pt-0') {
                 $span.addClass("unresolve");
@@ -54,8 +59,8 @@ define(['jquery',
         //表格标题与对应字段；
         var defaultDates = showDate(new Date()), reg_fees = {};
         var columnNames = [
-            {field: "doctor_name", title: "医生", width: "10%"},
-            {field: "title_name", title: "级别", width: "10%"},
+            {field: "doctor_name", title: "医生姓名", width: "10%"},
+            {field: "title_name", title: "医生级别", width: "20%"},
             {field: "Monday", title: defaultDates["Monday"], formatter: showSpan},
             {field: "Tuesday", title: defaultDates["Tuesday"], formatter: showSpan},
             {field: "Wednesday", title: defaultDates["Wednesday"], formatter: showSpan},
@@ -80,7 +85,7 @@ define(['jquery',
                         columns: columnNames,
                         data: [],
                         sortName: 'doctor_name',
-                        onRefresh:function(){
+                        onRefresh: function () {
                             var code = $('.list-group-item.active').attr('code');
                             var selectDate = $(".index_calender").dpGetSelected(),
                                 realDate = selectDate ? new Date(selectDate[0], selectDate[1], selectDate[3]) : new Date(),
@@ -111,8 +116,8 @@ define(['jquery',
                 },
                 changeDate: function () {
                     var $table = $(this.el).find("#tbs"),
-                        selectDate = $(".index_calender").dpGetSelected(),
-                        realDate = selectDate ? new Date(selectDate[0], selectDate[1], selectDate[3]) : new Date(),
+                        selectDate = $(".index_calender").dpGetSelected();
+                    var realDate = selectDate ? new Date(selectDate[0], selectDate[1], selectDate[3]) : new Date(),
                         selectDates = showDate(realDate);
                     var newColumnNames = [
                         {field: "doctor_name", title: "医生", width: "10%"},
@@ -135,9 +140,26 @@ define(['jquery',
                 getDoctors: function (res) {
                     var _this = this;
                     if (res.errorNo == 0) {
-                        $(this.el).find("#tbs").off('click-cell.bs.table').off('refresh.bs.table').on('click-cell.bs.table', _this.clickCell).bootstrapTable('load', res.rows);
-                        $('#edit_work_plan').addClass('am-hide');
-                        $('#post_work_plan').removeClass('am-hide');
+                        var rows=res.rows;
+                        var selectDate = $(".index_calender").dpGetSelected();
+                        var tempMonday = new Date(jctLibs.dataGet.getWeekStartDate()),
+                            selectDateT = new Date(selectDate[0] + '-' + selectDate[1] + '-' + selectDate[3]);
+                        if (selectDateT < tempMonday) {
+                            $('#edit_work_plan,#post_work_plan').addClass('am-hide');
+                            rows.forEach(function (row) {
+                                row['out_date']=true;
+                            })
+                        }
+                        else {
+                            $('#edit_work_plan').addClass('am-hide');
+                            $('#post_work_plan').removeClass('am-hide');
+                        }
+                        $(this.el).find("#tbs")
+                            .off('click-cell.bs.table')
+                            .off('refresh.bs.table')
+                            .on('click-cell.bs.table', _this.clickCell)
+                            .bootstrapTable('load', rows);
+
                     }
                 },
                 editPlan: function () {
@@ -172,7 +194,7 @@ define(['jquery',
                     this.model.postSchedule(temp);
                 },
                 renderPlan: function (res) {
-                    var _this=this,selectDate = $(".index_calender").dpGetSelected();
+                    var _this = this, selectDate = $(".index_calender").dpGetSelected();
                     var realDate = selectDate ? new Date(selectDate[0], selectDate[1], selectDate[3]) : new Date();
                     var selectDates = showDate(realDate);
                     if (res.errorNo == 0) {
@@ -180,36 +202,59 @@ define(['jquery',
                         if (sches.length > 0) {
                             sches.forEach(function (sche) {
                                 var doc_id = sche['doctor_id'], doc_name = sche['doctor_name'],
-                                    date_str = sche['plan_date_time'].split(' ')[0],
-                                    title_code = sche['title_code'],
-                                    title_name = sche['title_name'],
-                                    plan_type = sche['planwork_type'], register_type = sche['register_type'],
-                                    reg_fee = sche['register_fee'] || 0;
-                                if (!doctors[doc_id]) {
-                                    doctors[doc_id] = {
-                                        'doctor_id': doc_id,
-                                        'doctor_name': doc_name,
-                                        'title_code': title_code,
-                                        'title_name': title_name
+                                    title_code = sche['original_title_code'],
+                                    title_name = sche['original_title_name'];
+                                if (sche['plan_date_time']) {
+                                    var date_str = sche['plan_date_time'].split(' ')[0],
+                                        plan_type = sche['planwork_type'], register_type = sche['register_type'],
+                                        reg_fee = sche['register_fee'] || 0;
+                                    if (!doctors[doc_id]) {
+                                        doctors[doc_id] = {
+                                            'doctor_id': doc_id,
+                                            'doctor_name': doc_name,
+                                            'title_code': title_code,
+                                            'title_name': title_name
+                                        }
+                                    }
+                                    var week_str = '';
+                                    for (var week_key in selectDates) {
+                                        if (selectDates[week_key] == date_str) {
+                                            week_str = week_key;
+                                            continue;
+                                        }
+                                    }
+                                    doctors[doc_id][week_str] = [plan_type, register_type, reg_fee].join('-');
+                                }
+                                else {
+                                    if(title_code!='null') {
+                                        doctors[doc_id] = {
+                                            'doctor_id': doc_id,
+                                            'doctor_name': doc_name,
+                                            'title_code': title_code,
+                                            'title_name': title_name
+                                        }
+                                        for (var week_key in selectDates) {
+                                            doctors[doc_id][week_key] = [0, 'pt', '0'].join('-');
+                                        }
                                     }
                                 }
-                                var week_str = '';
-                                for (var week_key in selectDates) {
-                                    if (selectDates[week_key] == date_str) {
-                                        week_str = week_key;
-                                        continue;
-                                    }
-                                }
-                                doctors[doc_id][week_str] = [plan_type, register_type, reg_fee].join('-');
                             })
                             for (var doctorKey in doctors) {
                                 tableData.push(doctors[doctorKey]);
                             }
-                            $(this.el).find("#tbs").off('click-cell.bs.table').bootstrapTable('load', tableData).off('refresh.bs.table').on('refresh.bs.table', function(){_this.getSche.call(_this)});
+                            $(this.el).find("#tbs").off('click-cell.bs.table').bootstrapTable('load', tableData).off('refresh.bs.table').on('refresh.bs.table', function () {
+                                _this.getSche.call(_this)
+                            });
                         }
                         else {
                             var default_dept_id = $('.list-group-item.active').attr('code');
                             this.model.getDeptDoctor(default_dept_id);
+                        }
+                        var selectDate = $(".index_calender").dpGetSelected();
+                        var tempMonday = new Date(jctLibs.dataGet.getWeekStartDate()),
+                            selectDateT = new Date(selectDate[0] + '-' + selectDate[1] + '-' + selectDate[3]);
+                        if (selectDateT < tempMonday) {
+                            $('#edit_work_plan,#post_work_plan').addClass('am-hide');
                         }
                     }
                 },
@@ -255,7 +300,7 @@ define(['jquery',
                     $('#reg_free').val(this.fees[$target.attr('title_code') + '-' + $target.val()])
                 },
                 getDept: function (res) {
-                    if (res.errorNo == 0) {
+                    if (res.errorNo == 0 && res['rows'].length > 0) {
                         var depts = res['rows'], $deptLis = $(this.el).find('.dept_list');
                         depts.forEach(function (dept) {
                             var $li = $('<span></span>').addClass('list-group-item').html(dept['department_name']).attr('code', dept['department_id']);
@@ -266,11 +311,14 @@ define(['jquery',
                         this.model.getSchedule($firstDept.attr('code'), defaultDates['Monday'], defaultDates['Sunday'])
                     }
                     else {
-                        $(this.el).find('#dept-error-alert').modal({
-                            onConfirm: function () {
-                                window.location.reload()
-                            }
-                        })
+                        $(this.el).find("#depd_no").modal({
+                            relatedTarget: this,
+                            onConfirm: function (options) {
+                                window.location.href = "#setting/departMange";
+                                $("#depd_no").modal('close');
+                            },
+                            closeViaDimmer: false
+                        });
                     }
                 },
                 getLevelFee: function (res) {

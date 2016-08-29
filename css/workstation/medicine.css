@@ -86,7 +86,7 @@
     font-size: 1.3rem;
 }
 .link_to_supplier:link,.link_to_supplier:visited,.link_to_supplier:hover,.link_to_supplier:active{
-    color:lime;
+    padding: .2rem .5rem;
     text-decoration: none;
 }
 

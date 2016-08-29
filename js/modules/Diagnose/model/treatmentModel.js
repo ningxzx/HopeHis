@@ -9,7 +9,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var param = params || {};
             param.json = JSON.stringify({'enterprise_id': sessionStorage.getItem('enterprise_id')});
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/query/get",
+                url: "http://114.55.85.57:8081/jethis/query/get",
                 type: 'get',
                 data: param
             }).done(function (res) {
@@ -34,7 +34,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             param['page'] = page || 1;
             param['row_num'] = 7;
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/diagnosis/queryDrug",
+                url: "http://114.55.85.57:8081/jethis/diagnosis/queryDrug",
                 type: 'get',
                 data: param
             }).done(function (res) {
@@ -50,7 +50,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         },
         saveCheck: function (info, data, type) {
             var _this = this, result = {}, sendData, url = "",
-                urlRoot = "http://192.168.0.116:8081",
+                urlRoot = "http://114.55.85.57:8081",
                 basicInfo = {
                     "req_hosp_id": info.hop_id,//申请医院ID
                     "req_hosp_name": info.hop_name,//申请医院名称
@@ -77,8 +77,8 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             } else if (type == "cureProject") {
                 url = urlRoot + "/jethis/diagnosis/treatment";
                 sendData = JSON.stringify({
-                    "treatment_record": basicInfo,
-                    "treatment_detail_record": data
+                    "mainRecord": basicInfo,
+                    "itemList": data
                 });
                 //检查
             } else if (type == "check") {
@@ -110,7 +110,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var result = {};
             $.ajax({
                 type: "get",
-                url:"http://192.168.0.220:8081/jethis/DrugInfo/DrugInstructions",
+                url:"http://114.55.85.57:8081/jethis/DrugInfo/DrugInstructions",
                 data: $.param(data)
             }).done(function (res) {
                 result.errorNo = 0;

@@ -479,3 +479,19 @@ input.billing_item_num {
     border: 0;
     min-height: 300px;
 }
+.diag_panel_tool{
+    float: right;
+    cursor: pointer;
+}
+#check_result_file{
+    opacity:0;
+    filter:alpha(opacity=0);
+    z-index: 100;
+    cursor: pointer;
+}
+#check_result_file_tips{
+    position: absolute;
+    left:2rem;
+    z-index:1;
+    font-size: 10px;
+}

@@ -2,7 +2,7 @@
  * Created by xzx on 2016/5/5.
  */
 define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     // 获取诊疗项目
     var mnumChangeModel = Backbone.Model.extend({
         getRecord: function (name,stattime,endtime,type) {

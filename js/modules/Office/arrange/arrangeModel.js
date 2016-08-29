@@ -9,7 +9,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: 'http://192.168.0.220:8081/jethis/schedu/workPlan',
+                url: 'http://114.55.85.57:8081/jethis/schedu/workPlan',
                 data: JSON.stringify(sche)
             }).done(function (res) {
                 result.errorNo = 0;
@@ -32,7 +32,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                     type: "get",
-                    url: 'http://192.168.0.220:8081/jethis/schedu/scheduResult',
+                    url: 'http://114.55.85.57:8081/jethis/schedu/scheduResult',
                     data: {
                         start_date_time: stime,
                         enterprise_id: sessionStorage.getItem('enterprise_id'),
@@ -61,11 +61,16 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                     type: "get",
-                    url: 'http://192.168.0.220:8081/jethis/department/all',
+                    url: 'http://114.55.85.57:8081/jethis/department/all',
                 })
                 .done(function (res) {
                     result.errorNo = 0;
-                    result.rows = jctLibs.listToObject(res, 'rows')['rows'];
+                    if(res['rows']) {
+                        result.rows = jctLibs.listToObject(res, 'rows')['rows'];
+                    }
+                    else{
+                        result.rows=[];
+                    }
                     that.trigger("deptGetted", result);
                 })
                 .fail(function (err) {
@@ -88,7 +93,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             $.ajax({
                     type: "get",
                     data: param,
-                    url: 'http://192.168.0.220:8081/jethis/doctordepartment/get',
+                    url: 'http://114.55.85.57:8081/jethis/doctordepartment/get',
                 })
                 .done(function (res) {
                     result.errorNo = 0;
@@ -111,7 +116,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://192.168.0.220:8081/jethis/setting/standardRegfeeSet',
+                url: 'http://114.55.85.57:8081/jethis/setting/standardRegfeeSet',
                 data: {enterprise_id:sessionStorage.getItem('enterprise_id')}
             }).done(function (data) {
                 result.errorNo=0;

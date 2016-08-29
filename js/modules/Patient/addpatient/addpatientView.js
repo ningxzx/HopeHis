@@ -97,7 +97,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 var opt = "<option value=\"0\">请选择省份</option>";
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -120,7 +120,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 next.html("<option value=\"0\">请选择城市</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -142,7 +142,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 next.html("<option value=\"0\">请选择区县</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -198,7 +198,12 @@ define(['txt!../../Patient/addpatient/addpatient.html',
 
             //添加用户注册按钮
             aRegist: function () {
-
+                var $province = $("#province"),
+                    $city = $("#city"),
+                    $area = $("#area");
+                var province = $province.val() != 0 ? $province.find("option:checked").text() : "",
+                    city = $city.val() != 0 ? $city.find("option:checked").text() : "",
+                    area = $area.val() != 0 ? $area.find("option:checked").text() : "";
                 $("#tips").addClass("hid");
                 this.patientModel.set({
                     //enterprise_id: sessionStorage.getItem("enterprise_id"),
@@ -213,9 +218,9 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                     patient_wechet: $("#a_wechat").val().trim(),
                     patient_email: $("#a_email").val().trim(),
                     //nationaloty: $("#my_address").find("option:checked").text(),
-                    province: $("#province").find("option:checked").text(),
-                    city: $("#city").find("option:checked").text(),
-                    area: $("#area").find("option:checked").text(),
+                    province: province,
+                    city:city,
+                    area: area,
                     //street: $("#a_detail").val(),
                     addr: $("#a_detail").val().trim(),
                     next_of_kin: $("#f_name").val().trim(),

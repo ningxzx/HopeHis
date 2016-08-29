@@ -43,7 +43,7 @@
     margin-bottom: 1rem;
 }
 
-#doctors_fee_table, #doctors_table, #employer_table, #level_fee_table {
+#doctors_fee_table, #doctors_table, #employer_table {
     border: 1px solid #ddd;
 }
 
@@ -430,4 +430,13 @@ ul.price_list li {
 #changePhone{
     background-color: #2e6da4;
     color: white;
+}
+.clinic_image{
+    width:100%;
+}
+#changeInput{
+    margin-right: 2rem;
+    padding: .5rem 2rem;
+    border: 1px solid #cbcbcb;
+    letter-spacing: .2rem;
 }

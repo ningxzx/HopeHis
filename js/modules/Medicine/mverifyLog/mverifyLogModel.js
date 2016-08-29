@@ -2,7 +2,7 @@
  * Created by insomniahl on 16/4/25.
  */
 define(["backbone"], function (Backbone) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var mverifyLogModel = Backbone.Model.extend({
         getrendeMy: function (startdatetime,enddatetime,batchno,goodstype,goods_name,changeState) {
             var that = this;

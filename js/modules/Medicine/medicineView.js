@@ -21,48 +21,48 @@ define(['txt!../Common/sidebar.html',
             description: "入库出库,管理库存,药品预警,监控与复核库存变化",
             submenus: [
                 {
-                    spanClass: "am-icon-apple", submenu: "库存查询", subid: "medicine_mcurStorage",
+                    spanClass: "am-icon-bar-chart", submenu: "库存查询", subid: "medicine_mcurStorage",
                     sublink: "#medicine/mcurStorage", parents: ""
                 },
                 {
-                    spanClass: "am-icon-github", submenu: "药品预警", sublink: "#medicine/mwarning",
+                    spanClass: "am-icon-bell", submenu: "药品预警", sublink: "#medicine/mwarning",
                     subid: "medicine_mwarning", parents: ""},
                 {
-                    spanClass: "am-icon-suitcase", submenu: "药品信息管理", sublink: "#medicine/mdictionary",
+                    spanClass: "am-icon-cog", submenu: "药品信息管理", sublink: "#medicine/mdictionary",
                     subid: "medicine_mdictionary", parents: ""
                 },
                 {
-                    spanClass: "am-icon-apple", submenu: "供应商", sublink: "#medicine/msupplier",
+                    spanClass: "am-icon-user", submenu: "供应商", sublink: "#medicine/msupplier",
                     subid: "medicine_msupplier", parents: ""
                 },
                 {
-                    spanClass: "am-icon-home", submenu: "采购入库", sublink: "#medicine/minStorage",
+                    spanClass: "am-icon-area-chart", submenu: "采购入库", sublink: "#medicine/minStorage",
                     subid: "medicine_minStorage", parents: ""
                 },
                 {
-                    spanClass: "am-icon-apple",
+                    spanClass: "am-icon-align-justify",
                     submenu: "入库审核",
                     sublink: "#medicine/minCheck",
                     subid: "medicine_minCheck",
                     parents: ""
                 },
                 {
-                    spanClass: "am-icon-facebook",
+                    spanClass: "am-icon-pie-chart",
                     submenu: "库存盘点",
                     subid: "medicine_mverify",
                     sublink: "#medicine/mverify",
                     parents: ""
                 },
-                { spanClass: "am-icon-twitter",   subid: "medicine_mverifyLog",submenu: "盘点日志", sublink: "#medicine/mverifyLog", parents: ""},
+                { spanClass: "am-icon-file-text-o",   subid: "medicine_mverifyLog",submenu: "盘点日志", sublink: "#medicine/mverifyLog", parents: ""},
                 {
-                    spanClass: "am-icon-gittip",
+                    spanClass: "am-icon-search",
                     submenu: "库存变动查询",
                     subid: "medicine_mnumChange",
                     sublink: "#medicine/mnumChange",
                     parents: ""
                 },
                 {
-                    spanClass: "am-icon-apple",
+                    spanClass: "am-icon-cny",
                     submenu: "药品调价",
                     subid: "medicine_mpriceChange",
                     sublink: "#medicine/mpriceChange",

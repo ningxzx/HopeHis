@@ -1,5 +1,5 @@
 define(["backbone"], function (Backbone) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var outpatientChargesModel = Backbone.Model.extend({
         getrendeMy: function (startdatetime,enddatetime,batchno,goodstype,goodsstamp) {
             var that = this;

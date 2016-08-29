@@ -35,8 +35,8 @@ define(["backbone", 'jctLibs'], function (Backbone, jctLibs) {
             //dead_time:"",//死亡时间
             //dead_reason:""//死亡原因
         },
-        url: "http://192.168.0.220:8081/jetHis/patient",
-        urlRoot: "http://192.168.0.220:8081",
+        url: "http://114.55.85.57:8081/jetHis/patient",
+        urlRoot: "http://114.55.85.57:8081",
         getPat: function (patient_id) {
             var that = this, result = {};
             $.ajax({
@@ -112,7 +112,7 @@ define(["backbone", 'jctLibs'], function (Backbone, jctLibs) {
             else{
                 param['patient_id']=patient_id
             }
-            this.url = "http://192.168.0.220:8081/jethis/registeration/query_patient";
+            this.url = "http://114.55.85.57:8081/jethis/registeration/query_patient";
             this.fetch({
                 async: true,
                 data: $.param(param),
@@ -157,7 +157,7 @@ define(["backbone", 'jctLibs'], function (Backbone, jctLibs) {
             if(patient_name){
                 param['patient_name']=patient_name
             }
-            this.url = "http://192.168.0.220:8081/jethis/registeration/query_patient";
+            this.url = "http://114.55.85.57:8081/jethis/registeration/query_patient";
             this.fetch({
                 async: true,
                 data: $.param(param),
@@ -195,7 +195,7 @@ define(["backbone", 'jctLibs'], function (Backbone, jctLibs) {
                 msg: "",
                 obj: {}
             };
-            this.url = "http://192.168.0.220:8081/jethis/registeration/addpatientinfo";
+            this.url = "http://114.55.85.57:8081/jethis/registeration/addpatientinfo";
             this.save({}, {
                 success: function (model, response) {
                     if (response.resultCode == "101") {
@@ -228,7 +228,7 @@ define(["backbone", 'jctLibs'], function (Backbone, jctLibs) {
         //查询所有用户
         allPatient: function (enter_id, dept_id) {
             var that = this, result = new jctLibs.jetHisResult();
-            this.url = "http://192.168.0.220:8081/jethis/registeration/query_patient";
+            this.url = "http://114.55.85.57:8081/jethis/registeration/query_patient";
             this.fetch({
                 async: true,
                 data: $.param({

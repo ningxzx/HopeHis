@@ -117,7 +117,7 @@ $(function () {
         var time = new Date().getTime();
         md = hex_md5(radom + time), that = this;
         $.ajax({
-            url: "http://192.168.0.220:8081/system/PicCode/NewCode",
+            url: "http://114.55.85.57:8081/system/PicCode/NewCode",
             type: "post",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
@@ -128,7 +128,7 @@ $(function () {
             data: JSON.stringify({"md": md}),
             success: function (data) {
                 if (data.resultCode == "100") {
-                    $(".vCodeImg").attr("src", "http://192.168.0.220:8081" + data.imgidurl);
+                    $(".vCodeImg").attr("src", "http://114.55.85.57:8081" + data.imgidurl);
                 }
             },
             error: function (data) {
@@ -148,7 +148,7 @@ $(function () {
             $(".phone_empty").removeClass("hid");
         } else if (phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)) {
             $.ajax({
-                url: "http://192.168.0.220:8081/system/BindPhone/phoneNo/10",
+                url: "http://114.55.85.57:8081/system/BindPhone/phoneNo/10",
                 type: "get",
                 data:{phoneNo:phone},
                 headers: {
@@ -179,7 +179,8 @@ $(function () {
 
     //发送短信验证码
     function sendMessage() {
-        var codeValue = $("#vCodeImg").val();
+        var codeValue = $("#vCodeImg").val(),
+            $btn=$("#sendMessage")
         phone = $("#cellphone").val();
         $(".code_empty").addClass("hid");
         $(".code_false").addClass("hid");
@@ -189,10 +190,11 @@ $(function () {
             $(".code_empty").removeClass("hid");
             return;
         }
+        $('#sendMessage').attr('disabled',true);
         $.ajax({
             type: "post",
             timeout: 30000,
-            url: "http://192.168.0.220:8081/system/phone/messageCode",
+            url: "http://114.55.85.57:8081/system/phone/messageCode",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
                 'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
@@ -203,21 +205,22 @@ $(function () {
         }).done(function (data) {
             connection = true;
             if (data.resultCode !== "100") {
+                $('#sendMessage').attr('disabled',false);
                 $(".code_error").text(smsResultArr[data.resultCode]).removeClass("hid");
                 codeImg();
             } else if (data.resultCode == "100") {
                 var times = 60;
                 var timer = null;
-                $("#sendMessage").attr("disabled", "true");
-                $("#sendMessage").html(60 + "秒后重试");
+                $btn.attr("disabled", "true");
+                $btn.html(60 + "秒后重试");
                 timer = setInterval(function () {
                     times--;
                     if (times <= 0) {
-                        $("#sendMessage").html("发送验证码");
-                        $("#sendMessage").removeAttr("disabled");
+                        $btn.html("发送验证码");
+                        $btn.removeAttr("disabled");
                         clearInterval(timer);
                     } else {
-                        $("#sendMessage").html(times + "秒后重试");
+                        $btn.html(times + "秒后重试");
                     }
                 }, 1000);
                 $(".code_send_success").removeClass("hid");
@@ -225,9 +228,13 @@ $(function () {
                 $("#btnPhone").removeClass("dis");
                 $("#messageCode").focus();
             } else {
+                $('#sendMessage').attr('disabled',false);
+                alert("发送短信出错!")
                 return;
             }
         }).fail(function () {
+            $('#sendMessage').attr('disabled',false);
+            alert("发送短信出错!")
             $(".code_send_false").removeClass("hid");
         })
 
@@ -246,7 +253,7 @@ $(function () {
         }
         $.ajax({
             type: "post",
-            url: "http://192.168.0.220:8081/system/phone/confirmMsgCode",
+            url: "http://114.55.85.57:8081/system/phone/confirmMsgCode",
             data: JSON.stringify({"phoneidcode": message, "phone": phone}),
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
@@ -288,7 +295,7 @@ $(function () {
         var opt = "<option value=\"0\">请选择省份</option>";
         $.ajax({
             type: "get",
-            url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
+            url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -319,7 +326,7 @@ $(function () {
         nexts.html("<option value=\"0\">请选择区县</option>");
         $.ajax({
             type: "get",
-            url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+            url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -340,7 +347,7 @@ $(function () {
         next.html("<option value=\"0\">请选择区县</option>");
         $.ajax({
             type: "get",
-            url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+            url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -394,7 +401,7 @@ $(function () {
                     'Authorization': '123456-01',
                     'Content-Type': 'application/json'
                 },
-                url: "http://192.168.0.220:8081/jethis/Jethis_User/checkaccount",
+                url: "http://114.55.85.57:8081/jethis/Jethis_User/checkaccount",
                 data: JSON.stringify({
                     "account_id": user_name
                 }),
@@ -549,7 +556,7 @@ $(function () {
                         'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
                         'Content-Type': 'application/json'
                     },
-                    url: "http://192.168.0.220:8081/account/AccountInfo",
+                    url: "http://114.55.85.57:8081/account/AccountInfo",
                     data: JSON.stringify({
                         "user_name": realName,
                         "user_sex": sex,

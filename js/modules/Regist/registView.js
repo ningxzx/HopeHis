@@ -11,9 +11,9 @@ define(['txt!../Common/sidebar.html',
             topic:"挂号",
             description:"当日挂号,现场预约挂号,患者登记,挂号记录查询",
             submenus: [
-                { spanClass: "am-icon-info", submenu: "新开就诊", sublink: "#regist/register", parents: "", subid: "regist_register"},
-                { spanClass: "am-icon-apple", submenu: "查询挂号", sublink: "#regist/searchRegister", parents: "", subid: "regist_searchRegister"},
-                { spanClass: "am-icon-apple", submenu: "挂号统计", sublink: "#regist/totalRegister", parents: "", subid: "regist_totalRegister"}
+                { spanClass: "am-icon-heartbeat", submenu: "新开就诊", sublink: "#regist/register", parents: "", subid: "regist_register"},
+                { spanClass: "am-icon-building-o", submenu: "挂号管理", sublink: "#regist/searchRegister", parents: "", subid: "regist_searchRegister"},
+                { spanClass: "am-icon-calculator", submenu: "挂号统计", sublink: "#regist/totalRegister", parents: "", subid: "regist_totalRegister"}
             ]
         };
         var subviews={

@@ -97,7 +97,6 @@ define(['txt!../../Setting/departMange/departMange.html',
                 }
             },
             renderDepts: function (res) {
-                console.log(res)
                 if (res.errorNo == 0) {
                     <!--获取数据以后，开始介绍-->
                     $(this.el).find("#department_table").bootstrapTable('load', res.depts);

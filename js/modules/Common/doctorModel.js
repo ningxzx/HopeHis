@@ -9,7 +9,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 obj: {}
             };
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/registeration/get_registeration_data",
+                url: "http://114.55.85.57:8081/jethis/registeration/get_registeration_data",
                 data: $.param({
                     enterprise_id: sessionStorage.getItem('enterprise_id'),
                     start_date: date,
@@ -34,7 +34,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 msg: "",
                 obj: {}
             };
-            this.url = "http://192.168.0.220:8081/jethis/registeration/get_registeration_data";
+            this.url = "http://114.55.85.57:8081/jethis/registeration/get_registeration_data";
             this.fetch({
                 data: $.param({
                     enterprise_id: enter_id,

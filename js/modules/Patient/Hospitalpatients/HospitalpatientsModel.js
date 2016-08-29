@@ -1,5 +1,5 @@
 define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var HospitalpatientsModel = Backbone.Model.extend({
         postHospital: function (data) {
             var that = this;
@@ -48,7 +48,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://192.168.0.220:8081/jethis/PatientRecord/Persinalinfo',
+                url: 'http://114.55.85.57:8081/jethis/PatientRecord/Persinalinfo',
                 data:param
             }).done(function (res) {
                 result.errorNo = 0;

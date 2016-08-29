@@ -29,13 +29,13 @@
                             <div class="am-u-md-6">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">用户姓名</span>
-                                    <input class="am-form-field" value={{user_name}} id="user_name"/>
+                                    <input class="am-form-field" value={{user_name}} id="user_name" readonly/>
                                 </div>
                             </div>
                             <div class="am-u-md-6 am-u-end">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">昵称</span>
-                                    <input id="usernickname" type="text" class="am-form-field" value="{{user_nickname}}"/>
+                                    <input id="usernickname" type="text" class="am-form-field" value="{{user_nickname}}" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -43,17 +43,19 @@
                             <div class="am-u-md-6">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">性别</span>
+                                    <input class="am-form-field" value="{{ formatSex user_sex}}" realValue={{user_sex}} id="show_sex" readonly/>
+                                    <div class="am-hide" id="select_sex_wrapper">
                                     <select name="gender" id="select_sex">
                                         <option value="M">男</option>
                                         <option value="F">女</option>
                                         <option value="N">不详</option>
-                                    </select>
+                                    </select></div>
                                 </div>
                             </div>
                             <div class="am-u-md-6 am-u-end">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">身份证号</span>
-                                    <input class="am-form-field" value={{user_card_id}} id="user_card_id"/>
+                                    <input class="am-form-field" value={{user_card_id}} id="user_card_id" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -61,13 +63,13 @@
                             <div class="am-u-md-6">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">QQ</span>
-                                    <input id="userqq" type="text" class="am-form-field" value="{{user_qq}}"/>
+                                    <input id="userqq" type="text" class="am-form-field" value="{{user_qq}}" readonly/>
                                 </div>
                             </div>
                             <div class="am-u-md-6">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">微信</span>
-                                    <input id="userwx" type="text" class="am-form-field" value="{{user_wechate}}"/>
+                                    <input id="userwx" type="text" class="am-form-field" value="{{user_wechat}}" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -75,13 +77,14 @@
                             <div class="am-u-md-6">
                                 <div class="am-input-group">
                                     <span class="am-input-group-label">邮箱</span>
-                                    <input class="am-form-field" value={{user_email}} id="user_email"/>
+                                    <input class="am-form-field" value={{user_email}} id="user_email" readonly/>
                                 </div>
                             </div>
                         </div>
                         <div class="am-g p am-padding-top">
                             <div class="am-u-md-6  ">
-                                <button class="am-btn am-btn-primary  am-btn-xs am-radius" id="changeBtn">确认编辑</button>
+                                <button class="am-btn am-btn-default  am-btn-xs am-radius" id="changeInput">编辑</button>
+                                <button class="am-btn am-btn-warning  am-btn-xs am-radius am-hide" id="changeBtn">确定提交</button>
                             </div>
                             <div class="am-u-md-6">
                                 <p id="error_tips" class="am-center"></p>
@@ -90,7 +93,7 @@
                     </div>
                     <div class="am-u-md-3 p">
                         <div class="am-u-md-12 p">
-                            <img src="http://192.168.0.220:8081{{user_icon}}"  alt="" class="am-center user_icon"/>
+                            <img src="http://114.55.85.57:8081{{user_icon}}"  alt="" class="am-center user_icon"/>
                         </div>
                         <div class="am-u-md-12 am-padding-top am-padding-bottom">
                             <button class="am-btn am-btn-success am-center am-btn-xs am-radius" id="changePhoto">修改头像</button>

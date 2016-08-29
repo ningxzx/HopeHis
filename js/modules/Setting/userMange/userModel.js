@@ -12,7 +12,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081/jethis/doctor/get",
+                url: "http://114.55.85.57:8081/jethis/doctor/get",
                 reset: true,
                 data: {enterprise_id: sessionStorage.getItem('enterprise_id'), state: state}
             }).done(function (res) {
@@ -52,7 +52,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: "http://192.168.0.220:8081/jethis/hook/doctor",
+                url: "http://114.55.85.57:8081/jethis/hook/doctor",
                 reset: true,
                 data: JSON.stringify({
                     enterprise_id: data.enterprise_id, //机构ID
@@ -84,7 +84,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081/jethis/setting/modcommitstate",
+                url: "http://114.55.85.57:8081/jethis/setting/modcommitstate",
                 reset: true,
                 data: {conid: conid, state: state, depid: depid, depname: depname}
             }).done(function (res) {
@@ -109,7 +109,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081/jethis/setting/modcommitstate",
+                url: "http://114.55.85.57:8081/jethis/setting/modcommitstate",
                 reset: true,
                 data: {enterprise_id: sessionStorage.getItem('enterprise_id')}
             }).done(function (res) {
@@ -133,7 +133,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081/jethis/user/getUserByEid?enterprise_id=" + id,
+                url: "http://114.55.85.57:8081/jethis/user/getUserByEid?enterprise_id=" + id,
                 reset: true,
             }).done(function (res) {
                 result.errorNo = 0;
@@ -156,7 +156,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: "http://192.168.0.220:8081/jethis/user/addUserByEid",
+                url: "http://114.55.85.57:8081/jethis/user/addUserByEid",
                 data: JSON.stringify(res)
             }).done(function (res) {
                 that.trigger("reEmployer", res);
@@ -176,10 +176,10 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "patch",
-                url: "http://192.168.0.220:8081/jethis/user/modifyinfo",
+                url: "http://114.55.85.57:8081/jethis/user/modifyinfo",
                 data: JSON.stringify(res)
             }).done(function (res) {
-                if (res.RESULT == "OK") {
+                if (res.resultCode == "100") {
                     that.trigger("updateEmployer", result);
                 }
             }).fail(function (err, response) {
@@ -198,7 +198,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "patch",
-                url: "http://192.168.0.220:8081/jethis/user/userRole",
+                url: "http://114.55.85.57:8081/jethis/user/userRole",
                 data: JSON.stringify(data)
             }).done(function (res) {
                 if (res["RESULT"] == "OK") {
@@ -220,7 +220,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "patch",
-                url: "http://192.168.0.220:8081/jethis/Enterprise/Patch/AccountInfo",
+                url: "http://114.55.85.57:8081/jethis/Enterprise/Patch/AccountInfo",
                 data: JSON.stringify(data)
             }).done(function (res) {
                 if (res["resultCode"] == "100") {

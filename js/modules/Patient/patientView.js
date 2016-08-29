@@ -11,10 +11,10 @@ define(['txt!../Common/sidebar.html',
             topic:"患者管理",
             description:"自定义患者分组,设置VIP患者,监控重点关注人群健康档案",
             submenus: [
-                {spanClass: "am-icon-wifi", submenu: "医院患者", sublink: "#patient/Hospitalpatients",subid:"patient_Hospitalpatients", parents: ""},
-                {spanClass: "am-icon-wifi", submenu: "科室患者", sublink: "#patient/Patientsdepartment",subid:"patient_Patientsdepartment", parents: ""},
-                {spanClass: "am-icon-info", submenu: "我的患者", sublink: "#patient/patientClass",subid:"patient_patientClass", parents: ""},
-                {spanClass: "am-icon-info", submenu: "添加患者", sublink: "#patient/addpatient",subid:"patient_addpatient", parents: ""},
+                {spanClass: "am-icon-wheelchair", submenu: "医院患者", sublink: "#patient/Hospitalpatients",subid:"patient_Hospitalpatients", parents: ""},
+                {spanClass: "am-icon-wheelchair", submenu: "科室患者", sublink: "#patient/Patientsdepartment",subid:"patient_Patientsdepartment", parents: ""},
+                {spanClass: "am-icon-wheelchair", submenu: "我的患者", sublink: "#patient/patientClass",subid:"patient_patientClass", parents: ""},
+                {spanClass: "am-icon-wheelchair", submenu: "添加患者", sublink: "#patient/addpatient",subid:"patient_addpatient", parents: ""},
                 //{spanClass: "am-icon-wifi", submenu: "修改患者信息", sublink: "#patient/patientModify",subid:"patient_patientModify", parents: ""},
             ]
         };

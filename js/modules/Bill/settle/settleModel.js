@@ -1,5 +1,5 @@
 define(["jquery", "backbone", "jctLibs"], function ($, Backbone, jctLibs) {
-    var urlRoot = "http://192.168.0.220:8081";
+    var urlRoot = "http://114.55.85.57:8081";
     var settleModel = Backbone.Model.extend({
         getMainRecord: function (data) {
             var that = this, result = {},param=data||{};

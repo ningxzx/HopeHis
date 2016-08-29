@@ -35,7 +35,8 @@ define(['txt!../Diagnose/regPats.html',
                     this.listenTo(this.regPatsModel, "waitPatientsGetted", this.renderWaitPats);
                     this.listenTo(this.regPatsModel, "curePatientsGetted", this.renderCurePats);
                     this.listenTo(this.regPatsModel, "startDiagnose", this.startResult);
-                    this.listenTo(this.regPatsModel, "regist_result", this.refreshPats);
+                    this.listenTo(this.regPatsModel, "regist_result", this.addPatCallBack);
+                    this.listenTo(this.regPatsModel, "getDoctorRegFee", this.getRegFee);
                     this.listenTo(this.patientModel, "searchById", this.showPatientInfoById);
                     this.listenTo(this.patientModel, "searchByName", this.showPatientInfoByName);
                     this.listenTo(this.commonModel, 'getPatRecord', this.renderDiagRecord);//获取就诊记录
@@ -54,9 +55,20 @@ define(['txt!../Diagnose/regPats.html',
                     "click #addPatient": "AddPatient",
                     'keyup #keyword': 'keySearchId'
                 },
-                //changeKey:function(event){
-                //    alert();
-                //},
+                getRegFee: function (res) {
+                    if(res.errorNo==0){
+                        var regData=res.regData;
+                        $("#regFee").val(regData.regsterFee)
+                    }
+                },
+                addPatCallBack: function (res) {
+                    if (res.state == '100') {
+                        this.refreshPats();
+                    }
+                    else{
+                        alert('加号失败,请重试!!')
+                    }
+                },
                 keySearchId: function (e) {
                     if (e.keyCode == 13) {
                         this.searchId();
@@ -74,6 +86,9 @@ define(['txt!../Diagnose/regPats.html',
                     this.startTreat(row, 0);
                 },
                 startTreat: function (row, index) {
+                    if(row.state=='4'){
+                        return;
+                    }
                     var data = {
                         "enterprise_id": sessionStorage.getItem("enterprise_id"),
                         "enterprise_name": sessionStorage.getItem("enterprise_name"),
@@ -83,22 +98,22 @@ define(['txt!../Diagnose/regPats.html',
                         "patient_name": row.patient_name,
                         "register_no": row.register_no,
                         "state": row.state,
-                        "row_index": index
                     };
-                    this.regPatsModel.startPatient(data);
+                    this.regPatsModel.startPatient(data,index);
                 },
                 startResult: function (result) {
-                    var that=this;
+                    var that = this;
                     if (result.errorNo == "0") {
-                        $(".finish_diag").eq(1).attr("diagnosis_id",result.diagnosis_id);
+                        $(".finish_diag").eq(1).attr("diagnosis_id", result.diagnosis_id);
                         var data = $("#wait_pats").bootstrapTable("getData")[result.index];
-                        var diagData=result.diagData;
+                        var diagData = result.diagData;
                         data.diagnosis_id = diagData.diagnosis_id;
                         this.diagnosis_id = diagData.diagnosis_id;
                         $("#recipe_diagnose").val(diagData.diagnosis_result || "");
                         $("#recipe_medAdvice").val(diagData.doctor_advice || "");
                         $("#patient_tell").val(diagData.patient_tell || "");
                         this.addRecipe(data);
+                        $('#pat_tabs').tabs('open', 0)
                     } else {
                         alert("接诊失败，请直接点击患者")
                     }
@@ -107,18 +122,24 @@ define(['txt!../Diagnose/regPats.html',
                 showModel: function () {
                     var that = this;
                     $('#no_pat_wrapper').hide();
+                    var acc_id = sessionStorage.getItem("user_id");
+                    var doc_id = sessionStorage.getItem("doctor_id");
+                    this.regPatsModel.getDoctorRegFee(doc_id);
                     $(this.el).find("#add_patient_modal").modal({
                         onConfirm: function () {
                             var enter_id = sessionStorage.getItem("enterprise_id");
-                            var doc_id = sessionStorage.getItem("doctor_id");
-                            var acc_id = sessionStorage.getItem("user_id");
                             var dept_id = sessionStorage.getItem("department_id");
                             var dept_name = sessionStorage.getItem("department_name");
-                            var id = $("#id").val();
-                            if(id==""||!id){
+                            var id = $("#id").val(),
+                                fee = $('#regFee').val();
+                            if(fee===""){
+                                alert("获取挂号费失败,请尝试刷新页面!")
+                                return;
+                            }
+                            if (id == "" || !id) {
                                 return false;
                             }
-                            that.regPatsModel.regist(enter_id, id, doc_id, acc_id, dept_id, dept_name);
+                            that.regPatsModel.addNo(enter_id, id, doc_id, acc_id, dept_id, dept_name, fee);
                         },
                         onCancel: function () {
                             $(that.el).find("form")[0].reset();
@@ -204,7 +225,7 @@ define(['txt!../Diagnose/regPats.html',
                         $('#no_pat_wrapper').show();
                     }
                 },
-            //点击待诊就诊
+                //点击待诊就诊
                 clickPats: function (event) {
                     var event = window.event || event;
                     var that = this;
@@ -212,27 +233,11 @@ define(['txt!../Diagnose/regPats.html',
                     var data = $(this.el).find("#wait_pats").bootstrapTable("getData");
                     var row = data[rowIndex];
                     if (!!row) {
-                        that.resetInput();
-                        $(".pat_seri").text(row.d_serialno);
-                        $(".pat_id").text(row.patient_id);
-                        $(".pat_name").text(row.patient_name);
-                        $(".pat_sex").text(row.patient_sex == 'M' ? '男' : '女');
-                        $(".pat_birth").text(row.patient_birth);
-                        $(".pat_marriage").text(row.marry_state == 'WH' ? '未婚' : '已婚');
-                        $(".pat_register").text(row.register_no);
-                        $(".pat_tell").text(row.patient_phone);
-                        $(".pat_idCard").text(row.card_id);
-                        var age = new Date().getFullYear() - row.patient_birth.substring(0, 4);
-                        $(".pat_age").text(age);
-                        this.commonModel.searchRecord(row.patient_id);
-                        this.commonModel.search('diagnosis.patient_history', {
-                            patient_id: row.patient_id,
-                            type: '20'
-                        }, 'getHistory');
-                        this.commonModel.search('diagnosis.patient_history', {
-                            patient_id: row.patient_id,
-                            type: '10'
-                        }, 'getOutHistory');
+                        $('#temp_pat_info').removeClass('am-hide');
+                        $(".temp_pat_name").text(row.patient_name);
+                        $(".temp_pat_sex").text(row.patient_sex == 'M' ? '男' : '女');
+                        $(".temp_pat_marriage").text(row.marry_state == 'WH' ? '未婚' : '已婚');
+                        $(".temp_pat_idCard").text(row.card_id);
                     } else {
                         $(".pat_seri").text("");
                         $(".pat_name").text("");
@@ -251,8 +256,6 @@ define(['txt!../Diagnose/regPats.html',
                         $("#history").text("");
                         $("#diag_record_tbl").bootstrapTable("removeAll");
                     }
-                    that.trigger("clearRecipe");
-                    //$('#pat_tabs').tabs('open', 0)
                 },
                 dBClickPats: function (event) {
                     var event = window.event || event;
@@ -260,22 +263,23 @@ define(['txt!../Diagnose/regPats.html',
                     var rowIndex = $(event.target).parent().attr("data-index");
                     var data = $(this.el).find("#wait_pats").bootstrapTable("getData");
                     var row = data[rowIndex];
+                    if(row['state']=='4'){
+                        return;
+                    }
                     row.diagnosis_id = that.diagnosis_id;
                     var pat_seri = $(".pat_seri").text();
+                    $('#temp_pat_info').addClass('am-hide');
                     if (!!pat_seri && row["d_serialno"] != pat_seri) {
                         $("#change_pat_modal .current_pat_name").text($('.pat_name').eq(0).html());
-                        $("#change_pat_modal").modal({
-                            onConfirm: function () {
-                                var stopData = data.filter(function (x) {
-                                    return x.d_serialno == pat_seri
-                                })[0]
-                                that.diagModel.stopDiag(stopData);
-                                that.addRecipe(row);
-                                that.startTreat(row, rowIndex);
-                            },
-                            onCancel: function () {
-                                return;
-                            }
+                        $("#change_pat_modal").modal();
+                        $('#stop_diag').off('click').on('click',function () {
+                            var stopData = data.filter(function (x) {
+                                return x.d_serialno == pat_seri
+                            })[0]
+                            that.diagModel.stopDiag(stopData);
+                            that.addRecipe(row);
+                            that.startTreat(row, rowIndex);
+                            $("#change_pat_modal").modal('close');
                         });
                     }
                     else {
@@ -287,6 +291,7 @@ define(['txt!../Diagnose/regPats.html',
                 stopResult: function (result) {
                     if (result.errorNo == 0) {
                         alert("挂单成功");
+                        this.refreshPats();
                     } else if (result.errorNo == "-1") {
                         alert(result.info);
                     } else {
@@ -305,7 +310,7 @@ define(['txt!../Diagnose/regPats.html',
                         $(".pat_register").text(row.register_no);
                         $(".pat_tell").text(row.patient_phone);
                         $(".pat_idCard").text(row.card_id);
-                        var age = row.patient_birth?(new Date().getFullYear() - row.patient_birth.substring(0, 4)):"";
+                        var age = row.patient_birth ? (new Date().getFullYear() - row.patient_birth.substring(0, 4)) : "";
                         $(".pat_age").text(age);
                         this.commonModel.searchRecord(row.patient_id);
                         this.commonModel.search('diagnosis.patient_history', {
@@ -350,7 +355,7 @@ define(['txt!../Diagnose/regPats.html',
                 },
                 refreshPats: function () {
                     //获取未就诊的挂号患者
-                    this.regPatsModel.getRegPatients("1,2,3");
+                    this.regPatsModel.getRegPatients("1,2,3,4");
                     //获取已就诊的挂号患者
                     this.regPatsModel.getRegPatients(0);
                 },
@@ -404,11 +409,16 @@ define(['txt!../Diagnose/regPats.html',
                         data: [],
                         sortName: 'd_serialno',
                         rowStyle: function (row, index) {
-                            if (row["state"] == "2") {
+                            if (row["state"] == "1") {
                                 return {
                                     css: {"color": "red"}
                                 };
-                            } else {
+                            }
+                            if (row["state"] == "4") {
+                                return {
+                                    css: {"color": "grey"}
+                                };
+                            }else {
                                 return {
                                     css: {"color": "black"}
                                 }
@@ -458,7 +468,7 @@ define(['txt!../Diagnose/regPats.html',
                             $("#birth").val(row.patient_birth);
                             $("#gender").val(row.patient_sex);
                             var now = new Date();
-                            var age =row.patient_birth?(now.getFullYear() - row.patient_birth.substring(0, 4)):'';
+                            var age = row.patient_birth ? (now.getFullYear() - row.patient_birth.substring(0, 4)) : '';
                             $("#age").val(age);
                             $("#address").val(row.province + "-" + row.city + "-" + row.area + "-" + row.addr);
                             $("#phone").val(row.patient_phone);
@@ -475,9 +485,8 @@ define(['txt!../Diagnose/regPats.html',
                     $(this.el).find("#wait_pats").bootstrapTable("showLoading");
                     $(this.el).find("#cure_pats").bootstrapTable("showLoading");
                     $(this.el).find("#stay_pats").bootstrapTable("showLoading");
-
                     //获取未就诊的挂号患者
-                    this.regPatsModel.getRegPatients("1,2,3");
+                    this.regPatsModel.getRegPatients("1,2,3,4");
                     //获取已就诊的挂号患者
                     this.regPatsModel.getRegPatients(0);
 

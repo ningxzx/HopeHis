@@ -5,7 +5,7 @@
  * Created by xzx on 2016/5/3.
  */
 define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var commonModel = Backbone.Model.extend({
         //通用接口默认查询
         search: function (table, data, evName) {
@@ -70,7 +70,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://192.168.0.220:8081/jethis/drugAlert/drugNumInfo',
+                url: 'http://114.55.85.57:8081/jethis/drugAlert/drugNumInfo',
                 reset: true,
                 data: {enterprise_id: sessionStorage.getItem('enterprise_id')}
             }).done(function (res) {
@@ -98,7 +98,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             param['patient_id'] = patientId;
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081" + '/jethis/diagnosis/medicalrecord',
+                url: "http://114.55.85.57:8081" + '/jethis/diagnosis/medicalrecord',
                 reset: true,
                 data: param
             }).done(function (res) {
@@ -115,7 +115,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://192.168.0.220:8081' + '/jethis/Customer/MemberAndPatientInfo'+'/'+type,
+                url: 'http://114.55.85.57:8081' + '/jethis/Customer/MemberAndPatientInfo'+'/'+type,
                 reset: true,
                 data: param,
                 success: function (res) {

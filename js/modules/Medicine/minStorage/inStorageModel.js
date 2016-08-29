@@ -1,7 +1,7 @@
 define(["jquery", "backbone"],
     function ($, Backbone) {
         //入库人员提交审核后的入库记录 model,与数据库 入库表 对应.
-        var rootUrl = "http://192.168.0.220:8081";
+        var rootUrl = "http://114.55.85.57:8081";
         var inStorageModel = Backbone.Model.extend({
             //获取收货人
             getRecopient: function () {

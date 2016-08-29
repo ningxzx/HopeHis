@@ -7,7 +7,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         getPats: function (data) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/DiagnosisHistory/PatientInfo",
+                url: "http://114.55.85.57:8081/jethis/DiagnosisHistory/PatientInfo",
                 type: 'get',
                 data:data,
                 success: function (res) {
@@ -26,7 +26,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         submitGroup: function (data) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Group/newGroup",
+                url: "http://114.55.85.57:8081/jethis/Group/newGroup",
                 type: 'post',
                 data:JSON.stringify(data),
                 success: function (res) {
@@ -45,7 +45,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         updateGroup: function (data,group_id) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Group/UpdateInfo/"+group_id,
+                url: "http://114.55.85.57:8081/jethis/Group/UpdateInfo/"+group_id,
                 type: 'patch',
                 data:JSON.stringify(data),
                 success: function (res) {
@@ -64,7 +64,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         getGroupPats: function (condition) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Group/GetPatientInfo",
+                url: "http://114.55.85.57:8081/jethis/Group/GetPatientInfo",
                 type: 'get',
                 data:condition,
                 success: function (res) {
@@ -83,7 +83,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         delGroup: function (id) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Group/DeleteGroup/"+id,
+                url: "http://114.55.85.57:8081/jethis/Group/DeleteGroup/"+id,
                 type: 'delete',
                 success: function (res) {
                     result.errorNo = 0;

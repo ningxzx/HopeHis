@@ -2,7 +2,7 @@
  * Created by xzx on 2016/5/3.
  */
 define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
-    var rootUrl = "http://192.168.0.220:8081";
+    var rootUrl = "http://114.55.85.57:8081";
     var recipeMaintainModel = Backbone.Model.extend({
         //获取处方模板
         getTemp: function (type,param) {

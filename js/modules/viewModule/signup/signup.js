@@ -79,7 +79,7 @@ $(function () {
         epInfo.append('city', city1);
         epInfo.append('area', area1);
         $.ajax({
-            url: 'http://192.168.0.220:8081/account/jethis/NewEnterprise',
+            url: 'http://114.55.85.57:8081/account/jethis/NewEnterprise',
             type: 'POST',
             headers: {
                 'app-key': 'fb98ab9159f51fd1',

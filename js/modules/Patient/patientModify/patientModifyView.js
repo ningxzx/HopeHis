@@ -39,7 +39,7 @@ define(['txt!../../Patient/patientModify/patientModify.html',
                 }
                 if (select_condition == "id") {
                     //发送ID查询
-                    that.patientModel.url = "http://192.168.0.220:8081/jethis/patient/patient";
+                    that.patientModel.url = "http://114.55.85.57:8081/jethis/patient/patient";
                     that.patientModel.fetch({
                         async: true,
                         data: $.param({
@@ -60,7 +60,7 @@ define(['txt!../../Patient/patientModify/patientModify.html',
                     });
                 } else if (select_condition == "name") {
                     //发送NAME查询
-                    that.patientModel.url = "http://192.168.0.220:8081/jethis/patient/patient";
+                    that.patientModel.url = "http://114.55.85.57:8081/jethis/patient/patient";
                     that.patientModel.fetch({
                         async: true,
                         data: $.param({
@@ -119,7 +119,7 @@ define(['txt!../../Patient/patientModify/patientModify.html',
                     return;
                 }
                 console.log(this.patientCollection);
-                this.patientModel.url = "http://192.168.0.220:8081/JetHis/Patch/patient";
+                this.patientModel.url = "http://114.55.85.57:8081/JetHis/Patch/patient";
                 this.patientModel.save({
                     enterprise_id: "ERP10001",
                     patient_name: $("#m_name").val().trim(),

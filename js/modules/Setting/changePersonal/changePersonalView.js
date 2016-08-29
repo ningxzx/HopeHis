@@ -26,7 +26,9 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
                     $("#error_tips").html("成功信息：个人信息修改成功！").css('color','green').removeClass("hid");
                     var name=$('#user_name').val();
                     sessionStorage.setItem('user_name',name);
-                    $('.back #userName').html(name)
+                    $('.back #userName').html(name);
+                    this.readMode();
+                    this.model.getInfos();
                 }
                 else{
                     $("#error_tips").html("成功信息：个人信息修改失败！").css('color','red').removeClass("hid");
@@ -85,10 +87,39 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
                 'click #refreshInfo':'refreshInfo',
                 'blur #user_name':'checkName',
                 'focus #user_name':'reName',
+                'click #changeInput':'changeInput',
             },
             reName: function () {
                 var $name=$('#user_name');
                     $name.closest('.am-input-group').removeClass("am-input-group-danger")
+            },
+            changeInput:function () {
+                this.editMode();
+            },
+            editMode:function () {
+                $("#changeBtn").removeClass('am-hide');
+                $("#changeInput").addClass('am-hide');
+                $("#user_name").attr('readonly',false);
+                $("#usernickname").attr('readonly',false);
+                $("#show_sex").addClass('am-hide');
+                $("#select_sex_wrapper").removeClass("am-hide");
+                $("#select_sex").val($("#show_sex").attr('realValue')).trigger("chosen:updated");
+                $("#user_card_id").attr('readonly',false);
+                $("#userqq").attr('readonly',false);
+                $("#userwx").attr('readonly',false);
+                $("#user_email").attr('readonly',false);
+            },
+            readMode:function () {
+                $("#changeBtn").addClass('am-hide');
+                $("#changeInput").removeClass('am-hide');
+                $("#user_name").attr('readonly',true);
+                $("#usernickname").attr('readonly',true);
+                $("#show_sex").removeClass('am-hide');
+                $("#select_sex_wrapper").addClass("am-hide");
+                $("#user_card_id").attr('readonly',true);
+                $("#userqq").attr('readonly',true);
+                $("#userwx").attr('readonly',true);
+                $("#user_email").attr('readonly',true);
             },
             checkName: function () {
                 var $name=$('#user_name');
@@ -124,7 +155,7 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
                 }
                 fileInfo.append('Icon_img', $('#head_photo')[0].files[0],$('#head_photo').attr('filename'));
                 $.ajax({
-                    url: "http://192.168.0.220:8081/jethis/user/changeicon",
+                    url: "http://114.55.85.57:8081/jethis/user/changeicon",
                     type: 'POST',
                     cache: false,
                     data: fileInfo,
@@ -199,8 +230,8 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
                     window.location.reload();
                     return;
                 }
-                if(!card_id.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)){
-                    $("#error_tips").html("错误提示：请填写姓名！").removeClass("hid");
+                if(card_id&&!card_id.match(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/)){
+                    $("#error_tips").html("错误提示：请填写正确的身份证号！").removeClass("hid");
                     return;
                 }
                 var data={
@@ -249,7 +280,7 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
 
             //打开修改头像窗口
             resetPhoto: function () {
-                $("#confirmPhoto img").attr('src','http://192.168.0.220:8081'+this.iconSrc)
+                $("#confirmPhoto img").attr('src','http://114.55.85.57:8081'+this.iconSrc)
                 $("#confirmPhoto").modal({
                     onConfirm: function (e) {
                         console.log(e);

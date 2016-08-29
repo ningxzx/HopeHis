@@ -1,5 +1,5 @@
 define(["backbone"], function (Backbone) {
-    var rootUrl="http:192.168.0.220";
+    var rootUrl="http:114.55.85.57";
     var clinicFinancialModel = Backbone.Model.extend({
         search: function (table,data,evName) {
             var that = this;

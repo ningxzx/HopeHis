@@ -35,7 +35,7 @@ define(['jctLibs', "backbone"], function (jctLibs, Backbone) {
         //获取患者分组名称
         getGroupName: function (enter_id, dept_id, doc_id) {
             var that = this, result = new jctLibs.jetHisResult;
-            this.url = "http://192.168.0.220:8081/JetHis/Get/Group";
+            this.url = "http://114.55.85.57:8081/JetHis/Get/Group";
             this.fetch({
                 data: $.param({
                     //参数
@@ -86,7 +86,7 @@ define(['jctLibs', "backbone"], function (jctLibs, Backbone) {
         //获取患者分组
         getPatientGroup: function (enter_id, dept_id, doc_id, group_name, type) {
             var that = this, result = new jctLibs.jetHisResult;
-            this.url = "http://192.168.0.220:8081/JetHis/Create/Group/";
+            this.url = "http://114.55.85.57:8081/JetHis/Create/Group/";
             this.fetch({
                 data: $.param({
                     //参数
@@ -141,7 +141,7 @@ define(['jctLibs', "backbone"], function (jctLibs, Backbone) {
         //创建患者分组
         createGroup: function (enter_id, enter_name, dept_id, dept_name, doc_id, doc_name, data, type) {
             var that = this, result = new jctLibs.jetHisResult();
-            this.url = "http://192.168.0.220:8081/JetHis/Create/Group/";
+            this.url = "http://114.55.85.57:8081/JetHis/Create/Group/";
             this.save({
                 enterprise_id: enter_id,
                 enterprise_name:enter_name,

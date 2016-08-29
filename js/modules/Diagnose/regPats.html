@@ -65,8 +65,16 @@
             </div>
         </div>
         <div class="am-tab-panel">
-            <table id="wait_pats">
-            </table>
+            <div style="min-height: 400px">
+                <table id="wait_pats">
+                </table>
+            </div>
+            <div class=" am-hide" id="temp_pat_info">
+                <p>患者姓名：<span class="temp_pat_name"></span></p>
+                <p>性别：<span class="temp_pat_sex"></span></p>
+                <p>婚姻状况：<span class="temp_pat_marriage"></span></p>
+                <p>身份证号：<span class="temp_pat_idCard"></span></p>
+            </div>
         </div>
         <div class="am-tab-panel">
             <table id="cure_pats">
@@ -125,13 +133,13 @@
                 <div class="am-g p_top">
                     <div class="am-u-md-6">
                         <div class="am-input-group">
-                            <span class="am-input-group-label">患者ID:</span>
+                            <span class="am-input-group-label">患者ID</span>
                             <input type="text" class="am-form-field" id="id" readonly>
                         </div>
                     </div>
                     <div class="am-u-md-6">
                         <div class="am-input-group">
-                            <span class="am-input-group-label">患者姓名:</span>
+                            <span class="am-input-group-label">患者姓名</span>
                             <input type="text" class="am-form-field" id="name" readonly>
                         </div>
                     </div>
@@ -139,7 +147,7 @@
                 <div class="am-g p_top">
                     <div class="am-u-md-6">
                         <div class="am-input-group">
-                            <span class="am-input-group-label">性别:</span>
+                            <span class="am-input-group-label">性别</span>
                             <select name="gender" id="gender" data-am-selected
                                     class="am-form-field" readonly>
                                 <option value="M">男</option>
@@ -149,8 +157,16 @@
                     </div>
                     <div class="am-u-md-6">
                         <div class="am-input-group">
-                            <span class="am-input-group-label">身份证号:</span>
+                            <span class="am-input-group-label">身份证号</span>
                             <input type="text" class="am-form-field" id="cardId" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-g p_top">
+                    <div class="am-u-md-6">
+                        <div class="am-input-group">
+                            <span class="am-input-group-label">挂号费</span>
+                            <input type="text" class="am-form-field" id="regFee" readonly>
                         </div>
                     </div>
                 </div>
@@ -160,7 +176,9 @@
                     <p class="no_pat_tip">本医院无该名患者的信息，请注册后再进行挂号。</p>
                 </div>
                 <div class="am-u-md-5 am-input-group am-u-end">
-                    <button type="button" id="addPatient" class="am-btn am-btn-xs am-btn-secondary am-radius am-fr">跳转添加患者</button>
+                    <button type="button" id="addPatient" class="am-btn am-btn-xs am-btn-secondary am-radius am-fr">
+                        跳转添加患者
+                    </button>
                 </div>
             </div>
         </div>
@@ -177,7 +195,7 @@
         </div>
         <div class="am-modal-footer">
             <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-            <span class="am-modal-btn" data-am-modal-confirm>挂单</span>
+            <span class="am-modal-btn" id="stop_diag">挂单</span>
         </div>
     </div>
 </div>

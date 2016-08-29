@@ -29,7 +29,7 @@ define(['backbone','jctLibs'], function (Backbone,jctLibs) {
         //查询所有VIP患者
         getAllVip: function (enter_id) {
             var that = this, result = new jctLibs.jetHisResult();
-            this.url = "http://192.168.0.220:8081/JetHis/Get/VIP/entity_id/vip_no";
+            this.url = "http://114.55.85.57:8081/JetHis/Get/VIP/entity_id/vip_no";
             this.fetch({
                 data: $.param({
                     //参数
@@ -68,7 +68,7 @@ define(['backbone','jctLibs'], function (Backbone,jctLibs) {
         //添加VIP患者
         addVip: function (enter_id, row, vipNo) {
             var that = this, result = new jctLibs.jetHisResult();
-            this.url = "http://192.168.0.220:8081/JetHis/Create/VIP/";
+            this.url = "http://114.55.85.57:8081/JetHis/Create/VIP/";
             this.fetch({
                 data: $.param({
                     //参数
@@ -116,7 +116,7 @@ define(['backbone','jctLibs'], function (Backbone,jctLibs) {
                 }
             }
             var that = this, result = new jctLibs.jetHisResult();
-            this.url = "http://192.168.0.220:8081/JetHis/Delete/VIP";
+            this.url = "http://114.55.85.57:8081/JetHis/Delete/VIP";
             this.fetch({
                 data: $.param({
                     //参数

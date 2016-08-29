@@ -14,7 +14,8 @@ define(['jquery',"backbone","jctLibs"], function ($,Backbone,jctLibs) {
                 obj: {}
             };
             $.ajax({
-                url: "http://192.168.0.220:8081/jethis/Patient/RegisterRecord",
+                url: "http://114.55.85.57:8081/jethis/Patient/RegisterRecord",
+                type:'get',
                 data: $.param(param)
             }).done(function (res) {
                 result.errorNo = 0;
@@ -26,7 +27,24 @@ define(['jquery',"backbone","jctLibs"], function ($,Backbone,jctLibs) {
                 that.trigger("getRegInfo", result);
             });
         },
-
+        chargeRecord:function (data) {
+            var that = this,param=data||{},result={};
+            $.ajax({
+                url: "http://114.55.85.57:8081/jethis/registeration/NewChargeRecord",
+                type:'patch',
+                data: JSON.stringify(param),
+                success:function (res) {
+                    if(res.register_id!=-1){
+                        result.errorNo=0;
+                        result.register_id=res.register_id;
+                    }
+                    else{
+                        result.errorNo=-1;
+                    }
+                    that.trigger("chargeReg", result);
+                }
+            })
+        }
     });
 
     return searchRegModel;

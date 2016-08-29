@@ -6,7 +6,7 @@ define(['jquery', "backbone",'jctLibs'], function ($, Backbone,jctLibs) {
             param['enterprise_id']= sessionStorage.getItem('enterprise_id');
             $.ajax({
                 type: "post",
-                url: "http://192.168.0.220:8081/jethis/setting/standardRegfeeSet",
+                url: "http://114.55.85.57:8081/jethis/setting/standardRegfeeSet",
                 data: JSON.stringify(param)
             }).done(function (res) {
                 var result = {};
@@ -31,7 +31,7 @@ define(['jquery', "backbone",'jctLibs'], function ($, Backbone,jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: 'http://192.168.0.220:8081/jethis/setting/doctorInfoSet',
+                url: 'http://114.55.85.57:8081/jethis/setting/doctorInfoSet',
                 data: JSON.stringify({
                     'login_account_id':accout_id,
                     "enterprise_id": enp_id,
@@ -56,7 +56,7 @@ define(['jquery', "backbone",'jctLibs'], function ($, Backbone,jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://192.168.0.220:8081/jethis/setting/standardRegfeeSet',
+                url: 'http://114.55.85.57:8081/jethis/setting/standardRegfeeSet',
                 data: {enterprise_id:sessionStorage.getItem('enterprise_id')}
             }).done(function (data) {
                 result.errorNo=0;

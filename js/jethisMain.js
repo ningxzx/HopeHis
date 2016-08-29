@@ -115,7 +115,7 @@ require(['config', 'jquery', 'jethisRouter', 'underscore', 'backbone','jctLibs',
         window.clock = function () {
             $.ajax({
                 type: 'get',
-                url: 'http://192.168.0.220:8081/jethis/login/flag',
+                url: 'http://114.55.85.57:8081/jethis/login/flag',
                 data: {account_id: sessionStorage.getItem('user_id')},
             })
         };

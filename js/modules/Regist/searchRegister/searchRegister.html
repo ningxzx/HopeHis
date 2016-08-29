@@ -57,19 +57,23 @@
         </div>
     </div>
 </div>
-<!--<div class="am-panel am-panel-default" id="registerInfo">-->
-<!--<div class="am-panel-hd">今日挂号信息</div>-->
-<!--<div class="am-panel am-panel-default">-->
-<!--<ul class="am-list am-list-striped">-->
-<!--<li>挂号人数:<span id="registNum"></span></li>-->
-<!--<li>预约人数:<span id="preRegist"></span></li>-->
-<!--<li>上午医生人数:<span id="mornDoctorNum"></span></li>-->
-<!--<li>下午医生人数:<span id="afterDoctorNum"></span></li>-->
-<!--<li>晚上医生人数:<span id="nightDoctorNum"></span></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div class="am-panel-footer">-->
-<!--<button class="am-btn am-btn-default am-btn-xs" id="update_regist">刷新</button>-->
-<!--</div>-->
-<!--</div>-->
-
+<div class="am-modal am-modal-prompt" tabindex="-1" id="confirmFee">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">挂号收费</div>
+        <div class="am-modal-bd padding-0">
+            <ul class="am-list am-list-static am-list-striped">
+                <li>应收金额：<span id="cost"></span> 元</li>
+                <li>实收金额：<input id="money" type="text" class="am-modal-prompt-input am-text-center">元</li>
+                <li>应找金额：<span id="change"></span> 元</li>
+                <li><span id="fee_tips" style="color: red"></span></li>
+            </ul>
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" id="getFee">打印</span>
+        </div>
+    </div>
+</div>
+<div class="am-hide">
+    <div id="printArea"></div>
+</div>

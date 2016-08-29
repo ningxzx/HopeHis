@@ -91,6 +91,45 @@ define(['txt!../Diagnose/diagnose.html',
                 "click #diag_tmp_sure": "diagDates",
                 "click #pat_body_check": "showBodyCheck",
                 "click #submit_body_check": "submitBodyCheck",
+                "click #check_result_button":'showCheckResult',
+                "click #confirm_upload_check":'uploadCheckResult',
+                "change #check_result_file": "showCheckFileName",
+            },
+            showCheckFileName:function (e) {
+                var event=window.event||e;
+                var file = event.target.files[0], name = file.name;
+                $('#check_result_file_tips').attr('filename', name).html(name);
+            },
+            showCheckResult:function () {
+                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
+                if(pat_id==''||!pat_id){
+                    alert('请先选择一名患者进行就诊!');
+                    return;
+                }
+                $('#check_result_modal').modal({
+                    closeViaDimmer:false
+                });
+            },
+            uploadCheckResult:function () {
+                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
+                var register_no= $(".register_id").val();
+                var diagnosis_id= this.diagnosis_id;
+                var check_result=$('#upload_check_result').val(),
+                    record_type=$('#record_type').val(),
+                    check_name=$('#upload_check_name').val();
+                var excelData = new FormData();
+                var files = document.getElementById('check_result_file').files,
+                    file_name = $('#check_result_file_tips').attr('filename');
+                if (files.length) {
+                    excelData.append('report_name', files[0]);
+                    excelData.append('item_name', check_name);
+                    excelData.append('report_result', check_result);
+                    excelData.append('record_type', record_type);
+                    excelData.append('patient_id', pat_id);
+                    excelData.append('diagnosis_id', diagnosis_id);
+                    excelData.append('register_no', register_no);
+                    this.diagModel.postCheckResult(excelData);
+                }
             },
             showBodyCheck:function () {
                 var pat_id=$("#diagnose_box").attr('patient_id'),param={};
@@ -566,7 +605,7 @@ define(['txt!../Diagnose/diagnose.html',
                 });
                 //var source = $el.find(".print_content").html();
                 //var template = Handlebars.compile(source)([]);
-                //$el.find(".print_content").html(template);
+                $(this.el).find("select").chosen({width: "100%", disable_search_threshold: 100});
                 //显示处方
                 return this;
             },
@@ -680,6 +719,9 @@ define(['txt!../Diagnose/diagnose.html',
                     $("#recipe_medAdvice").val("");
                     $("#recipe_table").bootstrapTable("removeAll");
                     $("#zy_table").bootstrapTable("removeAll");
+                    this.pats.regPatsModel.getRegPatients("1,2,3,4");
+                    //获取已就诊的挂号患者
+                    this.pats.regPatsModel.getRegPatients(0);
                 } else if (result.errorNo == "-1") {
                     alert(result.info);
                 } else {
@@ -689,7 +731,7 @@ define(['txt!../Diagnose/diagnose.html',
             finishResult: function (result) {
                 if (result.errorNo == 0) {
                     this.print(this.param);
-                    this.pats.regPatsModel.getRegPatients("1,2,3");
+                    this.pats.regPatsModel.getRegPatients("1,2,3,4");
                     //获取已就诊的挂号患者
                     this.pats.regPatsModel.getRegPatients(0);
                     $("#diagnose_box").removeAttr('patient_id');

@@ -1,5 +1,5 @@
 .office_div {
-    padding: 2rem;
+    padding: 1rem 0  1rem 0.5rem!important;
 }
 
 .office_div .am-input-group {
@@ -157,4 +157,7 @@
 .notice_input_padding{
     margin:0 1rem ;
     padding: 0 1rem;
+}
+#edit_work_plan,#post_work_plan{
+    margin-right: 2rem;
 }

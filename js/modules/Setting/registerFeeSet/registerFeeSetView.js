@@ -18,7 +18,6 @@ define(['txt!../../Setting/registerFeeSet/registerFeeSet.html',
             render: function () {
                 $(this.el).append(Template);
                 $(this.el).find("#level_fee_table").bootstrapTable({
-                    search: true,
                     columns: [
                         {field: 'title_name', title: '医生级别'},
                         {field: 'pt', title: '普通号挂号费'},

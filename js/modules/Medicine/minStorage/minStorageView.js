@@ -608,7 +608,7 @@ define(['txt!../../Medicine/minStorage/minStorage.html',
                 var data = res.rows;
                 if (Array.isArray(data) && data.length > 0) {
                     data.forEach(function (supplier) {
-                        var value = [supplier['suppliers_name'], supplier['suppliers_name'], supplier['contact_person']].join('-');
+                        var value = [supplier['suppliers_name'], supplier['contact_person'], supplier['contact_tel']].join('-');
                         $('#select_supplier')
                             .append($('<option></option>').val(value).html(supplier['suppliers_name']))
 
@@ -621,7 +621,7 @@ define(['txt!../../Medicine/minStorage/minStorage.html',
                     $('.supplier_choose_wrapper').html(' <span class="am-input-group-label"><i class="am-icon-h-square"></i> 供应商</span><input type="text" class="am-form-field" id="select_supplier" placeholder="供应商必填" ><span class="required_span">*</span>');
                     $('#sup_name').val('');
                     $('#sup_tel').val('');
-                    $('#inStorage_operate_fail p').html('当前未设置供应商，<a class="link_to_supplier" href="#medicine/msupplier">设置供应商</a>后入库更方便安全！')
+                    $('#inStorage_operate_fail p').html('当前未设置供应商，请 <a class="link_to_supplier am-btn am-btn-primary am-radius am-btn-xs" href="#medicine/msupplier">设置供应商</a>！')
                     $('#inStorage_operate_fail').removeClass('am-hide');
                 }
             },

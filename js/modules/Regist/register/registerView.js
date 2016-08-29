@@ -78,7 +78,7 @@ define(['txt!../../Regist/register/register.html',
                 "change #province": "getcity",//省份改变获取城市
                 "change #city": "getArea",//城市改变获取区县
                 "keydown #money": "moneyKey",//打印
-                "change #a_card_id": "checkCardId",//打印
+                "change #a_card_id": "checkCardId",
                 //"keydown body":"documentKey"
             },
             checkCardId: function () {
@@ -164,7 +164,7 @@ define(['txt!../../Regist/register/register.html',
                 var opt = "<option value=\"0\">请选择省份</option>";
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -187,7 +187,7 @@ define(['txt!../../Regist/register/register.html',
                 next.html("<option value=\"0\">请选择城市</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -209,7 +209,7 @@ define(['txt!../../Regist/register/register.html',
                 next.html("<option value=\"0\">请选择区县</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+                    url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -480,7 +480,7 @@ define(['txt!../../Regist/register/register.html',
                         var reg_type = {"pt": '普通号', "zj": "专家号"}[data[i]['register_type']]
                         var info = [data[i].department_name, data[i].doctor_name, reg_type].join('-');
                         //医生列表
-                        lis += "<li class='am-u-md-2 am-u-end on_doctor'><div><img src='http://192.168.0.220:8081" + data[i].user_icon +
+                        lis += "<li class='am-u-md-2 am-u-end on_doctor'><div><img src='http://114.55.85.57:8081" + data[i].user_icon +
                             "' name='" + data[i].doctor_name +
                             "' alt='" + data[i].doctor_id +
                             "' account='" + data[i].account_id +

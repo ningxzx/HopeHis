@@ -8,7 +8,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: "http://192.168.0.220:8081/jethis/FunctionSetting",
+                url: "http://114.55.85.57:8081/jethis/FunctionSetting",
                 reset: true,
                 data: JSON.stringify(data),
                 success: function (res) {
@@ -26,7 +26,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "post",
-                url: "http://192.168.0.220:8081/jethis/FunctionSetting",
+                url: "http://114.55.85.57:8081/jethis/FunctionSetting",
                 reset: true,
                 data: JSON.stringify(data),
                 success: function (res) {

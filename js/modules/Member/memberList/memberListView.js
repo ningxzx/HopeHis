@@ -404,6 +404,7 @@ define(['txt!../../Member/memberList/memberList.html',
                 $('#member_excel_modal').modal('open');
             },
             showExcelName: function (e) {
+                var event=window.event||e;
                 var file = event.target.files[0], name = file.name;
                 $('#member_excel_tips').attr('filename', name).html(name);
             },

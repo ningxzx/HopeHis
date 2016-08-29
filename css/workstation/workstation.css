@@ -69,6 +69,7 @@ select option {
 }
 .messages_wrapper{
     color:#ffdf06;
+    cursor: pointer;
 }
 .admin-header-list li a {
     cursor: pointer;

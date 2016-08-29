@@ -73,7 +73,7 @@ $(function () {
         if (username.trim() !== '') {
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.220:8081/account/jethis/ConnEnterpriseInfo",
+                url: "http://114.55.85.57:8081/account/jethis/ConnEnterpriseInfo",
                 headers: {
                     "app-key": "fb98ab9159f51fd1",
                     "app-secret": "09f7c8cba635f7616bc131b0d8e25947s",
@@ -151,7 +151,7 @@ $(function () {
         strDataPacket = url + '/10' + "/" + imei + "/" + Base64.encode(strDataPacket);
         $.ajax({
             type: "get",
-            url: "http://192.168.0.220:8081/account/jethis/login/" + strDataPacket + '/?enterprise_id=' + ep_id,
+            url: "http://114.55.85.57:8081/account/jethis/login/" + strDataPacket + '/?enterprise_id=' + ep_id,
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
                 'app-secret': '09f7c8cba635f7616bc131b0d8e25947s'

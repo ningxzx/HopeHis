@@ -1,7 +1,7 @@
 define(["backbone",'../../Diagnose/model/execitemModel','jctLibs'],function(Backbone, execitemModel, jctLibs) {
     var execitemCollection = Backbone.Collection.extend({
         model: execitemModel,
-        url : "http://192.168.0.220:8081/jetHis/HealthProgram",
+        url : "http://114.55.85.57:8081/jetHis/HealthProgram",
         getExecitems: function (itemType,enterpriseId,page,rowNum,searchWords) {
             var that=this;
             var result={

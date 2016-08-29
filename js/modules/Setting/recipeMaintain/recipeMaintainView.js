@@ -49,6 +49,8 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                 'click #add_advice_template': "addAdviceTemp",
                 'click #refresh_advice_template': 'getAdviceTemp',
                 'click #search_advice_btn': 'searchAdvice',
+                'click #search_advice_btn': 'searchAdvice',
+                'click #search_advice_btn': 'searchAdvice',
                 'click .reset_search': 'resetSearch',
                 "click #recipe_table_wrapper .add_tool": "addRecipeModal",
                 "click #diag_table_wrapper .add_tool": "addDiagModal",
@@ -618,7 +620,7 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                     params['doctor_name'] = sessionStorage.getItem('doctor_name')
                     $.ajax({
                         type: 'post',
-                        url: 'http://192.168.0.220:8081/jethis/setting/templateSetting',
+                        url: 'http://114.55.85.57:8081/jethis/setting/templateSetting',
                         data: JSON.stringify(params)
                     }).done(function (res) {
                         if (res['template_id']) {
@@ -645,7 +647,7 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                     params['template_id'] = temp_id;
                     $.ajax({
                         type: 'patch',
-                        url: 'http://192.168.0.220:8081/jethis/setting/templateSetting',
+                        url: 'http://114.55.85.57:8081/jethis/setting/templateSetting',
                         data: JSON.stringify(params)
                     }).done(function (res) {
                         if (res) {
