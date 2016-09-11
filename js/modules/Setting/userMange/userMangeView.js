@@ -7,8 +7,8 @@ define(['txt!../../Setting/userMange/userMange.html',
         var en_id = sessionStorage.getItem('enterprise_id');
         var en_name = sessionStorage.getItem('enterprise_name');
         var operateFormatter = function (value, row, index, e) {
-            if(row['role']=='管理员'){
-                return '<a class="row_edit" href="javascript:void(0)" >编辑</a>';
+            if(row['role_id']=='ROLE10001'){
+                return '';
             }
             else {
                 return [
@@ -448,7 +448,7 @@ define(['txt!../../Setting/userMange/userMange.html',
                     //是否存在
                     $.ajax({
                         type: "post",
-                        url: "http://114.55.85.57:8081/jethis/Jethis_User/checkaccount",
+                        url: "http://192.168.0.220:8081/jethis/Jethis_User/checkaccount",
                         data: JSON.stringify({
                             "account_id": name
                         }),

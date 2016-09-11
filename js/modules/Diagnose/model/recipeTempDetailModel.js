@@ -17,7 +17,7 @@ define(["backbone", "jctLibs"], function (Backbone, jctLibs) {
             "drug_cost":"",//成本价
             "drug_unit":""//药品单位
         },
-        url:"http://114.55.85.57:8081/jethis/query/get",
+        url:"http://192.168.0.220:8081/jethis/query/get",
         getDetail: function (ownerId,table) {
             var that = this;
             var result = {

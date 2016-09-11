@@ -7,9 +7,9 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         geCureProject: function (params) {
             var _this = this, result = {};
             var param = params || {};
-            param.json = JSON.stringify({'enterprise_id': sessionStorage.getItem('enterprise_id')});
+            param.json = JSON.stringify({'enterprise_id': sessionStorage.getItem('enterprise_id'),'is_delete':false});
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/query/get",
+                url: "http://192.168.0.220:8081/jethis/query/get",
                 type: 'get',
                 data: param
             }).done(function (res) {
@@ -34,7 +34,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             param['page'] = page || 1;
             param['row_num'] = 7;
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/diagnosis/queryDrug",
+                url: "http://192.168.0.220:8081/jethis/diagnosis/queryDrug",
                 type: 'get',
                 data: param
             }).done(function (res) {
@@ -50,7 +50,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         },
         saveCheck: function (info, data, type) {
             var _this = this, result = {}, sendData, url = "",
-                urlRoot = "http://114.55.85.57:8081",
+                urlRoot = "http://192.168.0.220:8081",
                 basicInfo = {
                     "req_hosp_id": info.hop_id,//申请医院ID
                     "req_hosp_name": info.hop_name,//申请医院名称
@@ -93,7 +93,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 type: 'post',
                 data: sendData
             }).done(function (res) {
-                if (res.tip == "1") {
+                if (res.resultCode == "100") {
                     result.errorNo = 0;
                     _this.trigger("saveTreat", result);
                 }
@@ -110,7 +110,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var result = {};
             $.ajax({
                 type: "get",
-                url:"http://114.55.85.57:8081/jethis/DrugInfo/DrugInstructions",
+                url:"http://192.168.0.220:8081/jethis/DrugInfo/DrugInstructions",
                 data: $.param(data)
             }).done(function (res) {
                 result.errorNo = 0;

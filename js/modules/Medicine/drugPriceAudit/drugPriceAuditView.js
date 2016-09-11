@@ -57,72 +57,23 @@ define(['txt!../../Medicine/drugPriceAudit/drugPriceAudit.html',
             },
             searchstorage:function(){
                 var goodsname=$(this.el).find("#Drug_name").val(),
-                    goodstype=$(this.el).find("#check_state").val(),
-                    stattime=$(this.el).find(".start_calender").val(),
-                    endtime=$(this.el).find(".end_calender").val();
-                this.msModel.getpricerender(goodsname,goodstype,stattime,endtime);
+                    stattime=$(this.el).find(".start").val(),
+                    endtime=$(this.el).find(".end").val(),
+                    data = {};
+                if (goodsname) {
+                    data['goods_name'] = goodsname;
+                }
+                if (stattime) {
+                    data['start_date_time'] = stattime;
+                }
+                if (endtime) {
+                    data['end_date_time'] = endtime;
+                }
+                this.msModel.getpricerender(data);
             },
             render:function() {
                  var that =this;
                 $(this.el).html(Template);
-
-                //初始化日期组件,结束日期必须在初始日期以前
-                $(this.el).find(".start_calender").datepicker({
-                    onRender: function (date, viewMode) {
-                        var endDate = $(that.el).find(".end_calender").val();
-                        if (endDate) {
-                            var inTime = new Date(endDate);
-                            var inDay = inTime.valueOf();
-                            var inMoth = new Date(inTime.getFullYear(), inTime.getMonth(), 1, 0, 0, 0, 0).valueOf();
-                            var inYear = new Date(inTime.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
-                            // 默认 days 视图，与当前日期比较
-                            var viewDate = inDay;
-
-                            switch (viewMode) {
-                                // moths 视图，与当前月份比较
-                                case 1:
-                                    viewDate = inMoth;
-                                    break;
-                                // years 视图，与当前年份比较
-                                case 2:
-                                    viewDate = inYear;
-                                    break;
-                            }
-
-                            return date.valueOf() >= viewDate ? 'am-disabled' : '';
-                        }
-
-                    }
-                });
-                $(this.el).find(".end_calender").datepicker({
-                    onRender: function (date, viewMode) {
-                        var startDate = $(that.el).find(".start_calender").val();
-                        if (startDate) {
-                            var inTime = new Date(startDate);
-                            var inDay = inTime.valueOf();
-                            var inMoth = new Date(inTime.getFullYear(), inTime.getMonth(), 1, 0, 0, 0, 0).valueOf();
-                            var inYear = new Date(inTime.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
-                            // 默认 days 视图，与当前日期比较
-                            var viewDate = inDay;
-
-                            switch (viewMode) {
-                                // moths 视图，与当前月份比较
-                                case 1:
-                                    viewDate = inMoth;
-                                    break;
-                                // years 视图，与当前年份比较
-                                case 2:
-                                    viewDate = inYear;
-                                    break;
-                            }
-
-                            return date.valueOf() <= viewDate ? 'am-disabled' : '';
-                        }
-
-                    }
-                });
-
-
                 this.$el.find("#change_record_table").bootstrapTable({
                     pagination:true,
                     pageSize: 10,
@@ -132,35 +83,6 @@ define(['txt!../../Medicine/drugPriceAudit/drugPriceAudit.html',
                     columns:[
                         {field: "", title: "", checkbox: true},
                         {field: "index", title: "序号", width: "5%", formatter: jctLibs.generateIndex},
-                        //{field: 'opt', title: '操作', formatter: opt,events:{
-                        //     "click .row_audit":function(e, value, row, index){
-                        //
-                        //         var $confirm = $('#alert_modal');
-                        //         var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
-                        //         var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
-                        //         $confirmBtn.off('click.confirm.modal.amui').off('click').on('click', function () {
-                        //
-                        //             var link = $(that.el).find(".am-panel-bd input:radio:checked").val();
-                        //             var arr = [{
-                        //                 review_memo: $("#Description_text").val(),
-                        //                 batch_no: row['batch_no'],
-                        //                 goods_code: row['goods_code'],
-                        //                 sellPrice: row['after_change_sell_price'],
-                        //                 pescPrice: row['after_change_pesc_price'],
-                        //                 order_no:row['change_record_id']
-                        //             }];
-                        //             that.msModel.postpriceModel(link, arr);
-                        //             $(that.el).find("#alert_modal").modal('close');
-                        //         });
-                        //
-                        //         $cancelBtn.off('click.cancel.modal.amui').on('click', function () {
-                        //             // do something
-                        //         });
-                        //         $(that.el).find("#alert_modal").modal();
-                        //     },
-                        //
-                        //}
-                        //},
                         {field: 'goods_name', title: '药品名称'},
                         {field: 'producter_name', title: '产商'},
                         {field: 'packing_spec', title: '规格'},

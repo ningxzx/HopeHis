@@ -130,13 +130,25 @@ define(['txt!../../Medicine/mverify/mverify.html',
                 $(this.el).find("#pdtime").datepicker();
                 $(this.el).find(".am-g :checkbox").uCheck('enable');
                 this.mvModel.getrendeMy();
-
                 return this;
             },
             events: {
                 "click #show_range": "showRange",
                 "click #mv_sub": "mvsub",
-                "click #refresh_level": "refreshLevel"
+                "click #refresh_level": "refreshLevel",
+                "click #mv_Btn":"searchMv"
+            },
+            searchMv:function () {
+                var med_name = $('#med_search').val(),
+                    batch_no = $('#med_batch').val(),
+                    data = {};
+                if (med_name) {
+                    data['chinese_name'] = med_name;
+                }
+                if (batch_no) {
+                    data['batch_no'] = batch_no;
+                }
+                this.mvModel.getrendeMy(data);
             },
             refreshLevel: function () {
                 this.mvModel.getrendeMy();

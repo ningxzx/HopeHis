@@ -27,15 +27,21 @@ define(['txt!../Diagnose/recipe.html',
             //TODO:根据单位修改价格
             {field: "unit", width: "4%", title: "单位"},
             {field: "price", width: "8%", title: "单价", formatter: jctLibs.generateDrugPrice},
-            {field: "", title: "删除", width: "8%", events: {
-                'click .table_remove': function (e, value, row, index) {
+            {field: "delete", title: "删除", width: "8%", events: {
+                'click .drug_remove': function (e, value, row, index) {
                     var $table = $(e.target).closest("table");
                         $table.bootstrapTable('remove', {
                             field: 'drug_name',
                             values: [row.drug_name]
                         });
                     }
-            }, formatter: jctLibs.deleteFormatter}
+            }, formatter: function (value, row, index) {
+                return [
+                    '<a class="drug_remove" href="javascript:void(0)" title="Remove">',
+                    '<i class="am-icon-remove"></i>',
+                    '</a>'
+                ].join('');
+    }}
         ];
         var recipeView = Backbone.View.extend({
             className: "recipe_wrapper",

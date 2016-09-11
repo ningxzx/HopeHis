@@ -128,7 +128,7 @@
 
                 <div class="am-panel am-panel-default table_panel">
                     <div class="am-panel-hd"><span class="panel_title">入库明细表</span>
-                        <a class="panel_tool" id="reset_table"><i class="am-icon-tags"></i> 重置</a>
+                        <a class="panel_tool" id="reset_table"><i class="am-icon-repeat"></i> 重置</a>
                     </div>
                     <div class="am-panel-bd">
                         <div class="am-g">
@@ -147,7 +147,7 @@
                     </div>
                     <div class="am-input-group am-u-md-3">
                         <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 开始日期</span>
-                        <input type="text" class="am-form-field  start_calender" placeholder="" readonly>
+                        <input type="text" class="am-form-field  start" placeholder="" readonly>
                     </div>
                     <div class="am-input-group am-u-md-3  am-u-end">
                         <span class="am-input-group-label"><i class="am-icon-calendar"></i> 截止日期</span>
@@ -158,18 +158,12 @@
                     <div class="am-u-sm-3 am-input-group">
                         <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 审核状态</span>
                         <select name="" id="check_state">
-                            <option value="all">-全部-</option>
-                            <option selected="selected" value="00">未审核</option>
+                            <option selected="selected" value="all">-全部-</option>
+                            <option value="00">未审核</option>
                             <option value="10">已通过</option>
                             <option value="20">未通过</option>
                         </select>
                     </div>
-                    <!--<div class="am-u-sm-3  am-input-group">-->
-                    <!--<span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 供应商</span>-->
-                    <!--<select class="suppliers_chosen">-->
-                    <!--<option value="default">请选择供应商</option>-->
-                    <!--</select>-->
-                    <!--</div>-->
                     <div class="am-u-sm-3 am-u-end">
                         <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_storage">查询</button>
                     </div>
@@ -207,7 +201,7 @@
                         </div>
                         <div class="am-u-sm-3  am-input-group">
                             <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 模板名称</span>
-                            <input type="text" class="am-form-field" placeholder="名称或拼音码">
+                            <input type="text" class="am-form-field" placeholder="">
                         </div>
                         <div class="am-input-group am-u-sm-3 am-u-end">
                             <span class="am-input-group-label"><i class="am-icon-bank"></i> 使用状态</span>
@@ -241,7 +235,6 @@
 
                 <div class="am-panel am-panel-default table_panel">
                     <div class="am-panel-hd">入库模板
-                        <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导入excel</a>
                         <a class="panel_tool"><i class="am-icon-tags"></i> 模板</a>
                         <a class="panel_tool"><i class="am-icon-gears"></i> 批量设置</a>
                     </div>
@@ -256,10 +249,11 @@
         </div>
 
         <div class="am-panel am-modal am-panel-default table_panel" id="medicine_modal">
-            <div class="am-tabs" data-am-tabs id="medicine_tabs">
+            <div class="am-tabs am-padding-top" data-am-tabs id="medicine_tabs">
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
                     <li class="am-active"><a href="#tab1">已入库药品</a></li>
-                    <li><a href="#tab2">未入库药品</a></li>
+                    <li><a href="#tab2">未入库基础药品</a></li>
+                    <li><a href="#un_own_wrapper">未入库自增药品</a></li>
                     <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;">&times;</a>
                 </ul>
 
@@ -268,7 +262,7 @@
                         <div class="am-panel-bd">
                             <div class="am-g" style="padding: 2rem 0.5rem 1rem">
                                 <div class="am-input-group am-u-md-6 ">
-                                    <span class="am-input-group-label"> 药品名称:</span>
+                                    <span class="am-input-group-label"> 药品名称</span>
                                     <input type="text" class="am-form-field" id="search_u_input"/>
                                 </div>
                                 <div class="am-input-group am-u-md-3 am-fr">
@@ -291,7 +285,7 @@
                         <div class="am-panel-bd">
                             <div class="am-g" style="padding: 2rem 0.5rem 1rem">
                                 <div class="am-input-group am-u-md-6 ">
-                                    <span class="am-input-group-label"> 药品名称:</span>
+                                    <span class="am-input-group-label"> 药品名称</span>
                                     <input type="text" class="am-form-field" id="search_h_input"/>
                                 </div>
                                 <div class="am-input-group am-u-md-3 am-fr">
@@ -306,6 +300,29 @@
                             <div class="am-g" style="margin-bottom: 2rem">
                                 <div class="am-input-group am-u-md-3 am-fr" style="margin-right: 0.5rem;">
                                     <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_recipe_detail2">提交药物</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-tab-panel" id="un_own_wrapper">
+                        <div class="am-panel-bd">
+                            <div class="am-g" style="padding: 2rem 0.5rem 1rem">
+                                <div class="am-input-group am-u-md-6 ">
+                                    <span class="am-input-group-label"> 药品名称</span>
+                                    <input type="text" class="am-form-field" id="un_own_name"/>
+                                </div>
+                                <div class="am-input-group am-u-md-3 am-fr">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="search_un_own">查询</button>
+                                </div>
+                            </div>
+                            <div class="am-g p" id="own_drug">
+                                <div class="am-panel-bd">
+                                    <table id="own_drug_table" data-pagination="true" data-page-size="5"></table>
+                                </div>
+                            </div>
+                            <div class="am-g" style="margin-bottom: 2rem">
+                                <div class="am-input-group am-u-md-3 am-fr" style="margin-right: 0.5rem;">
+                                    <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_own_drug">提交药物</button>
                                 </div>
                             </div>
                         </div>

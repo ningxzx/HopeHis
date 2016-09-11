@@ -1,5 +1,5 @@
 define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     var HospitalpatientsModel = Backbone.Model.extend({
         postHospital: function (data) {
             var that = this;
@@ -48,7 +48,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: 'http://114.55.85.57:8081/jethis/PatientRecord/Persinalinfo',
+                url: rootUrl+'/jethis/PatientRecord/Persinalinfo',
                 data:param
             }).done(function (res) {
                 result.errorNo = 0;
@@ -61,6 +61,52 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
                 result.responseData = responseText.message;
                 that.trigger("getPatient", result);
 
+            })
+        },
+        patchPat:function (pat_id,data) {
+            var that = this,param=data||{};
+            var result = {};
+            $.ajax({
+                type: "patch",
+                url: rootUrl + '/jethis/registeration/patchPatientInfo/' + pat_id,
+                data: JSON.stringify(param),
+                success: function (res) {
+                    result= res;
+                    that.trigger("patchPatient", result);
+                }
+            })
+        },
+        getProvince:function () {
+            var that = this,result = {};
+            $.ajax({
+                type: "get",
+                url: rootUrl + '/jethis/registeration/getdictprovincebycountry',
+                success: function (res) {
+                    result= res.rows;
+                    that.trigger("getProvince", result);
+                }
+            })
+        },
+        getCity:function (code) {
+            var that = this,result = {};
+            $.ajax({
+                type: "get",
+                url: rootUrl + '/jethis/registeration/getdictcitybyprovince?province_code=' + code,
+                success: function (res) {
+                    result= res.rows;
+                    that.trigger("getCity", result);
+                }
+            })
+        },
+        getArea:function (code) {
+            var that = this,result = {};
+            $.ajax({
+                type: "get",
+                url: rootUrl + '/jethis/registeration/getdictdistrictbycity?city_code=' + code,
+                success: function (res) {
+                    result= res.rows;
+                    that.trigger("getArea", result);
+                }
             })
         },
 

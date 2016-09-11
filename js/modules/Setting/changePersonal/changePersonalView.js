@@ -155,7 +155,7 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
                 }
                 fileInfo.append('Icon_img', $('#head_photo')[0].files[0],$('#head_photo').attr('filename'));
                 $.ajax({
-                    url: "http://114.55.85.57:8081/jethis/user/changeicon",
+                    url: "http://192.168.0.220:8081/jethis/user/changeicon",
                     type: 'POST',
                     cache: false,
                     data: fileInfo,
@@ -280,7 +280,7 @@ define(['txt!../../Setting/changePersonal/changePersonal.html',
 
             //打开修改头像窗口
             resetPhoto: function () {
-                $("#confirmPhoto img").attr('src','http://114.55.85.57:8081'+this.iconSrc)
+                $("#confirmPhoto img").attr('src','http://192.168.0.220:8081'+this.iconSrc)
                 $("#confirmPhoto").modal({
                     onConfirm: function (e) {
                         console.log(e);

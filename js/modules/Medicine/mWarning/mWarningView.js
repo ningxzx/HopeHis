@@ -1,11 +1,13 @@
 define(['txt!../../Medicine/mWarning/mWarning.html',
         '../../Medicine/mWarning/mWarningModel',
+        '../../Common/commonModel',
         'handlebars', 'backbone', 'bootstrap', 'bootstrapTable', "amazeui", "chosen", "jctLibs", "bt_switch"],
-    function (Template, mWarningModel, Handlebars, backbone, b, bt, ai, chosen, jctLibs, bt_switch) {
+    function (Template, mWarningModel,commonModel, Handlebars, backbone, b, bt, ai, chosen, jctLibs, bt_switch) {
         var view = Backbone.View.extend({
                 initialize: function () {
                     //绑定入库记录集合
                     this.Model = new mWarningModel();
+                    this.commonModel = new commonModel();
 
                     //侦听事件
                     this.listenTo(this.Model, "getDrugmwarning", this.renderDetail);
@@ -13,6 +15,17 @@ define(['txt!../../Medicine/mWarning/mWarning.html',
                     this.listenTo(this.Model, "stockResult", this.stockResult);
                     this.listenTo(this.Model, "fsPost", this.postCallback);
                     this.listenTo(this.Model, "getSetting", this.renderSetting);
+                    this.listenTo(this.commonModel, "getSupplier", this.getCallBack)
+                },
+                getCallBack: function (res) {
+                    $('#supplier').html("");
+                    if (res.errorNo == 0) {
+                        var rows=res.rows;
+                        rows.forEach(function(row){
+                            jctLibs.appendToChosen($('#supplier'),row['suppliers_name'],row['suppliers_name'])
+                        })
+                    }
+                    else {}
                 },
                 minStorageResult: function (result) {
                     if (result.errorNo == "0") {
@@ -226,25 +239,16 @@ define(['txt!../../Medicine/mWarning/mWarning.html',
                 searchBtn: function (e) {
                     var $target = $(e.target);
                     var $start = $target.closest("button").attr("id");
-
-                    //var stockSt=$(this.el).find(".stock-start").val(),
-                    //    stockEd=$(this.el).find(".stock-end").val(),
-                    //docolN=$(this.el).find("#Stock_name").val(),
-                    //Stockno=$(this.el).find("#Stock_no").val(),
-                    //Stocktype=$(this.el).find("#Stock_type").val(),
-                    //stockcbox=$(this.el).find("#stock_cbox").val();
                     var goodsname, goodstype, storatebatchno, stockSt, stockEd;
 
                     if ($start == 'search_btn') {
                         var stat = $(this.el).find(".start_calender").val(),
                             end = $(this.el).find(".end_calender").val(),
                             suppliersname = $(this.el).find("#supplier").val(),
-                            productername = $(this.el).find("#productor").val();
                         goodsname = $(this.el).find("#medicine_name").val();
                         goodstype = $(this.el).find("#medicine_type").val();
                         storatebatchno = $(this.el).find("#batch_no").val();
                     } else if ($start == 'searchBtn') {
-
                         goodsname = $(this.el).find("#Stock_name").val();
                         goodstype = $(this.el).find("#Stock_type").val();
                         storatebatchno = $(this.el).find("#Stock_no").val();
@@ -252,8 +256,7 @@ define(['txt!../../Medicine/mWarning/mWarning.html',
                         stockSt = $(this.el).find(".stock-start").val();
                         stockEd = $(this.el).find(".stock-end").val();
                     }
-
-                    this.Model.getDrugmwarning(stat, end, goodsname, goodstype, storatebatchno, suppliersname, productername, stockSt, stockEd);
+                    this.Model.getDrugmwarning(stat, end, goodsname, goodstype, storatebatchno, suppliersname, stockSt, stockEd);
                 },
                 render: function () {
                     var that = this;
@@ -261,61 +264,7 @@ define(['txt!../../Medicine/mWarning/mWarning.html',
                     $(this.el).find("input[type='checkbox'], input[type='radio']").uCheck();
                     $(this.el).find("select").chosen({width: "100%", disable_search_threshold: 100});
                     $(this.el).find(".out_calender").datepicker();
-                    //初始化日期组件,结束日期必须在初始日期以前
-                    $(this.el).find(".start_calender").datepicker({
-                        onRender: function (date, viewMode) {
-                            var endDate = $(that.el).find(".end_calender").val();
-                            if (endDate) {
-                                var inTime = new Date(endDate);
-                                var inDay = inTime.valueOf();
-                                var inMoth = new Date(inTime.getFullYear(), inTime.getMonth(), 1, 0, 0, 0, 0).valueOf();
-                                var inYear = new Date(inTime.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
-                                // 默认 days 视图，与当前日期比较
-                                var viewDate = inDay;
 
-                                switch (viewMode) {
-                                    // moths 视图，与当前月份比较
-                                    case 1:
-                                        viewDate = inMoth;
-                                        break;
-                                    // years 视图，与当前年份比较
-                                    case 2:
-                                        viewDate = inYear;
-                                        break;
-                                }
-
-                                return date.valueOf() >= viewDate ? 'am-disabled' : '';
-                            }
-
-                        }
-                    });
-                    $(this.el).find(".end_calender").datepicker({
-                        onRender: function (date, viewMode) {
-                            var startDate = $(that.el).find(".start_calender").val();
-                            if (startDate) {
-                                var inTime = new Date(startDate);
-                                var inDay = inTime.valueOf();
-                                var inMoth = new Date(inTime.getFullYear(), inTime.getMonth(), 1, 0, 0, 0, 0).valueOf();
-                                var inYear = new Date(inTime.getFullYear(), 0, 1, 0, 0, 0, 0).valueOf();
-                                // 默认 days 视图，与当前日期比较
-                                var viewDate = inDay;
-
-                                switch (viewMode) {
-                                    // moths 视图，与当前月份比较
-                                    case 1:
-                                        viewDate = inMoth;
-                                        break;
-                                    // years 视图，与当前年份比较
-                                    case 2:
-                                        viewDate = inYear;
-                                        break;
-                                }
-
-                                return date.valueOf() <= viewDate ? 'am-disabled' : '';
-                            }
-
-                        }
-                    });
                     //默认查询
                     this.Model.getDrugmwarning();
                     $(this.el).find("#table_minStorage").bootstrapTable({
@@ -394,6 +343,7 @@ define(['txt!../../Medicine/mWarning/mWarning.html',
                         onColor: 'success'
                     });
                     this.Model.getSetting();
+                    this.commonModel.search('comm.suppliers_dict', {'enterprise_id': sessionStorage.getItem('enterprise_id')}, 'getSupplier')
                     return this;
                 }
             })

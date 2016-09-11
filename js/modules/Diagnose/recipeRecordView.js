@@ -27,17 +27,6 @@ define(['txt!../Diagnose/recipeRecord.html',
             //TODO:根据单位修改价格
             {field: "unit", width: "4%", title: "单位"},
             {field: "price", width: "8%", title: "单价", formatter: jctLibs.generateDrugPrice},
-            {
-                field: "", title: "删除", width: "8%", events: {
-                'click .table_remove': function (e, value, row, index) {
-                    var $table = $(e.target).closest("table");
-                    $table.bootstrapTable('remove', {
-                        field: 'drug_name',
-                        values: [row.drug_name]
-                    });
-                }
-            }, formatter: jctLibs.deleteFormatter
-            }
         ];
         var wmedicineColumns2 = [
             {field: "", title: "序号", width: "5%", formatter: jctLibs.generateIndex},
@@ -51,17 +40,6 @@ define(['txt!../Diagnose/recipeRecord.html',
             //TODO:根据单位修改价格
             //{field: "unit", width: "4%", title: "单位"},
             {field: "price", width: "8%", title: "单价", formatter: jctLibs.generateDrugPrice},
-            {
-                field: "", title: "删除", width: "8%", events: {
-                'click .table_remove': function (e, value, row, index) {
-                    var $table = $(e.target).closest("table");
-                    $table.bootstrapTable('remove', {
-                        field: 'drug_name',
-                        values: [row.drug_name]
-                    });
-                }
-            }, formatter: jctLibs.deleteFormatter
-            }
         ];
         var recipeRecordView = Backbone.View.extend({
             className: "recipe_wrapper",

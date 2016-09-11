@@ -6,6 +6,9 @@ define(['txt!../../Medicine/mcurStorage/mcurStorage.html',
         var formatDate= function (value,row,index) {
             return value.split(' ')[0]
         }
+        var showExcelNum= function (value,row,index) {
+            return '\t'+value+'\t';
+        }
         var inventoryCols=[
             {field: "index", title: "序号", width: "5%", formatter: jctLibs.generateIndex},
             {field: 'batch_no', title: '药品批次', width: "10%"},
@@ -13,7 +16,7 @@ define(['txt!../../Medicine/mcurStorage/mcurStorage.html',
             {field: 'goods_type', title: '药品分类'},
             {field: 'goods_way', title: '药品来源'},
             {field: 'producter_name', title: '生产厂家', width: "12%"},
-            {field: 'goods_id', title: '药品批号'},
+            {field: 'goods_id', title: '药品批号',formatter:showExcelNum},
             {field: 'min_packing_unit', title: '剂量单位', width: '8%'},
             {field: 'current_num', title: '库存',sortable:true},
             {field: 'goods_cost_price', title: '成本价（元）'},
@@ -26,14 +29,20 @@ define(['txt!../../Medicine/mcurStorage/mcurStorage.html',
             initialize: function () {
                 //绑定入库记录集合
                 this.msModel=new mcurStorageModel();
-
                 //侦听事件
                 this.listenTo(this.msModel, "getmcurStorage", this.renderinvet);
             },
             events:{
                 //"click .excel_tool":"exportExcel",
                 "click #search_batch":"searchbatch",
-                "click .store_refresh_tool":"Refresh"
+                "click .store_refresh_tool":"Refresh",
+                "keyup #Drug_name":'nameKeySearch',
+                "keyup #batch_no":'nameKeySearch'
+            },
+            nameKeySearch:function(e){
+                if(e.keyCode==13){
+                    this.searchbatch();
+                }
             },
             Refresh:function(){
                 this.msModel.getmcurStorage();
@@ -42,7 +51,6 @@ define(['txt!../../Medicine/mcurStorage/mcurStorage.html',
                 var goodsname=$(this.el).find("#Drug_name").val().trim(),
                     storatebatchno=$(this.el).find("#batch_no").val().trim(),
                     goodstype=$(this.el).find("#Drug_classification").val();
-
                 this.msModel.getmcurStorage(goodsname,storatebatchno,goodstype);
             },
             renderinvet:function(data){

@@ -68,8 +68,9 @@
     width: 55% !important;
 }
 .temp_modal .am-panel-hd{
-    padding: .6rem 0 0;
-    border-bottom: none;
+    padding: 0 0 0 2rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
 }
 #diagnose_box .am-tabs-nav .am-icon-close {
     position: absolute;
@@ -86,7 +87,7 @@
 }
 
 #diagnose_box .am-tabs-nav > li > a {
-    padding: 0.6rem 2.5rem 0.4rem 1.8rem;
+    padding: 0.6rem 2.5rem 0.5rem 1.8rem;
 }
 
 #pats_info_tabs {
@@ -169,12 +170,48 @@
 }
 
 .recipe_diagnose_box, .recipe_medAdvice_box {
-    padding: 0;
+    padding: 0 ;
+    border-top:0 !important;
 }
-
+.diag_item_box{
+    padding: 0.5rem 2rem;
+    min-height: 6rem;
+}
+#diag_panel_wrapper .am-panel{
+    margin-top: 0;
+}
+#diag_panel_wrapper .am-panel-title{
+    width: 50%;
+    display: inline-block;
+}
+.exec_item_list{
+    list-style:none;
+}
+.exec_item_list li{
+    margin-top: .5rem;
+    height: 28px;
+}
+.inspec_item_name{
+     color: #0b76ac;
+ }
+.check_item_name{
+    color:#a14c09;
+}
+.exec_img_btn,.exec_img_btn:hover,.exec_img_btn:focus{
+    color: #fff !important;
+}
+.exec_item_list span{
+    margin-right:2rem;
+}
+.diag_item_box{
+    border-top:0 !important;
+}
+#diag_panel_wrapper .am-panel .am-panel-hd{
+    border-bottom: 1px solid #ddd;
+}
 .recipe_diagnose, .recipe_medAdvice, .patient_tell, .patient_med_history，.pat_history, .pat_history {
     border: 0;
-    padding: 0.5rem 4rem;
+    padding: 0.5rem 2rem;
     outline: none;
     margin: 0 auto;
     line-height: 1.4;
@@ -188,7 +225,9 @@
     text-decoration: none;
     cursor: pointer;
 }
-
+.search_recipeTemp{
+    color:#00b3ee;
+}
 .somatoscopy {
     float: right;
     margin-right: 1rem;
@@ -466,8 +505,8 @@ input.med_dept, input.med_doctor, input.total_cost, input.xy_cost, input.zy_cost
 
 input.billing_item_num {
     max-width: 90%;
+    text-align: center;
 }
-
 #w_medicine_info_tabs .am-tabs-bd div {
 
     height: 400px;
@@ -494,4 +533,7 @@ input.billing_item_num {
     left:2rem;
     z-index:1;
     font-size: 10px;
+}
+#w_medicine_detail,#c_medicine_detail{
+    outline:none !important;
 }

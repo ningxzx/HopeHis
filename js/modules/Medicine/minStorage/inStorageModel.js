@@ -1,7 +1,7 @@
 define(["jquery", "backbone"],
     function ($, Backbone) {
         //入库人员提交审核后的入库记录 model,与数据库 入库表 对应.
-        var rootUrl = "http://114.55.85.57:8081";
+        var rootUrl = "http://192.168.0.220:8081";
         var inStorageModel = Backbone.Model.extend({
             //获取收货人
             getRecopient: function () {
@@ -29,9 +29,9 @@ define(["jquery", "backbone"],
             //获取已入库
             searchMedicine0: function (name) {
                 var that = this;
-                var data={};
-                if(name){
-                    data['chinese_name']=name;
+                var data = {};
+                if (name) {
+                    data['chinese_name'] = name;
                 }
                 var result = {
                     errorNo: 0,//0为正确的值，其余值为错误
@@ -39,8 +39,8 @@ define(["jquery", "backbone"],
                 };
                 $.ajax({
                     type: "get",
-                    data:data,
-                    url:rootUrl+'/jethis/drug/drugBaseInfo/10',//10代表已有，20未有
+                    data: data,
+                    url: rootUrl + '/jethis/drug/drugBaseInfo/10',//10代表已有，20未有
                 }).done(function (res) {
                     result.errorNo = 0;
                     result.rows = res.dataList;
@@ -55,11 +55,11 @@ define(["jquery", "backbone"],
                 })
             },
             //未入库药品
-            searchMedicine1: function (page,row_num,name) {
+            searchMedicine1: function (page, row_num, name) {
                 var that = this;
-                var param={page:page,row_num:row_num};
-                if(name){
-                    param['chinese_name']=name;
+                var param = {page: page, row_num: row_num};
+                if (name) {
+                    param['chinese_name'] = name;
                 }
                 var result = {
                     errorNo: 0,//0为正确的值，其余值为错误
@@ -67,11 +67,11 @@ define(["jquery", "backbone"],
                 };
                 $.ajax({
                     type: "get",
-                    url:rootUrl+'/jethis/drug/drugBaseInfo/20',//10代表已有，20未有
-                    data:param
+                    url: rootUrl + '/jethis/drug/drugBaseInfo/20',//10代表已有，20未有
+                    data: param
                 }).done(function (res) {
                     result.errorNo = 0;
-                    result.data={};
+                    result.data = {};
                     result.data.rows = res.dataList;
                     result.data.dataNum = res.dataNum;
                     that.trigger('getMedicine1', result);
@@ -87,9 +87,9 @@ define(["jquery", "backbone"],
             //未入库药品
             searchMedicineByGun: function (code) {
                 var that = this;
-                var param={page:1,row_num:10};
-                if(code){
-                    param['drug_code']=code;
+                var param = {page: 1, row_num: 10};
+                if (code) {
+                    param['drug_code'] = code;
                 }
                 var result = {
                     errorNo: 0,//0为正确的值，其余值为错误
@@ -97,8 +97,8 @@ define(["jquery", "backbone"],
                 };
                 $.ajax({
                     type: "get",
-                    url:rootUrl+'/jethis/drug/drugBaseInfo/20',//10代表已有，20未有
-                    data:param
+                    url: rootUrl + '/jethis/drug/drugBaseInfo/20',//10代表已有，20未有
+                    data: param
                 }).done(function (res) {
                     result.errorNo = 0;
                     result.rows = res.dataList;
@@ -116,7 +116,7 @@ define(["jquery", "backbone"],
                 var that = this;
                 $.ajax({
                     type: "post",
-                    url: rootUrl+'/jethis/storate/newStorateRecord',
+                    url: rootUrl + '/jethis/storate/newStorateRecord',
                     data: JSON.stringify(data)
                 }).done(function (data) {
                     var result = {};
@@ -124,7 +124,7 @@ define(["jquery", "backbone"],
                         result.errorNo = 0;
                         that.trigger("saveResult", result);
                     }
-                    else{
+                    else {
                         result.errorNo = data.state;
                         that.trigger("saveResult", result);
                     }
@@ -138,9 +138,9 @@ define(["jquery", "backbone"],
             getOwnCheckRecord: function (data) {
                 var that = this;
                 var result = {};
-                var params=data||{};
-                params['enterprise_id']=sessionStorage.getItem('enterprise_id');
-                params['account_id']=sessionStorage.getItem('account_id');
+                var params = data || {};
+                params['enterprise_id'] = sessionStorage.getItem('enterprise_id');
+                params['account_id'] = sessionStorage.getItem('account_id');
                 $.ajax({
                     type: "get",
                     url: rootUrl + "/jethis/storate/storateRecordInfo",
@@ -156,6 +156,20 @@ define(["jquery", "backbone"],
                     that.trigger("getOwnCheckRecord", result);
                 });
             },
+            searchOwnDrug: function (data) {
+                var that = this;
+                var result = {},param=data||{};
+                $.ajax({
+                    type: "get",
+                    url: rootUrl + "/jethis/drug/customDrug",
+                    data:param,
+                    success:function (res) {
+                        result.errorNo=0;
+                        result.rows=res;
+                        that.trigger("searchOwnDrug", result);
+                    }
+                })
+            }
         });
         return inStorageModel;
     });

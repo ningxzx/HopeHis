@@ -440,3 +440,38 @@ ul.price_list li {
     border: 1px solid #cbcbcb;
     letter-spacing: .2rem;
 }
+.pay_round_types{
+    list-style: none;
+}
+.pay_round_types li{
+    line-height: 40px;
+    height: 40px;
+    cursor:pointer;
+}
+.pay_round_types li:hover span.round_type{
+    color:green;
+}
+.pay_round_types li:hover span.type_detail{
+    color:#62c462;
+}
+.pay_round_types li.selected_type span.type_image{
+    background: url("../../imgs/selected.png") no-repeat;
+    background-size: cover;
+}
+.pay_round_types li span.type_image{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background: url("../../imgs/unselect.png") no-repeat;
+    background-size: cover;
+    vertical-align:middle;
+    margin-right: 2rem;
+}
+.pay_round_types span.round_type{
+    font-weight: bolder;
+}
+.pay_round_types span.type_detail{
+    float: right;
+    color: #666;
+    margin-right: 2rem;
+}

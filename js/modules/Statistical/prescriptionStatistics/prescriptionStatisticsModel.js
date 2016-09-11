@@ -2,7 +2,7 @@
  * Created by insomniahl on 16/6/12.
  */
 define(["jquery","backbone"], function ($,Backbone) {
-    var urlRoot = "http://114.55.85.57:8081";
+    var urlRoot = "http://192.168.0.220:8081";
     var prescriptionStatisticsModel = Backbone.Model.extend({
         getDoctorInfo: function (data) {
             var that = this;

@@ -23,34 +23,37 @@ define(['jquery',
 
         function showSpan(value, row) {
             //当医生休息时，显示空白。
-            var $span = $('<span class="showEditModal unresolve" title="' + row['title_code'] + '"><span class="work_type" typeVal="-1"></span><br/><span class="reg_type" typeVal="pt"></span><span class="reg_fee"></span></span>');//医生未设置时，设置为“点击编辑”
+            var $span = $('<p class="showEditModal unresolve" title="' + row['title_code'] + '"><span class="work_type" typeVal="-1"></span><span class="reg_type" typeVal="pt"></span><span class="reg_fee"></span></p>');//医生未设置时，设置为“点击编辑”
             // 查询日期小于今天时,直接显示为空
-            if(row['out_date']){
+            if (row['out_date']) {
                 $span.find('.work_type').attr("typeVal", 0);
                 $span.find('.work_type,.reg_type,.reg_fee').html("");
             }
-            //医生未设置时，设置为“点击编辑”
-            if (typeof(value) == 'undefined' || value == 'unresolve-pt-0') {
-                $span.addClass("unresolve");
-                $span.find('.work_type').html('点击编辑');
-                row[this.field] = 'unresolve-pt-0';
-            }
-            //医生设置时，例：白天班-专-200
             else {
-                var arr = value.split('-');
-                if (arr[0] !== '0') {
-                    $span.removeClass("unresolve");
-                    var workText = ['', '上午班', "下午班", "白天班", "夜班", "上夜班", "下夜班", "24小时班"][arr[0]];
-                    var regText = {"pt": "普通", "zj": "专家"}[arr[1]];
-                    $span.find('.work_type').attr("typeVal", arr[0]);
-                    $span.find('.work_type').html(workText);
-                    $span.find('.reg_type').attr("typeVal", arr[1]);
-                    $span.find('.reg_type').html(regText);
-                    $span.find('.reg_fee').html(arr[2]);
+                //医生未设置时，设置为“点击编辑”
+                if (typeof(value) == 'undefined' || value == 'unresolve-pt-0') {
+                    $span.addClass("unresolve");
+                    $span.find('.work_type').html('点击编辑');
+                    row[this.field] = 'unresolve-pt-0';
                 }
+                //医生设置时，例：白天班-专-200
                 else {
-                    $span.find('.work_type').attr("typeVal", 0);
-                    $span.find('.work_type,.reg_type,.reg_fee').html("");
+                    var arr = value.split('-');
+                    if (arr[0] !== '0') {
+                        $span.removeClass("unresolve");
+                        var workText = ['', '上午班', "下午班", "白天班", "夜班", "上夜班", "下夜班", "24小时班"][arr[0]];
+                        var regText = {"pt": "普通号", "zj": "专家号"}[arr[1]];
+                        $span.find('.work_type').attr("typeVal", arr[0]);
+                        $span.find('.work_type').html(workText);
+                        $span.find('.work_type').append('<br/>')
+                        $span.find('.reg_type').attr("typeVal", arr[1]);
+                        $span.find('.reg_type').html(regText);
+                        $span.find('.reg_fee').html(arr[2]);
+                    }
+                    else {
+                        $span.find('.work_type').attr("typeVal", 0);
+                        $span.find('.work_type,.reg_type,.reg_fee').html("");
+                    }
                 }
             }
             return $span.prop('outerHTML');
@@ -140,14 +143,14 @@ define(['jquery',
                 getDoctors: function (res) {
                     var _this = this;
                     if (res.errorNo == 0) {
-                        var rows=res.rows;
+                        var rows = res.rows;
                         var selectDate = $(".index_calender").dpGetSelected();
-                        var tempMonday = new Date(jctLibs.dataGet.getWeekStartDate()),
-                            selectDateT = new Date(selectDate[0] + '-' + selectDate[1] + '-' + selectDate[3]);
-                        if (selectDateT < tempMonday) {
+                        var tempMonday = new Date(new Date(jctLibs.dataGet.getWeekStartDate()).setHours(0, 0, 0, 0)),
+                            selectDateT = new Date(selectDate[0] + '-' + (selectDate[1] + 1) + '-' + selectDate[3]);
+                        if (selectDate && selectDateT < tempMonday) {
                             $('#edit_work_plan,#post_work_plan').addClass('am-hide');
                             rows.forEach(function (row) {
-                                row['out_date']=true;
+                                row['out_date'] = true;
                             })
                         }
                         else {
@@ -202,8 +205,8 @@ define(['jquery',
                         if (sches.length > 0) {
                             sches.forEach(function (sche) {
                                 var doc_id = sche['doctor_id'], doc_name = sche['doctor_name'],
-                                    title_code = sche['original_title_code'],
-                                    title_name = sche['original_title_name'];
+                                    title_code = sche['title_code'],
+                                    title_name = sche['title_name'];
                                 if (sche['plan_date_time']) {
                                     var date_str = sche['plan_date_time'].split(' ')[0],
                                         plan_type = sche['planwork_type'], register_type = sche['register_type'],
@@ -226,16 +229,14 @@ define(['jquery',
                                     doctors[doc_id][week_str] = [plan_type, register_type, reg_fee].join('-');
                                 }
                                 else {
-                                    if(title_code!='null') {
-                                        doctors[doc_id] = {
-                                            'doctor_id': doc_id,
-                                            'doctor_name': doc_name,
-                                            'title_code': title_code,
-                                            'title_name': title_name
-                                        }
-                                        for (var week_key in selectDates) {
-                                            doctors[doc_id][week_key] = [0, 'pt', '0'].join('-');
-                                        }
+                                    doctors[doc_id] = {
+                                        'doctor_id': doc_id,
+                                        'doctor_name': doc_name,
+                                        'title_code': title_code,
+                                        'title_name': title_name
+                                    }
+                                    for (var week_key in selectDates) {
+                                        doctors[doc_id][week_key] = [0, 'pt', '0'].join('-');
                                     }
                                 }
                             })
@@ -251,9 +252,9 @@ define(['jquery',
                             this.model.getDeptDoctor(default_dept_id);
                         }
                         var selectDate = $(".index_calender").dpGetSelected();
-                        var tempMonday = new Date(jctLibs.dataGet.getWeekStartDate()),
-                            selectDateT = new Date(selectDate[0] + '-' + selectDate[1] + '-' + selectDate[3]);
-                        if (selectDateT < tempMonday) {
+                        var tempMonday = new Date((new Date(jctLibs.dataGet.getWeekStartDate())).setHours(0, 0, 0, 0)),
+                            selectDateT = new Date(selectDate[0] + '-' + (selectDate[1] + 1) + '-' + selectDate[3]);
+                        if (selectDate && selectDateT < tempMonday) {
                             $('#edit_work_plan,#post_work_plan').addClass('am-hide');
                         }
                     }

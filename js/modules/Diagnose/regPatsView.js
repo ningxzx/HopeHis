@@ -31,7 +31,6 @@ define(['txt!../Diagnose/regPats.html',
                     this.diagModel = new diagnoseModel();
                     this.commonModel = new commonModel();
                     this.diagnosis_id = "";
-
                     this.listenTo(this.regPatsModel, "waitPatientsGetted", this.renderWaitPats);
                     this.listenTo(this.regPatsModel, "curePatientsGetted", this.renderCurePats);
                     this.listenTo(this.regPatsModel, "startDiagnose", this.startResult);

@@ -52,10 +52,10 @@ define(['txt!../../Medicine/msupplier/msupplier.html',
                     param['contact_person']=person;
                 }
                 if(tel){
-                    param['contact_tel']=person;
+                    param['contact_tel']=tel;
                 }
                 if(type!='all'){
-                    param['state']=person;
+                    param['state']=type;
                 }
                 this.commonModel.search('comm.suppliers_dict',param, 'getSupplier')
             },

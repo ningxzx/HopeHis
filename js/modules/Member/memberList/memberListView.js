@@ -14,9 +14,9 @@ define(['txt!../../Member/memberList/memberList.html',
                 '<a class="member_pay" href="javascript:void(0)" title="Remove">',
                 '充值',
                 '</a>',
-                '<a class="row_remove" href="javascript:void(0)" title="detail">',
-                '删除',
-                '</a>'
+                // '<a class="row_remove" href="javascript:void(0)" title="detail">',
+                // '删除',
+                // '</a>'
                 //'<a class="11" href="javascript:void(0)" title="Remove">',
                 //'积分清零',
                 //'</a>'
@@ -48,14 +48,14 @@ define(['txt!../../Member/memberList/memberList.html',
                 this.listenTo(this.member, "postMemberExcel", this.postMemberCallback);
             },
             delMember: function (data) {
-                this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                this.member.getMembers();
             },
             patchedit: function (data) {
-                this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                this.member.getMembers();
             },
             Getsetrecord: function (data) {
                 if (data.errorNo == 0) {
-                    var arr = data.rows, options = "";
+                    var arr = data.rows, options = '<option selected="selected" value="">全部</option>';
                     if (arr.length) {
                         for (var i = 0; i < arr.length; i++) {
                             options += "<option value=" + arr[i].level + ">" + arr[i].level_name + "</option>";
@@ -129,11 +129,10 @@ define(['txt!../../Member/memberList/memberList.html',
                 });
             },
             refreshLevel: function () {
-                this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                this.member.getMembers();
             },
             subBtn: function () {
-                var $levelInfo = $(this.el).find("#my-confirm");
-
+                var $modal = $(this.el).find("#my-confirm");
                 var entityid = sessionStorage.getItem('enterprise_id'),
                     entityname = sessionStorage.getItem('enterprise_name'),
                     customerid = $("#txtAccountNum").val(),
@@ -143,24 +142,25 @@ define(['txt!../../Member/memberList/memberList.html',
                     memberlevel = $("#ddlDmLevel").val(),
                     memberpoints = $("#txtPhoneNum").val() || 0,
                     cardmoney = $("#txtMoeny").val() || 0,
-                    memberstate, discount, isusemoneypoor, memberId;
-                if ($levelInfo.attr("edit_type") == "add") {
+                    memberstate = $("#stype_m").val(),
+                    discount, isusemoneypoor, memberId;
+                if ($modal.attr("edit_type") == "add") {
                     memberId = $("#memberId").val().trim();
                     if (memberId == '') {
                         alert("请输入会员号")
-                        return;
+                        return false;
                     }
                     this.member.addMember(memberId, entityid, entityname, customerid,
                         customername, customertel, customercardid,
-                        memberlevel, memberpoints, cardmoney, memberstate, discount, isusemoneypoor)
-                } else if ($levelInfo.attr("edit_type") == "edit") {
-                    memberId = $levelInfo.attr("memberid");
-                    this.member.PATCHedit(memberID, entityid, entityname, customerid,
+                        memberlevel, memberpoints, cardmoney)
+                } else if ($modal.attr("edit_type") == "edit") {
+                    var unique_id = $modal.attr("unique_id");
+                    memberId = $modal.attr("memberid");
+                    this.member.PATCHedit(unique_id, entityid, entityname, customerid,
                         customername, customertel, customercardid,
                         memberlevel, memberpoints, cardmoney, memberstate, discount, isusemoneypoor);
                 }
-
-
+                $('#confirm').modal('close');
             },
             searchinputbtn: function () {
                 var patient_name = $(this.el).find("#txtName").val();
@@ -199,9 +199,9 @@ define(['txt!../../Member/memberList/memberList.html',
             add_Member: function (data) {
                 if (data['depts'].result == "OK") {
                     alert("提交成功");
-                    this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                    this.member.getMembers();
                 } else if (data['depts'].result == "exist") {
-                    alert("该会员已经存在");
+                    alert("无法完成添加,该患者已经注册为会员!!");
                 }
             },
             gotourl: function () {
@@ -212,10 +212,10 @@ define(['txt!../../Member/memberList/memberList.html',
                 }
                 var $levelInfo = $(this.el).find("#my-confirm"),
                     $title = $levelInfo.find(".meber");
-                $('#memberId').attr('readonly', false);
                 //如果上次是编辑状态,重置明细,将明细改为添加状态;如果上一次是添加状态且未提交,则不进行重置
                 if ($levelInfo.attr("edit_type") !== "add") {
                     $levelInfo.attr("edit_type", "add");
+                    $('#memberId').attr('readonly', false);
                     $title.html("新增会员");
                 }
                 this.hidfunc();
@@ -229,15 +229,29 @@ define(['txt!../../Member/memberList/memberList.html',
             //   this.render();
             //},
             searchMember: function () {
-                var $el = $(this.el);
+                var $el = $(this.el), param = {};
                 //memberId, customerName, customerTel, memberLevel, memberState
                 var memberId = $el.find("#member_id").val(),
                     customerName = $el.find("#member_name").val(),
                     customerTel = $el.find("#member_tel").val(),
-                    memberLevel = $el.find(".member_level option:selected").val(),
+                    memberLevel = $el.find(".member_level").val(),
                     memberState = $el.find(".member_state").val();
-
-                this.member.conditionMember(memberId, customerName, customerTel, memberLevel, memberState)
+                if (memberId) {
+                    param['member_id'] = memberId;
+                }
+                if (customerName) {
+                    param['patient_name'] = customerName;
+                }
+                if (customerTel) {
+                    param['patient_phone'] = customerTel;
+                }
+                if (memberLevel && memberLevel != '') {
+                    param['member_level'] = memberLevel;
+                }
+                if (memberState) {
+                    param['member_state'] = memberState;
+                }
+                this.member.getMembers(param)
 
             },
             renderData: function (result) {
@@ -272,7 +286,7 @@ define(['txt!../../Member/memberList/memberList.html',
                                 $(that.el).find("#memberlist_money input").val("");
                                 var $modal = $(that.el).find("#memberlist_money");
                                 $modal.attr('member_id', row['member_id']);
-                                $modal.attr('customer_id', row['customer_id']);
+                                $modal.attr('patient_id', row['patient_id']);
                                 $(that.el).find("#memberlist_money").modal({
                                     width: 960,
                                     onConfirm: function () {
@@ -284,7 +298,7 @@ define(['txt!../../Member/memberList/memberList.html',
                                             cash_pay = $('#cash_pay').val() || 0,
                                             total_charge = $('#total_charge').val() || 0;
                                         var param = {
-                                            patient_id: patient_id,
+                                            patient_id: $modal.attr('patient_id'),
                                             total_charges: total_charge,
                                             cash_pay: cash_pay,
                                             wechat_pay: wechat_pay,
@@ -303,6 +317,7 @@ define(['txt!../../Member/memberList/memberList.html',
                                     that.noLevelAlert();
                                     return false;
                                 }
+                                $('#memberId').attr('readonly', true);
                                 that.editLevel(row);
                             },
                             'click .row_remove': function (e, value, row, index) {
@@ -321,14 +336,29 @@ define(['txt!../../Member/memberList/memberList.html',
                         }
                         },
                         {field: 'member_id', width: "20%", title: '会员卡号'},
-                        {field: 'customer_name', title: '姓名'},
-                        {field: 'customer_tel', width: "10%", title: '手机号'},
-                        {field: 'member_level', title: '会员等级'},
+                        {field: 'patient_name', title: '姓名'},
+                        {field: 'patient_phone', width: "15%", title: '手机号'},
+                        {field: 'level_name', title: '会员等级'},
                         {field: 'member_points', title: '会员积分'},
                         {field: 'card_money', title: '会员余额'},
                         {field: 'member_state', title: '会员状态', formatter: formatState},
                     ],
-                    data: []
+                    rowStyle:function (row) {
+                        if(row['member_state']==0){
+                            return {
+                                css:{
+                                    color:'red'
+                                }
+                            }
+                        }
+                        else{
+                            return {
+                                css:{
+                                    color:'black'
+                                }
+                            }
+                        }
+                    }
                 });
                 $(this.el).find("#name_search_table,#id_search_table").bootstrapTable({
                     columns: [
@@ -338,7 +368,7 @@ define(['txt!../../Member/memberList/memberList.html',
                     ],
                     onClickRow: this.showPatInfo
                 });
-                this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                this.member.getMembers();
                 this.LevelModel.getsetrecord();
                 return this;
             },
@@ -351,20 +381,19 @@ define(['txt!../../Member/memberList/memberList.html',
                 //如果上次是编辑状态,重置明细,将明细改为添加状态;如果上一次是添加状态且未提交,则不进行重置
                 if ($levelInfo.attr("edit_type") !== "edit") {
                     $levelInfo.attr("edit_type", "edit");
-                    $title.html("编辑会员等级");
+                    $title.html("编辑会员");
 
                 }
                 $levelInfo.attr("memberid", row.member_id);
-                $levelInfo.find("#txtName").val(row.customer_name);
-                $levelInfo.find("#txtAccountNum").val(row.customer_id);
-                $levelInfo.find("#txtMobileNum").val(row.customer_tel);
-                //$levelInfo.find("#txtBirthday").val(row.patient_birth);
-                $levelInfo.find("#txtIdentityNum").val(row.customer_card_id);
+                $levelInfo.attr("unique_id", row.id);
+                $levelInfo.find("#txtName").val(row.patient_name);
+                $levelInfo.find("#memberId").val(row.member_id);
+                $levelInfo.find("#txtAccountNum").val(row.patient_id);
+                $levelInfo.find("#txtMobileNum").val(row.patient_phone);
+                $levelInfo.find("#txtIdentityNum").val(row.card_id);
                 $levelInfo.find("#txtPhoneNum").val(row.member_points);
                 $levelInfo.find("#txtMoeny").val(row.card_money);
-                $levelInfo.find("#ddlDmLevel").val(row.member_level);
-
-
+                // $levelInfo.find("#ddlDmLevel").val(row.member_level).trigger("chosen:updated");
                 $(this.el).find('#my-confirm').modal({
                     width: 960
                 });
@@ -389,22 +418,25 @@ define(['txt!../../Member/memberList/memberList.html',
                 $data.find("#txtAccountNum").val(row.patient_id);
                 $data.find("#txtMobileNum").val(row.patient_phone);
                 $data.find("#txtIdentityNum").val(row.card_id);
+                $data.find("#member_sex").val({M: "男", N: "不详", F: "女"}[row.patient_sex]);
                 $('.name_search_wrapper').addClass('hid');
             },
             chargeCallBack: function (res) {
                 if (res.status == '100') {
                     alert('充值成功！');
-                    this.member.getMembers(sessionStorage.getItem('enterprise_id'));
+                    this.member.getMembers();
                 }
                 else {
                     alert('充值失败！');
                 }
             },
             inExcelModal: function () {
+                $('#member_list_excel').val('').attr('filename', '');
+                $('#member_excel_tips').html('请选择一个Excel文件!');
                 $('#member_excel_modal').modal('open');
             },
             showExcelName: function (e) {
-                var event=window.event||e;
+                var event = window.event || e;
                 var file = event.target.files[0], name = file.name;
                 $('#member_excel_tips').attr('filename', name).html(name);
             },
@@ -413,20 +445,20 @@ define(['txt!../../Member/memberList/memberList.html',
                 var files = document.getElementById('member_list_excel').files,
                     name = $('#member_list_excel').attr('filename');
                 if (files.length) {
-                    excelData.append('member_excel', files[0], name);
+                    excelData.append('member_excel', files[0]);
                     this.member.postExcel(excelData);
                 }
             },
             postMemberCallback: function (res) {
                 if (res.errorNo == 0) {
                     if (res.status == '100') {
-                        $('#member_list_excel').val('').attr('filename', '');
+                        $('#member_excel_modal').modal('close');
                         this.refreshLevel();
                     }
-                    else if(res.status == '408'){
+                    else if (res.status == '408') {
                         alert("身份证出错!")
                     }
-                    else{
+                    else {
                         alert('上传excel出错!')
                     }
                 }

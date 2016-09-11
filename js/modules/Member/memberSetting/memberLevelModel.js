@@ -1,5 +1,5 @@
 define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     // 会员Model，包含会员的基本信息
     var memberSettingModel = Backbone.Model.extend({
         //消费统计
@@ -30,7 +30,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
         //会员添加
         ///jethis/members/modifylevel
         postMember: function (level_id,level_name,level_discount
-            ,pay_limit,level_score,level_state,level_mark,level_icon,ID) {
+            ,pay_limit,level_score,level_state,level_mark) {
             var that = this;
             var result = {};
             var params={
@@ -43,8 +43,6 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
                     "points_condition":parseInt(level_score),
                     "level_state":level_state,
                     "remarks":level_mark,
-                    "icon_name":level_icon,
-                    "id":ID
                 };
             //params['enterprise_id']=sessionStorage.getItem('enterprise_id');
             $.ajax({
@@ -54,7 +52,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
             }).done(function (data) {
                 result.errorNo = 0;
                 //result.rows = jctLibs.listToObject(data, 'rows')['rows'];
-                result.rows=data;
+                result.state=data.state;
                 that.trigger("postMember", result);
 
             }).fail(function (error) {
@@ -66,7 +64,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
 
         //等级编辑
         postedit: function (level_id,level_name,level_discount
-            ,pay_limit,level_score,level_state,level_mark,level_icon,ID) {
+            ,pay_limit,level_score,level_state,level_mark,ID) {
             var that = this;
             var result = {};
             var params={
@@ -79,7 +77,6 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
                 "points_condition":parseInt(level_score),
                 "level_state":level_state,
                 "remarks":level_mark,
-                "icon_name":level_icon,
                 "id":ID
             };
             //params['enterprise_id']=sessionStorage.getItem('enterprise_id');
@@ -90,7 +87,7 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
             }).done(function (data) {
                 result.errorNo = 0;
                 //result.rows = jctLibs.listToObject(data, 'rows')['rows'];
-                result.rows=data;
+                result.state=data.state;
                 that.trigger("postedit", result);
 
             }).fail(function (error) {

@@ -3,7 +3,7 @@
  * 退费
  */
 define(["jquery", "backbone", "jctLibs"], function ($, Backbone, jctLibs) {
-    var urlRoot = "http://114.55.85.57:8081";
+    var urlRoot = "http://192.168.0.220:8081";
     var refundModel = Backbone.Model.extend({
         getDetail: function (order, type) {
             var that = this, result = {};

@@ -30,7 +30,7 @@ define(["backbone", "jctLibs"], function (Backbone, jctLibs) {
                 errorInfo: ""
             };
             this.fetch({
-                url: "http://114.55.85.57:8081/jethis/query/get",
+                url: "http://192.168.0.220:8081/jethis/query/get",
                 reset: true,
                 data:$.param({
                     table:templateType,

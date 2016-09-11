@@ -56,24 +56,24 @@ define(['txt!../../Bill/refund/refund.html',
                 return row.refund_money;
             }
             },
-            {
-                field: "", title: "删除", width: "8%", events: {
-                'click .table_remove': function (e, value, row, index) {
-                    var $table = $(e.target).closest("table");
-                    $table.bootstrapTable('remove', {
-                        field: 'billing_item_id',
-                        values: [row.billing_item_id]
-                    });
-                }
-            }, formatter: jctLibs.deleteFormatter
-            }
+            // {
+            //     field: "", title: "删除", width: "8%", events: {
+            //     'click .table_remove': function (e, value, row, index) {
+            //         var $table = $(e.target).closest("table");
+            //         $table.bootstrapTable('remove', {
+            //             field: 'billing_item_id',
+            //             values: [row.billing_item_id]
+            //         });
+            //     }
+            // }, formatter: jctLibs.deleteFormatter
+            // }
         ];
         var recordCols = [
             {field: 'checkbox', checkbox: true},
             {field: 'patient_name', title: '患者'},
             {field: 'total_charges', title: '费用'},
             {field: 'charge_date_time', title: '时间', formatter: jctLibs.formatDate},
-            {field: 'charge_record_id', title: '收费号'},
+            // {field: 'charge_record_id', title: '收费号'},
         ];
         var view = Backbone.View.extend({
             initialize: function () {
@@ -157,10 +157,10 @@ define(['txt!../../Bill/refund/refund.html',
                 if (endDate) {
                     data['end_date_time'] = endDate;
                 }
-                this.searchChargeModel.getCharge(data);
+                this.searchChargeModel.getCharge(data,'wjs');
             },
             refreshRecord: function () {
-                this.searchChargeModel.getCharge({}, '3,6');
+                this.searchChargeModel.getCharge({}, 'wjs');
             },
             getData: function (res) {
                 if (res.errorNo == "0") {
@@ -191,7 +191,7 @@ define(['txt!../../Bill/refund/refund.html',
             },
             refund: function () {
                 var refundDetails = $('#refund_detail_tbl').bootstrapTable('getData');
-                var selectRecord = $('#record_tbl').bootstrapTable('getSelections');
+                var selectRecord = $('#record_tbl').bootstrapTable('getAllSelections');
                 if (refundDetails.length <= 0 && selectRecord.length == 0) {
                     return false;
                 }

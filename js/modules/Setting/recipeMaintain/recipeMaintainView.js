@@ -49,8 +49,8 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                 'click #add_advice_template': "addAdviceTemp",
                 'click #refresh_advice_template': 'getAdviceTemp',
                 'click #search_advice_btn': 'searchAdvice',
-                'click #search_advice_btn': 'searchAdvice',
-                'click #search_advice_btn': 'searchAdvice',
+                'click #diag_search_btn': 'searchDiag',
+                'click #recipe_search_btn': 'searchRecipe',
                 'click .reset_search': 'resetSearch',
                 "click #recipe_table_wrapper .add_tool": "addRecipeModal",
                 "click #diag_table_wrapper .add_tool": "addDiagModal",
@@ -288,6 +288,52 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                     params['template_owner_id'] = enterprise_id + ',' + doctor_id;
                 }
                 this.commonModel.search('template.doctor_advice_template', params, 'getAdviceTemp')
+            },
+            searchDiag: function () {
+                var params = {};
+                var name = $('#search_diag_name').val(),
+                    enterprise_id = sessionStorage.getItem('enterprise_id'),
+                    doctor_id = sessionStorage.getItem('doctor_id'),
+                    startDate = $('#diag_temp_wrapper .start').val(),
+                    endDate = $('#diag_temp_wrapper .end').val(),
+                    tempType = $('#diag_temp_type').val();
+                doctor_id=doctor_id!=='undefined'?doctor_id:"";
+                if (name !== "") {
+                    params['template_name'] = name;
+                }
+                if (startDate !== "" || endDate !== "") {
+                    params['create_date_time'] = startDate + '|' + endDate
+                }
+                if (tempType !== 'all') {
+                    params['template_owner_id'] = tempType == '1' ? enterprise_id : doctor_id;
+                }
+                else {
+                    params['template_owner_id'] = enterprise_id + ',' + doctor_id;
+                }
+                this.commonModel.search('template.diagnosis_template', params, 'getDiagTemp')
+            },
+            searchRecipe: function () {
+                var params = {};
+                var name = $('#search_recipe_name').val(),
+                    enterprise_id = sessionStorage.getItem('enterprise_id'),
+                    doctor_id = sessionStorage.getItem('doctor_id'),
+                    startDate = $('#recipe_temp_wrapper .start').val(),
+                    endDate = $('#recipe_temp_wrapper .end').val(),
+                    tempType = $('#recipe_te').val();
+                doctor_id=doctor_id!=='undefined'?doctor_id:"";
+                if (name !== "") {
+                    params['template_name'] = name;
+                }
+                if (startDate !== "" || endDate !== "") {
+                    params['create_date_time'] = startDate + '|' + endDate
+                }
+                if (tempType !== 'all') {
+                    params['template_owner_id'] = tempType == '1' ? enterprise_id : doctor_id;
+                }
+                else {
+                    params['template_owner_id'] = enterprise_id + ',' + doctor_id;
+                }
+                this.commonModel.search('template.prescription_template', params, 'getRecipeTemp')
             },
             //获取医嘱模板
             getAdviceTemp: function (table, evName) {
@@ -620,7 +666,7 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                     params['doctor_name'] = sessionStorage.getItem('doctor_name')
                     $.ajax({
                         type: 'post',
-                        url: 'http://114.55.85.57:8081/jethis/setting/templateSetting',
+                        url: 'http://192.168.0.220:8081/jethis/setting/templateSetting',
                         data: JSON.stringify(params)
                     }).done(function (res) {
                         if (res['template_id']) {
@@ -647,7 +693,7 @@ define(['txt!../../Setting/recipeMaintain/recipeMaintain.html',
                     params['template_id'] = temp_id;
                     $.ajax({
                         type: 'patch',
-                        url: 'http://114.55.85.57:8081/jethis/setting/templateSetting',
+                        url: 'http://192.168.0.220:8081/jethis/setting/templateSetting',
                         data: JSON.stringify(params)
                     }).done(function (res) {
                         if (res) {

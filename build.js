@@ -29,7 +29,6 @@
     findNestedDependencies: true,
     fileExclusionRegExp: /^(r|build|almond)\.js$/,
     optimizeCss: 'standard',
-    removeCombined: true,
 })
 /**
  * Created by xzx on 2016-07-13.

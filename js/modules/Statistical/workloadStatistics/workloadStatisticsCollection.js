@@ -1,7 +1,7 @@
 define(["backbone",'../../Statistical/workloadStatistics/workloadStatisticsModel'], function (Backbone, workloadStatisticsModel) {
     var workloadStatisticsCollection = Backbone.Collection.extend({
         model: workloadStatisticsModel,
-        //url: "http://114.55.85.57:8081/charges",
+        //url: "http://192.168.0.220:8081/charges",
         getData: function (executeId,diagnosisId,patientName,patientCode,startDate,endDate) {
             var that=this;
             var result={

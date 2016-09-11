@@ -42,6 +42,10 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 "keyup #money": "changeFee",               //输入金额改变找零
                 "change #province": "getcity",//省份改变获取城市
                 "change #city": "getArea",//城市改变获取区县
+                "input #a_name":'hideAlert'
+            },
+            hideAlert:function () {
+                $("#tips").addClass("hid");
             },
             checkCardId: function () {
                 var cardId = $("#a_card_id").val(), len = cardId.length;
@@ -97,7 +101,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 var opt = "<option value=\"0\">请选择省份</option>";
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -120,7 +124,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 next.html("<option value=\"0\">请选择城市</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -142,7 +146,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                 next.html("<option value=\"0\">请选择区县</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -205,7 +209,7 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                     city = $city.val() != 0 ? $city.find("option:checked").text() : "",
                     area = $area.val() != 0 ? $area.find("option:checked").text() : "";
                 $("#tips").addClass("hid");
-                this.patientModel.set({
+                this.patientModel.addPatient({
                     //enterprise_id: sessionStorage.getItem("enterprise_id"),
                     patient_name: $("#a_name").val().trim(),
                     patient_sex: $("#a_gender").val(),
@@ -217,21 +221,21 @@ define(['txt!../../Patient/addpatient/addpatient.html',
                     patient_qq: $("#a_qq").val().trim(),
                     patient_wechet: $("#a_wechat").val().trim(),
                     patient_email: $("#a_email").val().trim(),
-                    //nationaloty: $("#my_address").find("option:checked").text(),
                     province: province,
-                    city:city,
+                    city: city,
                     area: area,
-                    //street: $("#a_detail").val(),
+                    streat: $("#a_street").val(),
                     addr: $("#a_detail").val().trim(),
                     next_of_kin: $("#f_name").val().trim(),
                     next_of_kin_phone: $("#f_phone").val().trim()
                 });
-                this.patientModel.addPatient();
             },
 
             //添加患者结果
             addPatientResult: function (result) {
                 if (result.errorNo == 0) {
+                    $("input").val('');
+                    $("#province,#city,#area").val(0).trigger("chosen:updated");
                     $("#tips").addClass("am-alert-success").removeClass("am-alert-warning hid").find("p").text("注册成功，患者ID：" + result.obj);
                 } else if (result.errorNo == -2) {
                     $("#tips").addClass("am-alert-warning").removeClass("am-alert-success hid").find("p").text("注册失败，请重新注册");

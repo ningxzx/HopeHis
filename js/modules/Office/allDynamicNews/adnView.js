@@ -58,7 +58,7 @@ define(['txt!../../Office/allDynamicNews/adn.html',
                     pageSize: 10,
                     onClickRow: function (row) {
                         $.ajax({
-                            url:'http://114.55.85.57:8081/jethis/News/ShowNewsValue/'+row['id'],
+                            url:'http://192.168.0.220:8081/jethis/News/ShowNewsValue/'+row['id'],
                             type:'get'
                         })
                     },

@@ -9,17 +9,27 @@ define(['txt!../../Setting/functionSetting/functionSetting.html',
             initialize: function () {
                 this.model = new fsModel();
                 this.listenTo(this.model, "fsPost", this.postCallback);
-                this.listenTo(this.model, "saveResult", this.saveCallback);
+                this.listenTo(this.model, "getSetting", this.renderSetting)
             },
             render: function () {
                 var _this = this;
                 $(this.el).html(Template);
-                $("input[type='radio']").uCheck();
+                this.model.getSetting();
                 return this;
             },
             events: {
                 'change #medi_bill_apart': "postSetting",
-                "click .save_price": "savePrice"
+                "click .save_price": "savePrice",
+                "click .pay_round_types li": "changeRoundType"
+            },
+            //获取该医院的功能设置
+            renderSetting:function(res){
+                if(res.errorNo==0){
+                    var settings=res.settings;
+                    var rount_type=settings['FUN0003'];
+                    $(".pay_round_types li").removeClass("selected_type");
+                    $(".pay_round_types li[type_value="+rount_type+"]").addClass("selected_type");
+                }
             },
             postSetting: function () {
                 var apartVal = $('#medi_bill_apart').prop('checked') ? 0 : 1;
@@ -33,17 +43,18 @@ define(['txt!../../Setting/functionSetting/functionSetting.html',
                     alert('设置成功！')
                 }
             },
-            savePrice: function (e) {
-                e.stopPropagation();
-                this.model.saveWay({
-                    enterprise_id: sessionStorage.getItem('enterprise_id'),
-                    setting_result: JSON.stringify({FUN0003: $("input[name='price_way']:checked").val()})
-                });
+            changeRoundType:function(e){
+                var e=window.event||e,
+                    $target=$(e.target).closest('li');
+                $(".pay_round_types li").removeClass("selected_type");
+                $target.addClass("selected_type");
             },
-            saveCallback: function (res) {
-                if (res.status == 'OK') {
-                    alert('设置成功！')
-                }
+            savePrice: function (e) {
+                var type_value= $(".pay_round_types li.selected_type").attr('type_value');
+                this.model.postSetting({
+                    enterprise_id: sessionStorage.getItem('enterprise_id'),
+                    setting_result: JSON.stringify({FUN0003: type_value})
+                });
             }
         });
         return view;

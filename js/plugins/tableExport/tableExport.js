@@ -345,6 +345,8 @@
                       for (var styles in defaults.excelstyles) {
                         if (defaults.excelstyles.hasOwnProperty(styles)) {
                           trData += defaults.excelstyles[styles] + ': ' + $(cell).css(defaults.excelstyles[styles]) + ';';
+                          //长数字通常情况下会转化为科学计数法,加上下方style会显示正常,for jethis;
+                          trData +='mso-number-format:/@;'
                         }
                       }
                       if ($(cell).is("[colspan]"))

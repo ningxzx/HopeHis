@@ -30,21 +30,21 @@ define(['txt!../Diagnose/treatments.html',
         var columns = {
             //检查明细表表头及key
             checkColumns: [
-                {field: "check_name", title: "名称", width: "20%"},
+                {field: "check_name", title: "检查名称", width: "20%"},
                 {field: "check_price", title: "单价", width: "15%", formatter: jctLibs.generatePrice},
                 {field: "remark", title: "明细", width: "65%"}
             ],
             //诊疗项目明细表表头及key
             cureProjectColumns: [
-                {field: "dgns_treat_name", title: "名称", width: "20%"},
-                {field: "dgns_treat_price", title: "单价", width: "15%", formatter: jctLibs.generatePrice},
-                {field: "remark", title: "明细", width: "65%"}
+                {field: "dgns_treat_name", title: "检验名称", width: "40%"},
+                {field: "dgns_treat_price", title: "单价", width: "25%", formatter: jctLibs.generatePrice},
+                {field: "remark", title: "明细", width: "35%"}
             ],
             //检验项目明细表表头及key
             inspectColumns: [
-                {field: "inspection_name", title: "名称", width: "20%"},
-                {field: "inspection_price", title: "单价", width: "15%", formatter: jctLibs.generatePrice},
-                {field: "remark", title: "明细", width: "65%"}
+                {field: "inspection_name", title: "诊疗项目", width: "40%"},
+                {field: "inspection_price", title: "单价", width: "25%", formatter: jctLibs.generatePrice},
+                {field: "remark", title: "备注", width: "35%"}
             ]
         };
         var checkColumns = {
@@ -56,13 +56,7 @@ define(['txt!../Diagnose/treatments.html',
                 }
                 },
                 {field: "inspection_name", title: "名称"},
-                {
-                    field: "inspection_price", title: "价格", footerFormatter: function (data) {
-                    return data.reduce(function (pre, current) {
-                        return pre + (+current['inspection_price']);
-                    }, 0)
-                }
-                },
+                {field: "inspection_price", title: "价格"},
                 {field: "remark", title: "备注"},
                 {
                     field: "",
@@ -83,17 +77,11 @@ define(['txt!../Diagnose/treatments.html',
             //检查
             checkColumns: [
                 {
-                    field: "", title: "序号", formatter: jctLibs.generateIndex, footerFormatter: function () {
-                    return '总金额'
-                }
+                    field: "", title: "序号", formatter: jctLibs.generateIndex
                 },
                 {field: "check_name", title: "名称"},
                 {
-                    field: "check_price", title: "价格", footerFormatter: function (data) {
-                    return data.reduce(function (pre, current) {
-                        return pre + (+current['check_price']);
-                    }, 0)
-                }
+                    field: "check_price", title: "价格",
                 },
                 {field: "remark", title: "备注"},
                 {
@@ -114,17 +102,11 @@ define(['txt!../Diagnose/treatments.html',
             ],
             cureProjectColumns: [
                 {
-                    field: "", title: "序号", width: "5%", formatter: jctLibs.generateIndex, footerFormatter: function () {
-                    return '总金额'
-                }
+                    field: "", title: "序号", width: "5%", formatter: jctLibs.generateIndex
                 },
                 {field: "dgns_treat_name", title: "名称"},
                 {
-                    field: "dgns_treat_price", title: "价格", footerFormatter: function (data) {
-                    return data.reduce(function (pre, current) {
-                        return pre + (+current['dgns_treat_price']*current['billing_item_num']);
-                    }, 0)
-                }
+                    field: "dgns_treat_price", title: "价格"
                 },
                 {field: "billing_item_num", title: "数量", width: "15%", formatter: function (value, row, index,e) {
                     var $input = $('<input type="number" class="billing_item_num"/>');
@@ -242,8 +224,6 @@ define(['txt!../Diagnose/treatments.html',
                 $table.bootstrapTable({
                     columns: columns[curType + "Columns"],
                     data: [],
-                    pagination: true,
-                    pageSize: 7,
                     onClickRow: function (row) {
                         that.addCheck([row]);
                     }
@@ -274,7 +254,8 @@ define(['txt!../Diagnose/treatments.html',
                 var $table = $(this.el).find("#check_table");
                 $table.bootstrapTable({
                     columns: columnes,
-                    showFooter: true,
+                    formatShowingRows:function () {},
+                    pagination:false,
                     dataField: "",
                 });
                 var check = rows;
@@ -372,6 +353,7 @@ define(['txt!../Diagnose/treatments.html',
                 if (result.errorNo == 0) {
                     $(this.el).find("#check_table").bootstrapTable("load", []);
                     alert("保存检查单成功");
+                    this.trigger('saveTreatments');
                 }
             },
             renderWmedicine: function (res) {
@@ -455,7 +437,7 @@ define(['txt!../Diagnose/treatments.html',
                 this.treatmentModel.getMedicines('20', 1, 'getWmedicine');
                 this.treatmentModel.getMedicines('10', 1, 'getCmedicine');
                 this.$el.find('#treatment_table').bootstrapTable({
-                    columns: columns["checkColumns"],
+                    columns: columns["cureProjectColumns"],
                     data: [],
                     pagination: true,
                     pageSize: 7,
@@ -463,9 +445,9 @@ define(['txt!../Diagnose/treatments.html',
                         that.addCheck([row]);
                     }
                 });
-                this.$el.find('.add_treatment_title').html("保存检查项目");
-                this.$el.find('.treatment_table_title').html('检查项目')
-                this.treatmentModel.geCureProject({table: 'admin.erp_check_item'});
+                this.$el.find('.add_treatment_title').html("保存诊疗项目");
+                this.$el.find('.treatment_table_title').html('诊疗项目')
+                this.treatmentModel.geCureProject({table: 'admin.erp_dgns_treat_item'});
                 $wtable.bootstrapTable("showLoading");
                 $ctable.bootstrapTable("showLoading");
                 this.$el.find('#treatment_table').bootstrapTable("showLoading");
@@ -494,13 +476,13 @@ define(['txt!../Diagnose/treatments.html',
                 var curType = $('#treatment_category').val();
                 switch (curType) {
                     case "check":
-                        this.commonModel.search('admin.erp_check_item', searchWords?{'check_name': searchWords}:{}, 'treatmentGetted');
+                        this.commonModel.search('admin.erp_check_item', searchWords?{'check_name': searchWords,is_delete:false}:{is_delete:false}, 'treatmentGetted');
                         break;
                     case "cureProject":
-                        this.commonModel.search('admin.erp_dgns_treat_item', searchWords?{'dgns_treat_name': searchWords}:{}, 'treatmentGetted');
+                        this.commonModel.search('admin.erp_dgns_treat_item', searchWords?{'dgns_treat_name': searchWords,is_delete:false}:{is_delete:false}, 'treatmentGetted');
                         break;
                     case "inspect":
-                        this.commonModel.search('admin.erp_inspection_item', searchWords?{'inspection_name': searchWords}:{}, 'treatmentGetted');
+                        this.commonModel.search('admin.erp_inspection_item', searchWords?{'inspection_name': searchWords,is_delete:false}:{is_delete:false}, 'treatmentGetted');
                         break;
                 }
             },

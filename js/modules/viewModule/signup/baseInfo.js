@@ -117,7 +117,7 @@ $(function () {
         var time = new Date().getTime();
         md = hex_md5(radom + time), that = this;
         $.ajax({
-            url: "http://114.55.85.57:8081/system/PicCode/NewCode",
+            url: "http://192.168.0.220:8081/system/PicCode/NewCode",
             type: "post",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
@@ -128,7 +128,7 @@ $(function () {
             data: JSON.stringify({"md": md}),
             success: function (data) {
                 if (data.resultCode == "100") {
-                    $(".vCodeImg").attr("src", "http://114.55.85.57:8081" + data.imgidurl);
+                    $(".vCodeImg").attr("src", "http://192.168.0.220:8081" + data.imgidurl);
                 }
             },
             error: function (data) {
@@ -148,7 +148,7 @@ $(function () {
             $(".phone_empty").removeClass("hid");
         } else if (phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/)) {
             $.ajax({
-                url: "http://114.55.85.57:8081/system/BindPhone/phoneNo/10",
+                url: "http://192.168.0.220:8081/system/BindPhone/phoneNo/10",
                 type: "get",
                 data:{phoneNo:phone},
                 headers: {
@@ -194,7 +194,7 @@ $(function () {
         $.ajax({
             type: "post",
             timeout: 30000,
-            url: "http://114.55.85.57:8081/system/phone/messageCode",
+            url: "http://192.168.0.220:8081/system/phone/messageCode",
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
                 'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
@@ -253,7 +253,7 @@ $(function () {
         }
         $.ajax({
             type: "post",
-            url: "http://114.55.85.57:8081/system/phone/confirmMsgCode",
+            url: "http://192.168.0.220:8081/system/phone/confirmMsgCode",
             data: JSON.stringify({"phoneidcode": message, "phone": phone}),
             headers: {
                 'app-key': 'fb98ab9159f51fd1',
@@ -295,7 +295,7 @@ $(function () {
         var opt = "<option value=\"0\">请选择省份</option>";
         $.ajax({
             type: "get",
-            url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
+            url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -326,7 +326,7 @@ $(function () {
         nexts.html("<option value=\"0\">请选择区县</option>");
         $.ajax({
             type: "get",
-            url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+            url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -347,7 +347,7 @@ $(function () {
         next.html("<option value=\"0\">请选择区县</option>");
         $.ajax({
             type: "get",
-            url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+            url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
             success: function (data) {
                 for (var i = 0; i < data.rows.length; i++) {
                     opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -401,7 +401,7 @@ $(function () {
                     'Authorization': '123456-01',
                     'Content-Type': 'application/json'
                 },
-                url: "http://114.55.85.57:8081/jethis/Jethis_User/checkaccount",
+                url: "http://192.168.0.220:8081/jethis/Jethis_User/checkaccount",
                 data: JSON.stringify({
                     "account_id": user_name
                 }),
@@ -534,6 +534,7 @@ $(function () {
         realName = $("#realName").val().trim();
         sex = $("#sex").val().trim();
         userName = $("#userName").val().trim();
+        var cardId = $("#id_card").val().trim();
 
         //加密
         var strMD5Passwd = CryptoJS.MD5($("#password").val().trim()).toString();
@@ -556,7 +557,7 @@ $(function () {
                         'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
                         'Content-Type': 'application/json'
                     },
-                    url: "http://114.55.85.57:8081/account/AccountInfo",
+                    url: "http://192.168.0.220:8081/account/AccountInfo",
                     data: JSON.stringify({
                         "user_name": realName,
                         "user_sex": sex,
@@ -569,7 +570,8 @@ $(function () {
                         "user_city": city,
                         "user_area": area,
                         "user_streat": street,
-                        "user_addr": address
+                        "user_addr": address,
+                        "user_card_id":cardId
                     }),
                     success: function (data) {
                         if (data.resultCode == "100") {
@@ -583,6 +585,7 @@ $(function () {
                             $("#finish").removeClass("hid");
                             sessionStorage.setItem('registId', userName);
                             sessionStorage.setItem('registName', realName);
+                            sessionStorage.setItem('registCardId', cardId);
                             //重置
                             resetInput();
                         } else {

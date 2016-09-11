@@ -138,7 +138,7 @@
     width: 70%;
 }
 
-#medicine_tb2,#medicine_tb1{
+#medicine_tb2,#medicine_tb1,#own_drug_table{
     border:1px solid #ddd;
 }
 .required_span{
@@ -293,4 +293,7 @@
     padding: 0 30px;
     margin-top: 10px;
     margin-left: -40px;
+}
+#table_minStorage  td input{
+    text-align: center;
 }

@@ -19,6 +19,7 @@ define(['txt!../../Regist/register/register.html',
             },
 
             render: function () {
+                var _this = this;
                 $(this.el).html(Template);
                 //重写查询条件
                 $(this.el).find("select").chosen({
@@ -51,6 +52,13 @@ define(['txt!../../Regist/register/register.html',
                         return date.valueOf() < viewDate ? 'am-disabled' : '';
                     }
                 });
+                $(this.el).find("#patient_names").bootstrapTable({
+                    onClickRow: function (row) {
+                        _this.showPatInfo(row);
+                    },
+                    formatShowingRows: function () {
+                    }
+                });
                 $(this.el).find("#patient_info").append(addPatient);
                 $(this.el).find("select").chosen({width: "100%", disable_search_threshold: 100});
                 $(this.el).find("#a_birth").datepicker();
@@ -58,6 +66,7 @@ define(['txt!../../Regist/register/register.html',
                 var now = new Date();
                 var date = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
                 this.getDoctor(date);
+                $(this.el).find("#registDate").val(date);
                 this.getProvince();
                 return this;
             },
@@ -79,7 +88,13 @@ define(['txt!../../Regist/register/register.html',
                 "change #city": "getArea",//城市改变获取区县
                 "keydown #money": "moneyKey",//打印
                 "change #a_card_id": "checkCardId",
+                "input #a_name":'hideAlert'
                 //"keydown body":"documentKey"
+            },
+            hideAlert:function () {
+                if($("#tips").is(':visible')) {
+                    $("#tips").addClass("hid");
+                }
             },
             checkCardId: function () {
                 var cardId = $("#a_card_id").val(), len = cardId.length;
@@ -164,7 +179,7 @@ define(['txt!../../Regist/register/register.html',
                 var opt = "<option value=\"0\">请选择省份</option>";
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictprovincebycountry",
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictprovincebycountry",
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=\"" + data.rows[i][1] + "\">" + data.rows[i][2] + "</option>";
@@ -187,7 +202,7 @@ define(['txt!../../Regist/register/register.html',
                 next.html("<option value=\"0\">请选择城市</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictcitybyprovince?province_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -209,7 +224,7 @@ define(['txt!../../Regist/register/register.html',
                 next.html("<option value=\"0\">请选择区县</option>");
                 $.ajax({
                     type: "get",
-                    url: "http://114.55.85.57:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
+                    url: "http://192.168.0.220:8081/jethis/registeration/getdictdistrictbycity?city_code=" + code,
                     success: function (data) {
                         for (var i = 0; i < data.rows.length; i++) {
                             opt += "<option value=" + data.rows[i][1] + ">" + data.rows[i][2] + "</option>";
@@ -252,12 +267,13 @@ define(['txt!../../Regist/register/register.html',
                     var address = $(this.el).find("#address").val();
                     var dept = $doctorImg.attr('deptName');
                     var name = $doctorImg.attr('name');
+                    var patName = $('#name').val();
                     var userName = sessionStorage.getItem('user_name');
                     var fee = $doctorImg.attr('fee');
                     $(this.el).find("#confirm_hd").text("请核对挂号信息并收费");
                     $(this.el).find("#confirm_bd").html(
                         "<ul class=\"am-list am-list-static am-list-striped\">" +
-                        "<li>姓名：" + name + "</li>" +
+                        "<li>姓名：" + patName + "</li>" +
                         "<li>身份证号：" + cardId + "</li>" +
                         "<li>性别：" + gender + "</li>" +
                         "<li>挂号科室：" + dept + "</li>" +
@@ -267,7 +283,7 @@ define(['txt!../../Regist/register/register.html',
                         "</ul>"
                     );
                     $(this.el).find("#printArea").html("<ul class=\"am-list am-list-static am-list-striped\">" +
-                        "<li>姓名：" + name + "</li>" +
+                        "<li>姓名：" + patName + "</li>" +
                         "<li>身份证号：" + cardId + "</li>" +
                         "<li>性别：" + gender + "</li>" +
                         "<li>挂号科室：" + dept + "</li>" +
@@ -351,7 +367,7 @@ define(['txt!../../Regist/register/register.html',
                 }
                 setTimeout(function () {
                     $("#regist_success").addClass('hid')
-                },200)
+                }, 200)
             },
 
             //获取医生信息
@@ -398,7 +414,8 @@ define(['txt!../../Regist/register/register.html',
                     var now = new Date();
                     var age = now.getFullYear() - data.patient_birth.substring(0, 4);
                     $("#age").val(age);
-                    $("#address").val(data.province + "-" + data.city + "-" + data.area + "-" + data.addr);
+                    var addr = [data.province || "", data.city || "", data.area || "", data.addr || ""].join('-');
+                    $("#address").val(addr);
                     $("#phone").val(data.patient_phone);
                     sessionStorage.removeItem("doc_id");
                     this.refreshDoctor();
@@ -424,14 +441,7 @@ define(['txt!../../Regist/register/register.html',
                         that.showPatInfo(data[0]);
                     } else {
                         $("#names").removeClass("hid");
-                        $("#patient_names").bootstrapTable({
-                            data: data,
-                            onClickRow: function (row) {
-                                that.showPatInfo(row);
-                            },
-                            formatShowingRows: function () {
-                            }
-                        });
+                        $("#patient_names").bootstrapTable('load', data);
                     }
                     //this.refreshDoctor();
                 } else {
@@ -448,9 +458,10 @@ define(['txt!../../Regist/register/register.html',
                 $("#birth").val(row.patient_birth);
                 $("#gender").val(row.patient_sex).trigger('chosen:updated');
                 var now = new Date();
-                var age = row.patient_birth?(now.getFullYear() - row.patient_birth.substring(0, 4)):"";
+                var age = row.patient_birth ? (now.getFullYear() - row.patient_birth.substring(0, 4)) : "";
                 $("#age").val(age);
-                $("#address").val(row.addr);
+                var addr = [row.province || "", row.city || "", row.area || "", row.addr || ""].join('-');
+                $("#address").val(addr);
                 $("#phone").val(row.patient_phone);
                 $("#names").addClass("hid");
                 sessionStorage.removeItem("doc_id");
@@ -480,7 +491,7 @@ define(['txt!../../Regist/register/register.html',
                         var reg_type = {"pt": '普通号', "zj": "专家号"}[data[i]['register_type']]
                         var info = [data[i].department_name, data[i].doctor_name, reg_type].join('-');
                         //医生列表
-                        lis += "<li class='am-u-md-2 am-u-end on_doctor'><div><img src='http://114.55.85.57:8081" + data[i].user_icon +
+                        lis += "<li class='am-u-md-2 am-u-end on_doctor'><div><img src='http://192.168.0.220:8081" + data[i].user_icon +
                             "' name='" + data[i].doctor_name +
                             "' alt='" + data[i].doctor_id +
                             "' account='" + data[i].account_id +
@@ -565,10 +576,10 @@ define(['txt!../../Regist/register/register.html',
             //添加用户注册按钮
             aRegist: function () {
                 $("#tips").addClass("hid");
-                var province=$('#province').val(),
-                 city=$('#city').val(),
-                 area=$('#area').val();
-                this.patientModel.set({
+                var province = $('#province').val(),
+                    city = $('#city').val(),
+                    area = $('#area').val();
+                this.patientModel.addPatient({
                     //enterprise_id: sessionStorage.getItem("enterprise_id"),
                     patient_name: $("#a_name").val().trim(),
                     patient_sex: $("#a_gender").val(),
@@ -581,16 +592,14 @@ define(['txt!../../Regist/register/register.html',
                     patient_wechet: $("#a_wechat").val().trim(),
                     patient_email: $("#a_email").val().trim(),
                     //nationaloty: $("#my_address").find("option:checked").text(),
-                    province: province=='0'?"":$("#province").find("option:checked").text(),
-                    city:  city=='0'?"":$("#city").find("option:checked").text(),
-                    area:  area=='0'?"":$("#area").find("option:checked").text(),
+                    province: province == '0' ? "" : $("#province").find("option:checked").text(),
+                    city: city == '0' ? "" : $("#city").find("option:checked").text(),
+                    area: area == '0' ? "" : $("#area").find("option:checked").text(),
                     //street: $("#a_detail").val(),
                     addr: $("#a_detail").val().trim(),
                     next_of_kin: $("#f_name").val().trim(),
                     next_of_kin_phone: $("#f_phone").val().trim()
                 });
-
-                this.patientModel.addPatient();
             },
 
             //添加患者结果

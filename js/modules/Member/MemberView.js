@@ -14,7 +14,7 @@ define(['txt!../Common/sidebar.html',
             submenus: [
                 { spanClass: "am-icon-user", submenu: "会员列表", sublink: "#member/memberList", subid:"member_memberList",parents: ""},
                 { spanClass: "am-icon-th", submenu: "会员统计", sublink: "#member/memberStatistics",subid:"member_memberStatistics", parents: ""},
-                { spanClass: "am-icon-cog", submenu: "会员等级设置", sublink: "#member/memberSetting", subid:"member_memberSetting",parents: ""},
+                { spanClass: "am-icon-cog", submenu: "会员等级", sublink: "#member/memberSetting", subid:"member_memberSetting",parents: ""},
                 { spanClass: "am-icon-money", submenu: "会员充值记录", sublink: "#member/memberRecord", subid:"member_memberRecord",parents: ""}
             ]
         };

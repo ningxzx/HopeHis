@@ -16,8 +16,7 @@
     <div class="am-g">
         <div class="am-input-group am-u-md-4 ">
             <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
-            <select class="member_select member_level ">
-                <option selected="selected" value="">全部</option>
+            <select class="member_select member_level">
             </select>
         </div>
         <div class="am-input-group am-u-md-4 ">
@@ -50,12 +49,20 @@
 
 <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
     <div class="am-modal-dialog">
-        <div class="am-modal-hd meber">新增会员</div>
+        <div class="am-modal-hd meber">新增会员
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
         <div class="am-modal-bd">
+            <div class="am-g am-padding-top">
+                <div class="am-u-md-4 am-input-group">
+                    <span class="am-input-group-label"><i class="am-icon-user"></i> 会员账号</span>
+                    <input type="text" id="memberId" class="am-form-field" placeholder="">
+                </div>
+            </div>
             <div class="am-g am-padding-top ">
-                <div class="am-input-group am-u-md-4 am-input-group-secondary ">
+                <div class="am-input-group am-u-md-3 am-input-group-secondary ">
                     <span class="am-input-group-label"><i class="am-icon-calendar"></i> 患者姓名</span>
-                    <input type="text" class="am-form-field" id="txtName" placeholder="姓名或拼音码">
+                    <input type="text" class="am-form-field" id="txtName" placeholder="">
                     <span class="am-input-group-btn">
                             <button class="am-btn am-btn-default search_input_btn" id="search_pat_name" type="button">
                                 <span class="am-icon-search search_label"></span>
@@ -65,7 +72,7 @@
                         <table class="am-table" id="name_search_table"></table>
                     </div>
                 </div>
-                <div class="am-input-group am-u-md-4">
+                <div class="am-input-group am-u-md-5">
                     <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 患者ID</span>
                     <input type="text" class="am-form-field" id="txtAccountNum" placeholder="">
                     <span class="am-input-group-btn">
@@ -80,7 +87,7 @@
 
                 <div class="am-input-group am-u-md-4">
                     <span class="am-input-group-label"><i class="am-icon-h-square"></i> 手机号码</span>
-                    <input type="text" class="am-form-field" id="txtMobileNum" placeholder="" readonly>
+                    <input type="text" class="am-form-field" id="txtMobileNum" placeholder="" >
                 </div>
             </div>
             <div class="am-g am-padding-top ">
@@ -90,24 +97,19 @@
                 <!--<input type="text" id="txtBirthday" class="am-form-field " placeholder="点击选择日期" readonly  >-->
 
                 <!--</div>-->
-                <div class="am-input-group am-u-md-4">
+                <div class="am-input-group am-u-md-3">
 
                     <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员状态</span>
                     <select class="member_select " id="stype_m">
-                        <option value="启用">启用</option>
-                        <option value="禁用">禁用</option>
+                        <option value="1" selected>启用</option>
+                        <option value="0">禁用</option>
                     </select>
                 </div>
-                <div class="am-input-group am-u-md-4 ">
-
-
-                    <span class="am-input-group-label"><i class="am-icon-h-square"></i> 性别</span>
-                    <select class="member_select " id="ddlSex_0" readonly>
-                        <option value="男">男</option>
-                        <option value="女">女</option>
-                    </select>
-                </div>
-                <div class="am-input-group am-u-md-4   ">
+                <!--<div class="am-input-group am-u-md-4 ">-->
+                    <!--<span class="am-input-group-label"><i class="am-icon-h-square"></i> 性别</span>-->
+                    <!--<input type="text" class="am-form-field" id="member_sex" placeholder="" readonly>-->
+                <!--</div>-->
+                <div class="am-input-group am-u-md-5 am-u-end">
                     <span class="am-input-group-label"><i class="am-icon-h-square"></i> 身份证号</span>
                     <input type="text" id="txtIdentityNum" class="am-form-field" readonly>
                 </div>
@@ -115,13 +117,13 @@
 
 
             <div class="am-g am-padding-top ">
-                <div class="am-input-group am-u-md-4">
+                <div class="am-input-group am-u-md-3">
                     <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 会员积分</span>
-                    <input type="text" id="txtPhoneNum" class="am-form-field" placeholder="0">
+                    <input type="text" id="txtPhoneNum" class="am-form-field" placeholder="0" readonly>
                 </div>
-                <div class="am-input-group am-u-md-4 ">
+                <div class="am-input-group am-u-md-5 ">
                     <span class="am-input-group-label"><i class="am-icon-calendar"></i> 会员卡余额</span>
-                    <input name="txtEmail" type="text" id="txtMoeny" class="am-form-field" placeholder="0">
+                    <input name="txtEmail" type="text" id="txtMoeny" class="am-form-field" placeholder="0" readonly>
                 </div>
                 <div class="am-input-group am-u-md-4 ">
                     <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员等级</span>
@@ -129,16 +131,10 @@
                     </select>
                 </div>
             </div>
-            <div class="am-g am-padding-top">
-                <div class="am-u-md-4 am-input-group">
-                    <span class="am-input-group-label"><i class="am-icon-user"></i> 会员账号</span>
-                    <input type="text" id="memberId" class="am-form-field" placeholder="0">
-                </div>
-            </div>
         </div>
         <div class="am-modal-footer">
             <span class="am-modal-btn" data-am-modal-cancel>取消</span>
-            <span class="am-modal-btn " id="sub_btn" data-am-modal-confirm>提交</span>
+            <span class="am-modal-btn " id="sub_btn">提交</span>
         </div>
     </div>
 </div>
@@ -219,15 +215,15 @@
             <div class="am-g am-padding-top">
                 <span class="am-u-md-8 down_file_name"><i class="am-icon-file-excel-o"></i> 待导入会员列表模板.xls</span>
                 <div class="am-u-md-4">
-                    <a class="am-btn am-btn-success am-btn-xs am-radius"
-                       href="http://114.55.85.57:8081/jethis/File/DownLoadExcel" target="_blank">下载模板</a>
+                    <a class="am-btn am-btn-primary am-btn-xs am-radius"
+                       href="http://192.168.0.220:8081/jethis/File/DownLoadExcel" target="_blank">下载模板</a>
                 </div>
             </div>
             <div class="am-g am-padding-top am-margin-bottom">
                 <div class="am-input-group am-u-md-8">
                     <span class="am-input-group-label"><i class="am-icon-h-square"></i> 会员列表</span>
                     <a class="excel_btn_wrapper">
-                        <span id="member_excel_tips">点击选择Excel</span>
+                        <span id="member_excel_tips">请选择一个Excel文件</span>
                         <input type="file" id="member_list_excel" class="am-form-field">
                     </a>
                 </div>

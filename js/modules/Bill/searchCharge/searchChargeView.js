@@ -5,8 +5,8 @@ define(['txt!../../Bill/searchCharge/searchCharge.html',
         function forState(value, row, index) {
             return {
                 wjs:"未对账",
-                yjs:"已结算",
-                ytf:"已退费",
+                yjs:"已结账",
+                ytf:"已退账",
             }[value];
         }
         function forType(value, row, index) {

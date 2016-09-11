@@ -52,6 +52,7 @@ define(['txt!../Diagnose/diagnose.html',
                 this.pats.on("clearRecipe", this.clearPatRecipe, this);
                 this.pats.on('showRecordModal', this.showRecordModal, this);
                 this.treatments.on("addTreatments", this.addTreatments, this);
+                this.treatments.on("saveTreatments", this.getExecItem, this);
 
                 //侦听模板model异步请求成功后进行render；
                 this.listenTo(this.commonModel, 'getDiagTemp', this.selectDiag);
@@ -67,6 +68,9 @@ define(['txt!../Diagnose/diagnose.html',
                 this.listenTo(this.diagModel, 'stopDiagnose', this.stopResult);
                 this.listenTo(this.diagModel, 'postBodyCheck', this.bodyCheckCall);
                 this.listenTo(this.diagModel, 'getBodyCheck', this.getBodyCheck);
+                this.listenTo(this.diagModel, 'tempResult', this.insertTempDrug);
+                this.listenTo(this.diagModel, 'postCheckResult', this.postCheckCallback);
+                this.listenTo(this.diagModel, 'getExcuteItem', this.renderExcuteItem);
             },
             events: {
                 "click .am-icon-close": "closeTab",
@@ -91,115 +95,180 @@ define(['txt!../Diagnose/diagnose.html',
                 "click #diag_tmp_sure": "diagDates",
                 "click #pat_body_check": "showBodyCheck",
                 "click #submit_body_check": "submitBodyCheck",
-                "click #check_result_button":'showCheckResult',
-                "click #confirm_upload_check":'uploadCheckResult',
+                "click #check_result_button": 'showCheckResult',
+                "click #confirm_upload_check": 'uploadCheckResult',
                 "change #check_result_file": "showCheckFileName",
+                "click #refresh_exec_item": "getExecItem",
             },
-            showCheckFileName:function (e) {
-                var event=window.event||e;
+            getExecItem:function () {
+                this.diagModel.getExcuteItem(this.diagnosis_id)
+            },
+            renderExcuteItem: function (res) {
+                $(".exec_item_list").html('');
+                var pat_name = $(".recipe_basic_info .pat_name").text(),index=0;
+                if (res.errorNo == 0) {
+                    var jc = res.rows.JC, jy = res.rows.JY,treatments=res.rows.treament;
+                    if (jc && jc.length) {
+                        jc.forEach(function (row) {
+                            index++;
+                            var $li = $("<li></li>");
+                            $li.append("<span class='exec_item_index'>" + index+ "</span>");
+                            $li.append("<span class='exec_item_type'>-检查-</span>");
+                            $li.append("<span class='check_item_name'>" + row['item_name'] + "</span>");
+                            $li.append("<span class='exec_item_result'>" + row['report_result'] + "</span>");
+                            // 下载链接
+                            if (row['save_path']) {
+                                var href = "http://192.168.0.116:8081/jethis/Diagnosis/DownloadPic?";
+                                href +="item_name=" + encodeURIComponent(row["item_name"]) + "&src=" + encodeURIComponent(row['save_path'])+"&pat_name=" + encodeURIComponent(pat_name) ;
+                                $li.append('<a class="am-fr am-btn am-btn-xs am-radius am-btn-success exec_img_btn" href=' + href + ' target="_blank">下载影像</a>')
+                            };
+                            $(".exec_item_list").append($li);
+                        });
+                    }
+                    if (jy && jy.length) {
+                        jy.forEach(function (row) {
+                            index++;
+                            var $li = $("<li></li>");
+                            $li.append("<span class='exec_item_index'>" + index + "</span>");
+                            $li.append("<span class='exec_item_type'>-检验-</span>");
+                            $li.append("<span class='inspec_item_name'>" + row['item_name'] + "</span>");
+                            $li.append("<span class='exec_item_result'>" + row['report_result'] + "</span>");
+                            // 下载链接
+                            if (row['save_path']) {
+                                var href = "http://192.168.0.116:8081/jethis/Diagnosis/DownloadPic?";
+                                href += "pat_name=" + encodeURIComponent(pat_name) + "&item_name=" + encodeURIComponent(row["item_name"]) + "&src=" + encodeURIComponent(row['save_path']);
+                                $li.append('<a class="am-fr am-btn am-btn-xs am-radius am-btn-success exec_img_btn" href=' + href + ' target="_blank">下载影像</a>')
+                            };
+                            $(".exec_item_list").append($li);
+                        });
+                    }
+                    if (treatments && treatments.length) {
+                        treatments.forEach(function (row) {
+                            index++;
+                            var $li = $("<li></li>");
+                            $li.append("<span class='exec_item_index'>" + index + "</span>");
+                            $li.append("<span class='exec_item_type'>-诊疗项目-</span>");
+                            $li.append("<span class='inspec_item_name'>" + row['item_name'] + "</span>");
+                            $li.append("<span class='exec_item_num'>" + row['item_num'] + "</span>");
+                            $(".exec_item_list").append($li);
+                        });
+                    }
+
+                }
+            },
+            postCheckCallback: function (res) {
+                if (res.state == '100') {
+                    $('#check_result_modal').modal('close');
+                    this.diagModel.getExcuteItem(this.diagnosis_id);
+                }
+            },
+            showCheckFileName: function (e) {
+                var event = window.event || e;
                 var file = event.target.files[0], name = file.name;
                 $('#check_result_file_tips').attr('filename', name).html(name);
             },
-            showCheckResult:function () {
-                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
-                if(pat_id==''||!pat_id){
+            showCheckResult: function (e) {
+                var pat_id = $("#diagnose_box").attr('patient_id'), param = {}, e = e || window.event;
+                if (pat_id == '' || !pat_id) {
                     alert('请先选择一名患者进行就诊!');
                     return;
                 }
+                $('#check_result_modal input').val('');
+                $("#check_result_file_tips").text("点击选择图片");
                 $('#check_result_modal').modal({
-                    closeViaDimmer:false
+                    closeViaDimmer: false
                 });
+                return false;
             },
-            uploadCheckResult:function () {
-                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
-                var register_no= $(".register_id").val();
-                var diagnosis_id= this.diagnosis_id;
-                var check_result=$('#upload_check_result').val(),
-                    record_type=$('#record_type').val(),
-                    check_name=$('#upload_check_name').val();
+            uploadCheckResult: function () {
+                var pat_id = $("#diagnose_box").attr('patient_id'), param = {};
+                var register_no = $(".register_id").val();
+                var diagnosis_id = this.diagnosis_id;
+                var check_result = $('#upload_check_result').val(),
+                    record_type = $('#record_type').val(),
+                    check_name = $('#upload_check_name').val();
                 var excelData = new FormData();
-                var files = document.getElementById('check_result_file').files,
-                    file_name = $('#check_result_file_tips').attr('filename');
+                var files = document.getElementById('check_result_file').files;
+                excelData.append('item_name', check_name);
+                excelData.append('report_result', check_result);
+                excelData.append('record_type', record_type);
+                excelData.append('patient_id', pat_id);
+                excelData.append('diagnosis_id', diagnosis_id);
+                excelData.append('register_no', register_no);
                 if (files.length) {
                     excelData.append('report_name', files[0]);
-                    excelData.append('item_name', check_name);
-                    excelData.append('report_result', check_result);
-                    excelData.append('record_type', record_type);
-                    excelData.append('patient_id', pat_id);
-                    excelData.append('diagnosis_id', diagnosis_id);
-                    excelData.append('register_no', register_no);
-                    this.diagModel.postCheckResult(excelData);
                 }
+                this.diagModel.postCheckResult(excelData);
             },
-            showBodyCheck:function () {
-                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
-                if(pat_id==''||!pat_id){
+            showBodyCheck: function () {
+                var pat_id = $("#diagnose_box").attr('patient_id'), param = {};
+                if (pat_id == '' || !pat_id) {
                     alert('请先选择一名患者进行就诊!');
                     return;
                 }
-                var register_no= $(".register_id").val();
-                var diagnosis_id= this.diagnosis_id;
-                this.diagModel.getBodyCheck(pat_id,diagnosis_id,register_no);
+                var register_no = $(".register_id").val();
+                var diagnosis_id = this.diagnosis_id;
+                this.diagModel.getBodyCheck(pat_id, diagnosis_id, register_no);
                 $('#body_check_modal').modal({
-                    closeViaDimmer:false
+                    closeViaDimmer: false
                 });
             },
-            getBodyCheck:function (res) {
-                if(res.errorNo===0){
-                    var checkData=res.checkData;
-                    for(var key in checkData){
-                        $('#'+key).val(checkData[key])
+            getBodyCheck: function (res) {
+                if (res.errorNo === 0) {
+                    var checkData = res.checkData;
+                    for (var key in checkData) {
+                        $('#' + key).val(checkData[key])
                     }
                 }
             },
-            submitBodyCheck:function () {
-                var pat_id=$("#diagnose_box").attr('patient_id'),param={};
-                if(pat_id==''||!pat_id){
+            submitBodyCheck: function () {
+                var pat_id = $("#diagnose_box").attr('patient_id'), param = {};
+                if (pat_id == '' || !pat_id) {
                     alert('请先选择一名患者进行就诊!');
                     return;
                 }
-                else{
-                    var register_no= $(".register_id").val()
-                    var diagnosis_id= this.diagnosis_id;
-                    var pat_height= $("#pat_height").val();
-                    if(pat_height){
-                        param['pat_height']=pat_height;
+                else {
+                    var register_no = $(".register_id").val()
+                    var diagnosis_id = this.diagnosis_id;
+                    var pat_height = $("#pat_height").val();
+                    if (pat_height) {
+                        param['pat_height'] = pat_height;
                     }
-                    var pat_weight= $("#pat_weight").val();
-                    if(pat_weight){
-                        param['pat_weight']=pat_weight;
+                    var pat_weight = $("#pat_weight").val();
+                    if (pat_weight) {
+                        param['pat_weight'] = pat_weight;
                     }
-                    var pat_pulse= $("#pat_pulse").val();
-                    if(pat_pulse){
-                        param['pat_pulse']=pat_pulse;
+                    var pat_pulse = $("#pat_pulse").val();
+                    if (pat_pulse) {
+                        param['pat_pulse'] = pat_pulse;
                     }
-                    var pat_temperature= $("#pat_temperature").val();
-                    if(pat_temperature){
-                        param['pat_temperature']=pat_temperature;
+                    var pat_temperature = $("#pat_temperature").val();
+                    if (pat_temperature) {
+                        param['pat_temperature'] = pat_temperature;
                     }
-                    var s_blood_pressure_h= $("#s_blood_pressure_h").val();
-                    if(s_blood_pressure_h){
-                        param['s_blood_pressure_h']=s_blood_pressure_h;
+                    var s_blood_pressure_h = $("#s_blood_pressure_h").val();
+                    if (s_blood_pressure_h) {
+                        param['s_blood_pressure_h'] = s_blood_pressure_h;
                     }
-                    var s_blood_pressure_l= $("#s_blood_pressure_l").val();
-                    if(s_blood_pressure_l){
-                        param['s_blood_pressure_l']=s_blood_pressure_l;
+                    var s_blood_pressure_l = $("#s_blood_pressure_l").val();
+                    if (s_blood_pressure_l) {
+                        param['s_blood_pressure_l'] = s_blood_pressure_l;
                     }
-                    var i_blood_pressure_h= $("#i_blood_pressure_h").val();
-                    if(i_blood_pressure_h){
-                        param['i_blood_pressure_h']=i_blood_pressure_h;
+                    var i_blood_pressure_h = $("#i_blood_pressure_h").val();
+                    if (i_blood_pressure_h) {
+                        param['i_blood_pressure_h'] = i_blood_pressure_h;
                     }
-                    var i_blood_pressure_l= $("#i_blood_pressure_l").val();
-                    if(i_blood_pressure_l){
-                        param['i_blood_pressure_l']=i_blood_pressure_l;
+                    var i_blood_pressure_l = $("#i_blood_pressure_l").val();
+                    if (i_blood_pressure_l) {
+                        param['i_blood_pressure_l'] = i_blood_pressure_l;
                     }
-                    if(register_no&&diagnosis_id){
-                        this.diagModel.postBodyCheck(pat_id,diagnosis_id,register_no,param)
+                    if (register_no && diagnosis_id) {
+                        this.diagModel.postBodyCheck(pat_id, diagnosis_id, register_no, param)
                     }
                 }
             },
-            bodyCheckCall:function(res){
-                if(res.errorNo==0){
+            bodyCheckCall: function (res) {
+                if (res.errorNo == 0) {
                     $('#body_check_modal').modal('close')
                 }
             },
@@ -209,7 +278,7 @@ define(['txt!../Diagnose/diagnose.html',
             },
             showPatRecipe: function (row) {
                 this.diagnosis_id = row.diagnosis_id || "";
-                $("#diagnose_box").attr('patient_id',row['patient_id']);
+                $("#diagnose_box").attr('patient_id', row['patient_id']);
                 $(".pat_name").val(row.patient_name);
                 $(".pat_sex").val(row.patient_sex == 'M' ? '男' : '女');
                 var date = 0;
@@ -225,6 +294,7 @@ define(['txt!../Diagnose/diagnose.html',
                 $(".register_date").val(row.diagnosis_date);
                 $("#recipe_table").bootstrapTable("removeAll");
                 $("#zy_table").bootstrapTable("removeAll");
+                this.diagModel.getExcuteItem(row['diagnosis_id'])
             },
             clearPatRecipe: function () {
                 $(".pat_name").val("");
@@ -401,7 +471,7 @@ define(['txt!../Diagnose/diagnose.html',
             },
             //点击模板确定后
             diagDates: function () {
-                var rows = $("#diag_temp_tbl").bootstrapTable("getSelections")[0];
+                var rows = $("#diag_temp_tbl").bootstrapTable("getAllSelections")[0];
                 $("#patient_tell").val(rows.patient_tell || "");
                 $("#recipe_diagnose").val(rows.diagnosis_result || "");
                 var params1 = {
@@ -446,7 +516,7 @@ define(['txt!../Diagnose/diagnose.html',
             //医嘱模块确认之后的操作
             useAdviceTemp: function () {
                 var $tb = $(this.el).find("#docAdvice_temps");
-                var rows = $tb.bootstrapTable("getSelections");
+                var rows = $tb.bootstrapTable("getAllSelections");
                 if (rows.length == 0) {
                     return;
                 }
@@ -462,11 +532,21 @@ define(['txt!../Diagnose/diagnose.html',
                 }
             },
             selectRecipe: function (result) {
-                var $Table = $("#recipe_table");
                 if (result.errorNo == 0) {
-                    var oldData = $Table.bootstrapTable('getData');
-                    var data = result.rows;
                     var codes = result.rows.map(function (drug) {
+                        return drug['drug_code'];
+                    });
+                    this.diagModel.tempToDrug(codes)
+                } else {
+                }
+            },
+            insertTempDrug: function (res) {
+                var $Table = $("#recipe_table");
+                var $ZyTable = $("#zy_table");
+                if (res.errorNo == 0) {
+                    var oldData = $Table.bootstrapTable('getData');
+                    var data = res.rows;
+                    var codes = data.map(function (drug) {
                         return drug['drug_code'];
                     });
                     oldData.forEach(function (drug) {
@@ -475,13 +555,12 @@ define(['txt!../Diagnose/diagnose.html',
                         }
                     });
                     $Table.bootstrapTable('load', data);
-                } else {
                 }
             },
             //点击处方模板时,请求处方明细并显示
             useRecipeTemp: function () {
                 var $tb = $(this.el).find("#recipe_temp_tbl");
-                var rows = $tb.bootstrapTable("getSelections");
+                var rows = $tb.bootstrapTable("getAllSelections");
                 var _this = this;
                 if (rows.length == 0) {
                     return;
@@ -495,7 +574,7 @@ define(['txt!../Diagnose/diagnose.html',
             },
             //加入药物,当药物ID相同时,就加数目,不同时就添加新的行
             addTreatments: function (rows) {
-                $('#recipe_tabs').tabs('open',0)
+                $('#recipe_tabs').tabs('open', 0)
                 var drugs = {}, isRow = false;
                 if (rows.errorNo && rows.errorNo != 0) {
                     //alert(rows.resultInfo);
@@ -512,7 +591,7 @@ define(['txt!../Diagnose/diagnose.html',
                 if (recipe_type == "cmedicine") {
                     tableId = $("#zy_table");
                     total_type = "input.zy_cost";
-                    $('#recipe_tabs').tabs('open',1);
+                    $('#recipe_tabs').tabs('open', 1);
                 }
                 var foreData = tableId.bootstrapTable("getData");
                 for (var i = 0; i < drugs.length; i++) {
@@ -619,7 +698,8 @@ define(['txt!../Diagnose/diagnose.html',
                 xyData.forEach(function (value) {
                     value.unit_price = value.price;
                     value.drug_sic_name = value.drug_name;
-                    value.take_times=value.take_times||"seo";
+                    value.take_times = value.take_times || "seo";
+                    value.min_packing_unit = value.unit || "";
                     delete value.id;
                     delete value[""];
                 });
@@ -628,7 +708,8 @@ define(['txt!../Diagnose/diagnose.html',
                     value.unit_price = value.price;
                     value.drug_sic_name = value.drug_name;
                     value.packing_spec = value.goods_spec;
-                    value.take_times=value.take_times||"seo";
+                    value.take_times = value.take_times || "seo";
+                    value.min_packing_unit = value.unit || "";
                     delete value.id;
                     delete value[""];
                 });
@@ -650,7 +731,7 @@ define(['txt!../Diagnose/diagnose.html',
                 param["patient_birth"] = $(".pat_info .pat_birth").text();
                 param["patient_age"] = new Date().getFullYear() - $(".pat_info .pat_birth").splice(0, 4);
                 param["patient_marriage"] = $(".pat_info .pat_marriage").text();
-                param["diagnosis_id"] = $(".finish_diag").eq(1).attr("diagnosis_id");
+                param["diagnosis_id"] = this.diagnosis_id;
                 param["xy"] = xyData;
                 param["zy"] = zyData;
 
@@ -692,10 +773,10 @@ define(['txt!../Diagnose/diagnose.html',
                     $(".print_content .diag_result").html(param["diagnosis_result"]);
                     $(".drug_list").html("");
                     if (param["xy"].length > 0) {
-                        param["xy"].forEach(function(xy){
-                            var $div=$("<div class='am-g'></div>");
-                            var subDiv="<div class='am-u-md-2'></div>";
-                            $div.html([$(subDiv).html("&nbsp;").prop('outerHTML'),$(subDiv).html(xy['drug_sic_name']).prop('outerHTML'),$(subDiv).html(xy['packing_spec']).prop('outerHTML'),$(subDiv).html(xy['drug_num']).prop('outerHTML'),$(subDiv).html(xy['min_packing_unit']).prop('outerHTML'),$(subDiv).html(xy['take_way']).prop('outerHTML')].join(''));
+                        param["xy"].forEach(function (xy) {
+                            var $div = $("<div class='am-g'></div>");
+                            var subDiv = "<div class='am-u-md-2'></div>";
+                            $div.html([$(subDiv).html("&nbsp;").prop('outerHTML'), $(subDiv).html(xy['drug_sic_name']).prop('outerHTML'), $(subDiv).html(xy['packing_spec']).prop('outerHTML'), $(subDiv).html(xy['drug_num']).prop('outerHTML'), $(subDiv).html(xy['min_packing_unit']).prop('outerHTML'), $(subDiv).html(xy['take_way']).prop('outerHTML')].join(''));
                             $('.drug_list').append($div);
                         })
                     }
@@ -742,7 +823,6 @@ define(['txt!../Diagnose/diagnose.html',
                 } else if (result.errorNo == "-1") {
                     alert(result.info);
                 } else {
-                    //alert("保存病历失败")
                 }
             },
             resetAll: function () {
@@ -756,7 +836,7 @@ define(['txt!../Diagnose/diagnose.html',
                 $(".pat_idCard").text("");
                 $(".pat_age").text("");
                 $("#diag_record_tbl").bootstrapTable("removeAll");
-
+                $('.exec_item_list').html('');
                 $('.recipe_basic_info input').val('');
                 $("#patient_tell").val("");
                 $("#recipe_diagnose").val("");

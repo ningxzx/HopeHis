@@ -3,11 +3,11 @@
  */
 define(["jquery", "backbone"],
     function ($, Backbone) {
-        var rootUrl = "http://114.55.85.57:8081";
+        var rootUrl = "http://192.168.0.220:8081";
         var mWarningModel = Backbone.Model.extend({
             getDrugmwarning: function (startdatetime, enddatetime,
                                        goodsname, goodstype, storatebatchno,
-                                       suppliersname, productername, stockSt, stockEd) {
+                                       suppliersname, stockSt, stockEd) {
                 var that = this;
                 var result = {};
                 var params = {
@@ -17,7 +17,6 @@ define(["jquery", "backbone"],
                     goods_type: goodstype,
                     batch_no: storatebatchno,
                     suppliers_name: suppliersname,
-                    producter_name: productername,
                     min_num: stockSt,
                     max_num: stockEd
                 };

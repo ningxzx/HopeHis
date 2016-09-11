@@ -1,5 +1,5 @@
 define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     // 获取患者信息项目
     var regPatsModel = Backbone.Model.extend({
         getRegPatients: function (state) {
@@ -7,7 +7,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var _this = this, result = {};
             var param = {"doctor_id": sessionStorage.getItem('doctor_id'), state: state};
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/Patient/PatientInfo",
+                url: "http://192.168.0.220:8081/jethis/Patient/PatientInfo",
                 type: 'get',
                 data: param
             }).done(function (res) {

@@ -113,7 +113,7 @@ define(['jquery',
             },
             changePage: function (view, menu, submenu) {
                 $.ajaxSetup({
-                    timeout:10000,
+                    // timeout:30000,
                     headers:{
                         'app-key': 'fb98ab9159f51fd1',
                         'app-secret': '09f7c8cba635f7616bc131b0d8e25947s',
@@ -226,6 +226,7 @@ define(['jquery',
                     var $table=$panel.find('.am-panel-bd .fixed-table-body table');
                     var title=$panel.find('.panel_title').html()+' '+jctLibs.dataGet.currentDate();
                     $table.one('page-change.bs.table', function () {
+                        $table.find('td').css("mso-number-format","/@")
                         $table.tableExport({type:'excel',fileName:title})
                         $table.bootstrapTable('togglePagination');
                     });
@@ -233,7 +234,7 @@ define(['jquery',
                 })
                 $('.first_focus').focus();
                 $.ajax({
-                    url:'http://114.55.85.57:8081/jethis/message/messageNum',
+                    url:'http://192.168.0.220:8081/jethis/message/messageNum',
                     type:'get',
                     success:function (res) {
                         $('#messages').html(res.msgNum);

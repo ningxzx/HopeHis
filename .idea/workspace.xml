@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="527df8aa-3e4c-478a-a289-4bf6c5690448" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist" afterPath="$PROJECT_DIR$/dist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.js" afterPath="$PROJECT_DIR$/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/diagnose.css" afterPath="$PROJECT_DIR$/css/workstation/diagnose.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/medicine.css" afterPath="$PROJECT_DIR$/css/workstation/medicine.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/office.css" afterPath="$PROJECT_DIR$/css/workstation/office.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/patient.css" afterPath="$PROJECT_DIR$/css/workstation/patient.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/setting.css" afterPath="$PROJECT_DIR$/css/workstation/setting.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workstation/workstation.css" afterPath="$PROJECT_DIR$/css/workstation/workstation.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jethis.html" afterPath="$PROJECT_DIR$/jethis.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jethisMain.js" afterPath="$PROJECT_DIR$/js/jethisMain.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jethisRouter.js" afterPath="$PROJECT_DIR$/js/jethisRouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/libs/jctlibs/function.js" afterPath="$PROJECT_DIR$/js/libs/jctlibs/function.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/afterPay/afterPayCollection.js" afterPath="$PROJECT_DIR$/js/modules/Bill/afterPay/afterPayCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/charge/chargeModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/charge/chargeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/charge/chargeView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/charge/chargeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/dispense/dispense.html" afterPath="$PROJECT_DIR$/js/modules/Bill/dispense/dispense.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/dispense/dispenseModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/dispense/dispenseModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/dispense/dispenseView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/dispense/dispenseView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/refund/refundModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/refund/refundModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/refund/refundView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/refund/refundView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/retailDrugRecord/retailDrugRecordModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/retailDrugRecord/retailDrugRecordModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricing.html" afterPath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricingModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricingModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricingView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/retailPricing/retailPricingView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchCharge/searchChargeModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchCharge/searchChargeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchCharge/searchChargeView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchCharge/searchChargeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchCredit/searchCreditCollection.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchCredit/searchCreditCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefund.html" afterPath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefund.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefundModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefundModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefundView.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchRefund/searchRefundView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchSettle/searchSettle.html" afterPath="$PROJECT_DIR$/js/modules/Bill/searchSettle/searchSettle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/searchSettle/searchSettleModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/searchSettle/searchSettleModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/settle/settle.html" afterPath="$PROJECT_DIR$/js/modules/Bill/settle/settle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Bill/settle/settleModel.js" afterPath="$PROJECT_DIR$/js/modules/Bill/settle/settleModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/commonModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/commonModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/doctorModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/doctorModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/icdModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/icdModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/patRecord/patRecord.html" afterPath="$PROJECT_DIR$/js/modules/Common/patRecord/patRecord.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/patRecord/patRecordView.js" afterPath="$PROJECT_DIR$/js/modules/Common/patRecord/patRecordView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/patientGroupModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/patientGroupModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/patientModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/patientModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Common/vipRecordModel.js" afterPath="$PROJECT_DIR$/js/modules/Common/vipRecordModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/diagnoseView.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/diagnoseView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/diagTempCollection.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/diagTempCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/diagnoseModel.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/diagnoseModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/execitemCollection.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/execitemCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/medRecordModel.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/medRecordModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/recipeTempCollection.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/recipeTempCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/recipeTempDetailModel.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/recipeTempDetailModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/regPatsModel.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/regPatsModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/model/treatmentModel.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/model/treatmentModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/recipe.html" afterPath="$PROJECT_DIR$/js/modules/Diagnose/recipe.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/recipeRecord.html" afterPath="$PROJECT_DIR$/js/modules/Diagnose/recipeRecord.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/recipeRecordView.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/recipeRecordView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/recipeView.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/recipeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/regPatsView.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/regPatsView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/treatments.html" afterPath="$PROJECT_DIR$/js/modules/Diagnose/treatments.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Diagnose/treatmentsView.js" afterPath="$PROJECT_DIR$/js/modules/Diagnose/treatmentsView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Index/index.html" afterPath="$PROJECT_DIR$/js/modules/Index/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Index/indexModel.js" afterPath="$PROJECT_DIR$/js/modules/Index/indexModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/drugPriceAudit.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/drugPriceAudit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/drugPriceAuditView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/drugPriceAuditView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/priceChangeModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/drugPriceAudit/priceChangeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarning.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarning.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarningModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarningModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarningView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mWarning/mWarningView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorage.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorageModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorageModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorageView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mcurStorage/mcurStorageView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionary.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionaryModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionaryModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionaryView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/mdictionaryView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/xinzengjia.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mdictionary/xinzengjia.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/minCheck/minCheckModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/minCheck/minCheckModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/minCheck/minCheckView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/minCheck/minCheckView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/minStorage/inStorageModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/minStorage/inStorageModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/minStorage/minStorage.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/minStorage/minStorage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/minStorage/minStorageView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/minStorage/minStorageView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChange.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChange.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChangeModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChangeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChangeView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mnumChange/mnumChangeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mpriceChange/mpriceChange.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mpriceChange/mpriceChange.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mpriceChange/mpriceChangeModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mpriceChange/mpriceChangeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/msupplier/msupplierView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/msupplier/msupplierView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/msupplier/supplierModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/msupplier/supplierModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverify.html" afterPath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverify.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverifyModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverifyModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverifyView.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mverify/mverifyView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Medicine/mverifyLog/mverifyLogModel.js" afterPath="$PROJECT_DIR$/js/modules/Medicine/mverifyLog/mverifyLogModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/MemberView.js" afterPath="$PROJECT_DIR$/js/modules/Member/MemberView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberList/memberList.html" afterPath="$PROJECT_DIR$/js/modules/Member/memberList/memberList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberList/memberListView.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberList/memberListView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberList/memberModel.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberList/memberModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecord.html" afterPath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecord.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecordModel.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecordModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecordView.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberRecord/memberRecordView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberLevelModel.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberLevelModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberSetting.html" afterPath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberSetting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberSettingView.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberSetting/memberSettingView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Member/memberStatistics/memberStatisticsModel.js" afterPath="$PROJECT_DIR$/js/modules/Member/memberStatistics/memberStatisticsModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/allDynamicNews/adnModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/allDynamicNews/adnModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/allDynamicNews/adnView.js" afterPath="$PROJECT_DIR$/js/modules/Office/allDynamicNews/adnView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/allNews/allNewsModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/allNews/allNewsModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/arrange/arrange.html" afterPath="$PROJECT_DIR$/js/modules/Office/arrange/arrange.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/arrange/arrangeModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/arrange/arrangeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/arrange/arrangeView.js" afterPath="$PROJECT_DIR$/js/modules/Office/arrange/arrangeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/historyMessage/historyMessageModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/historyMessage/historyMessageModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/postDynamicNews/pdnModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/postDynamicNews/pdnModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/schedule/scheduleModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/schedule/scheduleModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Office/sendInfo/sendInfoModel.js" afterPath="$PROJECT_DIR$/js/modules/Office/sendInfo/sendInfoModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/Hospitalpatients.html" afterPath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/Hospitalpatients.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/HospitalpatientsModel.js" afterPath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/HospitalpatientsModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/HospitalpatientsView.js" afterPath="$PROJECT_DIR$/js/modules/Patient/Hospitalpatients/HospitalpatientsView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/Patientsdepartment/Patientsdepartment.html" afterPath="$PROJECT_DIR$/js/modules/Patient/Patientsdepartment/Patientsdepartment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/Patientsdepartment/PatientsdepartmentModel.js" afterPath="$PROJECT_DIR$/js/modules/Patient/Patientsdepartment/PatientsdepartmentModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/addpatient/addpatient.html" afterPath="$PROJECT_DIR$/js/modules/Patient/addpatient/addpatient.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/addpatient/addpatientView.js" afterPath="$PROJECT_DIR$/js/modules/Patient/addpatient/addpatientView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/patientModel.js" afterPath="$PROJECT_DIR$/js/modules/Patient/patientModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Patient/patientModify/patientModifyView.js" afterPath="$PROJECT_DIR$/js/modules/Patient/patientModify/patientModifyView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Regist/register/registerModel.js" afterPath="$PROJECT_DIR$/js/modules/Regist/register/registerModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Regist/register/registerView.js" afterPath="$PROJECT_DIR$/js/modules/Regist/register/registerView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Regist/searchRegister/searchRegModel.js" afterPath="$PROJECT_DIR$/js/modules/Regist/searchRegister/searchRegModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Regist/totalRegister/totalRegisterModel.js" afterPath="$PROJECT_DIR$/js/modules/Regist/totalRegister/totalRegisterModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/accountRefer/accountReferCollection.js" afterPath="$PROJECT_DIR$/js/modules/Setting/accountRefer/accountReferCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonal.html" afterPath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonalModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonalModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonalView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/changePersonal/changePersonalView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSet.html" afterPath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSetModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSetModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSetView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/checkSet/checkSetView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/departMange/departMange.html" afterPath="$PROJECT_DIR$/js/modules/Setting/departMange/departMange.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/departMange/departMangeModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/departMange/departMangeModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/dicTableMaintain/dicTableModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/dicTableMaintain/dicTableModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSetting.html" afterPath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSetting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSettingModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSettingModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSettingView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/functionSetting/functionSettingView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/menuSet/menuSetModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/menuSet/menuSetModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/myClinic/myClinicModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/myClinic/myClinicModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/myClinic/myClinicView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/myClinic/myClinicView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/myFeedback/myFeedbackCollection.js" afterPath="$PROJECT_DIR$/js/modules/Setting/myFeedback/myFeedbackCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintain.html" afterPath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintain.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintainModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintainModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintainView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/recipeMaintain/recipeMaintainView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/registerFeeSet/registerFeeSetModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/registerFeeSet/registerFeeSetModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/typiclCase/typiclCase.html" afterPath="$PROJECT_DIR$/js/modules/Setting/typiclCase/typiclCase.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/typiclCase/typiclCaseCollection.js" afterPath="$PROJECT_DIR$/js/modules/Setting/typiclCase/typiclCaseCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/userMange/userMangeView.js" afterPath="$PROJECT_DIR$/js/modules/Setting/userMange/userMangeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Setting/userMange/userModel.js" afterPath="$PROJECT_DIR$/js/modules/Setting/userMange/userModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/InventoryContrast/InventoryContrastCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/InventoryContrast/InventoryContrastCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/clinicFinancial/clinicFinancialCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/clinicFinancial/clinicFinancialCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/clinicFinancial/clinicFinancialModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/clinicFinancial/clinicFinancialModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/department/departmentModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/department/departmentModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/drugsTo/drugsToCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/drugsTo/drugsToCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/inspectionItem/inspectionItemModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/inspectionItem/inspectionItemModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/outpatientCharges/outpatientModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/outpatientCharges/outpatientModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/outpatientService/outpatientServiceCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/outpatientService/outpatientServiceCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/prescriptionStatistics/prescriptionStatisticsModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/prescriptionStatistics/prescriptionStatisticsModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/purchaseReturn/purchasereturnCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/purchaseReturn/purchasereturnCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/statisticalModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/statisticalModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/typicalDisease/typicalDiseaseModel.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/typicalDisease/typicalDiseaseModel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/Statistical/workloadStatistics/workloadStatisticsCollection.js" afterPath="$PROJECT_DIR$/js/modules/Statistical/workloadStatistics/workloadStatisticsCollection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/viewModule/resetPwd/resetPWD.js" afterPath="$PROJECT_DIR$/js/modules/viewModule/resetPwd/resetPWD.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/viewModule/signin/login.js" afterPath="$PROJECT_DIR$/js/modules/viewModule/signin/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/viewModule/signup/baseInfo.js" afterPath="$PROJECT_DIR$/js/modules/viewModule/signup/baseInfo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/modules/viewModule/signup/signup.js" afterPath="$PROJECT_DIR$/js/modules/viewModule/signup/signup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/tableExport/tableExport.js" afterPath="$PROJECT_DIR$/js/plugins/tableExport/tableExport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/regist.html" afterPath="$PROJECT_DIR$/regist.html" />
+    </list>
+    <ignored path="hopehis.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hopehis" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="SignIn.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SignIn.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hopehis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hopehis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hopehis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="527df8aa-3e4c-478a-a289-4bf6c5690448" name="Default" comment="" />
+      <created>1473589328163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1473589328163</updated>
+      <workItem from="1473589330666" duration="35000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="35000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SignIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -54,7 +54,6 @@ define(['txt!../../Medicine/minCheck/minCheck.html',
                 var batchNo = $('#batch_no').val(),
                     startDate = $('.start_calender').val(),
                     endDate = $('.end_calender').val(),
-                    recipient_person_id = $('#recipient_person').val(),
                     state = $('#check_state').val(),
                     data = {};
                 if (state !== 'all') {
@@ -62,9 +61,6 @@ define(['txt!../../Medicine/minCheck/minCheck.html',
                 }
                 if (batchNo) {
                     data['batch_no'] = batchNo;
-                }
-                if (recipient_person_id != 'all') {
-                    data['recipient_person_id'] = recipient_person_id;
                 }
                 if (startDate) {
                     data['start_date_time'] = startDate;
@@ -76,9 +72,9 @@ define(['txt!../../Medicine/minCheck/minCheck.html',
                 //this.commonModel.search('admin.storate_record',data,'getRecord');
             },
             renderRecopient: function (res) {
-                if (res.errorNo === 0&&res.data.length) {
-                    res.data.forEach(function (person) {
-                        jctLibs.appendToChosen($("#recipient_person"), person[0], person[1])
+                if (res.errorNo === 0&&res.rows.length) {
+                    res.rows.forEach(function (person) {
+                        jctLibs.appendToChosen($("#recipient_person"), person['account_id'], person['user_name'])
                     })
                     $(this.el).find("#recipient_person").trigger("chosen:updated")
                 }
@@ -189,14 +185,14 @@ define(['txt!../../Medicine/minCheck/minCheck.html',
                         },
                         {field: 'batch_no', title: '批次号',width: "15%",},
                         {field: 'recipient_person_name', title: '入库员'},
-                        {field: 'suppliers_name', title: '供应商', },
+                        {field: 'suppliers_name', title: '供应商',width: "20%"},
                         {field: 'need_pay_costs', title: '应付费用' },
                         {field: 'charge_costs', title: '实付费用'},
                         {field: 'storate_date', title: '入库时间', width: "10%",formatter:jctLibs.formatDate},
                         {field: 'review_date_time', title: '审核时间', width: "10%",formatter:jctLibs.formatDate},
                         {field: 'review_name', title: '审核人' },
-                        {field: 'review_result', title: '审核状态', formatter: showState, width: "10%"},
-                        {field: 'memo', title: '说明', width: "10%"},
+                        {field: 'review_result', title: '审核状态', formatter: showState, width: "8%"},
+                        {field: 'memo', title: '说明', width: "8%"},
                     ],
                     data: [],
                     sortName:'review_result',
