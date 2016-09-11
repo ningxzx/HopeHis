@@ -22,7 +22,7 @@ define(["backbone","jctLibs"],function(Backbone,jctLibs) {
 
     var recipeTempCollection = Backbone.Collection.extend({
         model: recipeTempModel,
-        url: "http://114.55.85.57:8081/jethis/query/get",
+        url: "http://192.168.0.220:8081/jethis/query/get",
         getRecipeTemp: function (ownerId, templateType) {
             var that = this,result=new jctLibs.jetHisResult;
             this.fetch({

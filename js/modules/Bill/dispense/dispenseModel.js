@@ -3,7 +3,7 @@
  */
 define(["jquery", "backbone"],
     function ($, Backbone) {
-        var rootUrl = "http://114.55.85.57:8081";
+        var rootUrl = "http://192.168.0.220:8081";
         var dispenseModel = Backbone.Model.extend({
             dispenseDrug: function (param) {
                 var _this = this, result = {};
@@ -30,7 +30,7 @@ define(["jquery", "backbone"],
                     type: 'post',
                     data: JSON.stringify(param),
                     success: function (res) {
-                        result.result = res['RESULT'];
+                        result=res;
                         _this.trigger("dispenseCallback", result);
                     },
                     error: function (err) {

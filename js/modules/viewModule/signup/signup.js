@@ -54,7 +54,6 @@ $(function () {
         events.preventDefault();
         var _this = $(events.target);
         $("#regist_submit").attr("disabled", true);
-        var cardId = $("#id_card").val();
         if ($('#card_photo')[0].files.length == 0 || $('#e_license_photo')[0].files.length == 0) {
             alert("请上传图片");
             $("#regist_submit").attr("disabled", false);
@@ -68,7 +67,7 @@ $(function () {
         //var address1 = $("#address1").val();
 
         epInfo.append('corporation_name', sessionStorage.getItem('registName'));
-        epInfo.append('corporation_no', cardId);
+        epInfo.append('corporation_no', sessionStorage.getItem('registCardId'));
         epInfo.append('corporation_photo', $('#card_photo')[0].files[0], $('#card_photo').attr('filename'));
         epInfo.append('enterprise_name', $('#enterprise_name').val());
         epInfo.append('admin_id', sessionStorage.getItem('registId'));
@@ -79,7 +78,7 @@ $(function () {
         epInfo.append('city', city1);
         epInfo.append('area', area1);
         $.ajax({
-            url: 'http://114.55.85.57:8081/account/jethis/NewEnterprise',
+            url: 'http://192.168.0.220:8081/account/jethis/NewEnterprise',
             type: 'POST',
             headers: {
                 'app-key': 'fb98ab9159f51fd1',

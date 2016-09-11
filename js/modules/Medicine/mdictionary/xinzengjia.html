@@ -1,584 +1,17 @@
 <div class="admin-content">
-    <!--<div class="am-tabs" data-am-tabs>-->
-    <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
-    <!--<li class="am-active"><a href="#tab1">西药</a></li>-->
-    <!--<li><a href="#tab2">中药</a></li>-->
-    <!--</ul>-->
-
-    <!--<div class="am-tabs-bd">-->
-    <!--<div class="am-tab-panel am-fade am-in am-active" id="tab1">-->
-    <!--<div class="am-g">-->
-    <!--<button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0;margin: 10px;">保存-->
-    <!--</button>-->
-    <!--<button type="button" class="am-btn am-btn-primary am-radius Return_medicine"-->
-    <!--style="padding: 0;margin: 10px;">返回药品信息维护-->
-    <!--</button>-->
-    <!--</div>-->
-
-    <!--<div class="conterArea" style="font-size: 12px;">-->
-    <!--<table border="0" cellpadding="0" cellspacing="0"-->
-    <!--class=" am-table am-table-bordered am-table-striped am-table-compact">-->
-    <!--<tbody>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品名称：<br>-->
-    <!--药品条码：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<input name="txtYPMC" type="text" maxlength="30" class="input_b First"-->
-    <!--onblur="GetHeader(this.value)" title="输入药品名称如果存在，则调用药品名称"-->
-    <!--style="width:120px;margin-bottom: 5px">-->
-
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid #01B1E3;-->
-    <!--width: 350px; height: 160px; position: absolute; left: 136px; top: 103px; display: none;-->
-    <!--overflow: scroll;">-->
-    <!--<table class="TableArea2" width="100%" style="border-left: 0px; border-top: 0px;">-->
-    <!--<tbody>-->
-    <!--<tr>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药品编码-->
-    <!--</th>-->
-    <!--<th nowrap="nowrap">-->
-    <!--药品名称-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--拼音简码-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--五笔简码-->
-    <!--</th>-->
-    <!--<th nowrap="nowrap">-->
-    <!--药品分类-->
-    <!--</th>-->
-    <!--<th nowrap="nowrap">-->
-    <!--药品规格-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--助记码-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药品剂型-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--常用单位-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--最小单位-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--换算量-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--剂型单位-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--剂量-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--用药类型-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药品来源-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--医保类别-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--发票项目-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--国家基本药物-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药品用法-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--频度-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药物类型-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--医保编码-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--生产厂家-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--库存上限-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--库存下限-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--单次用量-->
-    <!--</th>-->
-    <!--<th style="display: none" nowrap="nowrap">-->
-    <!--药品状态-->
-    <!--</th>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-    <!--</table>-->
-    <!--</div>-->
-
-    <!--<font color="red">&nbsp;*</font>&nbsp;&nbsp;<span class="CHbox"><input type="checkbox"-->
-    <!--name="SFKCL"></span>是否拆零<br>-->
-    <!--<input name="txtTMBH" type="text" maxlength="30" class="input_b" style="width:200px;">-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--别名：<br>-->
-    <!--拼音简码：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<input name="txtAliases" type="text" maxlength="30" class="input_b First"-->
-    <!--style="width:120px;margin-bottom: 5px;"><br>-->
-    <!--<input name="txtPYJM" type="text" class="input_b" style="width:120px;">-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--五笔简码：-->
-    <!--</td>-->
-    <!--<td style="width: 220px;">-->
-    <!--<input name="txtWBJM" type="text" class="input_b" style="width:120px;">-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" width="120" style="background: #F2F2F2;">-->
-    <!--助 记 码：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" class="style2">-->
-    <!--<input name="txtZJM" type="text" class="input_b" style="width:120px;">-->
-    <!--货位码(可用于盘点)-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品分类：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" style="height: 25px">-->
-    <!--<select name="ddlYPLB" onblur="ShowValues(this)" style="width:125px;">-->
-    <!--<option value="0"></option>-->
-    <!--<option value="1">西药</option>-->
-    <!--<option value="3">中成药</option>-->
-    <!--<option value="4">感冒类</option>-->
-    <!--<option value="5">心脑血管用药</option>-->
-
-    <!--</select>-->
-    <!--&nbsp; <font color="red">*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品剂型：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="YPJXNAME" type="text" style="width: 120px;">-->
-    <!--<input name="YPJXID" type="hidden" style="width: 120px;">-->
-
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid #01B1E3;-->
-    <!--width: 122px; height: 200px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<font color="red">*</font>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--常用单位：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" class="style2">-->
-    <!--<input name="CYDWNAME" type="text" style="width: 120px;">-->
-    <!--<input name="CYDWID" type="hidden">-->
-
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid  #01B1E3;-->
-    <!--width: 122px; height: 200px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<font color="red">*</font>&nbsp;&nbsp;-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--最小单位：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" style="height: 25px">-->
-    <!--<input name="ZXDWNAME" type="text" style="width: 120px;">-->
-    <!--<input name="ZXDWID" type="hidden">-->
-
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid  #01B1E3;-->
-    <!--width: 122px; height: 200px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<font color="red">*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--换 算 量：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtHSL" type="text" class="input_b" onkeyup="CheckInputIntFloat(this)"-->
-    <!--style="width:120px;"><font color="red">&nbsp;&nbsp;*</font>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--剂型单位：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" class="style2">-->
-    <!--<input name="JXDWNAME" type="text" style="width: 120px;">-->
-    <!--<input name="JXDWID" type="hidden">-->
-
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid  #01B1E3;-->
-    <!--width: 122px; height: 190px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<font color="red">*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--&nbsp;剂&nbsp;&nbsp;&nbsp; 量：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" style="height: 25px">-->
-    <!--<div>-->
-
-    <!--<input name="txtJL" type="text" class="input_b" onkeyup="CheckInputIntFloat(this)"-->
-    <!--style="width:120px;">&nbsp;<font color="red">&nbsp;*</font>-->
-
-    <!--</div>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品规格：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtYPGG" type="text" class="input_b" onfocus="GGChange();"-->
-    <!--style="width:120px;"><font color="red">&nbsp;&nbsp;*</font>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--用药类型：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" class="style2">-->
-    <!--<select name="ddlYYLX" style="width:125px;">-->
-    <!--<option value="1">处方用药</option>-->
-    <!--<option value="2">非处方用药</option>-->
-
-    <!--</select>-->
-    <!--<font color="red">&nbsp;*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品来源：-->
-    <!--</td>-->
-    <!--<td bgcolor="#ffffff" style="height: 25px">-->
-    <!--<select name="ddlYPLY" style="width:125px;">-->
-    <!--<option value="1">国内</option>-->
-    <!--<option value="3">国外</option>-->
-
-    <!--</select>-->
-    <!--<font color="red">&nbsp;*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--发票项目：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<select name="ddFPXM" style="width:125px;">-->
-    <!--<option value="0"></option>-->
-    <!--<option value="1">西药费</option>-->
-    <!--<option value="2">中药费</option>-->
-    <!--<option value="6">中成药</option>-->
-    <!--<option value="4">注射费</option>-->
-    <!--<option value="5">诊疗费</option>-->
-    <!--<option value="3">检查费</option>-->
-    <!--<option value="7">体检费</option>-->
-    <!--<option value="8">胃镜检查费</option>-->
-
-    <!--</select>-->
-    <!--<font color="red">&nbsp;*</font>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--单次用量：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<div>-->
-
-    <!--<input name="txtdcyl" type="text" class="input_b" onkeyup="CheckInputIntFloat(this)"-->
-    <!--style="width:120px;">-->
-    <!--<span></span>-->
-
-
-    <!--</div>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--国家基本药物：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<select name="ddlGJJBYW" style="width:125px;">-->
-    <!--<option value="0">是</option>-->
-    <!--<option value="1">否</option>-->
-
-    <!--</select>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品用法：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<select name="ddlYPYFLB" style="width:125px;">-->
-    <!--<option value="0"></option>-->
-    <!--<option value="42">口服</option>-->
-    <!--<option value="2">静脉注射</option>-->
-    <!--<option value="1">外用</option>-->
-    <!--<option value="8">冲服</option>-->
-    <!--<option value="9">煎服</option>-->
-
-    <!--</select>-->
-    <!--<select name="ddlZYYFLB" style="width:125px;display:none;">-->
-    <!--<option value="0"></option>-->
-    <!--<option value="1">煎服</option>-->
-    <!--<option value="2">外敷</option>-->
-    <!--<option value="3">碾碎分两次服用</option>-->
-    <!--<option value="4">水煎服两次服用</option>-->
-    <!--<option value="5">生吃</option>-->
-    <!--<option value="6">泡水</option>-->
-    <!--<option value="7">温水助服</option>-->
-    <!--<option value="8">直接服用</option>-->
-
-    <!--</select>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--频度：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<select name="ddlPD" style="width:125px;">-->
-    <!--<option value=""></option>-->
-    <!--<option value="1">Qd</option>-->
-    <!--<option value="2">Bid</option>-->
-    <!--<option value="3">Tid</option>-->
-    <!--<option value="4">Qid</option>-->
-    <!--<option value="5">Q2h</option>-->
-    <!--<option value="6">Q4h</option>-->
-    <!--<option value="7">Q6h</option>-->
-    <!--<option value="8">Q8h</option>-->
-    <!--<option value="12">QN</option>-->
-    <!--<option value="11">Q2D</option>-->
-
-    <!--</select>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--医保类别：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<select name="ddlYBLB" style="width:125px;">-->
-    <!--<option value="0"></option>-->
-    <!--<option value="1">医保基本项目</option>-->
-    <!--<option value="2">医保自费项目</option>-->
-    <!--<option value="3">医保特殊检查项目</option>-->
-    <!--<option value="4">甲类</option>-->
-    <!--<option value="5">医保其它用药</option>-->
-    <!--<option value="7">医保自费用药</option>-->
-    <!--<option value="8">单味自费中草药</option>-->
-
-    <!--</select>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--医保编码：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtYBBM" type="text" class="input_b" style="width:120px;">-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--生产厂家：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid  #01B1E3;-->
-    <!--width: 152px; height: 210px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<input name="SCCJNAME" type="text" style="width: 180px;">-->
-    <!--<input name="SCCJID" type="hidden">-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药物类型：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<div class="divfd" style="background-color: #d7d4d4; border: 1px solid  #01B1E3;-->
-    <!--width: 122px; height: 210px; display: none; overflow: scroll;">-->
-    <!--</div>-->
-    <!--<input name="YWLXNAME" type="text" style="width: 120px;">-->
-    <!--<input name="YWLXID" type="hidden">-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2">-->
-    <!--药品状态：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input type="radio" name="rdo" value="rdoYPQY" checked="checked"><label-->
-    <!--for="rdoYPQY">启用</label>-->
-    <!--<input type="radio" name="rdo" value="rdoYPJY"><label for="rdoYPJY">禁用</label>-->
-    <!--</td>-->
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--库存上限：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<input name="txtKCSX" type="text" value="0" onkeyup="CheckInputIntFloat(this)"-->
-    <!--style="width:120px;">-->
-    <!--<span></span>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--库存下限：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtKCXX" type="text" value="0" onkeyup="CheckInputIntFloat(this)"-->
-    <!--style="width:120px;">-->
-    <!--<span></span>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--备注：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<div style="position: relative;">-->
-    <!--<span style="margin-left: 100px; width: 18px; overflow: hidden;">-->
-    <!--<select name="sel" onchange="selecting()" style="width: 118px; margin-left: -100px;-->
-    <!--height: 22.5px;">-->
-    <!--<option value=""></option>-->
-    <!--<option value="小孩减半">小孩减半</option>-->
-    <!--<option value="小孩慎用">小孩慎用</option>-->
-    <!--<option value="孕妇禁用">孕妇禁用</option>-->
-    <!--</select></span>-->
-    <!--<input name="box" type="text" maxlength="50" style="width: 100px; position: absolute;-->
-    <!--left: 0px; height: 21px">-->
-    <!--</div>-->
-    <!--</td>-->
-    <!--</tr>-->
-
-    <!--<tr style="color:#666666;display:none;">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--采购价：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtCGJ" type="text" style="width:120px;">元/<span></span><font-->
-    <!--color="red">*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--处方价：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<input name="txtCFJ" type="text" style="width:120px;">元/<span></span><font-->
-    <!--color="red">*</font>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2">-->
-    <!--售药价：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtXSJ" type="text" style="width:120px;">元/<span></span><font-->
-    <!--color="red">*</font>-->
-    <!--</td>-->
-    <!--</tr>-->
-
-    <!--<tr style="color:#666666;display:none;">-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--库存量：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<input name="txtKCL" type="text" title="不填默认为0"-->
-    <!--style="width:120px;"><span></span><span></span>-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--有效期：-->
-    <!--</td>-->
-    <!--<td class="style1">-->
-    <!--<input name="YXQ" type="text" tabindex="1" class="Wdate" style="width:90px;">-->
-    <!--</td>-->
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--备注：-->
-    <!--</td>-->
-    <!--<td>-->
-    <!--<div style="position: relative;">-->
-    <!--<span style="margin-left: 100px; width: 18px; overflow: hidden;">-->
-    <!--<select name="Select1" onchange="changeing()" style="width: 118px; margin-left: -100px;-->
-    <!--height: 22.5px;">-->
-    <!--<option value=""></option>-->
-    <!--<option value="小孩减半">小孩减半</option>-->
-    <!--<option value="小孩慎用">小孩慎用</option>-->
-    <!--<option value="孕妇禁用">孕妇禁用</option>-->
-    <!--</select></span>-->
-    <!--<input name="txtbox" type="text" maxlength="50" style="width: 100px;-->
-    <!--position: absolute; left: 0px; height: 21px">-->
-    <!--</div>-->
-    <!--</td>-->
-    <!--</tr>-->
-
-    <!--<tr style="color: #666666">-->
-    <!--<td class="TdRight W_80" style="display: none; background: rgb(242, 242, 242);">-->
-    <!--生产日期：-->
-    <!--</td>-->
-    <!--<td colspan="5" style="display: none;">-->
-    <!--<input name="txtProductionDate" type="text" class="Wdate" style="width:120px;">-->
-    <!--<input type="hidden" value="2015-11-12">-->
-    <!--</td>-->
-
-
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品说明：-->
-    <!--</td>-->
-    <!--<td colspan="5">-->
-    <!--<textarea name="txtExplain" style="width: 770px" rows="5"></textarea>-->
-    <!--</td>-->
-
-    <!--</tr>-->
-    <!--<tr style="color: #666666">-->
-
-    <!--<td class="TdRight W_80" style="background: #F2F2F2;">-->
-    <!--药品功效：-->
-    <!--</td>-->
-    <!--<td colspan="5">-->
-    <!--<textarea name="txtEffect" style="width: 770px" rows="5"></textarea>-->
-    <!--</td>-->
-
-    <!--</tr>-->
-    <!--</tbody>-->
-    <!--</table>-->
-    <!--<input type="hidden" name="HiddPD" value="0">-->
-    <!--<input type="hidden" name="hidTMBH" value="0">-->
-    <!--<input type="hidden" name="hidKCMS" value="Y">-->
-    <!--</div>-->
-
-
-    <!--<div class="am-g" style="padding:0;">-->
-    <!--<span>药物禁忌设置：</span>-->
-    <!--<button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0"-->
-    <!--data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0,width: 650}">选择药品-->
-    <!--</button>-->
-    <!--</div>-->
-
-    <!--<div class="am-g">-->
-
-    <!--<table id="xzx">-->
-    <!--<thead>-->
-    <!--<tr>-->
-    <!--<th data-field="name" style="width: 100px;text-align: center;border-right: 1px solid #ccc">-->
-    <!--操作-->
-    <!--</th>-->
-    <!--<th data-field="stargazers_count"-->
-    <!--style="width: 200px;text-align: center;border-right: 1px solid #ccc">药品编号-->
-    <!--</th>-->
-    <!--<th data-field="forks_count"-->
-    <!--style="width: 200px;text-align: center;border-right: 1px solid #ccc">药品名称-->
-    <!--</th>-->
-    <!--<th data-field="description" style="width: 600px;text-align: center;">禁忌说明</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--</table>-->
-    <!--</div>-->
-    <!--</div>-->
-
-
-    <!--<div class="am-tab-panel am-fade" id="tab2">-->
     <div class="medicine_module">
         <div class="am-g am-padding-bottom">
-            <button type="button" class="am-btn am-btn-primary am-btn-xs am-radius Return_medicine">返回药品信息维护
-            </button>
+            <div class="am-u-md-5">
+                <button type="button" class="am-btn am-btn-primary am-btn-xs am-radius Return_medicine">返回新增药品表
+                </button>
+            </div>
+            <div class="sm-u-md-7"><span id="error_tips"></span></div>
         </div>
 
         <div class="am-g am-panel am-panel-default">
             <div class="am-panel-hd">
-                中药信息
-                <a class="panel_tool" id="save_zy"><i class="am-icon-tags"></i> 保存</a>
+                新增药品信息
+                <a class="panel_tool" id="save_zy"><i class="am-icon-caret-square-o-right"></i> 保存</a>
             </div>
             <div class="am-panel-bd">
                 <div class="am-g top">
@@ -586,31 +19,61 @@
                         <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 药品名称</span>
                         <input type="text" class="am-form-field" id="zy_name">
                     </div>
-                    <div class="am-input-group am-u-md-4">
+                    <div class="am-input-group am-u-md-8">
                         <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药品成分</span>
                         <input type="text" class="am-form-field" id="zy_parts">
-                    </div>
-                    <div class="am-input-group am-u-sm-4">
-                        <span class="am-input-group-label"><i class="am-icon-dedent"></i>药品状态</span>
-
-                        <div class="am-form-field">
-                            <label class="am-radio-inline" for="start">
-                                <input type="radio" name="zy_state" value="0" id="start"> 启用
-                            </label>
-                            <label class="am-radio-inline" for="end">
-                                <input type="radio" name="zy_state" value="1" id="end"> 禁用
-                            </label>
-                        </div>
                     </div>
                 </div>
                 <div class="am-g top">
                     <div class="am-input-group am-u-md-4">
+                        <span class="am-input-group-label"><i class="am-icon-lastfm"></i> 药物类别</span>
+                        <select name="" id="type_select">
+                            <option value="中药">中药</option>
+                            <option value="化学药品">化学药品</option>
+                            <option value="中成药">中成药</option>
+                            <option value="生物制剂">生物制剂</option>
+                            <option value="辅料">辅料</option>
+                        </select>
+                    </div>
+                    <div class="am-input-group am-u-md-4">
+                        <span class="am-input-group-label"><i class="am-icon-cube"></i> 药物剂型</span>
+                        <select name="" id="dosage_form_select">
+                            <option value="片剂">片剂</option>
+                            <option value="胶囊剂">胶囊剂</option>
+                            <option value="注射剂">注射剂</option>
+                            <option value="液体剂">液体剂</option>
+                            <option value="外用涂剂">外用涂剂</option>
+                        </select>
+                    </div>
+                    <div class="am-input-group am-u-md-4">
                         <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药物规格</span>
                         <input type="text" class="am-form-field" id="zy_spec" placeholder="例如:10g">
                     </div>
+                </div>
+                <div class="am-g top">
+                    <div class="am-input-group am-u-md-4">
+                        <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药物单位</span>
+                        <select name="" id="drug_unit_select">
+                            <option value="g">g</option>
+                            <option value="盒">盒</option>
+                            <option value="瓶">瓶</option>
+                            <option value="袋">袋</option>
+                            <option value="套">套</option>
+                            <option value="箱">箱</option>
+                            <option value="支">支</option>
+                        </select>
+                    </div>
                     <div class="am-input-group am-u-md-4">
                         <span class="am-input-group-label"><i class="am-icon-ticket"></i> 最小包装规格单位</span>
-                        <input type="text" class="am-form-field" id="zy_unit" placeholder="例如:5g/包">
+                        <select name="" id="drug_min_unit_select">
+                            <option value="g">g</option>
+                            <option value="盒">盒</option>
+                            <option value="瓶">瓶</option>
+                            <option value="袋">袋</option>
+                            <option value="套">套</option>
+                            <option value="箱">箱</option>
+                            <option value="支">支</option>
+                        </select>
                     </div>
                     <div class="am-input-group am-u-sm-4">
                         <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 药品说明</span>

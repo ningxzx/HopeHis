@@ -142,14 +142,16 @@
     cursor: pointer;
     color: #00b3ee;
 }
-.showEditModal.unresolve>span{
-    margin-right:0;
+.showEditModal.unresolve>.reg_fee{
+    margin-left:0;
 }
-.showEditModal>span{
-    margin-right: 1rem;
+.showEditModal{
+    margin: 0 auto;
+    padding: .2rem;
 }
-.showEditModal>span:last-child{
-    margin-right:0;
+.showEditModal .reg_fee{
+    margin-left: 1rem;
+    color: orangered;
 }
 #reg_free{
     text-align: center;
@@ -157,7 +159,4 @@
 .notice_input_padding{
     margin:0 1rem ;
     padding: 0 1rem;
-}
-#edit_work_plan,#post_work_plan{
-    margin-right: 2rem;
 }

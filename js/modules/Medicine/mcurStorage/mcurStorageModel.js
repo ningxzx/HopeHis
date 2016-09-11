@@ -1,5 +1,5 @@
 define(["jquery", "backbone"],function($, Backbone) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     var mcurStorageModel = Backbone.Model.extend({
         getmcurStorage: function (goodsname,storatebatchno,goodstype) {
             var that = this;

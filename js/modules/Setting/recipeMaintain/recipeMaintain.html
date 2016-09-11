@@ -10,54 +10,62 @@
             </li>
         </ul>
         <div class="am-tabs-bd">
-            <div class="am-tab-panel am-active" id="diag_temp_wrapper">
-                <div class="am-g p">
-                    <div class="am-u-md-3">
-                        <div class="am-input-group">
-                            <span class="am-input-group-label">模板名称:</span>
-                            <input type="text" class="am-form-field" id="search_diag_name"/>
+            <div class="am-tab-panel am-active " id="diag_temp_wrapper">
+                <div class="search_wrapper">
+                    <div class="am-g p">
+                        <div class="am-u-md-3">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label">模板名称:</span>
+                                <input type="text" class="am-form-field" id="search_diag_name"/>
+                            </div>
+                        </div>
+                        <div class="am-u-md-3 am-u-end">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label">模板类别:</span>
+                                <select name="demo_class" id="diag_temp_type" class="am-form-field">
+                                    <option selected="selected" value="all">-全部-</option>
+                                    <option value="0">私有模板</option>
+                                    <option value="1">公有模板</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="am-u-md-3 am-u-end">
-                        <div class="am-input-group">
-                            <span class="am-input-group-label">模板类别:</span>
-                            <select name="demo_class" id="diag_temp_type" class="am-form-field">
-                                <option selected="selected" value="all">-全部-</option>
-                                <option value="0">私有模板</option>
-                                <option value="1">公有模板</option>
-                            </select>
+                    <div class="am-g p">
+                        <div class="am-u-md-6">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label">创建时间:</span>
+                                <input type="text" class="am-form-field start" placeholder="点击选择日期" readonly/>
+                                <span class="am-input-group-label">至</span>
+                                <input type="text" class="am-form-field end" placeholder="点击选择日期" readonly/>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="am-g p">
-                    <div class="am-u-md-6">
-                        <div class="am-input-group">
-                            <span class="am-input-group-label">创建时间:</span>
-                            <input type="text" class="am-form-field start" placeholder="点击选择日期" readonly/>
-                            <span class="am-input-group-label">至</span>
-                            <input type="text" class="am-form-field end" placeholder="点击选择日期" readonly/>
+                        <div class="am-u-md-4">
+                            <div class="am-input-group">
+                                <button type="button"
+                                        class="reset_search am-fr am-btn am-btn-warning am-btn-xs am-radius">重置
+                                </button>
+                                <button type="button" id="diag_search_btn"
+                                        class="am-btn am-fr am-btn-primary am-btn-xs am-radius">查询
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="am-u-md-4">
-                        <div class="am-input-group">
-                            <button type="button" class="reset_search am-fr am-btn am-btn-primary am-btn-xs">重置</button>
-                            <button type="button" id="diag_search_btn" class="am-btn am-fr am-btn-primary am-btn-xs">查询</button>
+                        <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert
+                             id="diag_operate_su">
+                            <p></p>
                         </div>
-                    </div>
-                    <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert id="diag_operate_su">
-                        <p></p>
-                    </div>
-                    <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert id="diag_operate_fail">
-                        <p></p>
+                        <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert
+                             id="diag_operate_fail">
+                            <p></p>
+                        </div>
                     </div>
                 </div>
                 <!--导出为Word或Excel-->
                 <div class="am-g" id="diag_table_wrapper">
                     <div class="am-panel am-panel-default table_panel">
                         <div class="am-panel-hd">诊断模板
-                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导入excel</a>
                             <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
-                            <a class="panel_tool refresh_tool" id="refresh_diag_template"><i class="am-icon-refresh"></i> 刷新</a>
+                            <a class="panel_tool refresh_tool" id="refresh_diag_template"><i
+                                    class="am-icon-refresh"></i> 刷新</a>
                         </div>
                         <div class="am-panel-bd">
                             <table id="diag_tbl" data-pagination="true"></table>
@@ -97,14 +105,20 @@
                         </div>
                         <div class="am-u-md-3 ">
                             <div class="am-input-group">
-                                <button type="button" id="reset_search_advice" class="reset_search am-btn am-btn-primary am-btn-xs">重置</button>
-                                <button type="button" id="search_advice_btn" class="am-btn am-btn-primary am-btn-xs">查询</button>
+                                <button type="button" id="search_advice_btn"
+                                        class="am-btn am-btn-primary am-btn-xs am-radius">查询
+                                </button>
+                                <button type="button" id="reset_search_advice"
+                                        class="reset_search am-btn  am-btn-warning am-btn-xs am-radius">重置
+                                </button>
                             </div>
                         </div>
-                        <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert id="advice_operate_su">
+                        <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert
+                             id="advice_operate_su">
                             <p></p>
                         </div>
-                        <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert id="advice_operate_fail">
+                        <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert
+                             id="advice_operate_fail">
                             <p></p>
                         </div>
                     </div>
@@ -114,9 +128,9 @@
                 <div class="am-g" id="advice_table_wrapper">
                     <div class="am-panel am-panel-default table_panel">
                         <div class="am-panel-hd">医嘱模板
-                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
                             <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
-                            <a class="panel_tool refresh_tool" id="refresh_recipe_template"><i class="am-icon-refresh"></i> 刷新</a>
+                            <a class="panel_tool refresh_tool" id="refresh_recipe_template"><i
+                                    class="am-icon-refresh"></i> 刷新</a>
                         </div>
                         <div class="am-panel-bd">
                             <table id="advice_tbl" data-pagination="true">
@@ -137,7 +151,7 @@
                         <div class="am-u-md-3">
                             <div class="am-input-group">
                                 <span class="am-input-group-label">模板名称:</span>
-                                <input type="text" class="am-form-field"/>
+                                <input type="text" class="am-form-field" id="search_recipe_name"/>
                             </div>
                         </div>
                         <div class="am-u-md-3">
@@ -172,14 +186,20 @@
                         </div>
                         <div class="am-u-md-3">
                             <div class="am-input-group">
-                                <button type="button" class="reset_search am-fr am-btn am-btn-primary am-btn-xs">重置</button>
-                                <button type="button" id="recipe_search_btn" class="am-btn am-fr am-btn-primary am-btn-xs">查询</button>
+                                <button type="button"
+                                        class="reset_search am-fr am-btn am-btn-warning am-btn-xs am-radius">重置
+                                </button>
+                                <button type="button" id="recipe_search_btn"
+                                        class="am-btn am-fr am-btn-primary am-btn-xs am-radius">查询
+                                </button>
                             </div>
                         </div>
-                        <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert id="recipe_operate_su">
+                        <div class=" am-u-md-2 am-alert am-alert-success am-fr am-hide" data-am-alert
+                             id="recipe_operate_su">
                             <p></p>
                         </div>
-                        <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert id="recipe_operate_fail">
+                        <div class=" am-u-md-2 am-alert am-alert-warning am-fr am-hide" data-am-alert
+                             id="recipe_operate_fail">
                             <p></p>
                         </div>
                     </div>
@@ -188,7 +208,6 @@
                 <div class="am-g" id="recipe_table_wrapper">
                     <div class="am-panel am-panel-default table_panel">
                         <div class="am-panel-hd">处方模板
-                            <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
                             <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
                             <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
                         </div>
@@ -240,7 +259,7 @@
                 </div>
                 <div class="am-g" id="recipe_temp_detail_wrapper">
                     <div class="am-panel am-panel-default table_panel">
-                        <div class="am-panel-hd">处方明细
+                        <div class="am-panel-hd"><span class="panel_title">处方明细</span>
                             <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
                             <a class="panel_tool add_tool"><i class="am-icon-plus"></i> 新增</a>
                             <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
@@ -253,15 +272,20 @@
                 </div>
                 <div class="am-g p recipe_detail_btn_group">
                     <div class="am-input-group am-u-md-4 am-fr">
-                        <button class="am-btn-warning  am-u-md-4 am-btn-xs am-btn " id="return_recipe_template">返回</button>
-                        <button class="am-btn-success am-u-md-4 am-btn-xs am-btn am-fr" id="add_recipe_template">确认</button>
+                        <button class="am-btn-warning  am-u-md-4 am-btn-xs am-radius am-btn "
+                                id="return_recipe_template">返回
+                        </button>
+                        <button class="am-btn-success am-u-md-4 am-btn-xs am-radius am-btn am-fr"
+                                id="add_recipe_template">确认
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="am-panel am-modal am-panel-default table_panel" id="diag_modal">
             <div class="am-panel-hd"><span class="modal_title">添加诊断模板</span>
-                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;" data-am-modal-close>&times;</a></div>
+                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;"
+                   data-am-modal-close>&times;</a></div>
             <div class="am-panel-bd">
                 <div class="am-g" style="margin-bottom: 1rem">
                     <div class="am-input-group am-u-md-6 ">
@@ -272,9 +296,9 @@
                         <span class="am-input-group-label"> 模板类型</span>
                         <div class="member_radio member_state">
 
-                                <input type="radio" name="diag_type" id="personal_diag_temp" value="0"> 私有模板
+                            <input type="radio" name="diag_type" id="personal_diag_temp" value="0"> 私有模板
 
-                                <input type="radio" name="diag_type" id="public_diag_temp" value="1"> 公有模板
+                            <input type="radio" name="diag_type" id="public_diag_temp" value="1"> 公有模板
 
                         </div>
                     </div>
@@ -283,14 +307,16 @@
                     <div class="am-u-md-6 ">
                         <div class="am-input-group">
                             <span class="am-input-group-label">相关医嘱模板</span>
-                            <select name="demo_class" id="diag_temp_advice" data-placeholder="请选择模板" class="am-form-field">
+                            <select name="demo_class" id="diag_temp_advice" data-placeholder="请选择模板"
+                                    class="am-form-field">
                             </select>
                         </div>
                     </div>
                     <div class="am-u-md-6">
                         <div class="am-input-group">
                             <span class="am-input-group-label">相关处方模板</span>
-                            <select name="demo_class" id="diag_temp_recipe" data-placeholder="请选择模板" class="am-form-field">
+                            <select name="demo_class" id="diag_temp_recipe" data-placeholder="请选择模板"
+                                    class="am-form-field">
                             </select>
                         </div>
                     </div>
@@ -309,14 +335,16 @@
                 </div>
                 <div class="am-g" style="margin-bottom: 2rem">
                     <div class="am-input-group am-u-md-3 am-fr">
-                        <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_diag_template">确认</button>
+                        <button class="am-btn-success am-btn-xs am-radius am-btn am-fr" id="add_diag_template">确认
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="am-panel am-modal am-panel-default table_panel" id="advice_modal">
             <div class="am-panel-hd"><span class="modal_title">添加医嘱模板</span>
-                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;" data-am-modal-close>&times;</a></div>
+                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;"
+                   data-am-modal-close>&times;</a></div>
             <div class="am-panel-bd">
                 <div class="am-g">
                     <div class="am-input-group am-u-md-6 ">
@@ -327,9 +355,9 @@
                         <span class="am-input-group-label"> 模板类型</span>
                         <div class="member_radio member_state">
 
-                                <input type="radio" name="advice_type" id="personal_advice_temp" value="0"> 私有模板
+                            <input type="radio" name="advice_type" id="personal_advice_temp" value="0"> 私有模板
 
-                                <input type="radio" name="advice_type" id="public_advice_temp" value="1"> 公有模板
+                            <input type="radio" name="advice_type" id="public_advice_temp" value="1"> 公有模板
 
                         </div>
                     </div>
@@ -341,23 +369,24 @@
                 </div>
                 <div class="am-g" style="margin-bottom: 2rem">
                     <div class="am-input-group am-u-md-3 am-fr">
-                        <button class="am-btn-success am-btn-xs am-btn" id="add_advice_template">确认</button>
+                        <button class="am-btn-success am-btn-xs am-radius am-btn" id="add_advice_template">确认</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="am-panel am-modal am-panel-default table_panel" id="medicine_modal">
             <div class="am-panel-hd"><span class="modal_title">添加药物</span>
-                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;" data-am-modal-close>&times;</a></div>
+                <a href="javascript: void(0)" class="am-fr am-close am-close-spin" style="margin-top: -0.4rem;"
+                   data-am-modal-close>&times;</a></div>
             <div class="am-panel-bd">
                 <!--<div class="am-g" style="padding: 2rem 0.5rem 1rem">-->
-                    <!--<div class="am-input-group am-u-md-6 ">-->
-                        <!--<span class="am-input-group-label"> 药品名称:</span>-->
-                        <!--<input type="text" class="am-form-field" id=""/>-->
-                    <!--</div>-->
-                    <!--<div class="am-input-group am-u-md-3 am-fr">-->
-                        <!--<button class="am-btn-success am-btn-xs am-btn am-fr" id="search_medicine">查询</button>-->
-                    <!--</div>-->
+                <!--<div class="am-input-group am-u-md-6 ">-->
+                <!--<span class="am-input-group-label"> 药品名称:</span>-->
+                <!--<input type="text" class="am-form-field" id=""/>-->
+                <!--</div>-->
+                <!--<div class="am-input-group am-u-md-3 am-fr">-->
+                <!--<button class="am-btn-success am-btn-xs am-radius am-btn am-fr" id="search_medicine">查询</button>-->
+                <!--</div>-->
                 <!--</div>-->
                 <div class="am-g p" id="medicine_wrapper">
                     <div class="am-panel-bd">
@@ -366,7 +395,8 @@
                 </div>
                 <div class="am-g" style="margin-bottom: 2rem">
                     <div class="am-input-group am-u-md-3 am-fr" style="margin-right: 0.5rem;">
-                        <button class="am-btn-success am-btn-xs am-btn am-fr" id="add_recipe_detail">提交药物</button>
+                        <button class="am-btn-success am-btn-xs am-radius am-btn am-fr" id="add_recipe_detail">提交药物
+                        </button>
                     </div>
                 </div>
             </div>

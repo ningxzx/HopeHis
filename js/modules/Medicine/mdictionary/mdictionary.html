@@ -1,262 +1,155 @@
 <div class="admin-content medicine_module">
-    <div class="am-g">
-        <div class="am-input-group am-u-sm-3 ">
-            <span class="am-input-group-label"><i class="am-icon-ticket"></i>药品名称</span>
-            <input type="text" class="am-form-field first_focus" placeholder="名称或拼音码" id="med_name">
-        </div>
-        <div class="am-u-sm-5 operate_btn am-u-end">
-            <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_med">查询</button>
-            <button type="button" class="am-btn am-btn-secondary am-btn-xs am-radius" id="add_med">新增药品</button>
-        </div>
-    </div>
-    <div class="am-panel am-panel-default table_panel">
-        <div class="am-panel-hd">药物基础属性表
-        </div>
-        <div class="am-panel-bd">
-            <table id="table_mdictionary">
-            </table>
-        </div>
-    </div>
-    <div class="am-panel am-panel-default table_panel am-hide detail_panel">
-        <div class="am-panel-hd">药物说明书</div>
-        <div class="am-panel-bd">
-            <div class="am-g am-margin-top">
-                <div class="am-input-group am-u-sm-3 ">
-                    <input type="text" class="am-form-field" placeholder="药品名称" id="drug_name">
+    <div class="am-tabs" data-am-tabs="{noSwipe: 1}" id="drug_dictionary_tabs">
+        <ul class="am-tabs-nav am-nav am-nav-tabs">
+            <li class="am-active"><a href="javascript: void(0)">基础药品库</a></li>
+            <li><a href="javascript: void(0)">新增药品库</a></li>
+        </ul>
+        <div class="am-tabs-bd">
+            <div class="am-tab-panel am-active">
+                <div class="am-g am-margin-top">
+                    <div class="am-input-group am-u-sm-3 ">
+                        <span class="am-input-group-label"><i class="am-icon-ticket"></i>药品名称</span>
+                        <input type="text" class="am-form-field first_focus" placeholder="" id="med_name">
+                    </div>
+                    <div class="am-u-sm-5 operate_btn am-u-end">
+                        <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_med">查询
+                        </button>
+                    </div>
                 </div>
-                <div class="am-input-group am-u-sm-3 am-u-end">
-                    <input type="text" class="am-form-field" placeholder="国药准字" id="approval_no">
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">基础药品表
+                        <a class="panel_tool refresh_tool" id="refresh_basic_drug"><i class="am-icon-refresh"></i>
+                            刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="table_mdictionary">
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="am-padding-left am-padding-right">
-                <textarea id="instruction"></textarea>
-            </div>
-        </div>
-    </div>
-
-    <div class="am-modal am-modal-no-btn" tabindex="-1" id="Drug_directory" style="width: 670px;">
-        <div class="am-modal-dialog">
-            <div class="am-modal-hd">
-                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-            </div>
-
-            <div class="am-tabs" data-am-tabs>
-                <ul class="am-tabs-nav am-nav am-nav-tabs" id="menu_pay">
-                    <li id="refund_show" class="am-active"><a href="javascript: void(0)">未导入药品</a></li>
-                    <li id="repay_show"><a href="javascript: void(0)">已导入药品</a></li>
-
-                </ul>
-
-                <div class="am-tabs-bd">
-                    <div class="am-tab-panel am-active" id="refund">
-                        <div class="am-g">
-                            <div class="CxArea">
-                                <table border="0" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                    <tr>
-                                        <td class="TdLeft">
-                                            药品检索：
-                                        </td>
-                                        <td>
-                                            <input name="YPMC" type="text" maxlength="30" tabindex="1"
-                                                   title="输完按回车即可查询" style="width:120px;">
-                                        </td>
-                                        <td class="W_70 TdRight">
-                                            处方类型：
-                                        </td>
-                                        <td>
-                                            <select name="ddlRecipeType"
-                                                    onchange="javascript:setTimeout('__doPostBack(\'ddlRecipeType\',\'\')', 0)">
-                                                <option selected="selected" value="">-全部-</option>
-                                                <option value="1">西药处方</option>
-                                                <option value="2">中药处方</option>
-
-                                            </select>
-                                        </td>
-                                        <td class="W_70 TdRight">
-                                            药品分类：
-                                        </td>
-                                        <td>
-                                            <select name="DRFL">
-                                                <option selected="selected" value="0">-全部-</option>
-                                                <option value="1">西药</option>
-                                                <option value="2">中草药</option>
-                                                <option value="3">中成药</option>
-                                                <option value="4">感冒类</option>
-                                                <option value="5">心脑血管用药</option>
-                                                <option value="6">解毒类</option>
-
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="am-btn am-btn-primary am-radius am-fl"
-                                                    style="padding: 0;margin-left: 10px;">查询
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="am-btn am-btn-primary am-radius am-fl"
-                                                    style="padding: 0;margin-left: 10px;">确定
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                <div class="am-panel am-panel-default table_panel am-hide detail_panel">
+                    <div class="am-panel-hd">药物说明书</div>
+                    <div class="am-panel-bd">
+                        <div class="am-g am-margin-top" style="margin-left: 0.4rem;">
+                            <div class="am-input-group am-u-sm-3 ">
+                                <input type="text" class="am-form-field" placeholder="药品名称" id="drug_name">
                             </div>
-
-
-                            <div style="border: 1px solid #ccc;" class="am-cf"></div>
+                            <div class="am-input-group am-u-sm-3 am-u-end">
+                                <input type="text" class="am-form-field" placeholder="国药准字" id="approval_no">
+                            </div>
                         </div>
-                        <div class="am-g ">
-                            <table data-click-to-select="true" id="Drugs_add">
-                                <thead>
-                                <tr>
-                                    <th data-field="state" data-checkbox="true"></th>
-                                    <th data-field="Drug_code">药品编号</th>
-                                    <th data-field="Drug_name">药品名称</th>
-                                    <th data-field="Drug_specifications">药品规格</th>
-                                    <th data-field="Large_unit">大单位</th>
-                                    <th data-field="Conversion_quantity">换算量</th>
-                                    <th data-field="Small_unit">小单位</th>
-                                    <th data-field="Dosage_form">药品剂型</th>
-                                    <th data-field="Manufacturer">生产厂家</th>
-
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-
-
-                    </div>
-                    <div class="am-tab-panel" id="repay">
-                        <div class="CxArea">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tbody>
-                                <tr>
-                                    <td class="TdLeft">
-                                        药品检索：
-                                    </td>
-                                    <td>
-                                        <input name="YPMC" type="text" maxlength="30" id="YPMC" tabindex="1"
-                                               title="输完按回车即可查询" style="width:120px;">
-                                    </td>
-                                    <td class="W_70 TdRight">
-                                        处方类型：
-                                    </td>
-                                    <td>
-                                        <select name="ddlRecipeType"
-                                                onchange="javascript:setTimeout('__doPostBack(\'ddlRecipeType\',\'\')', 0)">
-                                            <option selected="selected" value="">-全部-</option>
-                                            <option value="1">西药处方</option>
-                                            <option value="2">中药处方</option>
-
-                                        </select>
-                                    </td>
-                                    <td class="W_70 TdRight">
-                                        药品分类：
-                                    </td>
-                                    <td>
-                                        <select name="DRFL">
-                                            <option selected="selected" value="0">-全部-</option>
-                                            <option value="1">西药</option>
-                                            <option value="2">中草药</option>
-                                            <option value="3">中成药</option>
-                                            <option value="4">感冒类</option>
-                                            <option value="5">心脑血管用药</option>
-                                            <option value="6">解毒类</option>
-
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="am-btn am-btn-primary am-radius"
-                                                style="padding: 0">查询
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="border: 1px solid #ccc;"></div>
-
-                        <div class="am-g" style="font-size: 12px;">
-                            <table id="xzx2"
-                                   data-pagination="true"
-                                   data-search="true"
-                                   class="search_table"
-                            >
-                                <thead>
-                                <tr>
-                                    <th style="" data-field="forks_count" tabindex="0">序号</th>
-                                    <th style="" data-field="stargazers_count" tabindex="0">操作</th>
-                                    <th style="" data-field="forks_count" tabindex="0">药品名称</th>
-                                    <th style="" data-field="forks_count" tabindex="0">药品分类</th>
-                                    <th style="" data-field="forks_count" tabindex="0">处方类型</th>
-                                    <th style="" data-field="forks_count" tabindex="0">发票项目</th>
-                                    <th style="" data-field="forks_count" tabindex="0">大单位</th>
-                                    <th style="" data-field="forks_count" tabindex="0">换算量</th>
-                                    <th style="" data-field="forks_count" tabindex="0">小单位</th>
-                                    <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
-                                    <th style="" data-field="forks_count" tabindex="0">药品规格</th>
-                                    <th style="" data-field="forks_count" tabindex="0">来源</th>
-                                    <th style="" data-field="forks_count" tabindex="0">库存上限</th>
-                                    <th style="" data-field="forks_count" tabindex="0">库存下限</th>
-                                    <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
-                                    <th style="" data-field="forks_count" tabindex="0">创建日期</th>
-                                </tr>
-                                </thead>
-                            </table>
-
+                        <div class="am-padding-left am-padding-right">
+                            <textarea id="instruction"></textarea>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <div class="am-modal am-modal-no-btn" tabindex="-1" id="Drug_information">
-        <div class="am-modal-dialog">
-            <div class="am-modal-hd">导入药品信息
-                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-            </div>
-            <div class="am-modal-bd">
-                <input type="file" name="fileup" id="fileup" class="input_file" onchange="txt.value=this.value"
-                       style="float: left;">
-                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0">导入</button>
-                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0">下载模板</button>
-                <button type="button" class="am-btn am-btn-primary am-radius" style="padding: 0">清空</button>
-                <div style="border: 1px solid #ccc;"></div>
-
-                <div class="am-g table_search_wrapper" style="font-size: 12px;">
-                    <table id="xzx2" data-pagination="true" data-search="true">
-                        <thead>
-                        <tr>
-                            <th style="" data-field="forks_count" tabindex="0">序号</th>
-                            <th style="" data-field="stargazers_count" tabindex="0">操作</th>
-                            <th style="" data-field="forks_count" tabindex="0">药品名称</th>
-                            <th style="" data-field="forks_count" tabindex="0">药品分类</th>
-                            <th style="" data-field="forks_count" tabindex="0">处方类型</th>
-                            <th style="" data-field="forks_count" tabindex="0">发票项目</th>
-                            <th style="" data-field="forks_count" tabindex="0">大单位</th>
-                            <th style="" data-field="forks_count" tabindex="0">换算量</th>
-                            <th style="" data-field="forks_count" tabindex="0">小单位</th>
-                            <th style="" data-field="forks_count" tabindex="0">剂型单位</th>
-                            <th style="" data-field="forks_count" tabindex="0">药品规格</th>
-                            <th style="" data-field="forks_count" tabindex="0">来源</th>
-                            <th style="" data-field="forks_count" tabindex="0">库存上限</th>
-                            <th style="" data-field="forks_count" tabindex="0">库存下限</th>
-                            <th style="" data-field="forks_count" tabindex="0">是否有条码</th>
-                            <th style="" data-field="forks_count" tabindex="0">创建日期</th>
-                        </tr>
-                        </thead>
-                    </table>
-
+            <div class="am-tab-panel">
+                <div class="am-g am-margin-top">
+                    <div class="am-input-group am-u-sm-3 ">
+                        <span class="am-input-group-label"><i class="am-icon-ticket"></i>名称或拼音</span>
+                        <input type="text" class="am-form-field first_focus" placeholder="" id="own_drug_name">
+                    </div>
+                    <div class="am-u-sm-5 operate_btn am-u-end">
+                        <button type="button" class="am-btn  am-btn-primary am-btn-xs am-radius" id="search_own">查询
+                        </button>
+                        <button type="button" class="am-btn am-btn-secondary am-btn-xs am-radius" id="add_med">新增药品
+                        </button>
+                    </div>
                 </div>
-
+                <div class="am-panel am-panel-default table_panel">
+                    <div class="am-panel-hd">
+                        <span class="panel_title">新增药品表</span>
+                        <a class="panel_tool excel_tool"><i class="am-icon-file-excel-o"></i> 导出excel</a>
+                        <a class="panel_tool refresh_tool" id="refresh_own_drug"><i class="am-icon-refresh"></i> 刷新</a>
+                    </div>
+                    <div class="am-panel-bd">
+                        <table id="own_medicine_table"></table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div>
-
+<div class="am-modal" tabindex="-1" id="edit_own_drug">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">修改新增药物
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd">
+            <div class="am-g top">
+                <div class="am-input-group am-u-sm-4">
+                    <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 药品名称</span>
+                    <input type="text" class="am-form-field" id="edit_drug_name">
+                </div>
+                <div class="am-input-group am-u-md-8">
+                    <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药品成分</span>
+                    <input type="text" class="am-form-field" id="edit_drug_parts">
+                </div>
+            </div>
+            <div class="am-g top">
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-lastfm"></i> 药物类别</span>
+                    <select name="" id="edit_type_select">
+                        <option value="中药">中药</option>
+                        <option value="化学药品">化学药品</option>
+                        <option value="中成药">中成药</option>
+                        <option value="生物制剂">生物制剂</option>
+                        <option value="辅料">辅料</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-cube"></i> 药物剂型</span>
+                    <select name="" id="edit_dosage_form_select">
+                        <option value="片剂">片剂</option>
+                        <option value="胶囊剂">胶囊剂</option>
+                        <option value="注射剂">注射剂</option>
+                        <option value="液体剂">液体剂</option>
+                        <option value="外用涂剂">外用涂剂</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药物规格</span>
+                    <input type="text" class="am-form-field" id="edit_drug_spec" placeholder="例如:10g">
+                </div>
+            </div>
+            <div class="am-g top">
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-ticket"></i> 药物单位</span>
+                    <select name="" id="edit_drug_unit_select">
+                        <option value="g">g</option>
+                        <option value="盒">盒</option>
+                        <option value="瓶">瓶</option>
+                        <option value="袋">袋</option>
+                        <option value="套">套</option>
+                        <option value="箱">箱</option>
+                        <option value="支">支</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-ticket"></i> 最小单位</span>
+                    <select name="" id="edit_drug_min_unit_select">
+                        <option value="g">g</option>
+                        <option value="盒">盒</option>
+                        <option value="瓶">瓶</option>
+                        <option value="袋">袋</option>
+                        <option value="套">套</option>
+                        <option value="箱">箱</option>
+                        <option value="支">支</option>
+                    </select>
+                </div>
+                <div class="am-input-group am-u-md-4">
+                    <span class="am-input-group-label"><i class="am-icon-calendar-o"></i> 药品说明</span>
+                    <input type="text" class="am-form-field" id="edit_drug_memo">
+                </div>
+            </div>
+            <div class="am-g top">
+                <div class="am-u-md-8">
+                    <span id="edit_error_tips"></span>
+                </div>
+                <div class="am-u-md-4">
+                    <button id="send_btn" class="am-btn am-btn-xs am-fr am-btn-success am-radius">上传</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

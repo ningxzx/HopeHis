@@ -53,10 +53,10 @@ require(['config', 'jquery', 'jethisRouter', 'underscore', 'backbone','jctLibs',
         window.token = '';
         window.router = new Router();
         Backbone.history.start();
-        $('.compName').off('click').on('click', function () {
-            window.location.href = '#'
-            return false
-        })
+        // $('.compName').off('click').on('click', function () {
+        //     window.location.href = '#'
+        //     return false
+        // })
         if (window.sessionStorage) {
             var username = sessionStorage.getItem('user_name');
             var deptname = sessionStorage.getItem('department_name');
@@ -115,7 +115,7 @@ require(['config', 'jquery', 'jethisRouter', 'underscore', 'backbone','jctLibs',
         window.clock = function () {
             $.ajax({
                 type: 'get',
-                url: 'http://114.55.85.57:8081/jethis/login/flag',
+                url: 'http://192.168.0.220:8081/jethis/login/flag',
                 data: {account_id: sessionStorage.getItem('user_id')},
             })
         };

@@ -68,15 +68,37 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                     this.commonM.search('admin.erp_inspection_item', data, 'inspection_tbl');
                 }
             },
-            renderinspec: function (data) {
-                this.$el.find("#inspection_tbl").bootstrapTable('load', data.rows);
+            renderinspec: function (res) {
+                var rows = [];
+                if (res.errorNo == 0) {
+                    rows = res.rows;
+                }
+                else {
+                    rows = []
+                }
+                this.$el.find("#inspection_tbl").bootstrapTable('load', rows)
             },
-            renderdgns: function (data) {
-                this.$el.find("#dgns_tbl").bootstrapTable('load', data.rows);
+            renderdgns: function (res) {
+                var rows = [];
+                if (res.errorNo == 0) {
+                    rows = res.rows;
+                }
+                else {
+                    rows = []
+                }
+                this.$el.find("#dgns_tbl").bootstrapTable('load', rows);
+
             },
-            renderData: function (data) {
-                //console.log(data)
-                this.$el.find("#check_tbl").bootstrapTable('load', data.rows)
+            renderData: function (res) {
+                var rows = [];
+                if (res.errorNo == 0) {
+                    rows = res.rows;
+                }
+                else {
+                    rows = []
+                }
+                this.$el.find("#check_tbl").bootstrapTable('load', rows)
+
             },
             render: function () {
                 var that = this;
@@ -101,9 +123,9 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                                 $modal.modal();
                             },
                             "click .row_remove": function (e, value, row, index) {
-                                var data={};
+                                var data = {};
                                 data.erp = 'erp_check_item';
-                                data['record_id']=row['record_id']
+                                data['record_id'] = row['record_id']
                                 that.model.deleteCheckSet(data);
                             }
                         }
@@ -130,9 +152,9 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                                 $modal.modal();
                             },
                             "click .row_remove": function (e, value, row, index) {
-                                var data={};
+                                var data = {};
                                 data.erp = 'erp_dgns_treat_item';
-                                data['record_id']=row['record_id']
+                                data['record_id'] = row['record_id']
                                 that.model.deleteCheckSet(data);
                             }
                         }
@@ -159,9 +181,9 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                                 $modal.modal();
                             },
                             "click .row_remove": function (e, value, row, index) {
-                                var data={};
+                                var data = {};
                                 data.erp = 'erp_inspection_item';
-                                data['record_id']=row['record_id']
+                                data['record_id'] = row['record_id']
                                 that.model.deleteCheckSet(data);
                             }
                         }
@@ -183,7 +205,7 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                 return this;
             },
             events: {
-                "click #search_btn": "searchBtn",
+                "click #search_dens": "searchDens",
                 'click #check_confirm': 'submitCheck',
                 'click #diag_confirm': 'diagCheck',
                 'click #inspect_confirm': 'inspectCheck',
@@ -224,7 +246,7 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                 }
                 if (type == 'edit') {
                     var id = $(this.el).find('#check_modal').attr('recordId');
-                    row['record_id']=id;
+                    row['record_id'] = id;
                     this.model.PatchcheckSet(row);
                 }
             },
@@ -242,7 +264,7 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                 }
                 if (type == 'edit') {
                     var id = $(this.el).find('#dgns_modal').attr('recordId');
-                    row['record_id']=id;
+                    row['record_id'] = id;
                     this.model.PatchcheckSet(row);
                 }
             },
@@ -260,7 +282,7 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                 }
                 if (type == 'edit') {
                     var id = $(this.el).find('#inspection_modal').attr('recordId');
-                    row['record_id']=id;
+                    row['record_id'] = id;
                     this.model.PatchcheckSet(row);
                 }
             },
@@ -329,8 +351,12 @@ define(['txt!../../Setting/checkSet/checkSet.html',
                     that.model.PatchcheckSet(rows);
                 }
             },
-            searchBtn: function () {
-
+            searchDens: function () {
+                var dens_name = $("#dens_name").val(), data = {};
+                if (dens_name) {
+                    data['dgns_treat_name'] = dens_name;
+                }
+                this.commonM.search('admin.erp_dgns_treat_item', data, 'dgns_tbl');
             }
         });
         return view;

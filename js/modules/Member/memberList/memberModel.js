@@ -1,10 +1,10 @@
 define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     // 会员Model，包含会员的基本信息
     var memberModel = Backbone.Model.extend({
         //默认查询
-        getMembers: function (entityid) {
-            var that = this;
+        getMembers: function (data) {
+            var that = this,param=data||{};
             var result = {
                 errorNo: 0,//0为正确的值，其余值为错误
                 errorInfo: ""
@@ -12,19 +12,14 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
             $.ajax({
                 type: "get",
                 url: rootUrl+'/jethis/members/all',
-                reset: true,
-                data: {
-                    entity_id:entityid
-                }
+                data:param
             }).done(function (res) {
-                //console.log(res)
                 result.errorNo = 0;
                 if(res.rows){
                     result.depts = jctLibs.listToObject(res, 'rows')['rows'];
                 }else{
                     result.depts=res;
                 }
-
                 that.trigger("deptsGetted", result);
 
             }).fail(function (err, response) {
@@ -35,41 +30,6 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
 
             })
         },
-
-        //按照条件查询
-        conditionMember: function (customerid,customername,customertel,memberlevel,memberstate) {
-            var that = this;
-            var result = {
-                errorNo: 0,//0为正确的值，其余值为错误
-                errorInfo: ""
-            };
-            $.ajax({
-                type: "post",
-                url: rootUrl+'/jethis/members/select',
-                reset: true,
-                data: JSON.stringify({
-                    customer_id:customerid,
-                    customer_name:customername,
-                    customer_tel:customertel,
-                    member_level:memberlevel,
-                    member_state:memberstate
-                })
-            }).done(function (res) {
-
-                result.errorNo = 0;
-                //result.depts = jctLibs.listToObject(res, 'rows')['rows'];
-                result.data=res;
-                that.trigger("conditionMember", result);
-
-            }).fail(function (err, response) {
-                var responseText = $.parseJSON(err.responseText);
-                result.errorNo = responseText.code;
-                result.responseData = responseText.message;
-                that.trigger("conditionMember", result);
-
-            })
-        },
-
         //新增保存
         addMember: function (memberId,entityid,entityname,customerid,customername,customertel,customercardid,memberlevel,memberpoints,cardmoney,memberstate,discount,isusemoneypoor) {
             var that = this;
@@ -98,7 +58,6 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
                 })
             }).done(function (res) {
                 result.errorNo = 0;
-                //result.depts = jctLibs.listToObject(res, 'rows')['rows'];
                 result.depts=res;
                 that.trigger("addMember", result);
 
@@ -150,32 +109,32 @@ define(['jquery', "backbone", 'jctLibs'],function($, Backbone, jctLibs) {
 
             })
         },
-        //删除
-        delmember: function (memberID) {
-            var that = this;
-            var result = {
-                errorNo: 0,//0为正确的值，其余值为错误
-                errorInfo: ""
-            };
-            $.ajax({
-                type: "delete",
-                url:rootUrl+'/jethis/members/del/'+memberID,
-                reset: true,
-
-            }).done(function (res) {
-                result.errorNo = 0;
-                //result.depts = jctLibs.listToObject(res, 'rows')['rows'];
-                result.depts=res;
-                that.trigger("delmember", result);
-
-            }).fail(function (err, response) {
-                var responseText = $.parseJSON(err.responseText);
-                result.errorNo = responseText.code;
-                result.responseData = responseText.message;
-                that.trigger("delmember", result);
-
-            })
-        },
+        // //删除
+        // delmember: function (memberID) {
+        //     var that = this;
+        //     var result = {
+        //         errorNo: 0,//0为正确的值，其余值为错误
+        //         errorInfo: ""
+        //     };
+        //     $.ajax({
+        //         type: "delete",
+        //         url:rootUrl+'/jethis/members/del/'+memberID,
+        //         reset: true,
+        //
+        //     }).done(function (res) {
+        //         result.errorNo = 0;
+        //         //result.depts = jctLibs.listToObject(res, 'rows')['rows'];
+        //         result.depts=res;
+        //         that.trigger("delmember", result);
+        //
+        //     }).fail(function (err, response) {
+        //         var responseText = $.parseJSON(err.responseText);
+        //         result.errorNo = responseText.code;
+        //         result.responseData = responseText.message;
+        //         that.trigger("delmember", result);
+        //
+        //     })
+        // },
         chargeMember: function (member_id,param) {
             var that = this;
             var result = {

@@ -45,25 +45,26 @@
             <div class="am-g " style="margin-top: 10px;">
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">姓名:</span>
+                        <span class="am-input-group-label">姓名</span>
                         <input type="text" class="am-form-field" id="m_name">
                     </div>
                 </div>
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">性别:</span>
-                        <input type="text" class="am-form-field" id="m_gender">
-                        <!--<select name="m_gender" id="m_gender" class="am-form-field">-->
-                            <!--<option value="M">男</option>-->
-                            <!--<option value="F">女</option>-->
-                            <!--<option value="N">不详</option>-->
-                        <!--</select>-->
+                        <span class="am-input-group-label">性别</span>
+                        <input type="text" class="am-form-field select_input" id="m_gender">
+                        <div class="m_gender_select_wrapper am-hide">
+                            <select name="m_gender" id="m_gender_select" class="am-form-field">
+                                <option value="M">男</option>
+                                <option value="F">女</option>
+                                <option value="N">不详</option>
+                            </select></div>
                     </div>
                 </div>
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">出生日期:</span>
-                        <input type="text" class="am-form-field" id="m_birth" readonly placeholder="单击选择日期">
+                        <span class="am-input-group-label">出生日期</span>
+                        <input type="text" class="am-form-field" id="m_birth" placeholder="单击选择日期">
                     </div>
                 </div>
 
@@ -72,26 +73,28 @@
             <div class="am-g" style="margin-top: 10px;">
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">婚姻状况:</span>
-                        <input type="text" class="am-form-field" id="m_marry">
-                        <!--<select name="m_marry" id="m_marry" class="am-form-field">-->
-                            <!--<option value="未婚">未婚</option>-->
-                            <!--<option value="已婚">已婚</option>-->
-                            <!--<option value="离异">离异</option>-->
-                            <!--<option value="丧偶">丧偶</option>-->
-                            <!--<option value="不详">不详</option>-->
-                        <!--</select>-->
+                        <span class="am-input-group-label">婚姻状况</span>
+                        <input type="text" class="am-form-field select_input" id="m_marry">
+                        <div class="m_marry_select_wrapper am-hide">
+                            <select name="m_marry" id="m_marry_select" class="am-form-field">
+                                <option value="WH">未婚</option>
+                                <option value="YH">已婚</option>
+                                <option value="LY">离异</option>
+                                <option value="SO">丧偶</option>
+                                <option value="BX">不详</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">邮箱:</span>
-                        <input type="text" class="am-form-field" id="m_email">
+                        <span class="am-input-group-label">身份证号</span>
+                        <input type="text" class="am-form-field" id="m_card_id">
                     </div>
                 </div>
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">微信号:</span>
+                        <span class="am-input-group-label">微信号</span>
                         <input type="text" class="am-form-field" id="m_wechat">
                     </div>
                 </div>
@@ -102,65 +105,92 @@
             <div class="am-g" style="margin-top: 10px;">
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">QQ号:</span>
+                        <span class="am-input-group-label">QQ号</span>
                         <input type="text" class="am-form-field" id="m_qq">
                     </div>
                 </div>
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">手机:</span>
+                        <span class="am-input-group-label">邮箱</span>
+                        <input type="text" class="am-form-field" id="m_email">
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">手机</span>
                         <input type="text" class="am-form-field" id="m_cellphone">
                     </div>
                 </div>
+            </div>
+            <div class="am-g" style="margin-top: 10px;">
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">城市:</span>
-                        <input type="text" class="am-form-field" id="m_city">
+                        <span class="am-input-group-label">省份</span>
+                        <input type="text" class="am-form-field select_input" id="province">
+                        <div class="province_select_wrapper am-hide">
+                            <select name="m_marry" id="province_select" class="am-form-field">
+                            </select>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="am-g" style="margin-top: 10px;">
-
-
                 <div class="am-u-md-4">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">第二联系人:</span>
+                        <span class="am-input-group-label">城市</span>
+                        <input type="text" class="am-form-field select_input" id="city">
+                        <div class="city_select_wrapper am-hide">
+                            <select name="m_marry" id="city_select" class="am-form-field">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="am-u-md-4 am-u-end">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">区县</span>
+                        <input type="text" class="am-form-field select_input" id="area">
+                        <div class="area_select_wrapper am-hide">
+                            <select name="m_marry" id="area_select" class="am-form-field">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">街道</span>
+                        <input type="text" class="am-form-field" id="m_street">
+                    </div>
+                </div>
+                <div class="am-u-md-4 am-u-end">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">详细地址</span>
+                        <input type="text" class="am-form-field" id="m_detail">
+                    </div>
+                </div>
+            </div>
+            <div class="am-g" style="margin-top: 10px;">
+                <div class="am-u-md-4">
+                    <div class="am-input-group">
+                        <span class="am-input-group-label">第二联系人</span>
                         <input type="text" class="am-form-field" id="f_name">
                     </div>
                 </div>
-                <div class="am-u-md-6">
+                <div class="am-u-md-4 am-u-end">
                     <div class="am-input-group">
-                        <span class="am-input-group-label">第二联系人电话:</span>
+                        <span class="am-input-group-label">第二联系人电话</span>
                         <input type="text" class="am-form-field" id="f_phone">
                     </div>
                 </div>
             </div>
-
-            <div class="am-g" style="margin-top: 10px;">
-
+            <div class="am-g p am-padding-top">
                 <div class="am-u-md-6">
-                    <div class="am-input-group">
-                        <span class="am-input-group-label">详细地址:</span>
-                        <input type="text" class="am-form-field" id="m_detail">
-                    </div>
+                    <p id="error_tips" class="am-center"></p>
                 </div>
-
-                <div class="am-u-md-6">
-                    <div class="am-input-group">
-                     <span class="am-input-group-label">身份证号:</span>
-                       <input type="text" class="am-form-field" id="m_card_id">
-                    </div>
+                <div class="am-u-md-6 ">
+                    <button class="am-btn am-btn-default am-fr  am-btn-xs am-radius" id="changeInput">编辑</button>
+                    <button class="am-btn am-btn-warning am-fr am-btn-xs am-radius am-hide" id="changeBtn">确定提交</button>
                 </div>
-
             </div>
-
-        </div>
-
-        <div class="am-modal-footer">
-            <!--<span class="am-modal-btn" data-am-modal-cancel>关闭</span>-->
-            <!--<span class="am-modal-btn" data-am-modal-confirm>提交</span>-->
         </div>
     </div>
 </div>

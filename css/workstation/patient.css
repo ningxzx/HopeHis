@@ -43,3 +43,7 @@
 .medicine_module #tips{
     margin: 0.3rem 2rem;
 }
+.pat_required_span{
+    width:10px !important;
+    right: 5px;
+}

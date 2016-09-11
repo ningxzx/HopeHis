@@ -8,7 +8,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: "get",
-                url: "http://114.55.85.57:8081/jethis/department/all",
+                url: "http://192.168.0.220:8081/jethis/department/all",
                 reset: true,
                 data: {epid: enterprise_id}
             }).done(function (res) {
@@ -37,7 +37,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type:'post',
-                url: "http://114.55.85.57:8081/jethis/department/edit",
+                url: "http://192.168.0.220:8081/jethis/department/edit",
                 reset: true,
                 data: JSON.stringify(postData)
             }).done(function (res) {
@@ -67,7 +67,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: 'post',
-                url: "http://114.55.85.57:8081/jethis/department/add",
+                url: "http://192.168.0.220:8081/jethis/department/add",
                 reset: true,
                 data: JSON.stringify(postData)
             }).done(function (res) {
@@ -97,7 +97,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             };
             $.ajax({
                 type: 'get',
-                url: "http://114.55.85.57:8081/jethis/department/del",
+                url: "http://192.168.0.220:8081/jethis/department/del",
                 reset: true,
                 data: {depid:deptId}
             }).done(function (res) {

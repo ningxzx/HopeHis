@@ -24,7 +24,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 "state": "1"
             });
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/diagnosis/stop",
+                url: "http://192.168.0.220:8081/jethis/diagnosis/stop",
                 type: 'patch',
                 data: param
             }).done(function (res) {
@@ -84,7 +84,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 }
             });
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/Diagnosis/UpdateResult/0",
+                url: "http://192.168.0.220:8081/jethis/Diagnosis/UpdateResult/0",
                 type: 'PATCH',
                 data: param
             }).done(function (res) {
@@ -106,7 +106,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         getHis: function (patient_id, patient_name, type) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/query/get",
+                url: "http://192.168.0.220:8081/jethis/query/get",
                 type: 'get',
                 data: $.param({
                     "table": "diagnosis.patient_history",
@@ -135,7 +135,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
         saveHis: function (pat_id, pat_name, record, detail, type) {
             var _this = this, result = {};
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/patient/NewPatientHistory",
+                url: "http://192.168.0.220:8081/jethis/patient/NewPatientHistory",
                 type: 'post',
                 data: JSON.stringify({
                     "patient_id": pat_id,
@@ -161,7 +161,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var _this = this, result = {};
             $.ajax({
                 type: 'post',
-                url: "http://114.55.85.57:8081/jethis/Diagnosis/NewPhyExam",
+                url: "http://192.168.0.220:8081/jethis/Diagnosis/NewPhyExam",
                 data: JSON.stringify({
                     "patient_id": pat_id,
                     "diagnosis_id": diagnosis_id,
@@ -180,7 +180,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var _this = this, result = {};
             $.ajax({
                 type: 'get',
-                url: "http://114.55.85.57:8081/jethis/Diagnosis/NewPhyExam",
+                url: "http://192.168.0.220:8081/jethis/Diagnosis/NewPhyExam",
                 data: $.param({
                     "patient_id": pat_id, "diagnosis_id": diagnosis_id, "register_no": register_no
                 }),
@@ -196,7 +196,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var _this = this, result = {};
             $.ajax({
                 type: 'post',
-                url: "http://114.55.85.57:8081/jethis/Diagnosis/ReportResult",
+                url: "http://192.168.0.116:8081/jethis/Diagnosis/ReportResult",
                 data: data,
                 processData: false,
                 contentType: false,
@@ -204,6 +204,32 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                     result.errorNo = 0;
                     result.state = res.resultCode;
                     _this.trigger("postCheckResult", result);
+                }
+            });
+        },
+        tempToDrug:function (drug_list) {
+            var _this = this, result = {};
+            $.ajax({
+                type: 'post',
+                url: "http://192.168.0.220:8081/jethis/Storate/DrugStorateInfo",
+                data: JSON.stringify(drug_list),
+                success: function (res) {
+                    result.errorNo = 0;
+                    result.rows = res;
+                    _this.trigger("tempResult", result);
+                }
+            });
+        },
+        getExcuteItem:function (diag_id) {
+            var _this = this, result = {};
+            $.ajax({
+                type: 'get',
+                url: "http://192.168.0.116:8081/jethis/Diagnosis/ExeItemRecord",
+                data:{"diagnosis_id":diag_id},
+                success: function (res) {
+                    result.errorNo = 0;
+                    result.rows = res;
+                    _this.trigger("getExcuteItem", result);
                 }
             });
         },

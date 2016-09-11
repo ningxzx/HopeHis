@@ -1,5 +1,5 @@
 define(["jquery", "backbone","jctLibs"],function($, Backbone,jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     var departmentModel = Backbone.Model.extend({
         getDepts: function (enterprise_id) {
             var that = this;

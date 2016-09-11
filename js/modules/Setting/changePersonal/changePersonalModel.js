@@ -5,7 +5,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var that=this;
             $.ajax({
                 type: "get",
-                url: "http://114.55.85.57:8081/jethis/user/getuserinfo"
+                url: "http://192.168.0.220:8081/jethis/user/getuserinfo"
             }).done(function (res) {
                 that.trigger("personInfo", res);
             }).fail(function (err, response) {
@@ -21,7 +21,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var that=this;
             $.ajax({
                 type: "patch",
-                url: "http://114.55.85.57:8081/jethis/user/modifyinfo",
+                url: "http://192.168.0.220:8081/jethis/user/modifyinfo",
                 data: JSON.stringify(datas)
             }).done(function (res) {
                 that.trigger("changeInfo", res);
@@ -38,7 +38,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var that=this;
             $.ajax({
                 type: "post",
-                url: "http://114.55.85.57:8081/jethis/user/changepass",
+                url: "http://192.168.0.220:8081/jethis/user/changepass",
                 data: JSON.stringify({
                     old_passwd:mes[0],
                     new_passwd:mes[1]
@@ -60,7 +60,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var that=this;
             $.ajax({
                 type: "post",
-                url: "http://114.55.85.57:8081/jethis/BindNewPhone/sendSMS/10",
+                url: "http://192.168.0.220:8081/jethis/BindNewPhone/sendSMS/10",
                 data:JSON.stringify({"phoneNo":mes})
             }).done(function (res) {
                 that.trigger("getmes", res);
@@ -76,7 +76,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var that=this;
             $.ajax({
                 type: "get",
-                url: "http://114.55.85.57:8081/jethis/user/changephone/10?phone="+mes[1]+"&phonecode="+mes[0],
+                url: "http://192.168.0.220:8081/jethis/user/changephone/10?phone="+mes[1]+"&phonecode="+mes[0],
             }).done(function (res) {
                 that.trigger("changephone", res);
             }).fail(function (err, response) {

@@ -11,7 +11,7 @@ define(['txt!../../Setting/myClinic/myClinic.html',
         ]
         Handlebars.registerHelper('showImage', function (url) {
             if (url) {
-                return 'http://114.55.85.57:8081'+url;
+                return 'http://192.168.0.220:8081'+url;
             }
         });
         var view = Backbone.View.extend({

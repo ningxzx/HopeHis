@@ -3,7 +3,7 @@
  * 查询结算人员结算
  */
 define(["jquery", "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     var searchSettleModel = Backbone.Model.extend({
         getBalanceRecord: function (data) {
             var that = this, result = {},param=data||{};

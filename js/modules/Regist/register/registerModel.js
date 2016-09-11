@@ -12,7 +12,7 @@ define(['jquery',"backbone","jctLibs"], function ($,Backbone,jctLibs) {
             };
             $.ajax({
                 type:'post',
-                url:'http://114.55.85.57:8081/jethis/registeration/patientregisteration',
+                url:'http://192.168.0.220:8081/jethis/registeration/patientregisteration',
                 data: JSON.stringify({
                     enterprise_id: enter_id,
                     patient_id: pat_id,
@@ -53,7 +53,7 @@ define(['jquery',"backbone","jctLibs"], function ($,Backbone,jctLibs) {
                 obj: {}
             };
             $.ajax({
-                url: "http://114.55.85.57:8081/jethis/registeration/get_registeration_data",
+                url: "http://192.168.0.220:8081/jethis/registeration/get_registeration_data",
                 data: $.param({
                     enterprise_id: sessionStorage.getItem('enterprise_id'),
                     start_date: date

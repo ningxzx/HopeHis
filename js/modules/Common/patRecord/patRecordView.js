@@ -1,8 +1,7 @@
 define(['txt!../../Common/patRecord/patRecord.html',
-        '../../Diagnose/recipeRecordView',
         '../../Common/commonModel',
         'handlebars', 'backbone', 'jctLibs', 'bootstrapTable'],
-    function (Template, recipeRecordView, commonModel, Handlebars, Backbone, jctLibs, bootstrapTable) {
+    function (Template, commonModel, Handlebars, Backbone, jctLibs, bootstrapTable) {
         var formatDate = function (value, row, index) {
             return row['diagnosis']['diagnosis_date'].split(' ')[0]
         };
@@ -47,7 +46,7 @@ define(['txt!../../Common/patRecord/patRecord.html',
             //{field: "unit", width: "4%", title: "单位"},
             {field: "price", width: "8%", title: "单价", formatter: jctLibs.generateDrugPrice},
             {
-                field: "", title: "删除", width: "8%", events: {
+                field: "delete", title: "删除", width: "8%", events: {
                 'click .table_remove': function (e, value, row, index) {
                     var $table = $(e.target).closest("table");
                     $table.bootstrapTable('remove', {
@@ -61,7 +60,6 @@ define(['txt!../../Common/patRecord/patRecord.html',
         var view = Backbone.View.extend({
             initialize: function () {
                 this.commonModel = new commonModel();
-                this.recordView = new recipeRecordView();
                 /***侦听回调事件***/
                 this.listenTo(this.commonModel, 'getPatRecord', this.renderDiagRecord);
 

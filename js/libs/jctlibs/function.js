@@ -577,11 +577,11 @@ define(function () {
                     .val(val)
                     .html(text));
         },
-        formatDate: function (value,row, index) {
-            if(value) {
+        formatDate: function (value, row, index) {
+            if (value) {
                 return value.split(' ')[0]
             }
-            else{
+            else {
                 return '';
             }
         },
@@ -658,7 +658,7 @@ define(function () {
             }
         },
         //价格
-        generatePrices: function(value,row,index){
+        generatePrices: function (value, row, index) {
             var $input = $('<input type="number" class="take_num" />');
             if (value) {
                 $input.attr("value", value);
@@ -678,7 +678,7 @@ define(function () {
                 $input.attr("value", parseInt(value));
             }
             else {
-                row.take_spec = 1+unit;
+                row.take_spec = 1 + unit;
                 $input.attr("value", 1);
                 return $input.prop('outerHTML') + unit;
             }
@@ -693,7 +693,7 @@ define(function () {
             }
         },
         //生成药物总量
-        generateDrugNum: function (value, row, index,e) {
+        generateDrugNum: function (value, row, index, e) {
             var $input = $('<input type="text" class="drug_num"/>');
             if (value) {
                 $input.attr("value", value);
@@ -760,91 +760,91 @@ define(function () {
         },
         //药品添加一堆乱七八糟的入库数据
         //返回药品单位
-        returnUnit:{
-            'change #drug_unit': function(e,value,row,index){
+        returnUnit: {
+            'change #drug_unit': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).find("option:checked").attr("value");
                 row.min_packing_unit = $value;
-                $table_t.bootstrapTable ('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //返回药品类型
-        returnGoods:{
-            'change #goods_type': function(e,value,row,index){
+        returnGoods: {
+            'change #goods_type': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).find("option:checked").attr("value");
                 row.goods_type = $value;
-                $table_t.bootstrapTable ('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //应收药品数量
-        returnNum:{
-            'change .drug_num': function(e,value,row,index){
+        returnNum: {
+            'change .drug_num': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).val();
                 row.original_total_num = $value;
-                $table_t.bootstrapTable ('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //实收药品数量
-        returnActual:{
-            'change .drug_num': function(e,value,row,index){
-                var $table_t = $(e.target).closest("table"), $value = $(e.target).val(),total=0;
+        returnActual: {
+            'change .drug_num': function (e, value, row, index) {
+                var $table_t = $(e.target).closest("table"), $value = $(e.target).val(), total = 0;
                 row.actual_total_num = $value;
-                row.total_costs = (row.unit_price||0) * (row.actual_total_num||1);
-                row.total_recipe_costs = (row.pesc_price||0) * (row.actual_total_num||0);
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                row.total_costs = (row.unit_price || 0) * (row.actual_total_num || 1);
+                row.total_recipe_costs = (row.pesc_price || 0) * (row.actual_total_num || 0);
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //药品成本价
-        rUnitPrice:{
-            'change .take_num': function(e,value,row,index){
+        rUnitPrice: {
+            'change .take_num': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).val();
                 row.unit_price = $value;
-                row.total_costs = (row.unit_price||0) * (row.actual_total_num||1);
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                row.total_costs = (row.unit_price || 0) * (row.actual_total_num || 1);
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //药品售价
-        rSellPrice:{
-            'change .take_num': function(e,value,row,index){
+        rSellPrice: {
+            'change .take_num': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).val();
                 row.sell_price = $value;
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //药品处方价
-        rPescPrice:{
-            'change .take_num': function(e,value,row,index){
+        rPescPrice: {
+            'change .take_num': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table"), $value = $(e.target).val();
                 row.pesc_price = $value;
-                row.total_recipe_costs = (row.pesc_price||0) * (row.actual_total_num||1);
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                row.total_recipe_costs = (row.pesc_price || 0) * (row.actual_total_num || 1);
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //生产日期
-        rProductTime:{
-            'change .mDates': function(e,value,row,index){
+        rProductTime: {
+            'change .mDates': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table");
-                var dd= $(e.currentTarget).find("input");
-                var arr=[];
-                for(var i=0;i<dd.length;i++){
+                var dd = $(e.currentTarget).find("input");
+                var arr = [];
+                for (var i = 0; i < dd.length; i++) {
                     arr.push(dd[i].value);
                 }
-                var date=arr.join("-");
+                var date = arr.join("-");
                 row.product_date_time = date;
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //过期日期
-        rDeadlineTime:{
-            'change .mDates': function(e,value,row,index){
+        rDeadlineTime: {
+            'change .mDates': function (e, value, row, index) {
                 var $table_t = $(e.target).closest("table");
-                var dd= $(e.currentTarget).find("input");
-                var arr=[];
-                for(var i=0;i<dd.length;i++){
+                var dd = $(e.currentTarget).find("input");
+                var arr = [];
+                for (var i = 0; i < dd.length; i++) {
                     arr.push(dd[i].value);
                 }
-                var date=arr.join("-");
+                var date = arr.join("-");
                 row.deadline_date_time = date;
-                $table_t.bootstrapTable('updateRow', {index:index, row: row});
+                $table_t.bootstrapTable('updateRow', {index: index, row: row});
             }
         },
         //生成药物的单位和最小单位
@@ -863,18 +863,18 @@ define(function () {
             }
         },
         //返回slect选择药品单位
-        generateSelect: function(value,row,index){
-            var $select=$('<select id="drug_unit"><option value="g">g</option><option value="盒">盒</option><option value="瓶">瓶</option><option value="袋">袋</option><option value="套">套</option><option value="箱">箱</option><option value="支">支</option></select>');
-            if(value) {
-                $select.find('option[value=' + value + ']').attr("selected",true);
+        generateSelect: function (value, row, index) {
+            var $select = $('<select id="drug_unit"><option value="g">g</option><option value="盒">盒</option><option value="瓶">瓶</option><option value="袋">袋</option><option value="套">套</option><option value="箱">箱</option><option value="支">支</option></select>');
+            if (value) {
+                $select.find('option[value=' + value + ']').attr("selected", true);
             }
             return $select.prop('outerHTML')
         },
         //返回slect选择药品类型
-        generateSelectG: function(value,row,index){
-            var $select=$('<select id="goods_type"><option value="20">西药</option><option value="10" >中药</option><option value="30">耗材</option></select>');
-            if(value) {
-                $select.find('option[value=' + value + ']').attr("selected",true);
+        generateSelectG: function (value, row, index) {
+            var $select = $('<select id="goods_type"><option value="20">西药</option><option value="10" >中药</option><option value="30">耗材</option></select>');
+            if (value) {
+                $select.find('option[value=' + value + ']').attr("selected", true);
             }
             return $select.prop('outerHTML')
         },
@@ -945,22 +945,22 @@ define(function () {
             return $select.prop('outerHTML');
         },
         //返回日期格式化
-        generateDate: function(value, row, index){
+        generateDate: function (value, row, index) {
             var curDate = new Date();
-            var curYear=curDate.getFullYear();    //获取完整的年份(4位,1970-????)
-            var curMonth=curDate.getMonth()+1;       //获取当前月份(0-11,0代表1月)
-            var curDay=curDate.getDate();        //获取当前日(1-31)
-            var $div=$('<div class="mDates"><input id="YXQN" class="InputText " type="text" style="width: 40px;" maxlength="4">-<input id="YXQY" class="InputText " type="text" style="width: 20px;" maxlength="2" >-<input id="YXQR" class="InputText " type="text" style="width: 20px;" maxlength="2"></div>');
+            var curYear = curDate.getFullYear();    //获取完整的年份(4位,1970-????)
+            var curMonth = curDate.getMonth() + 1;       //获取当前月份(0-11,0代表1月)
+            var curDay = curDate.getDate();        //获取当前日(1-31)
+            var $div = $('<div class="mDates"><input id="YXQN" class="InputText " type="text" style="width: 40px;" maxlength="4">-<input id="YXQY" class="InputText " type="text" style="width: 20px;" maxlength="2" >-<input id="YXQR" class="InputText " type="text" style="width: 20px;" maxlength="2"></div>');
             if (value) {
-                var arr=value.split('-');
-                $div.find('#YXQN').attr('value',arr[0]);
-                $div.find('#YXQY').attr('value',arr[1]);
-                $div.find('#YXQR').attr('value',arr[2]);
+                var arr = value.split('-');
+                $div.find('#YXQN').attr('value', arr[0]);
+                $div.find('#YXQY').attr('value', arr[1]);
+                $div.find('#YXQR').attr('value', arr[2]);
             }
             else {
-                $div.find('#YXQN').attr('value',curYear);
-                $div.find('#YXQY').attr('value',curMonth);
-                $div.find('#YXQR').attr('value',curDay);
+                $div.find('#YXQN').attr('value', curYear);
+                $div.find('#YXQY').attr('value', curMonth);
+                $div.find('#YXQR').attr('value', curDay);
 
             }
             return $div.prop('outerHTML');
@@ -1165,19 +1165,19 @@ define(function () {
             return level[value];
         },
         formatGender: function (value, row, index) {
-            if(value=='M'){
+            if (value == 'M') {
                 return '男'
             }
-            else if(value=='F'){
+            else if (value == 'F') {
                 return '女'
             }
-            else{
+            else {
                 return '不详'
             }
         },
         formatChosenDoctors: function (value, row, index) {
             if (row['type'] == 'getData') {
-                if(value.length) {
+                if (value.length) {
                     var names = value.map(function (a) {
                         return a['doctor_name']
                     }).join(',');
@@ -1189,25 +1189,30 @@ define(function () {
                 return '<span></span>'
             }
             else {
-                var $select = $('<select multiple></select>'),selectVal=[];
+                var $select = $('<select multiple></select>'), selectVal = [];
                 value.forEach(function (doctor) {
                     $select.addClass('onDutyDoctors')
                         .append($('<option></option>')
                             .val(doctor['doctor_id'])
                             .html(doctor['doctor_name']));
                 })
-                if(value.type=='morning')
-                {
-                    selectVal=row['selectedMorning'].map(function(x){return x['doctor_id']})
+                if (value.type == 'morning') {
+                    selectVal = row['selectedMorning'].map(function (x) {
+                        return x['doctor_id']
+                    })
                 }
-                else if(value.type=='afternoon'){
-                    selectVal=row['selectedAfternoon'].map(function(x){return x['doctor_id']})
+                else if (value.type == 'afternoon') {
+                    selectVal = row['selectedAfternoon'].map(function (x) {
+                        return x['doctor_id']
+                    })
                 }
-                else{
-                    selectVal=row['selectedEvening'].map(function(x){return x['doctor_id']})
+                else {
+                    selectVal = row['selectedEvening'].map(function (x) {
+                        return x['doctor_id']
+                    })
                 }
-                $select.attr('periodType',value.type);
-                $select.attr('selectedValue',selectVal.join(','))
+                $select.attr('periodType', value.type);
+                $select.attr('selectedValue', selectVal.join(','))
                 return $select[0].outerHTML;
             }
         },
@@ -1215,7 +1220,7 @@ define(function () {
             var day = date.getDate();
             var year = date.getFullYear();
             var month = date.getMonth();
-            return [year,month+1,day].join('-')
+            return [year, month + 1, day].join('-')
         }
     }
     return jctLibs;

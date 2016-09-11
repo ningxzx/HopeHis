@@ -45,9 +45,10 @@ define(['txt!../../Member/memberRecord/memberRecord.html',
                         {field: 'member_id', title: '会员编号', width: "18%"},
                         {field: 'patient_name', title: '会员姓名'},
                         {field: 'patient_phone', title: '手机号',width:'10%'},
-                        {field: 'wechat_pay', title: '微信金额'},
-                        {field: 'ali_pay', title: '支付宝支付'},
-                        {field: 'cash_pay', title: '会员卡支付'},
+                        {field: 'cash_pay', title: '现金'},
+                        {field: 'wechat_pay', title: '微信'},
+                        {field: 'ali_pay', title: '支付宝'},
+                        {field: 'bank_pay', title: '银行卡'},
                         {field: 'total_charges', title: '充值总计'},
                         {field: 'charge_date_time', title: '充值时间',width:'15%',formatter:jctLibs.formatDate},
                         {field: 'account_id', title: '操作人'},
@@ -64,18 +65,14 @@ define(['txt!../../Member/memberRecord/memberRecord.html',
                 var param = {};
                 var patient_name = $(".member_name").val(),
                     patient_phone = $(".member_phone").val(),
-                    user_name = $(".opt_name").val(),
                     account_id = $(".opt_id").val(),
                     patient_id = $(".member_id").val(),
-                    start_date_time = $(".start_calender").val();
+                    start_date_time = $(".start").val();
                 if(patient_name){
                     param['patient_name']=patient_name;
                 }
                 if(patient_phone){
                     param['patient_phone']=patient_phone;
-                }
-                if(user_name){
-                    param['user_name']=user_name;
                 }
                 if(account_id){
                     param['account_id']=account_id;

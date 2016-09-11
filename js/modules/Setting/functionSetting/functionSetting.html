@@ -1,43 +1,47 @@
 <div class="fs_wrapper p">
     <!--<div class="am-g mb_apart_wrapper">-->
-        <!--<div class="am-u-md-4 func_title">-->
-            <!--<p>收费、发药功能设置</p></div>-->
-        <!--<div class="am-u-md-8">-->
-            <!--<div class="am-fl am-margin-right">-->
-                <!--<span class="mb_apart am-align-right">收费发药功能分开</span>-->
-            <!--</div>-->
-            <!--<div class="am-fl am-margin-right">-->
-                <!--<div style="position: relative">-->
-                    <!--<div class="switch demo3">-->
-                        <!--<input type="checkbox" id="medi_bill_apart" checked>-->
-                        <!--<label><i></i></label>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="am-fl">-->
-                <!--<span class="mb_apart am-align-left">收费发药功能不分开</span>-->
-            <!--</div>-->
-        <!--</div>-->
+    <!--<div class="am-u-md-4 func_title">-->
+    <!--<p>收费、发药功能设置</p></div>-->
+    <!--<div class="am-u-md-8">-->
+    <!--<div class="am-fl am-margin-right">-->
+    <!--<span class="mb_apart am-align-right">收费发药功能分开</span>-->
     <!--</div>-->
-
+    <!--<div class="am-fl am-margin-right">-->
+    <!--<div style="position: relative">-->
+    <!--<div class="switch demo3">-->
+    <!--<input type="checkbox" id="medi_bill_apart" checked>-->
+    <!--<label><i></i></label>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="am-fl">-->
+    <!--<span class="mb_apart am-align-left">收费发药功能不分开</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
     <div class="am-g">
         <div class="am-panel am-panel-default table_panel">
             <div class="am-panel-hd">价格舍入方式设置
-                <a class="panel_tool save_price"><i class="am-icon-refresh"></i> 保存</a>
+                <a class="panel_tool save_price"><i class="am-icon-save"></i> 保存</a>
             </div>
             <div class="am-panel-bd" style="padding: 3px 10px;">
-                <label class="am-radio-inline">
-                    <input type="radio" name="price_way" value="10" data-am-ucheck>
-                    逢一进十
-                </label>
-                <label class="am-radio-inline">
-                    <input type="radio" name="price_way" value="05" checked>
-                    四舍五入
-                </label>
-                <label class="am-radio-inline">
-                    <input type="radio" name="price_way" value="50">
-                    入五
-                </label>
+                <ul class="pay_round_types">
+                    <li type_value="10" >
+                        <span class="type_image"></span>
+                        <span class="round_type">逢一进十</span>
+                        <span class="type_detail">例:89.1 => 90.0 , 45.5 => 46.0 , 45.7 => 46.0</span>
+                    </li>
+                    <li type_value="05">
+                        <span class="type_image"></span>
+                        <span class="round_type">四舍五入</span>
+                        <span class="type_detail">例:89.1 => 89.0 , 45.5 => 46.0 , 45.7 => 46.0</span>
+                    </li>
+                    <li type_value="50">
+                        <span class="type_image"></span>
+                        <span class="round_type">入五</span>
+                        <span class="type_detail">例:89.1 => 89.5 , 45.5 => 45.5 , 45.7 => 46.0</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 define(["backbone",'../../Statistical/InventoryContrast/InventoryContrastModel'], function (Backbone, InventoryContrastModel) {
     var InventoryContrastCollection = Backbone.Collection.extend({
         model: InventoryContrastModel,
-        //url: "http://114.55.85.57:8081/charges",
+        //url: "http://192.168.0.220:8081/charges",
         getData: function (executeId,diagnosisId,patientName,patientCode,startDate,endDate) {
             var that=this;
             var result={

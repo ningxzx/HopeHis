@@ -16,7 +16,7 @@ define(["backbone", "jctLibs"], function (Backbone, jctLibs) {
             "exam_no": "", //检查单号
             "patient_tell":""//患者主诉
         },
-        url:"http://114.55.85.57:8081/jetHis/Prescription_add"
+        url:"http://192.168.0.220:8081/jetHis/Prescription_add"
     });
     return medRecordModel;
 })

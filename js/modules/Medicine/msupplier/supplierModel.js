@@ -5,7 +5,7 @@ define(['jquery', "backbone", "jctLibs"], function ($, Backbone, jctLibs) {
             var that = this, result = new jctLibs.jetHisResult();
             $.ajax({
                 type:'post',
-                url: "http://114.55.85.57:8081/jethis/suppliers/newSupplier ",
+                url: "http://192.168.0.220:8081/jethis/suppliers/newSupplier ",
                 data: JSON.stringify(param),
             }).done(function (res) {
                 result.errorNo = 0;
@@ -19,7 +19,7 @@ define(['jquery', "backbone", "jctLibs"], function ($, Backbone, jctLibs) {
             var that = this, result = new jctLibs.jetHisResult();
             $.ajax({
                 type:'patch',
-                url: "http://114.55.85.57:8081/jethis/suppliers/updateSupplierInfo/"+id,
+                url: "http://192.168.0.220:8081/jethis/suppliers/updateSupplierInfo/"+id,
                 data: JSON.stringify(param),
             }).done(function (res) {
                 result.errorNo = 0;
@@ -33,7 +33,7 @@ define(['jquery', "backbone", "jctLibs"], function ($, Backbone, jctLibs) {
             var that = this, result = new jctLibs.jetHisResult();
             $.ajax({
                 type:'delete',
-                url: "http://114.55.85.57:8081/jethis/suppliers/deleteSupplier/"+id,
+                url: "http://192.168.0.220:8081/jethis/suppliers/deleteSupplier/"+id,
             }).done(function (res) {
                 result.errorNo = 0;
                 //返回sql语句执行状态,0为失败,1为成功

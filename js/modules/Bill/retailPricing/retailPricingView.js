@@ -45,7 +45,7 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
             {field: 'goods_sell_price', title: '售价(元）'},
             {field: 'original_total_charges', title: '总价'},
             {
-                field: "", title: "删除", width: "8%", events: {
+                field: "delete", title: "删除", width: "8%", events: {
                 'click .table_remove': function (e, value, row, index) {
                     var $table = $(e.target).closest("table");
                     $table.bootstrapTable('remove', {
@@ -149,7 +149,7 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                 $(this.el).find('#medicine_modal').modal({width: 800})
             },
             addToDetail: function () {
-                var selectedData = $(this.el).find('#add_medicine_tb').bootstrapTable('getSelections');
+                var selectedData = $(this.el).find('#add_medicine_tb').bootstrapTable('getAllSelections');
                 selectedData.forEach(function (drug) {
                     drug['sell_num'] = 1;
                     drug['original_total_charges'] = drug['goods_sell_price'];
@@ -169,7 +169,6 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                 $(this.el).find('#medicine_modal').modal('close')
             },
             submitRecord: function (e) {
-                $('#cancel_charge').attr('disabled', 'true');
                 var $target = $(e.currentTarget);
                 var id = $target.attr('id');
                 var data = {
@@ -178,6 +177,7 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                     },
                     name = $('#patient_name').val(),
                     patientId = $('#patient_name').attr('patient_id'),
+                    discount = $('#patient_name').attr('discount'),
                     member_id = $('#member_id').val(),
                     memberPoint = $('#member_id').attr('member_points'),
                     memberId = $('#member_id').attr('member_record_id'),
@@ -214,6 +214,7 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                 }
                 data.sellRecord.member_id = member_id;
                 data.sellRecord.patient_name = name;
+                data.sellRecord.discount = discount;
                 data.sellRecord.patient_id = patientId;
                 data.sellRecord.memo = remark;
                 data.sellRecord.patient_sex = gender;
@@ -257,16 +258,20 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                 this.commonModel.searchPatMember(param, 'getPatsBy' + searchKey, 2)
             },
             renderNamePats: function (res) {
+                var $nameTable = $(this.el).find('#name_search_table')
                 if (res.rows && res.rows.length > 1) {
                     $(this.el).find('.pat_table_wrapper').addClass('hid')
-                    var $nameTable = $(this.el).find('#name_search_table')
                     $nameTable.bootstrapTable('load', res.rows);
                     $(this.el).find('.name_search_wrapper').removeClass('hid');
                 } else if (res.rows.length == 1) {
+                    $nameTable.bootstrapTable('load', []);
                     this.showPatInfo(res.rows[0], $(this.el));
+                    $(this.el).find('.name_search_wrapper').addClass('hid');
                 } else {
                     this.clearDrug();
+                    $(this.el).find('.name_search_wrapper').addClass('hid');
                 }
+
             },
             renderMemberPats: function (res) {
                 if (res.rows && res.rows.length > 1) {
@@ -276,7 +281,10 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                     $(this.el).find('.member_search_wrapper').removeClass('hid');
                 } else if (res.rows.length == 1) {
                     this.showPatInfo(res.rows[0], $(this.el));
+                    $(this.el).find('.member_search_wrapper').addClass('hid');
+
                 } else {
+                    $(this.el).find('.member_search_wrapper').addClass('hid');
                     this.clearDrug();
                 }
             },
@@ -287,13 +295,16 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                     $cardIdTable.bootstrapTable('load', res.rows);
                     $(this.el).find('.cardId_search_wrapper').removeClass('hid');
                 } else if (res.rows.length == 1) {
+                    $(this.el).find('.cardId_search_wrapper').addClass('hid');
                     this.showPatInfo(res.rows[0], $(this.el));
                 } else {
+                    $(this.el).find('.cardId_search_wrapper').addClass('hid');
                     this.clearDrug();
                 }
             },
             showPatInfo: function (row, $element) {
                 $('#patient_name').attr('patient_id', row['patient_id'])
+                $('#patient_name').attr('discount', parseFloat(row['discount']/100)||1)
                 $('#patient_name').val(row['patient_name']);
                 $('#member_id').val(row['member_id']);
                 $('#member_id').attr('member_points', row['member_points']);
@@ -332,8 +343,9 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
             },
             submitCallBack: function (res) {
                 if (res.errorNo == 0) {
-                    $(this.el).find('span.charge_title').html(res.charge);
-                    $(this.el).find('.realCharge').val(res.charge);
+                    var charge=parseFloat(res.charge).toFixed(2);
+                    $(this.el).find('span.charge_title').html(charge);
+                    $(this.el).find('.realCharge').val(charge);
                     $(this.el).find('.backCharge').val(0);
                     $(this.el).find('#charge_modal').modal({
                         width: '700',
@@ -355,7 +367,7 @@ define(['txt!../../Bill/retailPricing/retailPricing.html',
                     ali_pay = parseFloat($('#ali_pay').val()||0),
                     insu_pay = parseFloat($('#insu_pay').val()||0),
                     recharge_card_pay = parseFloat($('#recharge_pay').val()||0);
-                var de = parseFloat(realCharge+wx_pay+ali_pay+insu_pay+recharge_card_pay - charge);
+                var de = parseFloat(realCharge+wx_pay+ali_pay+insu_pay+recharge_card_pay - charge).toFixed(2);
                 $('.backCharge').val(de).css('color', 'cornflowerblue');
                 if (de < 0) {
                     $('.backCharge').css('color', 'red')

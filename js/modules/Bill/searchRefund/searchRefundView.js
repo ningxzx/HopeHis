@@ -66,7 +66,7 @@ define(['txt!../../Bill/searchRefund/searchRefund.html',
                 //    data['billing_record_id']=orderNo;
                 //}
                 if(user_name){
-                    data['user_name']=user_name;
+                    data['account_id']=user_name;
                 }
                 //if(patId){
                 //    data['patient_id']=patId;

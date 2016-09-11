@@ -2,7 +2,7 @@
  * Created by xzx on 2016/5/3.
  */
 define(["jquery", "backbone"], function ($, Backbone) {
-        var rootUrl = "http://114.55.85.57:8081";
+        var rootUrl = "http://192.168.0.220:8081";
         var mpriceChangeModel = Backbone.Model.extend({
 
             //查询
@@ -39,10 +39,10 @@ define(["jquery", "backbone"], function ($, Backbone) {
                     data: JSON.stringify({
                         goods_code:goodscode,
                         batch_no:batchno,
-                        before_change_sell_price:oldpf,
-                        after_change_sell_price:newpf,
-                        before_change_pesc_price:oldsf,
-                        after_change_pesc_price:newsf
+                        before_change_sell_price:oldsf,
+                        after_change_sell_price:newsf,
+                        before_change_pesc_price:oldpf,
+                        after_change_pesc_price:newpf
                     })
                 }).done(function (data) {
                     var result = {};

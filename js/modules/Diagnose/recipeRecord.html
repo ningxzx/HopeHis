@@ -19,47 +19,37 @@
         </div>
     </div>
 </div>
-
-
 <div class="am-panel am-panel-default">
     <div class="am-panel-hd">医嘱</div>
     <div class="am-panel-bd recipe_record_medAdvice_box" style="padding:0;">
         <textarea class="recipe_medAdvice" id="recipe_record_medAdvice"></textarea>
     </div>
 </div>
-
-<div class="am-tabs" id="Diagnostic_template" data-am-tabs="{noSwipe: 1}" >
-    <ul class="am-tabs-nav am-nav am-nav-tabs" id="Diagnostic_header">
-        <li class="am-active"><a href="javascript: void(0)">诊疗项目</a></li>
-        <li><a href="javascript: void(0)">检查项目</a></li>
-        <li><a href="javascript: void(0)">检验项目</a></li>
-        <a class="search_recipeTemp diag_panel_tool"><span class="am-icon-tags"></span> 模板</a>
-    </ul>
-
-    <div class="am-tabs-bd" id="Diagnostic_body" >
-        <div class="am-tab-panel am-active"  style="min-height: 200px;">
-            <table class="recipe_table table-condensed" id="Diagnosis_projects">
-            </table>
-        </div>
-        <div class="am-tab-panel" style="min-height: 200px;">
-            <table class="recipe_table table-condensed" id="Check_project">
-            </table>
-        </div>
-        <div class="am-tab-panel" style="min-height: 200px;">
-            <table class="recipe_table table-condensed" id="Inspection_items">
-            </table>
+<div class="am-panel am-panel-default">
+    <div class="am-panel-hd">
+        <span class="am-panel-title" data-am-collapse="{ target: '#collpase_exec_item'}">处置</span>
+        <a class="diag_panel_tool" id="check_result_button">
+            <i class="am-icon-camera"></i>
+            检查检验报告
+        </a>
+        <a class="diag_panel_tool am-margin-right" id="refresh_exec_item">
+            <i class="am-icon-refresh"></i>
+            刷新
+        </a>
+    </div>
+    <div id="collpase_exec_item" class="am-panel-collapse am-collapse am-in">
+        <div class="am-panel-bd diag_item_box">
+            <ul class="exec_item_list">
+            </ul>
         </div>
     </div>
 </div>
-
-
 <div class="am-tabs" id="recipe_record_tabs" data-am-tabs="{noSwipe: 1}">
     <ul class="am-tabs-nav am-nav am-nav-tabs" id="recipe_record_header">
         <li class="am-active"><a href="javascript: void(0)">西药处方</a></li>
         <li><a href="javascript: void(0)">中药处方</a></li>
         <a class="search_recipeTemp diag_panel_tool"><span class="am-icon-tags"></span> 模板</a>
     </ul>
-
     <div class="am-tabs-bd" id="recipe_record_body">
         <div class="am-tab-panel am-active" id="xy_detail">
             <table class="recipe_record_table table-condensed" id="recipe_record_table">

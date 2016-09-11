@@ -1,7 +1,7 @@
 define(["backbone",'../../Setting/accountRefer/accountReferModel'], function (Backbone, accountReferModel) {
     var accountReferCollection = Backbone.Collection.extend({
         model: accountReferModel,
-        //url: "http://114.55.85.57:8081/charges",
+        //url: "http://192.168.0.220:8081/charges",
         getData: function (executeId,diagnosisId,patientName,patientCode,startDate,endDate) {
             var that=this;
             var result={

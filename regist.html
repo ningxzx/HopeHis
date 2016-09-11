@@ -85,7 +85,7 @@
         <div class="board">
             <dl>
                 <dt>
-                    姓名：
+                    姓名
                     <span class="tip">*</span>
                 </dt>
                 <dd>
@@ -96,7 +96,7 @@
             </dl>
             <dl>
                 <dt>
-                    性别：
+                    性别
                     <span class="tip">*</span>
                 </dt>
                 <dd>
@@ -109,7 +109,7 @@
             </dl>
             <dl>
                 <dt>
-                    用户名：
+                    用户名
                     <span class="tip">*</span>
                 </dt>
                 <dd>
@@ -125,7 +125,7 @@
             </dl>
             <dl>
                 <dt>
-                    密码：
+                    密码
                     <span class="tip">*</span>
                 </dt>
                 <dd>
@@ -138,7 +138,7 @@
             </dl>
             <dl>
                 <dt>
-                    确认密码：
+                    确认密码
                     <span class="tip">*</span>
                 </dt>
                 <dd>
@@ -147,6 +147,17 @@
                     <span class="tips hid second_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>密码不能为空</span>
                     <span class="tips hid second_diff"><img src="imgs/wrong.png" class="tip_img" alt=""/>两次密码输入不一致</span>
                     <span class="tips hid second"><img src="imgs/right.png" class="tip_img" alt=""/></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    身份证号
+                    <span class="tip">*</span>
+                </dt>
+                <dd>
+                    <input type="text" class="inp" id="id_card" name="adminId" placeholder="请输入您的身份证号" required/>
+                    <span class="tips hid cardId_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入身份证号</span>
+                    <span class="tips hid cardId_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入正确身份证号</span>
                 </dd>
             </dl>
             <dl>
@@ -163,7 +174,7 @@
             </dl>
             <dl>
                 <dt>
-                    所在省市：
+                    所在省市
                 </dt>
                 <dd>
                     <select id="province" class="form-select province" name="province">
@@ -179,7 +190,7 @@
             </dl>
             <dl>
                 <dt>
-                    所在街道：
+                    所在街道
                 </dt>
                 <dd>
                     <input type="text" class="inp" placeholder="请输入街道" id="streat" name="streat"/>
@@ -188,7 +199,7 @@
             </dl>
             <dl>
                 <dt>
-                    邀请码：
+                    邀请码
                 </dt>
                 <dd>
                     <input type="text" class="inp" placeholder="若有邀请码，请填写" id="invitation" name="invitation"/>
@@ -204,7 +215,7 @@
 
     <!--信息认证-->
     <div class="bg hid" id="finish">
-        <h4 class="checked-title">信息认证</h4>
+        <h4 class="checked-title">个人信息认证</h4>
 
         <div class="form-horizontal ng-pristine ng-valid" role="form" id="registerForm">
             <!--<div class="form-group">-->
@@ -217,15 +228,6 @@
                     <!--<p class="dd-input-remind ng-binding">请填写与下方证件照相同的姓名</p>-->
                 <!--</div>-->
             <!--</div>-->
-            <div class="form-group">
-                <label class="col-sm-3">申请人身份证号<span class="form-required ng-scope"> * </span>：</label>
-
-                <div class="col-sm-8">
-                    <input type="text" class="form-input" name="adminId" id="id_card">
-                    <span class="tips hid cardId_empty"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入身份证号</span>
-                    <span class="tips hid cardId_rule"><img src="imgs/wrong.png" class="tip_img" alt=""/>请输入正确身份证号</span>
-                </div>
-            </div>
             <div class="form-group" style="height: 150px">
                 <label class="col-sm-3"><br>申请人手持证件照<span class="form-required"> * </span>：</label>
 
@@ -249,7 +251,7 @@
             </div>
             <!--注册诊所用户 开始-->
             <div class="hospital_regist_wrapper" id="company">
-                <h4 class="checked-title">注册诊所用户</h4>
+                <h4 class="checked-title">诊所信息认证</h4>
                 <div class="form-group">
                     <label class="col-sm-3">机构名称<span class="form-required ng-scope"> * </span>：</label>
 
@@ -281,7 +283,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3">所在省市：<span class="form-required ng-scope"> * </span>：</label>
+                    <label class="col-sm-3">所在省市<span class="form-required ng-scope"> * </span>：</label>
                     <div class="col-sm-8">
                         <select id="province1" class="form-select province" name="province">
                             <option value="0">请选择省份</option>

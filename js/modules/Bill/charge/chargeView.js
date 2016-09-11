@@ -3,6 +3,9 @@ define(['txt!../../Bill/charge/charge.html',
         '../../Common/patientModel',
         'jctLibs', 'amazeui', 'handlebars', 'backbone', 'bootstrapTable'],
     function (Template, chargeModel, patModel, jctLibs, amazeui, Handlebars, backbone) {
+        var formatDiagState = function (value) {
+            return {"dsf": '待收费', "ysf": '已收费'}[value];
+        }
         //视图
         var view = Backbone.View.extend({
             initialize: function () {
@@ -61,17 +64,30 @@ define(['txt!../../Bill/charge/charge.html',
                 $el.html(Template);
                 $el.find("#record_tbl").bootstrapTable({
                     columns: [
+                        {field: '', title: "", checkbox: true},
                         {field: 'diagnosis_id', title: '诊疗记录号'},
                         {field: 'doctor_name', title: '医生'},
                         {field: 'diagnosis_date', title: '诊疗时间', formatter: jctLibs.formatDate},
-                        {field: 'total_costs', title: '处方费用', width: '15%'},
+                        {field: 'charge_state', title: '收费状态', formatter: formatDiagState},
                     ],
                     sortName: "diagnosis_date",
                     sortOrder: "desc",
                     clickToSelect: true,
                     pagination: false,
-                    pageSize: 2,
+                    singleSelect: true,
                     formatShowingRows: function () {
+                    },
+                    rowStyle: function (row) {
+                        if (row['charge_state'] == 'dsf') {
+                            return {
+                                css: {color: 'red'}
+                            }
+                        }
+                        else {
+                            return {
+                                css: {color: 'green'}
+                            }
+                        }
                     },
                     onClickRow: function (row) {
                         if (!$(".pat_name").val()) {
@@ -88,7 +104,7 @@ define(['txt!../../Bill/charge/charge.html',
                 $el.find("#detail_tbl").bootstrapTable({
                     columns: [
                         {field: '', title: "", checkbox: true},
-                        {field: '', title: "序号", formatter: jctLibs.generateIndex},
+                        {field: 'index', title: "序号", formatter: jctLibs.generateIndex},
                         {field: 'record_id', title: '单项ID', width: "15%"},
                         {field: 'goods_name', title: '单项学名'},
                         {field: 'packing_spec', title: '最小包装规格'},
@@ -135,8 +151,8 @@ define(['txt!../../Bill/charge/charge.html',
                         }
                         },
                         {
-                            field: "", title: "删除", width: "8%", events: {
-                            'click .record_remove': function (e, value, row, index) {
+                            field: "delete", title: "删除", width: "8%", events: {
+                            'click .re': function (e, value, row, index) {
                                 var $table = $(e.target).closest("table");
                                 $table.bootstrapTable('remove', {
                                     field: 'record_id',
@@ -144,21 +160,12 @@ define(['txt!../../Bill/charge/charge.html',
                                 });
                                 $table.bootstrapTable("onRemoveRow");
                             }
-                        }
-                            , formatter: function (value, row, index) {
-                            if (row["state"] == "wjf") {
-                                return [
-                                    '<a href="javascript:void(0)" title="Remove">',
-                                    '<i class="am-icon-remove"></i>',
-                                    '</a>'
-                                ].join('');
-                            } else {
-                                return [
-                                    '<a class="record_remove" href="javascript:void(0)" title="Remove">',
-                                    '<i class="am-icon-remove"></i>',
-                                    '</a>'
-                                ].join('');
-                            }
+                        }, formatter: function (value, row, index) {
+                            return [
+                                '<a class="re" href="javascript:void(0)" title="Remove">',
+                                '<i class="am-icon-remove"></i>',
+                                '</a>'
+                            ].join('');
                         }
                         },
                     ],
@@ -252,6 +259,9 @@ define(['txt!../../Bill/charge/charge.html',
                         $('.after_dis_total').html(result.total)
                     }
                 }
+                else {
+                    $("#diagnosis_id,.after_dis_total,.after_change_total").val('')
+                }
             }
             ,
             //计费按钮
@@ -263,8 +273,7 @@ define(['txt!../../Bill/charge/charge.html',
                 };
                 var data = $("#detail_tbl").bootstrapTable("getData");
                 if (data.length == 0) {
-                    $("#tips-alert .tips").text("请选择明细记录！");
-                    $("#tips-alert").modal();
+                    alert("此次诊疗没有可收费的项目!");
                 } else {
                     var arr = [];
                     data.forEach(function (row) {
@@ -282,7 +291,7 @@ define(['txt!../../Bill/charge/charge.html',
             ,
             billResult: function (result) {
                 if (result.errorNo == "0") {
-                    var fee=result.fee.toFixed(2);
+                    var fee = result.fee.toFixed(2);
                     $(".charge_title").text(fee);
                     $(".backCharge").val(-fee);
                     $("#doc-modal .pay_num").val("");
@@ -298,8 +307,8 @@ define(['txt!../../Bill/charge/charge.html',
             chargeFee: function () {
                 //收费按钮
                 var charge = $(".charge_title").html(), pat_id = $('.pat_id').val().trim();
-                var cash_in = parseFloat($('.realCharge').val()),
-                    cash_out = parseFloat($('.backCharge').val());
+                var cash_in = parseFloat($('.realCharge').val() || 0),
+                    cash_out = parseFloat($('.backCharge').val() || 0);
                 if (parseFloat(charge) >= 0 && cash_out >= 0) {
                     var rows = $("#detail_tbl").bootstrapTable("getAllSelections"), arr = [];
                     rows.forEach(function (row) {
@@ -316,7 +325,7 @@ define(['txt!../../Bill/charge/charge.html',
                         social_security_pay: $("#insu_pay").val() || 0,
                         // bank_pay: $("#bank_pay").val() || 0,
                         recharge_card_pay: $("#recharge_pay").val() || 0,
-                        cash_pay: cash_in-cash_out,
+                        cash_pay: parseFloat((cash_in - cash_out) || 0),
                         credit_pay: 0,
                         diagnosis_id: $(".diagnosis_id").text(),
                     };
@@ -331,14 +340,17 @@ define(['txt!../../Bill/charge/charge.html',
             ,
             feeResult: function (result) {
                 if (result.resultCode == "100") {
-                   alert("收费成功!");
+                    alert("收费成功!");
                     this.resetAll();
                 }
                 else if (result.resultCode == "507") {
                     alert("该患者不是会员,无法使用会员支付!");
                 }
+                else if (result.resultCode == "508") {
+                    alert("该患者会员卡余额不足!");
+                }
                 else {
-                   alert("收费出错,请重试!");
+                    alert("收费出错,请重试!");
                 }
             }
             ,
@@ -370,7 +382,7 @@ define(['txt!../../Bill/charge/charge.html',
                     insu_pay = parseFloat($('#insu_pay').val() || 0),
                     // bank_pay = parseFloat($("#bank_pay").val() || 0);
                     recharge_card_pay = parseFloat($("#recharge_pay").val() || 0);
-                var de = parseFloat(realCharge + wx_pay + ali_pay + recharge_card_pay + insu_pay  - charge);
+                var de = parseFloat(realCharge + wx_pay + ali_pay + recharge_card_pay + insu_pay - charge).toFixed(2);
                 $('.backCharge').val(de).css('color', 'cornflowerblue');
                 if (de < 0) {
                     $('.backCharge').css('color', 'red')

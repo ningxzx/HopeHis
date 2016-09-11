@@ -1,17 +1,11 @@
 //=LOWER(B1)&":"&""""&" "&""""&",//"&C1
 define(["jquery", "backbone"],function ($, Backbone) {
-    var rootUrl = "http://114.55.85.57:8081";
+    var rootUrl = "http://192.168.0.220:8081";
     var priceChangeModel = Backbone.Model.extend({
-        getpricerender: function (goodsname,reviewresult,startdatetime,enddatetime) {
+        getpricerender: function (data) {
             var that = this;
             var result = {};
-            var params={
-                goods_name:goodsname,
-                review_result:reviewresult,
-                start_date_time:startdatetime,
-                end_date_time:enddatetime
-
-            };
+            var params=data||{};
             $.ajax({
                 type: "get",
                 url: rootUrl + "/jethis/price/adjustPriceRecord",
