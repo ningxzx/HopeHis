@@ -18,15 +18,15 @@ define(['txt!../Diagnose/recipeRecord.html',
         var wmedicineColumns = [
             {field: "", title: "序号", width: "5%", formatter: jctLibs.generateIndex},
             {field: "drug_name", width: "13%", title: "名称"},
-            {field: "group_no", width: "5%", title: "组号"},
+            //{field: "group_no", width: "5%", title: "组号"},
             {field: "take_spec", width: "8%", title: "单次用量"},
             {field: "take_way", width: "10%", title: "用法"},
             {field: "packing_spec", width: "12%", title: "最小包装规格"},
             {field: "take_times", width: "15%", title: "频度"},
-            {field: "drug_num", width: "6%", title: "总量"},
+            {field: "prescription_num", width: "6%", title: "总量"},
             //TODO:根据单位修改价格
-            {field: "unit", width: "4%", title: "单位"},
-            {field: "price", width: "8%", title: "单价", formatter: jctLibs.generateDrugPrice},
+            {field: "drug_unit", width: "4%", title: "单位"},
+            {field: "unit_price", width: "8%", title: "单价"},
         ];
         var wmedicineColumns2 = [
             {field: "", title: "序号", width: "5%", formatter: jctLibs.generateIndex},

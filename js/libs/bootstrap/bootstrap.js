@@ -710,15 +710,16 @@ if (typeof jQuery === 'undefined') {
 
   var old = $.fn.collapse
 
-  $.fn.collapse             = Plugin
-  $.fn.collapse.Constructor = Collapse
+  $.fn.Btcollapse            = Plugin
+  $.fn.Btcollapse.Constructor = Collapse
 
 
   // COLLAPSE NO CONFLICT
   // ====================
 
   $.fn.collapse.noConflict = function () {
-    $.fn.collapse = old
+    //为了避免与amazeui冲突，将bootstrap的collapse换成Btcollapse
+    $.fn.Btcollapse = old
     return this
   }
 

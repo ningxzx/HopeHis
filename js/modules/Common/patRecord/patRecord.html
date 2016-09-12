@@ -4,7 +4,6 @@
             <div class="am-g">
                 <div class="am-panel am-panel-default am-margin-right am-margin-left">
                     <div class="am-panel-hd">就诊记录
-                        <a class="panel_tool refresh_tool"><i class="am-icon-refresh"></i> 刷新</a>
                     </div>
                     <div class="am-panel-bd">
                         <table id="record_tbl" data-pagination="true">
@@ -46,18 +45,10 @@
                 <div class="am-panel am-panel-default">
                     <div class="am-panel-hd">
                         <span class="am-panel-title" data-am-collapse="{ target: '#collpase_exec_item'}">处置</span>
-                        <a class="diag_panel_tool" id="check_result_button">
-                            <i class="am-icon-camera"></i>
-                            检查检验报告
-                        </a>
-                        <a class="diag_panel_tool am-margin-right" id="refresh_exec_item">
-                            <i class="am-icon-refresh"></i>
-                            刷新
-                        </a>
                     </div>
                     <div id="collpase_exec_item" class="am-panel-collapse am-collapse am-in">
                         <div class="am-panel-bd diag_item_box">
-                            <ul class="exec_item_list">
+                            <ul class="exec_item_list" id="record_exec_item_list">
                             </ul>
                         </div>
                     </div>

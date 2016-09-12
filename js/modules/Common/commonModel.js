@@ -95,7 +95,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             param['patient_id'] = patientId;
             $.ajax({
                 type: "get",
-                url: "http://192.168.0.116:8081" + '/jethis/diagnosis/medicalrecord',
+                url: "http://192.168.0.220:8081" + '/jethis/diagnosis/medicalrecord',
                 reset: true,
                 data: param
             }).done(function (res) {

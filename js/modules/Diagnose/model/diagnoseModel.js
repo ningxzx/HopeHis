@@ -196,7 +196,7 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
             var _this = this, result = {};
             $.ajax({
                 type: 'post',
-                url: "http://192.168.0.116:8081/jethis/Diagnosis/ReportResult",
+                url: "http://192.168.0.220:8081/jethis/Diagnosis/ReportResult",
                 data: data,
                 processData: false,
                 contentType: false,
@@ -220,15 +220,16 @@ define(['jquery', "backbone", 'jctLibs'], function ($, Backbone, jctLibs) {
                 }
             });
         },
-        getExcuteItem:function (diag_id) {
-            var _this = this, result = {};
+        getExcuteItem:function (diag_id,type) {
+            var _this = this, result = {},type=type||"getExcuteItem";
             $.ajax({
                 type: 'get',
-                url: "http://192.168.0.116:8081/jethis/Diagnosis/ExeItemRecord",
+                url: "http://192.168.0.220:8081/jethis/Diagnosis/ExeItemRecord",
                 data:{"diagnosis_id":diag_id},
                 success: function (res) {
                     result.errorNo = 0;
                     result.rows = res;
+                    result.type=type;
                     _this.trigger("getExcuteItem", result);
                 }
             });

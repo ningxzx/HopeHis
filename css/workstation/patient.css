@@ -28,7 +28,7 @@
 }
 #diag_record_modal{
     max-height: 640px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 #diag_record_modal h3{
     margin-top: 0;
